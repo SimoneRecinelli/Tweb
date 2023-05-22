@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder {
         [
             'cognome' => 'Recinelli',
             'email' => 's@gmail.com',
-            'età' => 22,
+            'eta' => 22,
             'genere' => 'Uomo',
             'role' => 'user',
             'nome' => 'Simone',
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder {
         [
             'cognome' => 'Staff',
             'email' => 'membro@gmail.com',
-            'età' => 32,
+            'eta' => 32,
             'genere' => 'Uomo',
             'role' => 'staff',
             'nome' => 'Membro',
@@ -96,7 +96,7 @@ class DatabaseSeeder extends Seeder {
         [
             'cognome' => 'prova',
             'email' => 'admin@gmail.com',
-            'età' => 42,
+            'eta' => 42,
             'genere' => 'Uomo',
             'role' => 'admin',
             'nome' => 'prova',
@@ -109,7 +109,7 @@ class DatabaseSeeder extends Seeder {
         [
             'cognome' => 'Staff',
             'email' => 'membro@gmail.com',
-            'età' => 32,
+            'eta' => 32,
             'genere' => 'Uomo',
             'role' => 'user',
             'nome' => 'Diego',

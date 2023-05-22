@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('telefono',25);
             $table->tinyInteger('possibilità_abbinamento', false, true)->default(false);
             $table->string('genere',25);
-            $table->integer('età')->unsigned()->limit(3);
+            $table->integer('eta')->unsigned();
             $table->string('residenza',25);
             $table->rememberToken();
             $table->timestamps();                        
