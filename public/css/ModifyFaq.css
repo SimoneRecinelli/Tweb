@@ -1,0 +1,22 @@
+.form-control-question,
+.form-control-answer {
+  width: 80vh;
+  border-radius: 2rem;
+  background: white;
+  height: 30px;
+  font-size: 0.9rem;
+  color: #24262b;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.form-wrapper {
+  margin:30px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,86 @@
+
+  .product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    color: #fff;
+  }
+  
+  .product-image {
+    margin-right: 50px;
+  }
+  
+  img {
+    height: 300px;
+    width: 300px;
+  }
+  
+  .product .image{
+    margin-right: 10%;
+  }
+  
+  .product-info {
+    max-width: 60%;
+  }
+  
+  .product-info h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .product-info p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .prezzo_originale {
+    text-decoration: line-through;
+    font-size: 20px;
+    color: red;
+    margin-bottom: 2px;
+  }
+
+  .product-image {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .prezzo_scontato {
+    font-style: bold;
+    color: green;
+  }
+  
+  .button {
+    height: 50px;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(88,185,157);
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background-color: rgb(70, 150, 128);
+  }
+
+  .coupon-accedi{
+    margin-top: 35px;
+    color: #fff;
+  }
+
+  .coupon-accedi a{
+    color: rgb(88,185,157);
+    text-decoration: none;
+  }
+
+  .coupon-accedi a:hover{
+    text-decoration: underline;
+  }

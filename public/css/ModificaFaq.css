@@ -1,0 +1,16 @@
+
+.bottone-faq{
+    padding:5px 15px;
+    margin-top: 10px;
+  
+}
+
+.bottone-faq a {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.bottone-faq a:hover {
+    color: #fff;
+    text-decoration: underline;
+}

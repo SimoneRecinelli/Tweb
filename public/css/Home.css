@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* -----------------
+CSS SLIDESHOW
+-------------------- */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: 20px auto;
+}
+
+.mySlides {
+  display: none;
+  text-align: center;
+}
+
+.mySlides img {
+  width: 100%;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #24262b;
+  color: #fff;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/*---------------CARD--------------------*/
+
+.card_title{
+  font-size: 30px;
+}
+
+#catalogo img{
+  height: 150px;
+  width:  150px;}
+
+#catalogo{
+  text-align: center; 
+  margin: 20px; 
+  color:white;
+} 
+
+#catalogo a{
+  text-decoration: none;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 250px;
+  height: 280px;
+  text-align: center;
+  padding: 8px;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 15px;
+  color:#ffffff;
+  cursor: pointer;
+}
+
+
+.card h4 {
+  text-align: center;
+  
+}
+
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(133, 127, 127, 0.2);
+  color: #fff;
+  background-color: #24262b;
+}

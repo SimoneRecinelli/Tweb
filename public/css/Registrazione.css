@@ -1,0 +1,97 @@
+.signup-container{
+  width:60%;
+  background-color:#fff;
+  border-radius:5px;
+  padding:20px;
+  display:block;
+  margin:100px auto;
+  box-shadow:0 0 10px rgba(0,0,0,.2)
+}
+
+.signup-container h1{
+  text-align:center;
+  margin-bottom:20px
+
+}.content form .user-details{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  margin:20px 0 12px 0
+}
+
+form .user-details .input-box,form .user-details .input-radio-button{
+  margin-bottom:15px;
+  width:calc(100% / 2 - 20px)
+}
+
+form .user-details .input-radio-button input{
+  outline:0;
+  border-radius:5px;
+  margin-top:15px;
+  cursor:pointer
+}
+
+.label-input{
+  display:block;
+  margin-bottom:5px;
+  font-weight:700
+}
+
+.user-details .input-box input{
+  height:45px;
+  width:100%;
+  outline:0;
+  border-radius:5px;
+  padding-left:15px;
+  border:1px solid #ccc;
+  transition:all .3s ease
+}
+
+.user-details .input-box input:focus{
+  border:2px solid #58b99d
+}
+
+form .button{
+  height:45px;
+  margin:35px 0
+}
+form .button input{
+  background-color:#58b99d;
+  color:#fff;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  font-size:16px;
+  cursor:pointer;
+  display:block;
+  margin:0 auto
+}
+
+form .button input:hover{
+  background-color:#469680;
+}
+
+.signup-container .content .link-login{
+  display:flex;
+  justify-content:center;
+  text-align:center
+}
+
+.signup-container .content .link-login .link-login-right{
+  cursor:pointer;
+  margin-left:5px;
+  color:#58b99d;
+  text-decoration:none
+}
+.signup-container .content .link-login .link-login-right:hover{
+  text-decoration:underline
+}
+
+.errors{
+  color:red;
+  margin-bottom:5px;
+  list-style:none;
+  padding:0;
+  font-size:14px;
+  padding-left:15px
+}

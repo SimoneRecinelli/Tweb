@@ -1,0 +1,195 @@
+
+.login-container{
+    width: 400px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    display: block;
+    margin: 100px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+ }
+
+ .login-container h1{
+   text-align: center;
+   margin-bottom: 20px;
+ }
+ 
+ .content form .user-details{
+    display: block;
+    margin: 20px 0 12px 0;
+ }
+ form .user-details .input-box{
+   margin-bottom: 15px;
+ }
+
+ form .input-box .label-input{
+   display: block;
+   margin-bottom: 5px;
+   font-weight: bold;
+ }
+
+ .user-details .input-box input{
+   height: 45px;
+   width: 100%;
+   outline: none;
+   border-radius: 5px;
+   padding-left: 15px;
+   border: 1px solid #ccc;
+   transition: all 0.3s ease;
+ }
+ .user-details .input-box input:focus{
+   border:2px solid rgb(88,185,157);
+ }
+  form .gender-details .gender-title{
+   font-size: 20px;
+   font-weight: 500;
+  }
+  form .category{
+    width: 80%;
+    margin: 14px 0 ;
+    justify-content: space-between;
+  }
+  form .category label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  form .button{
+    height: 45px;
+    margin: 35px 0
+  }
+
+  form .button input{
+   background-color: rgb(88,185,157);
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 20px;
+   font-size: 16px;
+   cursor: pointer;
+   display: block;
+   margin: 0 auto;
+  }
+  form .button input:hover{
+   background-color: rgb(70, 150, 128);
+ }
+
+ .login-container .content .link-register {
+    display: flex;
+    justify-content: center ;
+    text-align: center;
+}
+
+.login-container .content .link-register .link-register-right {
+  cursor: pointer;
+  margin-left: 5px ;
+  color:rgb(88,185,157);
+  text-decoration: none;
+}
+
+.login-container .content .link-register .link-register-right:hover {
+  text-decoration: underline;
+}
+
+/**css messaggio di errore*/
+.errors {
+  color: red;
+  margin-bottom: 5px;
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+
+
+/**
+.static {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  display: block;
+  margin: 100px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.static h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container-contact {
+  display: flex;
+  justify-content: center;
+  margin:20px 0 12px 0;
+}
+
+.static .label-input {
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  height: 35px;
+   padding-left: 15px;
+   transition: all 0.3s ease;
+   font-size: 13px;
+}
+
+
+
+.input:focus{
+  border:2px solid rgb(88,185,157);
+}
+
+
+.errors {
+  color: red;
+  margin-bottom: 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.container-form-btn {
+  margin: 25px 0;
+  
+}
+.form-btn1 {
+  background-color: rgb(88,185,157);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 5px auto 12px auto;
+}
+
+.form-btn1:hover {
+  background-color:rgb(70, 150, 128);
+}
+
+.static p {
+  font-size: 15px;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.wrap-input p a{
+  cursor: pointer;
+  color: rgb(88,185,157);
+  text-decoration: none;
+}
+
+.wrap-input p a:hover{
+  text-decoration: underline;
+}
+*/

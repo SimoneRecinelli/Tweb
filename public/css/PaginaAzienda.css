@@ -1,0 +1,34 @@
+
+.company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  color: #fff;
+}
+
+.company img {
+  height: 300px;
+  width: 300px;
+}
+
+.company .image{
+  margin-right: 10%;
+}
+
+.company-info {
+  max-width: 60%;
+}
+
+.company-info h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.company-info p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+  
+
+
