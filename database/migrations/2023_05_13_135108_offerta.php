@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Offerte', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('idOfferta');
             $table->string('DescrizioneOfferta',50);
             $table->string('Categoria',50);
-            $table->string('Scadenza',25);
+            $table->string('Scadenza',25);     
             $table->string('Oggetto',100);
-            $table->string('Azienda',50);
+            $table->string('NomeAzienda',25);
+            $table->foreign('NomeAzienda',25)->references('NomeAzienda')->on('Aziende');
             $table->float('Prezzo')->unsigned();
            // $table->float('PrezzoScontato')->unsigned();
             $table->tinyInteger('PercentualeSconto')->unsigned();
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('Modalità',50);
             $table->string('Evidenza',10);
             $table->text('image')->nullable();
+            
         });
     }
 

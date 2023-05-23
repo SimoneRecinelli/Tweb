@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\NewStaffRequest;
+use App\Http\Requests\NewOffertaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use App\Models\Staff;
+use App\Models\Offerta;
 
 class StaffController extends Controller {
 
@@ -32,6 +35,7 @@ class StaffController extends Controller {
         $offerta->Modalità=$request->input('Modalità');
         $offerta->Evidenza=$request->input('Evidenza');
         $offerta->save();
+       
     
         return redirect('homestaff');
     
@@ -73,5 +77,17 @@ class StaffController extends Controller {
         $offerta->Evidenza=$request->input('Evidenza');
         $offerta->save();
         return redirect('homestaff');
+    }
+
+    public function showProfile()
+    {
+        // Recupera l'utente autenticato
+        $user = Auth::user();
+
+        // Ottieni i dati del profilo dell'utente
+        $profileData = $user->getProfileData();
+
+        // Fai qualcosa con i dati del profilo (ad esempio, passali alla vista)
+        return view('profile', ['profileData' => $profileData]);
     }
 }

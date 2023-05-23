@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('Username', 25);
             $table->bigInteger('Codice_coupon')->unsigned();
             $table->timestamps();
-
             $table->foreign('Username')->references('Username')->on('Users');
             $table->foreign('Codice_coupon')->references('Codice_coupon')->on('Coupons');
         });

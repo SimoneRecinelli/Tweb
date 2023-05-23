@@ -18,8 +18,7 @@
         <p><strong>Ruolo:</strong> {{ Auth::user()->role }}</p>
     </div>
 
-
-    <a class="bottone-modifica" href="{{ route('updateProfile')}}" class="btn">Modifica profilo</a>
+    <a class="bottone-modifica" href="{{ route('showUser')}}" class="btn">Modifica profilo</a>
     <a class="bottone-elimina" href="{{ route('deleteProfile')}}" class="btn">Elimina profilo</a>
 
 @endsection

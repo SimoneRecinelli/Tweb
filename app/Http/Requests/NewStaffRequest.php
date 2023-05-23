@@ -4,10 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\Staff;
-use App\Models\Offerta;
 
-class NewOffertaRequest extends FormRequest {
+class NewStaffRequest extends FormRequest {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -27,16 +25,16 @@ class NewOffertaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'DescrizioneOfferta' => 'required|max:2500',
-            'Categoria' => 'required|max:30',
-            'Scadenza' => 'required',
-            'Oggetto' => 'required|max:30',
-            'Azienda' => 'required|max:30',
-            'Prezzo' => 'required|min:0',
-            'PercentualeSconto' => 'required|integer|min:0|max:100',
-            'Luogo' => 'required|max:30',
-            'Modalità' => 'required|max:30',
-            'Evidenza' => 'required|in:si,no',
+            'nome' => 'required|max:25',
+            'cognome' => 'required|max:30',
+            'email' => 'required|max:30',
+            'eta' => 'required|max:25',
+            'telefono' => 'required|min:10|max:10',
+            'residenza' => 'required|max:25',
+            'username' => 'required|max:25',
+            'password' => 'required|max:25',
+            'genere' => 'required|max:25',
+            //'ruolo' => ['required', Rule::in(['staff'])], // Aggiungi la regola per verificare che il campo "ruolo" sia "staff"
         ];
     }
 
