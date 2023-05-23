@@ -86,7 +86,7 @@
         </ul>
     @endif
     {{Form::label('genere', 'Genere:') }}
-    {{ Form::text('genere', null, ['class' => 'form-control']) }}<br>
+    {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'form-control']) }}<br>
     @if ($errors->first('genere'))
         <ul class="errors">
             @foreach ($errors->get('genere') as $message)

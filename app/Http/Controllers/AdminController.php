@@ -195,16 +195,16 @@ public function modifyfaq(NewFaqRequest $request, $id)
         $staff->telefono = $request->input('telefono');
         $staff->residenza = $request->input('residenza');
         $staff->username = $request->input('username');
-        $staff->password = $request->input('password');
-        $staff->genere = $request->input('genere');
+        $staff->password = Hash::make($request->input('password'));
+        $staff->genere =($request->input('genere')==0)?'Uomo':'Donna';
 
         // Imposta il ruolo come "staff"
-        $staff->ruolo = 'staff';
+        $staff->role = 'staff';
 
         // Salva il nuovo utente staff nel database
         $staff->save();
 
-        return redirect('homeadmin');
+        return redirect()->route('amministratore');
         }
 
 
