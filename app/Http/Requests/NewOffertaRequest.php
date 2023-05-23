@@ -36,7 +36,7 @@ class NewOffertaRequest extends FormRequest {
             'PercentualeSconto' => 'required|integer|min:0|max:100',
             'Luogo' => 'required|max:30',
             'Modalità' => 'required|max:30',
-            'Evidenza' => 'required|max:2',
+            'Evidenza' => 'required|in:si,no',
         ];
     }
 
