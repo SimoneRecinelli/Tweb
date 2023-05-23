@@ -78,7 +78,7 @@ dots[slideIndex-1].className += " active";
 
     <div class="container-card">
         @foreach($offerte as $offerta)
-        <a class="card" href="{{route('coupon', [$offerta->IdOfferta])}}">
+        <a class="card" href="{{route('coupon', [$offerta->idOfferta])}}">
                 <h3>{{$offerta->Azienda}}</h3>
                 <div class="image">
                         @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
