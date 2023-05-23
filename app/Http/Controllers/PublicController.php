@@ -17,9 +17,14 @@ class PublicController extends Controller
 {
 
     protected $_catalogModel;
+    protected $_companyModel;
+
 
     public function __construct() {
         $this->_catalogModel = new Catalog;
+        $this->_companyModel = new Azienda;
+
+
     }
 
 
@@ -95,13 +100,19 @@ public function showCatalog($Categoria='Animali'): View {
        
 } 
 
+public function showAziende(){ 
+    $aziende=$this->_companyModel->getAziende();
+    $aziende=Azienda::paginate(1);
+    return view('aziende')
+         ->with('aziende',$aziende);
+}
 
-public function showAziende()
+/*public function showAziende()
 {
     $aziende = Azienda::all();
     
     return view('aziende', compact('aziende'));
-}
+}*/
 
 public function showSingleAzienda($id): View
 {
@@ -177,5 +188,9 @@ public function showSingleAzienda($id): View
 
         return view('catalogo', compact('offerta_pagin'));
     }
+
+   
+
+
 }
 
