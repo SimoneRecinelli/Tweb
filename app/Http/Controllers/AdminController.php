@@ -176,6 +176,5 @@ public function modifyfaq(NewFaqRequest $request, $id){
     return redirect('faq');
 
 }
-/* FAQ-------------------------------------------------------------------------------------------------*/
 
 }
