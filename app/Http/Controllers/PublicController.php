@@ -36,7 +36,7 @@ public function showCatalog($Categoria='Animali'): View {
 } 
 
 public function showAziende() { 
-    $aziende = Azienda::paginate(4);
+    $aziende = Azienda::paginate(2);
     return view('aziende', compact('aziende'));
 }
 

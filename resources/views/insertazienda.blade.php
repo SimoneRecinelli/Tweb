@@ -1,8 +1,10 @@
 @extends('public')
 @section('content')
 
+<link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
 
-{{ Form::open(array('route' => 'storeazienda')) }}
+
+{{ Form::open(array('route' => 'storeazienda', 'class' => 'form-wrapper')) }}
 {{ Form::token() }}
     {{ Form::label('Nome', 'Nome') }}
     {{ Form::text('Nome', null, ['class' => 'form-control']) }}<br>
