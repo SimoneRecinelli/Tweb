@@ -28,8 +28,26 @@ class PublicController extends Controller
     $offerteInEvidenza = Offerta::getOfferteEvidenza();
     return view('home', ['offerte' => $offerteInEvidenza]);
 }
-    
+  
 
+public function showCatalog($Categoria = null): View {
+    $categorie = Offerta::all()->pluck('Categoria')->unique();
+
+    if(isset($Categoria)){
+        $offerte = Offerta::where('Categoria', $Categoria)->paginate(2);
+        $catselezionata = $Categoria;
+    } else {
+        $offerte = Offerta::paginate(2);
+        $catselezionata = null;
+    }
+
+    return view('catalogo')
+        ->with('offerte', $offerte)
+        ->with('categorie', $categorie)
+        ->with('catselezionata', $catselezionata);
+}
+
+/*
 public function showCatalog($Categoria=null): View {
     $categorie=Offerta::all()->pluck('Categoria')->unique();
     if(isset($Categoria)){
@@ -42,7 +60,9 @@ public function showCatalog($Categoria=null): View {
     }
     return view('catalogo')->with('offerte',$offerte)->with('categorie',$categorie)->with('catselezionata',$catselezionata);
        
-} 
+} */
+
+
 public function showAziende() { 
     $aziende = Azienda::paginate(2);
     return view('aziende', compact('aziende'));
