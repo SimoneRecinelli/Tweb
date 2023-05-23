@@ -44,7 +44,7 @@ Route::get('/azienda/{id}', [PublicController::class, 'showSingleAzienda'])->nam
 
 
 /* Rotta per la vista 'coupon' */
-Route::get('/coupon/{IdOfferta?}', [PublicController::class, 'showCoupon']) ->name('coupon');
+Route::get('/coupon/{idOfferta}', [PublicController::class, 'showCoupon']) ->name('coupon');
 
 /* Rotta per la vista 'registrati' */
 Route::get('/registrazione', [PublicController::class, 'showSignIn']) ->name('registrazione');
