@@ -56,4 +56,17 @@ class User extends Authenticatable
         return in_array($this->role, $role);
     }
 
+    public function getProfileData()
+    {
+        // Utilizza $this->id per ottenere l'ID dell'utente corrente
+        $userId = $this->id;
+
+        // Recupera i dati del profilo dell'utente dalla tabella 'users' utilizzando l'ID
+        $profileData = User::find($userId);
+
+        // Restituisci i dati del profilo
+        return $profileData;
+    }
+
+
 }

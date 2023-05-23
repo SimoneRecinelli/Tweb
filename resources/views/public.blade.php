@@ -48,6 +48,7 @@
             @endauth
 
             @auth
+            <li><a href="{{route('profile')}}" class="profilo">Profilo</a></li>
             <li><a href="" title="Esci dal sito" class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}

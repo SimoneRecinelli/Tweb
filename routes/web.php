@@ -110,4 +110,10 @@ require __DIR__.'/auth.php';
 
 //Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
+Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
 Route::get('/prova', [PublicController::class, 'showCatalog']) ->name('prova');
+
+/* CUD Users -------------------------------------------------------------------------------------------- */
+Route::get('/updateProfile', [UserController::class, 'updateProfile'])->name('updateProfile');
+Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile');
+/* ------------------------------------------------------------------------------------------------------ */
