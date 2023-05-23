@@ -132,8 +132,8 @@ public function showSingleAzienda($id): View
     /**
      * Show coupon page for a public user.
      */
-    public function showCoupon($IdOfferta): View {
-        $selOfferta = Offerta::all()->where('IdOfferta', $IdOfferta)->first();
+    public function showCoupon($id): View {
+        $selOfferta = Offerta::all()->where('id', $id)->first();
         
         return view('coupon')->with('selOfferta',$selOfferta);
     }
