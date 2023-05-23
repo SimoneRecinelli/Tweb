@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller {
                 break;
 
             case 'staff':
-                return redirect()->route('homemembro');
+                return redirect()->route('homestaff');
                 break;
 
             case 'admin':

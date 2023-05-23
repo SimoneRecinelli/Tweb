@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StaffController;
 use App\Http\Middleware\Authenticate;
 
 /*
@@ -17,10 +18,6 @@ use App\Http\Middleware\Authenticate;
 |
 */
 
-
-
-
-/*---------------------- NOSTRE ROTTE ---------------*/
 
 /* Rotta per la vista 'home' */
 Route::get('/', [PublicController::class, 'showHome']) ->name('home');
@@ -116,4 +113,12 @@ Route::get('/prova', [PublicController::class, 'showCatalog']) ->name('prova');
 /* CUD Users -------------------------------------------------------------------------------------------- */
 Route::get('/updateProfile', [UserController::class, 'updateProfile'])->name('updateProfile');
 Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile');
+/* ------------------------------------------------------------------------------------------------------ */
+
+Route::get('/homestaff', [StaffController::class, 'showHomeStaff'])->name('homestaff');
+
+/* CUD Offerte -------------------------------------------------------------------------------------------- */
+
+
+
 /* ------------------------------------------------------------------------------------------------------ */

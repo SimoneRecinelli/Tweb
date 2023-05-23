@@ -257,6 +257,19 @@ class DatabaseSeeder extends Seeder {
             'residenza' => 'Martinsicuro',
             'telefono' => '3758492345',
             'username' => 'dieghez',
+        ],
+        [
+            'cognome' => 'Provaaaaaaa',
+            'email' => 'membro@gmail.com',
+            'eta' => 32,
+            'genere' => 'Uomo',
+            'role' => 'staff',
+            'nome' => 'Diego',
+            'password' => Hash::make('11'),
+            'possibilità_abbinamento' => 1,
+            'residenza' => 'Ancona',
+            'telefono' => '3758492345',
+            'username' => 'dieghezstaff',
         ]
     ]);
 
