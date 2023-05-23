@@ -35,6 +35,7 @@ class StaffController extends Controller {
         $offerta->Modalità=$request->input('Modalità');
         $offerta->Evidenza=$request->input('Evidenza');
         $offerta->save();
+       
     
         return redirect('homestaff');
     
