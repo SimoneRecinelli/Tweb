@@ -29,7 +29,7 @@
     <p><strong>Nome:</strong> {{ Auth::user()->nome }}</p>
     <p><strong>Cognome:</strong> {{ Auth::user()->cognome }}</p>
     <p><strong>Genere:</strong> {{ Auth::user()->genere }}</p>
-    <p><strong>Età:</strong> {{ Auth::user()->età }}</p>
+    <p><strong>Età:</strong> {{ Auth::user()->eta }}</p>
     <p><strong>Residenza:</strong> {{ Auth::user()->residenza }}</p>
     <p><strong>Telefono:</strong> {{ Auth::user()->telefono }}</p>
     <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
