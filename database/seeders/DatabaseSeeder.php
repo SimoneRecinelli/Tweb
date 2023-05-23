@@ -66,6 +66,145 @@ class DatabaseSeeder extends Seeder {
     }
     */
 
+    DB::table('Offerte')->insert([
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+
+        ['Categoria'=>'Elettronica',
+         'DescrizioneOfferta'=> '...',
+         'Scadenza'=>'20/10/2025',
+         'Oggetto'=>'Ipad 5',
+         'Azienda'=>'Apple',
+         'Prezzo'=>1200,
+         'PercentualeSconto'=>'40',
+         'Luogo'=>'Negozio fisico',
+         'Modalità'=>'Utilizzo una sola volta',
+         'Evidenza'=>'no',
+         'image' => 'ipad2022.png'],
+
+        ['Categoria'=>'Elettronica',
+         'DescrizioneOfferta'=> '...',
+         'Scadenza'=>'20/10/2020',
+         'Oggetto'=>'Iphone 13',
+         'Azienda'=>'Apple',
+         'Prezzo'=>1400,
+         'PercentualeSconto'=>'50',
+         'Luogo'=>'Telefono o chiamata',
+         'Modalità'=>'Utilizzo limitato nel tempo',
+         'Evidenza'=>'sì',
+         'image' =>'iphone13.png'],
+
+        ['Categoria'=>'Abbigliamento',
+         'DescrizioneOfferta'=> '...',
+         'Scadenza'=>'',
+         'Oggetto'=>'Air Force 1',
+         'Azienda'=>'Nike',
+         'Prezzo'=>1230,
+         'PercentualeSconto'=>'60',
+         'Luogo'=>'Evento',
+         'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'sì',
+        'image' => 'AirForce.png'],
+
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png'],
+        ['Categoria'=>'Animali',
+        'DescrizioneOfferta'=> '...',
+        'Scadenza'=>'20/10/2024',
+        'Oggetto'=>'Tiragraffi per gatto',
+        'Azienda'=>'Angelini',
+        'Prezzo'=>160,
+        'PercentualeSconto'=>'10',
+        'Luogo'=>'Negozio fisico',
+        'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'no',
+        'image' => 'Tiragraffi.png']
+    ]);
+
     DB::table('users')->insert([
         [
             'cognome' => 'Recinelli',
@@ -119,6 +258,54 @@ class DatabaseSeeder extends Seeder {
             'telefono' => '3758492345',
             'username' => 'dieghez',
         ]
+    ]);
+
+    DB::table('Faqs')->insert([
+        ['Domanda'=>'come stai?',
+        'Risposta'=>'bene'],
+
+        ['Domanda'=>'prova',
+        'Risposta'=>'prova'],
+    ]);
+
+    DB::table('Aziende')->insert([
+        [
+            'Nome' => 'Nike',
+            'Sede' => 'Polverigi',
+            'Tipologia' => 'e-commerce',
+            'RagioneSociale' => 'jhwfhewg743',
+            'image' => 'nike.png',
+
+        ],
+        [
+            'Nome' => 'Apple',
+            'Sede' => 'Polverigi',
+            'Tipologia' => 'sport',
+            'RagioneSociale' => 'vrt73',
+            'image' => 'apple.png',
+
+        ],
+
+        [
+            'Nome' => 'Amazon',
+            'Sede' => 'Martinsicuro',
+            'Tipologia' => 'sport',
+            'RagioneSociale' => 'jhwfhewg7453',
+            'image' => 'amazon.png',
+
+        ],
+
+        [
+            'Nome' => 'Ebay',
+            'Sede' => 'Ancona',
+            'Tipologia' => 'e-commerce',
+            'RagioneSociale' => 'jhwfhewg7487983',
+            'image' => '',
+
+
+        ]
+
+
     ]);
 
 }

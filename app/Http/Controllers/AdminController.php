@@ -159,9 +159,9 @@ public function destroyfaq($id){
 
 }
 
-public function modificafaq(){
+public function gestionefaq(){
     $faqs = Faq::all();
-    return view('modificafaq')->with('faqs',$faqs);
+    return view('gestionefaq')->with('faqs',$faqs);
 }
 
 public function updatefaq($id){

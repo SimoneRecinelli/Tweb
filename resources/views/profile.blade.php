@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('public')
 
 @section('content')
 
@@ -6,7 +6,7 @@
 
         <h1>Profilo utente</h1>
 
-        <p><strong>Nome:</strong> {{ Auth::user()->nome }}</p>
+        <p><strong>Nome:</strong> {{ $user->nome }}</p>
         <p><strong>Cognome:</strong> {{ Auth::user()->cognome }}</p>
         <p><strong>Genere:</strong> {{ Auth::user()->genere }}</p>
         <p><strong>Età:</strong> {{ Auth::user()->età }}</p>
