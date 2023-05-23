@@ -46,8 +46,8 @@ class StaffController extends Controller {
         return view('deleteofferta')->with('offerte',$offerte);
     }
     
-    public function destroyofferta($id){
-        Offerta::destroy($id);
+    public function destroyofferta($idOfferta){
+        Offerta::destroy($idOfferta);
         return redirect('homestaff');
     }
     
@@ -56,15 +56,15 @@ class StaffController extends Controller {
         return view('modificaofferta')->with('offerte',$offerte);
     }
     
-    public function updateofferta($id){
-        $offerta=Offerta::all()->where('id',$id)->first();
+    public function updateofferta($idOfferta){
+        $offerta=Offerta::all()->where('idOfferta',$idOfferta)->first();
         return view('modifyofferta')->with('offerta',$offerta);
     }
     
-    public function modifyofferta(NewOffertaRequest $request,$id)
+    public function modifyofferta(NewOffertaRequest $request,$idOfferta)
     {
     
-        $offerta = Offerta::find($id);
+        $offerta = Offerta::find($idOfferta);
         $offerta->DescrizioneOfferta=$request->input('DescrizioneOfferta');
         $offerta->Categoria=$request->input('Categoria');
         $offerta->Scadenza=$request->input('Scadenza');

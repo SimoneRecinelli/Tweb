@@ -2,7 +2,7 @@
 @section('content')
 
 @foreach($offerte as $offerta)
-{{ Form::open(array('route' => ['updateofferta', $offerta->id], 'method' => 'GET')) }}
+{{ Form::open(array('route' => ['updateofferta', $offerta->idOfferta], 'method' => 'GET')) }}
 @method('GET')
 {{ Form::token() }}
 <a class="card" >
