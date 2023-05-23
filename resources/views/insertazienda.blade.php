@@ -3,11 +3,14 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
 
+<section class="form_section">
+    
+    <h2 class="titolo">Inserisci Azienda</h2>
 
 {{ Form::open(array('route' => 'storeazienda', 'class' => 'form-wrapper')) }}
 {{ Form::token() }}
     {{ Form::label('Nome', 'Nome') }}
-    {{ Form::text('Nome', null, ['class' => 'form-control']) }}<br>
+    {{ Form::textArea('Nome', null, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Nome'))
                 <ul class="errors">
                     @foreach ($errors->get('Nome') as $message)
@@ -17,7 +20,7 @@
                 @endif
 
     {{Form::label('Sede', 'Sede') }}
-    {{ Form::text('Sede', null, ['class' => 'form-control']) }}<br>
+    {{ Form::textArea('Sede', null, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Sede'))
                 <ul class="errors">
                     @foreach ($errors->get('Sede') as $message)
@@ -27,7 +30,7 @@
                 @endif
 
     {{Form::label('Tipologia', 'Tipologia') }}
-    {{ Form::text('Tipologia', null, ['class' => 'form-control']) }}<br>
+    {{ Form::textArea('Tipologia', null, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Tipologia'))
                 <ul class="errors">
                     @foreach ($errors->get('Tipologia') as $message)
@@ -37,7 +40,7 @@
                 @endif
 
     {{Form::label('RagioneSociale', 'RagioneSociale') }}
-    {{ Form::text('RagioneSociale', null, ['class' => 'form-control']) }}<br>
+    {{ Form::textArea('RagioneSociale', null, ['class' => 'form-control']) }}<br>
     @if ($errors->first('RagioneSociale'))
                 <ul class="errors">
                     @foreach ($errors->get('RagioneSociale') as $message)
@@ -46,8 +49,8 @@
                 </ul>
                 @endif
 
-    {{ Form::submit('Crea azienda', ['class' => 'btn btn-primary']) }}
+    {{ Form::submit('Crea azienda', ['class' => 'btn-modify']) }}
 
 {{ Form::close() }}
-
+</div>
 @endsection

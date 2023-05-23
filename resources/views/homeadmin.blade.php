@@ -5,8 +5,8 @@
 
 <div id="catalogo">
 
-        <h2>Aziende</h2>
-        @if (count($aziende) == 0)
+        <h2>Area admin</h2>
+<!--       @if (count($aziende) == 0)
     <p>Siamo spiacenti ma i parametri da lei selezionati non hanno prodotto nessuno risultato</p>
     @else
     @foreach($aziende as $azienda)
@@ -18,12 +18,16 @@
             </div>
             </a>
         @endforeach
-    @endif
+    @endif-->
 
     <h2> Gestione aziende</h2>
-        <a href="{{route('insertazienda')}}">Inserisci un'azienda'</a>
-        <a href="{{route('deleteazienda')}}">Elimina un'azienda'</a>
-        <a href="{{route('modificaazienda')}}">Modifica un'azienda'</a>
+        <a href="{{route('insertazienda')}}">Inserisci Azienda'</a>
+        <a href="{{route('deleteazienda')}}">Elimina Azienda'</a>
+        <a href="{{route('modificaazienda')}}">Modifica Azienda'</a>
+        
+        
+        <hr>
+
 
 <h3>Numero totale coupon emessi {{$num}}</h3>
 

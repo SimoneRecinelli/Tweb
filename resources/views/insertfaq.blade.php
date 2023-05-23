@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/Faq.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/formCRUD.css')}}">
 
-<section class="faq_section">
+<section class="form_section">
         <h2 class="titolo">INSERISCI FAQ</h2>
         <br>
         

@@ -1,5 +1,12 @@
 @extends('public')
 @section('content')
+
+<link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
+
+<section class="form_section">
+    
+    <h2 class="titolo">Inserisci membro dello staff</h2>
+
     {{ Form::open(array('route' => 'storeStaff', 'class' => 'form-wrapper')) }}
     {{ Form::token() }}
     {{ Form::label('nome', 'Nome:') }}
@@ -90,6 +97,9 @@
         @endif
 
         </a>
-        {{ Form::submit('Crea Membro Staff', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Crea Membro Staff', ['class' => 'btn-modify']) }}
         {{ Form::close() }}
+
+        </div>
+
         @endsection
