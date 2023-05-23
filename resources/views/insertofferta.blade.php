@@ -25,7 +25,7 @@
                 @endif
 
     {{ Form::label('Scadenza', 'Scadenza') }}
-    {{ Form::string('Scadenza', null, ['class' => 'form-control']) }}<br>
+    {{ Form::date('Scadenza', null, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Scadenza'))
                 <ul class="errors">
                     @foreach ($errors->get('Scadenza') as $message)

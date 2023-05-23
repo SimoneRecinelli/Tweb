@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\Staff;
+use App\Models\Offerta;
 
 class NewOffertaRequest extends FormRequest {
 

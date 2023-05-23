@@ -118,7 +118,19 @@ Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('de
 Route::get('/homestaff', [StaffController::class, 'showHomeStaff'])->name('homestaff');
 
 /* CUD Offerte -------------------------------------------------------------------------------------------- */
+Route::get('/insertofferta', [StaffController::class, 'insertofferta'])->name('insertofferta');
 
+Route::post('/storeofferta', [StaffController::class, 'storeofferta'])->name('storeofferta');
+
+Route::get('/deleteofferta', [StaffController::class, 'deleteofferta'])->name('deleteofferta');
+
+Route::delete('/destroyofferta/{id}', [StaffController::class, 'destroyofferta'])->name('destroyofferta');
+
+Route::get('/modificaofferta', [StaffController::class, 'modificaofferta'])->name('modificaofferta');
+
+Route::get('/updateofferta/{id}', [StaffController::class, 'updateofferta'])->name('updateofferta');
+
+Route::put('/modifyofferta/{id}', [StaffController::class, 'modifyofferta'])->name('modifyofferta');
 
 
 /* ------------------------------------------------------------------------------------------------------ */

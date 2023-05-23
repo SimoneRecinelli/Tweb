@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\NewStaffRequest;
+use App\Http\Requests\NewOffertaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use App\Models\Staff;
+use App\Models\Offerta;
 
 class StaffController extends Controller {
 
