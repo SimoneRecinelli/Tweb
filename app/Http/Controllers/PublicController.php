@@ -102,6 +102,10 @@ public function showCatalog($Categoria=null): View {
     return view('catalogo')->with('offerte',$offerte)->with('categorie',$categorie)->with('catselezionata',$catselezionata);
        
 } 
+public function showAziende() { 
+    $aziende = Azienda::paginate(2);
+    return view('aziende', compact('aziende'));
+}
 
 
 /* funzione prima di inserire il paginate

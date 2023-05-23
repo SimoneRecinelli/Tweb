@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('css/Faq.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/ModifyFaq.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/formCRUD.css')}}">
 
 <section class="faq_section">
         <h2 class="titolo">INSERISCI FAQ</h2>
@@ -13,7 +13,7 @@
 {{ Form::open(array('route' => 'storefaq', 'class' => 'form-wrapper' )) }}
 {{ Form::token() }}
 {{ Form::label('Domanda', 'Domanda') }}
-    {{ Form::text('Domanda', null, ['class' => 'form-control-question']) }}<br>
+    {{ Form::textArea('Domanda', null, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Domanda'))
                 <ul class="errors">
                     @foreach ($errors->get('Domanda') as $message)
@@ -23,7 +23,7 @@
                 @endif
 
     {{Form::label('Risposta', 'Risposta') }}
-    {{ Form::text('Risposta', null, ['class' => 'form-control-answer']) }}<br>
+    {{ Form::textArea('Risposta', null, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Risposta'))
                 <ul class="errors">
                     @foreach ($errors->get('Risposta') as $message)

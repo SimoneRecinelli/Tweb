@@ -1,9 +1,8 @@
-.form-control-question,
-.form-control-answer {
-  width: 80vh;
+.form-control {
+  width: 50vh;
   border-radius: 2rem;
   background: white;
-  height: 30px;
+  height: 50px;
   font-size: 0.9rem;
   color: #24262b;
   border: none;
@@ -12,6 +11,10 @@
   padding-right: 10px;
   margin-top: 30px;
   box-sizing: border-box;
+  resize: vertical; /* Consente all'utente di ridimensionare verticalmente la textarea se necessario */
+  overflow: hidden; /* Nasconde completamente la scrollbar */
+  padding-top:10px;
+
 }
 
 .form-wrapper {
@@ -20,3 +23,5 @@
   flex-direction: column;
   align-items: center;
 }
+
+

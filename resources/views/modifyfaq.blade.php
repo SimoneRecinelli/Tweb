@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('css/Faq.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/ModifyFaq.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
 
 
 
@@ -14,7 +14,7 @@
 @method('PUT')
 {{ Form::token() }}
 {{ Form::label('Domanda', 'Domanda') }}
-    {{ Form::text('Domanda', $faq->Domanda, ['class' => 'form-control-question']) }}<br>
+    {{ Form::textArea('Domanda', $faq->Domanda, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Domanda'))
                 <ul class="errors">
                     @foreach ($errors->get('Domanda') as $message)
@@ -24,7 +24,7 @@
                 @endif
 
     {{Form::label('Risposta', 'Risposta') }}
-    {{ Form::text('Risposta', $faq->Risposta, ['class' => 'form-control-answer']) }}<br>
+    {{ Form::textArea('Risposta', $faq->Risposta, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Risposta'))
                 <ul class="errors">
                     @foreach ($errors->get('Risposta') as $message)
