@@ -16,4 +16,9 @@ class Offerta extends Model
     */
 
     public $timestamps = false;
+
+    public static function getOfferteEvidenza(){
+        $offerteInEvidenza = Offerta::where('Evidenza', 'sì')->take(4)->get();
+        return $offerteInEvidenza;
+    }
 }

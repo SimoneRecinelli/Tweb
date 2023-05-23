@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Faq extends Model
 {
     protected $table= 'Faqs';
-
     public $timestamps = false;
+
+    public function getFaq(){
+        return Faq::all();
+    }
 }

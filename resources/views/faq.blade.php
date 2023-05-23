@@ -8,14 +8,14 @@
   <a href="{{ route('insertfaq') }}">Inserisci Faq</a>
   <a href="{{ route('gestionefaq') }}">Modifica Faq</a>
   <a href="{{ route('deletefaq') }}">Elimina Faq</a>
-  
 </div>
-
 @endcan
 
 <section class="faq_section">
         <h2 class="titolo">DOMANDE FREQUENTI</h2>
         <br>
+        @isset($faqs)
+
         @foreach($faqs as $faq)
         <details>
                 <summary>
@@ -26,6 +26,9 @@
                 </p>
         </details>
         @endforeach
+
+        @include('pagination.paginator', ['paginator' => $faqs])
+        @endisset()
         
 </section>
 
