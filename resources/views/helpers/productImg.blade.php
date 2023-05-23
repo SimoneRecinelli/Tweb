@@ -1,10 +1,10 @@
 @php
         if (empty($imgFile)) {
-            $imgFile = 'default.jpg';
+            $imgFile = 'default.png';
         }
         if (null !== $attrs) {
             $attrs = 'class="' . $attrs . '"';
         }
 
 @endphp
-<img src="{{ asset('images/products/' . $imgFile) }}" {!! $attrs !!}>
+<img src="{{ asset('img/products/' . $imgFile) }}" {!! $attrs !!}>
