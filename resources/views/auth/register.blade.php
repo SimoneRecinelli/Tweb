@@ -156,8 +156,6 @@
         {{ Form::submit('Registrati', ['class' => 'form-btn1']) }}
         </div>
 
-      </form>
-
       {{ Form::close() }}
 
       <div class="link-login">
