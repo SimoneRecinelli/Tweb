@@ -1,6 +1,6 @@
 @extends('public')
 @section('content')
-{{ Form::open(array('route' => ['modifyofferta', $offerta->id], 'method' => 'POST')) }}
+{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'POST')) }}
 @method('PUT')
 {{ Form::token() }}
 {{ Form::label('DescrizioneOfferta', 'DescrizioneOfferta') }}

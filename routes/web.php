@@ -126,13 +126,13 @@ Route::post('/storeofferta', [StaffController::class, 'storeofferta'])->name('st
 
 Route::get('/deleteofferta', [StaffController::class, 'deleteofferta'])->name('deleteofferta');
 
-Route::delete('/destroyofferta/{id}', [StaffController::class, 'destroyofferta'])->name('destroyofferta');
+Route::delete('/destroyofferta/{idOfferta}', [StaffController::class, 'destroyofferta'])->name('destroyofferta');
 
 Route::get('/modificaofferta', [StaffController::class, 'modificaofferta'])->name('modificaofferta');
 
-Route::get('/updateofferta/{id}', [StaffController::class, 'updateofferta'])->name('updateofferta');
+Route::get('/updateofferta/{idOfferta}', [StaffController::class, 'updateofferta'])->name('updateofferta');
 
-Route::put('/modifyofferta/{id}', [StaffController::class, 'modifyofferta'])->name('modifyofferta');
+Route::put('/modifyofferta/{idOfferta}', [StaffController::class, 'modifyofferta'])->name('modifyofferta');
 
 
 /* ------------------------------------------------------------------------------------------------------ */
