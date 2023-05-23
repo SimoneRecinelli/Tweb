@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Aziende', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Nome',25)->primaryKey();
+            $table->bigIncrements('idAzienda');
+            $table->string('NomeAzienda',25)->unique();
             $table->string('Sede',25);
             $table->string('Tipologia',25);
             $table->string('RagioneSociale',25);

@@ -15,12 +15,12 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-
+/*
     protected $_catalogModel;
-    
+
     public function __construct() {
         $this->_catalogModel = new Catalog;
-    }
+    }*/
 
 
     public function showHome(): View
@@ -30,15 +30,70 @@ class PublicController extends Controller
 }
     
 
+/*
+    
+    public function showCatalog1() {
+
+        //Categorie Top
+        $topCats = $this->_catalogModel->getTopCats();
+
+        //Prodotti in sconto di tutte le categorie, ordinati per sconto decrescente
+        $prods = $this->_catalogModel->getProdsByCat($topCats->map->only(['catId']), 2, 'desc', true);
+
+        return view('catalog')
+                        ->with('topCategories', $topCats)
+                        ->with('products', $prods);
+    }
+
+    public function showCatalog2($topCatId) {
+
+        //Categorie Top
+        $topCats = $this->_catalogModel->getTopCats();
+
+        //Categoria Top selezionata
+        $selTopCat = $topCats->where('catId', $topCatId)->first();
+
+        // Sottocategorie
+        $subCats = $this->_catalogModel->getCatsByParId([$topCatId]);
+
+        //Prodotti in sconto della categoria Top selezionata, ordinati per sconto decrescente
+        $prods = $this->_catalogModel->getProdsByCat([$topCatId], 2, 'desc', true);
+
+        return view('catalog')
+                        ->with('topCategories', $topCats)
+                        ->with('selectedTopCat', $selTopCat)
+                        ->with('subCategories', $subCats)
+                        ->with('products', $prods);
+    }
+
+    public function showCatalog3($topCatId, $catId) {
+
+        //Categorie Top
+        $topCats = $this->_catalogModel->getTopCats();
+
+        //Categoria Top selezionata
+        $selTopCat = $topCats->where('catId', $topCatId)->first();
+
+        // Sottocategorie
+        $subCats = $this->_catalogModel->getCatsByParId([$topCatId]);
+
+        // Prodotti della categoria selezionata, in sconto o meno
+       $prods = $this->_catalogModel->getProdsByCat([$catId]);
+
+        return view('catalog')
+                        ->with('topCategories', $topCats)
+                        ->with('selectedTopCat', $selTopCat)
+                        ->with('subCategories', $subCats)
+                        ->with('products', $prods);
+    }
+
+*/
+
 public function showCatalog($Categoria='Animali'): View {
     $offerte = $this->_catalogModel->getOffByCat($Categoria);
     return view('catalog')->with('offerte',$offerte);
+       
 } 
-
-public function showAziende() { 
-    $aziende = Azienda::paginate(4);
-    return view('aziende', compact('aziende'));
-}
 
 
 /* funzione prima di inserire il paginate
@@ -85,8 +140,8 @@ public function showSingleAzienda($id): View
     /**
      * Show coupon page for a public user.
      */
-    public function showCoupon($id): View {
-        $selOfferta = Offerta::all()->where('id', $id)->first();
+    public function showCoupon($IdOfferta): View {
+        $selOfferta = Offerta::all()->where('IdOfferta', $IdOfferta)->first();
         
         return view('coupon')->with('selOfferta',$selOfferta);
     }
@@ -130,9 +185,5 @@ public function showSingleAzienda($id): View
 
         return view('catalogo', compact('offerta_pagin'));
     }
-
-   
-
-
 }
 

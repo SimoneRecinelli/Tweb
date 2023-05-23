@@ -6,6 +6,7 @@ use App\Models\Admin;
 /*use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;*/
 use App\Models\Azienda;
+use App\Models\Coupon;
 use App\Models\Offerta;
 use App\Models\Faq;
 use Illuminate\Http\Request;
@@ -59,7 +60,9 @@ class AdminController extends Controller {
 
 public function homeadmin(){
     $aziende = Azienda::all();
-    return view('homeadmin')->with('aziende',$aziende);
+    $ncoupon = new Coupon;
+    $num = $ncoupon->ncoupons();
+   return view('homeadmin')->with('aziende',$aziende)->with('num',$num);
 }
 
 public function insertazienda(){
@@ -176,5 +179,10 @@ public function modifyfaq(NewFaqRequest $request, $id){
     return redirect('faq');
 
 }
+//---------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
 
 }

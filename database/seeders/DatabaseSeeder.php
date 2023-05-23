@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder {
 
     public function run() {
 
+
+
+
  /*       DB::table('category')->insert([
             ['catId' => 1, 'name' => 'Computer', 'parId' => 0, 'desc' => 'Desktop, Laptop, Netbook'],
             ['catId' => 2, 'name' => 'Periferiche', 'parId' => 0, 'desc' => 'Hard Disk, Tastiere, Mouse'],
@@ -66,12 +69,55 @@ class DatabaseSeeder extends Seeder {
     }
     */
 
+
+    DB::table('Aziende')->insert([
+        [
+            'NomeAzienda' => 'Nike',
+            'Sede' => 'Polverigi',
+            'Tipologia' => 'e-commerce',
+            'RagioneSociale' => 'jhwfhewg743',
+            'image' => 'nike.png',
+
+        ],
+        [
+            'NomeAzienda' => 'Apple',
+            'Sede' => 'Polverigi',
+            'Tipologia' => 'sport',
+            'RagioneSociale' => 'vrt73',
+            'image' => 'apple.png',
+
+        ],
+
+        [
+            'NomeAzienda' => 'Amazon',
+            'Sede' => 'Martinsicuro',
+            'Tipologia' => 'sport',
+            'RagioneSociale' => 'jhwfhewg7453',
+            'image' => 'amazon.png',
+
+        ],
+
+        [
+            'NomeAzienda' => 'Ebay',
+            'Sede' => 'Ancona',
+            'Tipologia' => 'e-commerce',
+            'RagioneSociale' => 'jhwfhewg7487983',
+            'image' => '',
+
+
+        ]
+
+
+    ]);
+
+
+
     DB::table('Offerte')->insert([
         ['Categoria'=>'Animali',
         'DescrizioneOfferta'=> '...',
         'Scadenza'=>'20/10/2024',
         'Oggetto'=>'Tiragraffi per gatto',
-        'Azienda'=>'Angelini',
+        'NomeAzienda'=>'Amazon',
         'Prezzo'=>160,
         'PercentualeSconto'=>'10',
         'Luogo'=>'Negozio fisico',
@@ -83,7 +129,7 @@ class DatabaseSeeder extends Seeder {
          'DescrizioneOfferta'=> '...',
          'Scadenza'=>'20/10/2025',
          'Oggetto'=>'Ipad 5',
-         'Azienda'=>'Apple',
+         'NomeAzienda'=>'Apple',
          'Prezzo'=>1200,
          'PercentualeSconto'=>'40',
          'Luogo'=>'Negozio fisico',
@@ -95,7 +141,7 @@ class DatabaseSeeder extends Seeder {
          'DescrizioneOfferta'=> '...',
          'Scadenza'=>'20/10/2020',
          'Oggetto'=>'Iphone 13',
-         'Azienda'=>'Apple',
+         'NomeAzienda'=>'Apple',
          'Prezzo'=>1400,
          'PercentualeSconto'=>'50',
          'Luogo'=>'Telefono o chiamata',
@@ -107,7 +153,7 @@ class DatabaseSeeder extends Seeder {
          'DescrizioneOfferta'=> '...',
          'Scadenza'=>'',
          'Oggetto'=>'Air Force 1',
-         'Azienda'=>'Nike',
+         'NomeAzienda'=>'Nike',
          'Prezzo'=>1230,
          'PercentualeSconto'=>'60',
          'Luogo'=>'Evento',
@@ -115,7 +161,7 @@ class DatabaseSeeder extends Seeder {
         'Evidenza'=>'sì',
         'image' => 'AirForce.png'],
 
-        ['Categoria'=>'Animali',
+        /*['Categoria'=>'Animali',
         'DescrizioneOfferta'=> '...',
         'Scadenza'=>'20/10/2024',
         'Oggetto'=>'Tiragraffi per gatto',
@@ -202,7 +248,7 @@ class DatabaseSeeder extends Seeder {
         'Luogo'=>'Negozio fisico',
         'Modalità'=>'Utilizzo online',
         'Evidenza'=>'no',
-        'image' => 'Tiragraffi.png']
+        'image' => 'Tiragraffi.png']*/
     ]);
 
     DB::table('users')->insert([
@@ -281,45 +327,14 @@ class DatabaseSeeder extends Seeder {
         'Risposta'=>'prova'],
     ]);
 
-    DB::table('Aziende')->insert([
+    
+    DB::table('Coupons')->insert([
         [
-            'Nome' => 'Nike',
-            'Sede' => 'Polverigi',
-            'Tipologia' => 'e-commerce',
-            'RagioneSociale' => 'jhwfhewg743',
-            'image' => 'nike.png',
-
-        ],
-        [
-            'Nome' => 'Apple',
-            'Sede' => 'Polverigi',
-            'Tipologia' => 'sport',
-            'RagioneSociale' => 'vrt73',
-            'image' => 'apple.png',
-
-        ],
-
-        [
-            'Nome' => 'Amazon',
-            'Sede' => 'Martinsicuro',
-            'Tipologia' => 'sport',
-            'RagioneSociale' => 'jhwfhewg7453',
-            'image' => 'amazon.png',
-
-        ],
-
-        [
-            'Nome' => 'Ebay',
-            'Sede' => 'Ancona',
-            'Tipologia' => 'e-commerce',
-            'RagioneSociale' => 'jhwfhewg7487983',
-            'image' => '',
-
-
+            'Combinazione' => '...',
+            'id' => '2',
+            'idOfferta' => '4',
         ]
-
-
-    ]);
+        ]);
 
 }
 }

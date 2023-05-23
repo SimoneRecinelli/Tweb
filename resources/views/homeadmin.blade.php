@@ -25,6 +25,8 @@
 <a href="{{route('deleteazienda')}}">elimina un'azienda'</a>
 <a href="{{route('modificaazienda')}}">modifica un'azienda'</a>
 
+<h3>Numero totale coupon emessi {{$num}}</h3>
+
 </div>
 
 
