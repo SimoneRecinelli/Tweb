@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StaffController;
 use App\Http\Middleware\Authenticate;
 
 /*
@@ -17,10 +18,6 @@ use App\Http\Middleware\Authenticate;
 |
 */
 
-
-
-
-/*---------------------- NOSTRE ROTTE ---------------*/
 
 /* Rotta per la vista 'home' */
 Route::get('/', [PublicController::class, 'showHome']) ->name('home');
@@ -47,7 +44,7 @@ Route::get('/azienda/{id}', [PublicController::class, 'showSingleAzienda'])->nam
 
 
 /* Rotta per la vista 'coupon' */
-Route::get('/coupon/{idOfferta}', [PublicController::class, 'showCoupon']) ->name('coupon');
+Route::get('/coupon/{IdOfferta?}', [PublicController::class, 'showCoupon']) ->name('coupon');
 
 /* Rotta per la vista 'registrati' */
 Route::get('/registrazione', [PublicController::class, 'showSignIn']) ->name('registrazione');
@@ -116,4 +113,24 @@ Route::get('/prova', [PublicController::class, 'showCatalog']) ->name('prova');
 /* CUD Users -------------------------------------------------------------------------------------------- */
 Route::get('/updateProfile', [UserController::class, 'updateProfile'])->name('updateProfile');
 Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile');
+/* ------------------------------------------------------------------------------------------------------ */
+
+Route::get('/homestaff', [StaffController::class, 'showHomeStaff'])->name('homestaff');
+
+/* CUD Offerte -------------------------------------------------------------------------------------------- */
+Route::get('/insertofferta', [StaffController::class, 'insertofferta'])->name('insertofferta');
+
+Route::post('/storeofferta', [StaffController::class, 'storeofferta'])->name('storeofferta');
+
+Route::get('/deleteofferta', [StaffController::class, 'deleteofferta'])->name('deleteofferta');
+
+Route::delete('/destroyofferta/{id}', [StaffController::class, 'destroyofferta'])->name('destroyofferta');
+
+Route::get('/modificaofferta', [StaffController::class, 'modificaofferta'])->name('modificaofferta');
+
+Route::get('/updateofferta/{id}', [StaffController::class, 'updateofferta'])->name('updateofferta');
+
+Route::put('/modifyofferta/{id}', [StaffController::class, 'modifyofferta'])->name('modifyofferta');
+
+
 /* ------------------------------------------------------------------------------------------------------ */

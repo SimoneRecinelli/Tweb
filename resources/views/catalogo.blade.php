@@ -35,7 +35,7 @@
     <p>Siamo spiacenti ma i parametri da lei selezionati non hanno prodotto nessuno risultato</p>
     @else
     @foreach($offerte as $offerta)
-            <a class="card" href="{{route('coupon', [$offerta->idOfferta])}}" >
+            <a class="card" href="{{route('coupon', [$offerta->IdOfferta])}}">
                 <h3>{{$offerta->Azienda}}</h3>
                 <div class="image">
                         @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])

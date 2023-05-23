@@ -8,6 +8,8 @@
             @if ($aziende->isEmpty())
                 <div class="catalogo-empty">Non sono disponibili Aziende</div>
             @else
+            @isset($aziende)
+
                 @foreach($aziende as $azienda)
                     <a class="card" href="{{route('paginaazienda', [$azienda->id])}}">
                     <p>{{ $azienda->Nome }}</p>
@@ -17,6 +19,8 @@
                     
                     </a>
                 @endforeach
+                @include('pagination.paginator', ['paginator' => $aziende])
+                @endisset()
             @endif
         </div>
     </div>

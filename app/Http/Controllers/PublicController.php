@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
 
-   /* protected $_catalogModel;
+    protected $_catalogModel;
 
     public function __construct() {
         $this->_catalogModel = new Catalog;
@@ -24,10 +24,10 @@ class PublicController extends Controller
 
 
     public function showHome(): View
-    {
-        $offerteInEvidenza = Offerta::where('Evidenza', 'sì')->get();
-        return view('home', ['offerte' => $offerteInEvidenza]);
-    }
+{
+    $offerteInEvidenza = Offerta::getOfferteEvidenza();
+    return view('home', ['offerte' => $offerteInEvidenza]);
+}
     
 
 /*
@@ -88,33 +88,20 @@ class PublicController extends Controller
     }
 
 */
-/*
+
 public function showCatalog($Categoria='Animali'): View {
     $offerte = $this->_catalogModel->getOffByCat($Categoria);
     return view('catalog')->with('offerte',$offerte);
        
-} */
-public function showCatalog($Categoria=null): View {
-    
-    $categorie = Offerta::all()->pluck('Categoria')->unique();
-    if(isset($Categoria)){
-        $offerte = Offerta::all()->where('Categoria',$Categoria);
-        $catselezionata=$Categoria;
-    }else{
-        $offerte = Offerta::all();
-        $catselezionata=null;
-    }
-    return view('catalogo')->with('offerte',$offerte)->with('categorie',$categorie)->with('catselezionata',$catselezionata);
-       
-}
+} 
 
 
+/* funzione prima di inserire il paginate
 public function showAziende()
 {
     $aziende = Azienda::all();
-    
     return view('aziende', compact('aziende'));
-}
+}*/
 
 public function showSingleAzienda($id): View
 {
@@ -126,10 +113,18 @@ public function showSingleAzienda($id): View
 /**
      * Show faq page for a public user.
      */
-    public function showFaq(): View {
+
+
+     public function showFaq(): View {
+        $faqs = Faq::paginate(4);
+        return view('faq', compact('faqs'));
+    }
+    
+
+  /*  public function showFaq(): View {
         $faqs=Faq::all();
         return view('faq')->with('faqs',$faqs);
-    }
+    }*/
     /**
      * Show info page for a public user.
      */
@@ -145,8 +140,8 @@ public function showSingleAzienda($id): View
     /**
      * Show coupon page for a public user.
      */
-    public function showCoupon($idOfferta): View {
-        $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
+    public function showCoupon($IdOfferta): View {
+        $selOfferta = Offerta::all()->where('IdOfferta', $IdOfferta)->first();
         
         return view('coupon')->with('selOfferta',$selOfferta);
     }
@@ -190,7 +185,5 @@ public function showSingleAzienda($id): View
 
         return view('catalogo', compact('offerta_pagin'));
     }
-
-
 }
 
