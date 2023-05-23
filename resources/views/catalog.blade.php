@@ -18,7 +18,7 @@
         <h2>Offerte</h2>
         
     @foreach($offerte as $offerta)
-            <a class="card" href="{{route('coupon', [$offerta->IdOfferta])}}">
+            <a class="card" href="{{route('coupon', [$offerta->id])}}">
                 <h3>{{$offerta->Azienda}}</h3>
                 <div class="image">
                         @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
