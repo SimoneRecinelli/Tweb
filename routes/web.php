@@ -110,5 +110,4 @@ require __DIR__.'/auth.php';
 
 //Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
-Route::get('/profile/{id}', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'showProfile'])->name('profile');
 Route::get('/prova', [PublicController::class, 'showCatalog']) ->name('prova');
