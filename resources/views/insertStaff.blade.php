@@ -1,7 +1,6 @@
 @extends('public')
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
 
 <section class="form_section">
     

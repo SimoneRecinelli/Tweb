@@ -1,6 +1,13 @@
 @extends('public')
 @section('content')
-    {{ Form::open(array('route' => ['putProfile'], 'method' => 'POST')) }}
+
+<link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
+
+<section class="form_section">
+    
+    <h2 class="titolo">Inserisci Azienda</h2>
+
+    {{ Form::open(array('route' => ['putProfile'], 'method' => 'POST', 'class' => 'form-wrapper')) }}
     @method('PUT')
     {{ Form::token() }}
     {{ Form::label('nome', 'Nome:') }}
@@ -93,4 +100,6 @@
         </a>
         {{ Form::submit('Modifica profilo', ['class' => 'btn btn-primary']) }}
         {{ Form::close() }}
+        </section>
+
         @endsection
