@@ -3,8 +3,8 @@
 namespace App\Models;
 use App\Models\Offerta;
 
-
-/*use App\Models\Resources\Category;
+/*
+use App\Models\Resources\Category;
 use App\Models\Resources\Product;
 
 class Catalog {
@@ -33,9 +33,9 @@ class Catalog {
         return $prods->paginate($paged);
     }
 
-}*/
+}
 
-
+*/
 class Catalog {
 
     // Estrae i prodotti della categoria/e $catId (tutti o solo quelli in sconto), eventualmente ordinati
