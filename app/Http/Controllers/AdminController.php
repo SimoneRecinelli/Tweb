@@ -171,14 +171,16 @@ public function updatefaq($id){
     $faq=Faq::all()->where('id',$id)->first();
     return view('modifyfaq')->with('faq',$faq);
 }
-public function modifyfaq(NewFaqRequest $request, $id){
-    $faq = $faq=Faq::all()->where('id',$id)->first();
-    $faq->Domanda=$request->input('Domanda');
-    $faq->Risposta=$request->input('Risposta');
+public function modifyfaq(NewFaqRequest $request, $id)
+{
+    $faq = $faq = Faq::all()->where('id', $id)->first();
+    $faq->Domanda = $request->input('Domanda');
+    $faq->Risposta = $request->input('Risposta');
     $faq->save();
     return redirect('faq');
+}
 
-/* GESTIONE MEMBRI STAFF---------------------------------------------------------------------------------------------------*/
+/* GESTIONE MEMBRI STAFF--------------------------------------------------------------------------------------------------- */
     public function insertStaff(){
         return view('insertStaff');
     }
@@ -206,8 +208,8 @@ public function modifyfaq(NewFaqRequest $request, $id){
         }
 
 
-    /* ----------------------------------------------------------------------------------------------------*/
-}
+
+
 //---------------------------------------------------------------------------------------------------------------------------//
 
 
