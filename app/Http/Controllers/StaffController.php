@@ -52,20 +52,26 @@ class StaffController extends Controller {
         return view('modificaofferta')->with('offerte',$offerte);
     }
     
-    public function updateazienda($id){
-        $azienda=Azienda::all()->where('id',$id)->first();
-        return view('modifyazienda')->with('azienda',$azienda);
+    public function updateofferta($id){
+        $offerta=Offerta::all()->where('id',$id)->first();
+        return view('modifyofferta')->with('offerta',$offerta);
     }
     
-    public function modifyazienda(NewAziendaRequest $request,$id)
+    public function modifyofferta(NewOffertaRequest $request,$id)
     {
     
-        $azienda = Azienda::find($id);
-        $azienda->Nome=$request->input('Nome');
-        $azienda->Sede=$request->input('Sede');
-        $azienda->Tipologia=$request->input('Tipologia');
-        $azienda->RagioneSociale=$request->input('RagioneSociale');
-        $azienda->save();
-        return redirect('amministratore');
+        $offerta = Offerta::find($id);
+        $offerta->DescrizioneOfferta=$request->input('DescrizioneOfferta');
+        $offerta->Categoria=$request->input('Categoria');
+        $offerta->Scadenza=$request->input('Scadenza');
+        $offerta->Oggetto=$request->input('Oggetto');
+        $offerta->Azienda=$request->input('Azienda');
+        $offerta->Prezzo=$request->input('Prezzo');
+        $offerta->PercentualeSconto=$request->input('PercentualeSconto');
+        $offerta->Luogo=$request->input('Luogo');
+        $offerta->Modalità=$request->input('Modalità');
+        $offerta->Evidenza=$request->input('Evidenza');
+        $offerta->save();
+        return redirect('homestaff');
     }
 }

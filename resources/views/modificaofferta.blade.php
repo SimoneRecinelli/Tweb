@@ -1,17 +1,26 @@
 @extends('public')
 @section('content')
 
-@foreach($aziende as $azienda)
-{{ Form::open(array('route' => ['updateazienda', $azienda->id], 'method' => 'GET')) }}
+@foreach($offerte as $offerta)
+{{ Form::open(array('route' => ['updateofferta', $offerta->id], 'method' => 'GET')) }}
 @method('GET')
 {{ Form::token() }}
 <a class="card" >
                 <img src="{{ asset('img/amazon.png') }}?t={{ time() }}" >
             <div class="container_card">
-                <p>{{$azienda->Nome}}</p>
+                <p>{{$offerta->DescrizioneOfferta}}</p>
+                <p>{{$offerta->Categoria}}</p>
+                <p>{{$offerta->Scadenza}}</p>
+                <p>{{$offerta->Oggetto}}</p>
+                <p>{{$offerta->Azienda}}</p>
+                <p>{{$offerta->Prezzo}}</p>
+                <p>{{$offerta->PercentualeSconto}}</p>
+                <p>{{$offerta->Luogo}}</p>
+                <p>{{$offerta->Modalità}}</p>
+                <p>{{$offerta->Evidenza}}</p>
             </div>
             </a>
-            {{ Form::submit('Modifica azienda', ['class' => 'btn btn-primary']) }}
+            {{ Form::submit('Modifica offerta', ['class' => 'btn btn-primary']) }}
             {{ Form::close() }}  
         @endforeach
 
