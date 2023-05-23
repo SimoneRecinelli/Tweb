@@ -89,9 +89,17 @@ class PublicController extends Controller
 
 */
 
-public function showCatalog($Categoria='Animali'): View {
-    $offerte = $this->_catalogModel->getOffByCat($Categoria);
-    return view('catalog')->with('offerte',$offerte);
+public function showCatalog($Categoria=null): View {
+    $categorie=Offerta::all()->pluck('Categoria')->unique();
+    if(isset($Categoria)){
+        $offerte=Offerta::all()->where('Categoria',$Categoria);
+        $catselezionata=$Categoria;
+    }else{
+        $offerte=Offerta::all();
+        $catselezionata=null;
+
+    }
+    return view('catalogo')->with('offerte',$offerte)->with('categorie',$categorie)->with('catselezionata',$catselezionata);
        
 } 
 
@@ -140,8 +148,8 @@ public function showSingleAzienda($id): View
     /**
      * Show coupon page for a public user.
      */
-    public function showCoupon($IdOfferta): View {
-        $selOfferta = Offerta::all()->where('IdOfferta', $IdOfferta)->first();
+    public function showCoupon($idOfferta): View {
+        $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
         
         return view('coupon')->with('selOfferta',$selOfferta);
     }
