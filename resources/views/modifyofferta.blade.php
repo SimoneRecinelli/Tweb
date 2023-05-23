@@ -94,7 +94,7 @@
 
 
     {{Form::label('Modalità', 'Modalità') }}
-    {{ Form::text('Modalità', $offerta->Luogo, ['class' => 'form-control']) }}<br>
+    {{ Form::text('Modalità', $offerta->Modalità, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Modalità'))
                 <ul class="errors">
                     @foreach ($errors->get('Modalità') as $message)
@@ -106,7 +106,7 @@
 
 
     {{Form::label('Evidenza', 'Evidenza') }}
-    {{ Form::text('Evidenza', $offerta->Luogo, ['class' => 'form-control']) }}<br>
+    {{ Form::text('Evidenza', $offerta->Evidenza, ['class' => 'form-control']) }}<br>
     @if ($errors->first('Evidenza'))
                 <ul class="errors">
                     @foreach ($errors->get('Evidenza') as $message)
