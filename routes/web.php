@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StaffController;
 use App\Http\Middleware\Authenticate;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -111,7 +112,8 @@ Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
 Route::get('/prova', [PublicController::class, 'showCatalog']) ->name('prova');
 
 /* CUD Users -------------------------------------------------------------------------------------------- */
-Route::get('/updateProfile', [UserController::class, 'updateProfile'])->name('updateProfile');
+Route::get('/showUser', [UserController::class, 'showUser'])->name('showUser');
+Route::put('/putProfile', [UserController::class, 'updateProfile'])->name('putProfile');
 Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile');
 /* ------------------------------------------------------------------------------------------------------ */
 
@@ -131,6 +133,14 @@ Route::get('/modificaofferta', [StaffController::class, 'modificaofferta'])->nam
 Route::get('/updateofferta/{id}', [StaffController::class, 'updateofferta'])->name('updateofferta');
 
 Route::put('/modifyofferta/{id}', [StaffController::class, 'modifyofferta'])->name('modifyofferta');
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+/* CUD Staff -------------------------------------------------------------------------------------------- */
+Route::get('/insertStaff', [AdminController::class, 'insertStaff'])->name('insertStaff');
+
+Route::post('/storeStaff', [AdminController::class, 'storeStaff'])->name('storeStaff');
 
 
 /* ------------------------------------------------------------------------------------------------------ */

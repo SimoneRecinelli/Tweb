@@ -21,12 +21,16 @@
     @endif
 
     <h2> Gestione aziende</h2>
-<a href="{{route('insertazienda')}}">inserisci un'azienda'</a>
-<a href="{{route('deleteazienda')}}">elimina un'azienda'</a>
-<a href="{{route('modificaazienda')}}">modifica un'azienda'</a>
+        <a href="{{route('insertazienda')}}">Inserisci un'azienda'</a>
+        <a href="{{route('deleteazienda')}}">Elimina un'azienda'</a>
+        <a href="{{route('modificaazienda')}}">Modifica un'azienda'</a>
 
 <h3>Numero totale coupon emessi {{$num}}</h3>
 
+    <h2> Gestione Membri Dello Staff </h2>
+        <a href="{{route('insertStaff')}}">Inserisci un membro dello staff</a>
+        <a href="{{route('insertazienda')}}">Modifica un membro dello staff</a>
+        <a href="{{route('insertazienda')}}">Elimina un membro dello staff</a>
 </div>
 
 

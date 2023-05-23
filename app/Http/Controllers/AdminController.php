@@ -9,8 +9,10 @@ use App\Models\Azienda;
 use App\Models\Coupon;
 use App\Models\Offerta;
 use App\Models\Faq;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewAziendaRequest;
+use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,6 +67,7 @@ public function homeadmin(){
    return view('homeadmin')->with('aziende',$aziende)->with('num',$num);
 }
 
+/* GESTIONE AZIENDE --------------------------------------------------------------------------------------------------*/
 public function insertazienda(){
     return view('insertazienda');
 }
@@ -125,15 +128,14 @@ public function modifyazienda(NewAziendaRequest $request,$id)
     $azienda->save();
     return redirect('amministratore');
 }
+/* ------------------------------------------------------------------------------------------------------*/
 
-/* FAQ-------------------------------------------------------------------------------------------------*/
+/* GESTIONE FAQ-------------------------------------------------------------------------------------------------*/
 public function insertfaq(){
 
     return view('insertfaq');
 
-
 }
-
 
 public function storefaq(NewFaqRequest $request){
 
@@ -147,8 +149,6 @@ public function storefaq(NewFaqRequest $request){
     else{
         return redirect('faq');
     }
-
-
 }
 
 public function deletefaq(){
@@ -178,6 +178,35 @@ public function modifyfaq(NewFaqRequest $request, $id){
     $faq->save();
     return redirect('faq');
 
+/* GESTIONE MEMBRI STAFF---------------------------------------------------------------------------------------------------*/
+    public function insertStaff(){
+        return view('insertStaff');
+    }
+
+    public function storeStaff(NewStaffRequest $request){
+
+        $staff = new Staff();
+        $staff->nome = $request->input('nome');
+        $staff->cognome = $request->input('cognome');
+        $staff->email = $request->input('email');
+        $staff->eta = $request->input('eta');
+        $staff->telefono = $request->input('telefono');
+        $staff->residenza = $request->input('residenza');
+        $staff->username = $request->input('username');
+        $staff->password = $request->input('password');
+        $staff->genere = $request->input('genere');
+
+        // Imposta il ruolo come "staff"
+        $staff->ruolo = 'staff';
+
+        // Salva il nuovo utente staff nel database
+        $staff->save();
+
+        return redirect('homeadmin');
+        }
+
+
+    /* ----------------------------------------------------------------------------------------------------*/
 }
 //---------------------------------------------------------------------------------------------------------------------------//
 
