@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-
+/*
     protected $_catalogModel;
 
     public function __construct() {
