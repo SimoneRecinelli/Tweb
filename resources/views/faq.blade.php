@@ -6,7 +6,7 @@
 @can('isAdmin')
 <div class="gestione-faq">
   <a href="{{ route('insertfaq') }}">Inserisci Faq</a>
-  <a href="{{ route('modificafaq') }}">Modifica Faq</a>
+  <a href="{{ route('gestionefaq') }}">Modifica Faq</a>
   <a href="{{ route('deletefaq') }}">Elimina Faq</a>
   
 </div>
