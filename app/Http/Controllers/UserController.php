@@ -57,6 +57,7 @@ class userController extends Controller {
         $user->telefono = $validatedData['telefono'];
         $user->eta = $validatedData['eta'];
         $user->residenza = $validatedData['residenza'];
+        $user->genere =($validatedData['genere']==0)?'Uomo':'Donna';
         // Aggiorna gli altri campi del profilo dell'utente
         // ...
 
