@@ -36,23 +36,22 @@
     @else
 
     @isset($offerte)
-
     @foreach($offerte as $offerta)
-            <a class="card" >
-                <h3>{{$offerta->Azienda}}</h3>
+            <a class="card" href="{{ route('coupon', [$offerta->idOfferta]) }}" >
+                <h3>{{$offerta->NomeAzienda}}</h3>
                 <div class="image">
                         @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
                     </div>
             <div class="container_card">
                 <p>{{$offerta->Oggetto}}</p>
-                <p>{{$offerta->idOfferta}}</p>
                 <p style="font-size:30px;">-{{$offerta->PercentualeSconto}}%</p>
             </div>
             </a>
             
         @endforeach
-       @include('pagination.paginator', ['paginator' => $offerte])
+        @include('pagination.paginator', ['paginator' => $offerte])
                 @endisset()
+       
     @endif
         
    

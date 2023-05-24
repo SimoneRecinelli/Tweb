@@ -18,7 +18,7 @@
 
         <p> Categoria: {{$selOfferta->Categoria}}</p>
 
-        <p> Azienda: {{$selOfferta->Azienda}}</p>
+        <p> Azienda: {{$selOfferta->NomeAzienda}}</p>
 
         <p> Scadenza: {{$selOfferta->Scadenza}} ( @include('helpers/ExpirationHelper', ['expirationDate' => $selOfferta->Scadenza])
 )</p>

@@ -29,7 +29,6 @@ class PublicController extends Controller
     return view('home', ['offerte' => $offerteInEvidenza]);
 }
   
-
 public function showCatalog($Categoria = null): View {
     $categorie = Offerta::all()->pluck('Categoria')->unique();
 
@@ -37,7 +36,7 @@ public function showCatalog($Categoria = null): View {
         $offerte = Offerta::where('Categoria', $Categoria)->paginate(2);
         $catselezionata = $Categoria;
     } else {
-        $offerte = Offerta::paginate(2);
+        $offerte = Offerta::paginate(5);
         $catselezionata = null;
     }
 
@@ -121,8 +120,8 @@ public function showSingleAzienda($idAzienda): View
 
     public function search(Request $request)
     {
-        $oggetto = $request->input('oggetto');
-        $azienda = $request->input('azienda');
+        $oggetto = $request->input('Oggetto');
+        $azienda = $request->input('NomeAzienda');
         
         if(isset($oggetto)&&($azienda==null))
         {
@@ -130,18 +129,18 @@ public function showSingleAzienda($idAzienda): View
         }
         else if(isset($azienda)&&($oggetto==null))
         {
-            $results = Offerta::where('Azienda', 'like', '%' . $azienda . '%')->get();
+            $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->get();
         }
 
         else if(isset($oggetto)&&(isset($azienda))) {
-            $results = Offerta::where('Azienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
+            $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
         }
         else{
-            $results = Offerta::all();
+            $results = Offerta::getOfferte();
         }
         
 
-        $categorie = Offerta::all()->pluck('Categoria')->unique();  
+        $categorie = Offerta::getOfferte()->pluck('Categoria')->unique();  
         
         return view('catalogo')->with('offerte' , $results)->with('categorie',$categorie);
         

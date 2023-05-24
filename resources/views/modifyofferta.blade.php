@@ -46,7 +46,7 @@
 
 
     {{Form::label('NomeAzienda', 'Nome Azienda') }}
-    {{ Form::text('NomeAzienda', $offerta->NomeAzienda, ['class' => 'form-control']) }}<br>
+    {{ Form::select('NomeAzienda', $aziende,$offerta->NomeAzienda, ['class' => 'form-control']) }}<br>
     @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
                     @foreach ($errors->get('NomeAzienda') as $message)
