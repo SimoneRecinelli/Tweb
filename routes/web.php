@@ -115,10 +115,14 @@ Route::get('/prova', [PublicController::class, 'showCatalog']) ->name('prova');
 /* CUD Users -------------------------------------------------------------------------------------------- */
 Route::get('/showUser', [UserController::class, 'showUser'])->name('showUser');
 Route::put('/putProfile', [UserController::class, 'updateProfile'])->name('putProfile');
+Route::get('/modificapassword', [UserController::class, 'modificapassword'])->name('modificapassword');
+Route::put('/putpassword', [UserController::class, 'putpassword'])->name('putpassword');
 Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile');
 /* ------------------------------------------------------------------------------------------------------ */
 
 Route::get('/homestaff', [StaffController::class, 'showHomeStaff'])->name('homestaff');
+Route::get('/gestioneOfferte', [StaffController::class, 'gestioneOfferte'])->name('gestioneOfferte');
+
 
 /* CUD Offerte -------------------------------------------------------------------------------------------- */
 Route::get('/insertofferta', [StaffController::class, 'insertofferta'])->name('insertofferta');

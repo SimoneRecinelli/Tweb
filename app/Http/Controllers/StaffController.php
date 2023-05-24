@@ -17,6 +17,10 @@ class StaffController extends Controller {
         return view('homestaff');
     }
 
+    public function gestioneOfferte() {
+        return view('gestioneOfferte');
+    }
+
     public function insertofferta(){
         $model = new Azienda;
         $aziende = $model->getAziende();

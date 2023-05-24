@@ -49,6 +49,13 @@
             @endauth
 
             @auth
+                @if(Auth::user()->can('isStaff'))
+                    <li class="center"><a href="{{route('gestioneOfferte')}}">Gestione Offerte</a></li>
+                    <li class="center"><a href="{{route('homestaff')}}">Home Staff</a></li>
+                @endif
+            @endauth
+
+            @auth
             <li><a href="{{route('profile')}}" class="profilo">Profilo</a></li>
             <li><a href="" title="Esci dal sito" class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
