@@ -1,7 +1,7 @@
 @extends('public')
 @section('content')
 @foreach($offerte as $offerta)
-{{ Form::open(array('route' => ['destroyofferta', $offerta->id], 'method' => 'POST')) }}
+{{ Form::open(array('route' => ['destroyofferta', $offerta->idOfferta], 'method' => 'POST')) }}
 @method('DELETE')
 {{ Form::token() }}
 <a class="card" >
@@ -11,7 +11,7 @@
                 <p>Categoria: {{$offerta->Categoria}}</p>
                 <p>Scadenza: {{$offerta->Scadenza}}</p>
                 <p>Oggetto: {{$offerta->Oggetto}}</p>
-                <p>Azienda: {{$offerta->Azienda}}</p>
+                <p>Azienda: {{$offerta->idOfferta}}</p>
                 <p>Prezzo: {{$offerta->Prezzo}}</p>
                 <p>Percentuale Sconto: {{$offerta->PercentualeSconto}}%</p>
                 <p>Luogo: {{$offerta->Luogo}}</p>
