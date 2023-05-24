@@ -67,8 +67,8 @@ class DatabaseSeeder extends Seeder {
                 'updated_at' => date("Y-m-d H:i:s")]
         ]);
     }
-    */
-
+    
+/*
 
     DB::table('Aziende')->insert([
         [
@@ -159,7 +159,7 @@ class DatabaseSeeder extends Seeder {
          'Luogo'=>'Evento',
          'Modalità'=>'Utilizzo online',
         'Evidenza'=>'sì',
-        'image' => 'AirForce.png'],
+        'image' => 'AirForce.png'],*/
 
         /*['Categoria'=>'Animali',
         'DescrizioneOfferta'=> '...',
@@ -248,8 +248,8 @@ class DatabaseSeeder extends Seeder {
         'Luogo'=>'Negozio fisico',
         'Modalità'=>'Utilizzo online',
         'Evidenza'=>'no',
-        'image' => 'Tiragraffi.png']*/
-    ]);
+        'image' => 'Tiragraffi.png']
+    ]);*/
 
     DB::table('users')->insert([
         [
@@ -318,7 +318,7 @@ class DatabaseSeeder extends Seeder {
             'username' => 'dieghezstaff',
         ]
     ]);
-
+/*
     DB::table('Faqs')->insert([
         ['Domanda'=>'come stai?',
         'Risposta'=>'bene'],
@@ -334,7 +334,7 @@ class DatabaseSeeder extends Seeder {
             'id' => '2',
             'idOfferta' => '4',
         ]
-        ]);
+        ]);*/
 
 }
 }

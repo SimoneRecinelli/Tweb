@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('cognome');
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('username',20);
+            $table->string('username',20)->unique();
             $table->string('password');
             $table->string('role',10)->default('user');
             $table->string('telefono',25);

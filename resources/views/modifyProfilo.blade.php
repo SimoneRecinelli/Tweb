@@ -3,6 +3,8 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
 
+
+
 <section class="form_section">
     
     <h2 class="titolo">Inserisci Azienda</h2>
@@ -78,15 +80,9 @@
             @endforeach
         </ul>
         @endif
-    {{Form::label('password', 'Password:') }}
-    {{ Form::text('password', $user->password, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('password'))
-        <ul class="errors">
-            @foreach ($errors->get('password') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
+        
+      
+
     {{Form::label('genere', 'Genere:') }}
     {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'form-control']) }}<br>
     @if ($errors->first('genere'))
