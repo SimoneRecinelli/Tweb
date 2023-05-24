@@ -43,7 +43,15 @@
 
             @auth
                 @if(Auth::user()->can('isAdmin'))
-                    <li class="center"><a href="{{route('amministratore')}}">Gestione</a></li>
+                    <li class="center"><a href="{{route('gestioneAdmin')}}">Gestione</a></li>
+                    <li class="center"><a href="{{route('amministratore')}}">Home Admin</a></li>
+                @endif
+            @endauth
+
+            @auth
+                @if(Auth::user()->can('isStaff'))
+                    <li class="center"><a href="{{route('gestioneOfferte')}}">Gestione Offerte</a></li>
+                    <li class="center"><a href="{{route('homestaff')}}">Home Staff</a></li>
                 @endif
             @endauth
 

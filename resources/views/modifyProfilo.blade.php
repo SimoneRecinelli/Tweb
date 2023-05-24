@@ -7,7 +7,7 @@
 
 <section class="form_section">
     
-    <h2 class="titolo">Inserisci Azienda</h2>
+    <h2 class="titolo">Inserisci Profilo</h2>
 
     {{ Form::open(array('route' => ['putProfile'], 'method' => 'POST', 'class' => 'form-wrapper')) }}
     @method('PUT')

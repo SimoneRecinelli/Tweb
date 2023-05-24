@@ -35,6 +35,7 @@
     <p>Siamo spiacenti ma i parametri da lei selezionati non hanno prodotto nessuno risultato</p>
     @else
 
+    @isset($offerte)
     @foreach($offerte as $offerta)
             <a class="card" href="{{ route('coupon', [$offerta->idOfferta]) }}" >
                 <h3>{{$offerta->NomeAzienda}}</h3>
@@ -48,6 +49,8 @@
             </a>
             
         @endforeach
+        @include('pagination.paginator', ['paginator' => $offerte])
+                @endisset()
        
     @endif
         

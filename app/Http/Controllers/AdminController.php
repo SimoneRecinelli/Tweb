@@ -18,16 +18,18 @@ use Illuminate\Support\Facades\Hash;
 
 
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
-  /*  protected $_adminModel;
+    /*  protected $_adminModel;
 
-    public function __construct() {
-        $this->_adminModel = new Admin;
-        $this->middleware('can:isAdmin');
-    } */
+      public function __construct() {
+          $this->_adminModel = new Admin;
+          $this->middleware('can:isAdmin');
+      } */
 
-    public function index() {
+    public function index()
+    {
         return view('admin');
     }
 
@@ -62,132 +64,153 @@ class AdminController extends Controller {
     }
 */
 
-public function homeadmin(){
-    $aziende = Azienda::all();
-    $ncoupon = new Coupon;
-    $num = $ncoupon->ncoupons();
-   return view('homeadmin')->with('aziende',$aziende)->with('num',$num);
-}
-
-/* GESTIONE AZIENDE --------------------------------------------------------------------------------------------------*/
-public function insertazienda(){
-    return view('insertazienda');
-}
-
-public function storeazienda(NewAziendaRequest $request){
-    $azienda = new Azienda;
-    //bisogna controllare tramite form che tutti i campi siano inseriti
-
-    $azienda->NomeAzienda=$request->input('NomeAzienda');
-    $azienda->Sede=$request->input('Sede');
-    $azienda->Tipologia=$request->input('Tipologia');
-    $azienda->RagioneSociale=$request->input('RagioneSociale');
-    $azienda->save();
-
-    return redirect('amministratore');
-
-}
-
-public function deleteazienda(){
-    $aziende=Azienda::all();
-    return view('deleteazienda')->with('aziende',$aziende);
-}
-
-public function destroyazienda($idAzienda){
-    $azienda=Azienda::find($idAzienda);
-    $offerte=Offerta::all()->where('Azienda',$azienda->NomeAzienda);
-    
-    
-    foreach($offerte as $offerta){
-        
-        
-        $idAzienda=$offerta->idAzienda;
-        Offerta::destroy($idAzienda);
+    public function homeadmin()
+    {
+        $aziende = Azienda::all();
+        $ncoupon = new Coupon;
+        $num = $ncoupon->ncoupons();
+        return view('homeadmin')->with('aziende', $aziende)->with('num', $num);
     }
-    
-    Azienda::destroy($idAzienda);
-    return redirect('amministratore');
-}
 
-public function modificaazienda(){
-    $aziende=Azienda::all();
-    return view('modificaazienda')->with('aziende',$aziende);
-}
+    public function gestioneAdmin() {
+        $azienda = new Azienda();
+        $aziende = $azienda->getAllAziende();
+        return view('gestioneAdmin')->with('aziende', $aziende);
+    }
 
-public function updateazienda($idAzienda){
-    $azienda=Azienda::all()->where('idAzienda',$idAzienda)->first();
-    return view('modifyazienda')->with('azienda',$azienda);
-}
+    /* GESTIONE AZIENDE --------------------------------------------------------------------------------------------------*/
+    public function insertazienda()
+    {
+        return view('insertazienda');
+    }
 
-public function modifyazienda(NewAziendaRequest $request,$idAzienda)
-{
+    public function storeazienda(NewAziendaRequest $request)
+    {
+        $azienda = new Azienda;
+        //bisogna controllare tramite form che tutti i campi siano inseriti
 
-    $azienda = Azienda::find($idAzienda);
-    $azienda->NomeAzienda=$request->input('NomeAzienda');
-    $azienda->Sede=$request->input('Sede');
-    $azienda->Tipologia=$request->input('Tipologia');
-    $azienda->RagioneSociale=$request->input('RagioneSociale');
-    $azienda->save();
-    return redirect('amministratore');
-}
-/* ------------------------------------------------------------------------------------------------------*/
+        $azienda->NomeAzienda = $request->input('NomeAzienda');
+        $azienda->Sede = $request->input('Sede');
+        $azienda->Tipologia = $request->input('Tipologia');
+        $azienda->RagioneSociale = $request->input('RagioneSociale');
+        $azienda->save();
 
-/* GESTIONE FAQ-------------------------------------------------------------------------------------------------*/
-public function insertfaq(){
+        return redirect('amministratore');
 
-    return view('insertfaq');
+    }
 
-}
+    public function deleteazienda()
+    {
+        $aziende = Azienda::all();
+        return view('deleteazienda')->with('aziende', $aziende);
+    }
 
-public function storefaq(NewFaqRequest $request){
+    public function destroyazienda($idAzienda)
+    {
+        $azienda = Azienda::find($idAzienda);
+        $offerte = Offerta::all()->where('Azienda', $azienda->NomeAzienda);
 
-    $faq = new Faq;
-    if (isset($request->Domanda)&&isset($request->Risposta)){
+
+        foreach ($offerte as $offerta) {
+
+
+            $idAzienda = $offerta->idAzienda;
+            Offerta::destroy($idAzienda);
+        }
+
+        Azienda::destroy($idAzienda);
+        return redirect('amministratore');
+    }
+
+    public function modificaazienda()
+    {
+        $aziende = Azienda::all();
+        return view('modificaazienda')->with('aziende', $aziende);
+    }
+
+    public function updateazienda($idAzienda)
+    {
+        $azienda = Azienda::all()->where('idAzienda', $idAzienda)->first();
+        return view('modifyazienda')->with('azienda', $azienda);
+    }
+
+    public function modifyazienda(NewAziendaRequest $request, $idAzienda)
+    {
+
+        $azienda = Azienda::find($idAzienda);
+        $azienda->NomeAzienda = $request->input('NomeAzienda');
+        $azienda->Sede = $request->input('Sede');
+        $azienda->Tipologia = $request->input('Tipologia');
+        $azienda->RagioneSociale = $request->input('RagioneSociale');
+        $azienda->save();
+        return redirect('amministratore');
+    }
+    /* ------------------------------------------------------------------------------------------------------*/
+
+    /* GESTIONE FAQ-------------------------------------------------------------------------------------------------*/
+    public function insertfaq()
+    {
+
+        return view('insertfaq');
+
+    }
+
+    public function storefaq(NewFaqRequest $request)
+    {
+
+        $faq = new Faq;
+        if (isset($request->Domanda) && isset($request->Risposta)) {
+            $faq->Domanda = $request->input('Domanda');
+            $faq->Risposta = $request->input('Risposta');
+            $faq->save();
+            return redirect('faq');
+        } else {
+            return redirect('faq');
+        }
+    }
+
+    public function deletefaq()
+    {
+        $faqs = Faq::all();
+        return view('deletefaq')->with('faqs', $faqs);
+    }
+
+    public function destroyfaq($id)
+    {
+        Faq::destroy($id);
+        return redirect('faq');
+
+    }
+
+    public function gestionefaq()
+    {
+        $faqs = Faq::all();
+        return view('gestionefaq')->with('faqs', $faqs);
+    }
+
+    public function updatefaq($id)
+    {
+        $faq = Faq::all()->where('id', $id)->first();
+        return view('modifyfaq')->with('faq', $faq);
+    }
+
+    public function modifyfaq(NewFaqRequest $request, $id)
+    {
+        $faq = $faq = Faq::all()->where('id', $id)->first();
         $faq->Domanda = $request->input('Domanda');
-    $faq->Risposta = $request->input('Risposta');
-    $faq->save();
-    return redirect('faq');
-    }
-    else{
+        $faq->Risposta = $request->input('Risposta');
+        $faq->save();
         return redirect('faq');
     }
-}
 
-public function deletefaq(){
-    $faqs = Faq::all();
-    return view('deletefaq')->with('faqs',$faqs);
-}
-
-public function destroyfaq($id){
-    Faq::destroy($id);
-    return redirect('faq');
-
-}
-
-public function gestionefaq(){
-    $faqs = Faq::all();
-    return view('gestionefaq')->with('faqs',$faqs);
-}
-
-public function updatefaq($id){
-    $faq=Faq::all()->where('id',$id)->first();
-    return view('modifyfaq')->with('faq',$faq);
-}
-public function modifyfaq(NewFaqRequest $request, $id)
-{
-    $faq = $faq = Faq::all()->where('id', $id)->first();
-    $faq->Domanda = $request->input('Domanda');
-    $faq->Risposta = $request->input('Risposta');
-    $faq->save();
-    return redirect('faq');
-}
-
-/* GESTIONE MEMBRI STAFF--------------------------------------------------------------------------------------------------- */
-    public function insertStaff(){
+    /* GESTIONE MEMBRI STAFF--------------------------------------------------------------------------------------------------- */
+    public function insertStaff()
+    {
         return view('insertStaff');
     }
 
-    public function storeStaff(NewStaffRequest $request){
+    public function storeStaff(NewStaffRequest $request)
+    {
 
         $staff = new Staff();
         $staff->nome = $request->input('nome');
@@ -198,7 +221,7 @@ public function modifyfaq(NewFaqRequest $request, $id)
         $staff->residenza = $request->input('residenza');
         $staff->username = $request->input('username');
         $staff->password = Hash::make($request->input('password'));
-        $staff->genere =($request->input('genere')==0)?'Uomo':'Donna';
+        $staff->genere = ($request->input('genere') == 0) ? 'Uomo' : 'Donna';
 
         // Imposta il ruolo come "staff"
         $staff->role = 'staff';
@@ -207,14 +230,61 @@ public function modifyfaq(NewFaqRequest $request, $id)
         $staff->save();
 
         return redirect()->route('amministratore');
+    }
+
+    public function showStaff()
+    {
+        $staff = new Staff();
+        $staffMembers = $staff->getStaff();
+
+        return view('showStaff')->with('staff', $staffMembers);
+    }
+
+    public function updateStaff($id){
+        $staff=Staff::all()->where('id',$id)->first();
+        return view('modifyStaff')->with('staff',$staff);
+    }
+    public function modifyStaff(Request $request, $id) {
+            $staff = Staff::find($id);
+
+            if (!$staff) {
+                // Il membro dello staff non esiste, puoi gestire l'errore come preferisci
+                return redirect()->back()->with('error', 'Membro dello staff non trovato');
+            }
+
+            // Aggiorna i dati del profilo dello staff
+            $staff->nome = $request->input('nome');
+            $staff->cognome = $request->input('cognome');
+            $staff->email = $request->input('email');
+            $staff->eta = $request->input('eta');
+            $staff->telefono = $request->input('telefono');
+            $staff->residenza = $request->input('residenza');
+            $staff->username = $request->input('username');
+            $staff->password = $request->input('password');
+            $staff->genere = $request->input('genere');
+
+
+            // Salva le modifiche
+            $staff->save();
+
+            return redirect()->route('amministratore')->with('success', 'Profilo dello staff aggiornato con successo');
         }
 
+    public function deleteStaff()
+    {
+        $staff = new Staff();
+        $staffMembers = $staff->getStaff();
+
+        return view('deleteStaff')->with('staff', $staffMembers);
+    }
 
 
+    public function destroyStaff($id) {
+        Staff::destroy($id);
+        return redirect()->route('amministratore');
+    }
 
 //---------------------------------------------------------------------------------------------------------------------------//
-
-
 
 
 

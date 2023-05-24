@@ -17,6 +17,10 @@ class StaffController extends Controller {
         return view('homestaff');
     }
 
+    public function gestioneOfferte() {
+        return view('gestioneOfferte');
+    }
+
     public function insertofferta(){
         $model = new Azienda;
         $aziende = $model->getAziende();
@@ -60,15 +64,13 @@ class StaffController extends Controller {
     }
     
     public function modificaofferta(){
-        $offerte=Offerta::all();
-        return view('modificaofferta')->with('offerte',$offerte)->with();
+        $offerte=Offerta::getOfferte();
+        return view('modificaofferta')->with('offerte',$offerte);
     }
     
     public function updateofferta($idOfferta){
-        $offerta=Offerta::all()->where('idOfferta',$idOfferta)->first();
-        $model = new Azienda;
-        $aziende=$model->getAziende();
-        return view('modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
+        $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();
+        return view('modifyofferta')->with('offerta',$offerta);
     }
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)
@@ -92,15 +94,4 @@ class StaffController extends Controller {
         return redirect('homestaff');
     }
 
-    public function showProfile()
-    {
-        // Recupera l'utente autenticato
-        $user = Auth::user();
-
-        // Ottieni i dati del profilo dell'utente
-        $profileData = $user->getProfileData();
-
-        // Fai qualcosa con i dati del profilo (ad esempio, passali alla vista)
-        return view('profile', ['profileData' => $profileData]);
-    }
 }

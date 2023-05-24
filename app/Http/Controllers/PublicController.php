@@ -29,15 +29,14 @@ class PublicController extends Controller
     return view('home', ['offerte' => $offerteInEvidenza]);
 }
   
-
 public function showCatalog($Categoria = null): View {
     $categorie = Offerta::all()->pluck('Categoria')->unique();
 
     if(isset($Categoria)){
-        $offerte = Offerta::where('Categoria', $Categoria)->get();
+        $offerte = Offerta::where('Categoria', $Categoria)->paginate(2);
         $catselezionata = $Categoria;
     } else {
-        $offerte = Offerta::all();
+        $offerte = Offerta::paginate(5);
         $catselezionata = null;
     }
 
@@ -137,11 +136,11 @@ public function showSingleAzienda($idAzienda): View
             $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
         }
         else{
-            $results = Offerta::all();
+            $results = Offerta::getOfferte();
         }
         
 
-        $categorie = Offerta::all()->pluck('Categoria')->unique();  
+        $categorie = Offerta::getOfferte()->pluck('Categoria')->unique();  
         
         return view('catalogo')->with('offerte' , $results)->with('categorie',$categorie);
         
