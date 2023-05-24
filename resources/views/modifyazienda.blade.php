@@ -3,6 +3,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/formCRUD.css')}}">
 
+
 <section class="form_section">
 <div class="card">
 <h2 class="titolo"> Modifica Azienda</h2>
@@ -12,7 +13,7 @@
 @method('PUT')
 {{ Form::token() }}
 {{ Form::label('NomeAzienda', 'Nome Azienda') }}
-    {{ Form::textArea('NomeAzienda', $azienda->NomeAzienda, ['class' => 'form-control', 'id' => 'expandingTextarea']) }}
+    {{ Form::textArea('NomeAzienda', $azienda->NomeAzienda, ['class' => 'form-control']) }}
     @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
                     @foreach ($errors->get('NomeAzienda') as $message)
@@ -22,7 +23,7 @@
                 @endif
 
     {{Form::label('Sede', 'Sede') }}
-    {{ Form::textArea('Sede', $azienda->Sede, ['class' => 'form-control', 'id' => 'expandingTextarea']) }}
+    {{ Form::textArea('Sede', $azienda->Sede, ['class' => 'form-control']) }}
     @if ($errors->first('Sede'))
                 <ul class="errors">
                     @foreach ($errors->get('Sede') as $message)
@@ -32,7 +33,7 @@
                 @endif
 
     {{Form::label('Tipologia', 'Tipologia') }}
-    {{ Form::textArea('Tipologia', $azienda->Tipologia, ['class' => 'form-control', 'id' => 'expandingTextarea']) }}
+    {{ Form::textArea('Tipologia', $azienda->Tipologia, ['class' => 'form-control']) }}
     @if ($errors->first('Tipologia'))
                 <ul class="errors">
                     @foreach ($errors->get('Tipologia') as $message)
@@ -42,7 +43,7 @@
                 @endif
 
     {{Form::label('RagioneSociale', 'RagioneSociale') }}
-    {{ Form::textArea('RagioneSociale', $azienda->RagioneSociale, ['class' => 'form-control', 'id' => 'expandingTextarea']) }}
+    {{ Form::textArea('RagioneSociale', $azienda->RagioneSociale, ['class' => 'form-control']) }}
     @if ($errors->first('RagioneSociale'))
                 <ul class="errors">
                     @foreach ($errors->get('RagioneSociale') as $message)
@@ -63,9 +64,9 @@
 <script>
 $(document).ready(function() {
   // Seleziona tutte le textarea con l'ID "expandingTextarea" e aggiungi un gestore per l'evento di input
-  $('#expandingTextarea').on('input', function() {
+  $('.form-control').on('input', function() {
     // Imposta l'altezza minima della textarea (puoi modificarla a tuo piacimento)
-    var minHeight = 100;
+    var minHeight = 40;
     // Imposta l'altezza massima della textarea (puoi modificarla a tuo piacimento)
     var maxHeight = 300;
     
