@@ -72,21 +72,6 @@ Route::put('/modifyfaq/{id}', [AdminController::class, 'modifyfaq'])->name('modi
 /*------------------------------------------------------------------------------------------------------------------------*/
 
 
-/*CUD Azienda----------------------------------------------------------------------------------------------------------------*/
-Route::get('/insertazienda', [AdminController::class, 'insertazienda'])->name('insertazienda');
-
-Route::post('/storeazienda', [AdminController::class, 'storeazienda'])->name('storeazienda');
-
-Route::get('/deleteazienda', [AdminController::class, 'deleteazienda'])->name('deleteazienda');
-
-Route::delete('/destroyazienda/{idAzienda}', [AdminController::class, 'destroyazienda'])->name('destroyazienda');
-
-Route::get('/modificaazienda', [AdminController::class, 'modificaazienda'])->name('modificaazienda');
-
-Route::get('/updateazienda/{idAzienda}', [AdminController::class, 'updateazienda'])->name('updateazienda');
-
-Route::put('/modifyazienda/{idAzienda}', [AdminController::class, 'modifyazienda'])->name('modifyazienda');
-/*------------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -98,8 +83,7 @@ Route::put('/modifyazienda/{idAzienda}', [AdminController::class, 'modifyazienda
 
     }); */
 
-Route::get('/amministratore', [AdminController::class, 'homeadmin'])->name('amministratore');
-Route::get('/gestioneAdmin', [AdminController::class, 'gestioneAdmin'])->name('gestioneAdmin');
+
 
 Route::get('/homeuser', [UserController::class, 'showHomeUser'])->name('homeuser');
 
@@ -140,7 +124,13 @@ Route::put('/modifyofferta/{idOfferta}', [StaffController::class, 'modifyofferta
 
 /* ------------------------------------------------------------------------------------------------------ */
 
-/* CUD Staff -------------------------------------------------------------------------------------------- */
+/* ROTTE AMMINISTRATORE --------------------------------------------------- */
+
+Route::get('/amministratore', [AdminController::class, 'homeadmin'])->name('amministratore');
+Route::get('/gestioneAdmin', [AdminController::class, 'gestioneAdmin'])->name('gestioneAdmin');
+Route::get('/showStatistiche', [AdminController::class, 'showStatistiche'])->name('showStatistiche');
+
+/* CRUD Staff -------------------------------------------------------------------------------------------- */
 Route::get('/insertStaff', [AdminController::class, 'insertStaff'])->name('insertStaff');
 
 Route::post('/storeStaff', [AdminController::class, 'storeStaff'])->name('storeStaff');
@@ -155,3 +145,19 @@ Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('delet
 
 Route::delete('/destroyStaff/{id}', [AdminController::class, 'destroyStaff'])->name('destroyStaff');
 /* ------------------------------------------------------------------------------------------------------ */
+
+/*CRUD Azienda----------------------------------------------------------------------------------------------------------------*/
+Route::get('/insertazienda', [AdminController::class, 'insertazienda'])->name('insertazienda');
+
+Route::post('/storeazienda', [AdminController::class, 'storeazienda'])->name('storeazienda');
+
+Route::get('/deleteazienda', [AdminController::class, 'deleteazienda'])->name('deleteazienda');
+
+Route::delete('/destroyazienda/{idAzienda}', [AdminController::class, 'destroyazienda'])->name('destroyazienda');
+
+Route::get('/modificaazienda', [AdminController::class, 'modificaazienda'])->name('modificaazienda');
+
+Route::get('/updateazienda/{idAzienda}', [AdminController::class, 'updateazienda'])->name('updateazienda');
+
+Route::put('/modifyazienda/{idAzienda}', [AdminController::class, 'modifyazienda'])->name('modifyazienda');
+/*------------------------------------------------------------------------------------------------------------------------*/
