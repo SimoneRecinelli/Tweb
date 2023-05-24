@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use App\Models\Staff;
 use App\Models\Offerta;
+use App\Models\Azienda;
 
 class StaffController extends Controller {
 
@@ -17,7 +18,9 @@ class StaffController extends Controller {
     }
 
     public function insertofferta(){
-        return view('insertofferta');
+        $model = new Azienda;
+        $aziende = $model->getAziende();
+        return view('insertofferta')->with('aziende',$aziende);
     }
 
     public function storeofferta(NewOffertaRequest $request){
