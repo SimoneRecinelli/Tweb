@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Form;
 use App\Models\User;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -41,7 +42,7 @@ class userController extends Controller {
             'cognome' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'min:8'],
-            'password' => ['required', 'string'],
+            
             'telefono' => ['required', 'string', 'min:10'],
             'genere' => ['required','string'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
@@ -53,7 +54,7 @@ class userController extends Controller {
         $user->cognome = $validatedData['cognome'];
         $user->email = $validatedData['email'];
         $user->username = $validatedData['username'];
-        $user->password = $validatedData['password'];
+        //$user->password = Hash::make($validatedData['password']);
         $user->telefono = $validatedData['telefono'];
         $user->eta = $validatedData['eta'];
         $user->residenza = $validatedData['residenza'];
@@ -67,6 +68,35 @@ class userController extends Controller {
         $user->update();
 
         return redirect()->route('profile')->withErrors(['success' => 'Il profilo è stato aggiornato con successo.']);
+        //Aggiorna il profilo dell'utente con i nuovi dati
+        //$user->updateProfile($validatedData);
+
+    }
+
+    public function modificapassword(){
+        return view('modificapassword'); 
+    }
+
+    public function putpassword(Request $request){
+        // Recupera l'utente autenticato
+        $user = Auth::user();
+
+        //Validazione dei dati
+         $validatedData = $request->validate([
+            'password' => ['required',  Rules\Password::defaults()],
+        ]);
+
+        // Aggiorna i dati del profilo dell'utente con i nuovi valori
+        
+        $user->password = Hash::make($validatedData['password']);
+        
+
+
+        // Salva le modifiche
+        //$user->save();
+        $user->update();
+
+        return redirect()->route('profile');
         //Aggiorna il profilo dell'utente con i nuovi dati
         //$user->updateProfile($validatedData);
 
