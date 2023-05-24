@@ -35,7 +35,6 @@ class Staff extends Model {
         'password',
     ];
 
-
    /* public function getProfileData()
     {
         // Utilizza $this->id per ottenere l'ID dell'utente corrente

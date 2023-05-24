@@ -34,10 +34,10 @@ public function showCatalog($Categoria = null): View {
     $categorie = Offerta::all()->pluck('Categoria')->unique();
 
     if(isset($Categoria)){
-        $offerte = Offerta::where('Categoria', $Categoria)->paginate(2);
+        $offerte = Offerta::where('Categoria', $Categoria)->get();
         $catselezionata = $Categoria;
     } else {
-        $offerte = Offerta::paginate(2);
+        $offerte = Offerta::all();
         $catselezionata = null;
     }
 
@@ -121,7 +121,7 @@ public function showSingleAzienda($idAzienda): View
 
     public function search(Request $request)
     {
-        $oggetto = $request->input('oggetto');
+        $oggetto = $request->input('Oggetto');
         $azienda = $request->input('NomeAzienda');
         
         if(isset($oggetto)&&($azienda==null))
