@@ -136,11 +136,11 @@ public function showSingleAzienda($idAzienda): View
             $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
         }
         else{
-            $results = Offerta::all();
+            $results = Offerta::getOfferte();
         }
         
 
-        $categorie = Offerta::all()->pluck('Categoria')->unique();  
+        $categorie = Offerta::getOfferte()->pluck('Categoria')->unique();  
         
         return view('catalogo')->with('offerte' , $results)->with('categorie',$categorie);
         
