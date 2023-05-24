@@ -1,66 +1,84 @@
-
- .containerDomande{
-  margin-top: 140px;
- }
-
-.faq_section {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 100%;
-  font-size: 20px;
-  color:#fff;
-
+ *:before, *:after {
+  box-sizing: inherit;
 }
 
-.titolo {
-    font-size: 30px;
-    text-align: center;
-    color:#fff;
-  }
-
-#paragrafo {
-  margin-left: 5px;
+.container-faq {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 65px;
+  width: 1000px;  
+  color: #fff;
 }
 
-details {
-  padding: 15px;
-  margin-bottom: 2px;
-  border-radius: 25px;
-  color:#fff;
-}
-
-
-summary {
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 1.2em;
-}
-
-p{
-  color:#bbbbbb;
-}
-
-.gestione-faq{
-  
-  height: 50px;
-  background-color: #24262b;
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-
-
-
-.gestione-faq a{
-  
-  padding: 10px;
+h2 {
   text-align: center;
-  margin: 5px 10px;
-  text-decoration: none;
-  color: #bbb;
+  margin-bottom:15px;
 }
 
-.gestione-faq a:hover{
-  color:#fff;
-  text-decoration: underline;
+.accordion a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px 50px 15px 15px;
+  font-size: 18px;
+  font-weight: 400;
+  border-bottom: 1px solid #fff;
+}
+
+.accordion a:hover,
+.accordion a:hover::after {
+  cursor: pointer;
+  color: rgb(88,185,157);
+}
+.accordion a:hover::after {
+  border: 2px solid rgb(88,185,157);
+}
+
+.accordion a.active {
+  color: rgb(88,185,157);
+  border-bottom: rgb(88,185,157);
+}
+
+.accordion a::after {
+  font-family: 'Ionicons';
+  content: '\f218';
+  position: absolute;
+  float: right;
+  right: 15px;
+  font-size: 15px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  text-align: center;
+}
+
+.accordion a.active::after {
+  font-family: 'Ionicons';
+  color: rgb(88,185,157);
+  border: 2px solid rgb(88,185,157);
+}
+
+.accordion .question {
+  opacity: 0;
+  padding: 0 15px;
+  max-height: 0;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #fff;
+  overflow: hidden;
+  clear: both;
+  transition: all 0.2s ease 0.15s;
+}
+
+.accordion .question p {
+  font-size: 15px;
+  font-weight: 300;
+}
+.accordion .question.active {
+  opacity: 1;
+  padding: 15px;
+  max-height: 100%;
+  transition: all 0.35s ease 0.15s;
 }
