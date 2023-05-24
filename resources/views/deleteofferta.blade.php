@@ -11,7 +11,7 @@
                 <p>Categoria: {{$offerta->Categoria}}</p>
                 <p>Scadenza: {{$offerta->Scadenza}}</p>
                 <p>Oggetto: {{$offerta->Oggetto}}</p>
-                <p>Azienda: {{$offerta->idOfferta}}</p>
+                <p>Nome Azienda: {{$offerta->NomeAzienda}}</p>
                 <p>Prezzo: {{$offerta->Prezzo}}</p>
                 <p>Percentuale Sconto: {{$offerta->PercentualeSconto}}%</p>
                 <p>Luogo: {{$offerta->Luogo}}</p>

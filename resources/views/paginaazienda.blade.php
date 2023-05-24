@@ -11,7 +11,7 @@
     </div>
 
   <div class="company-info">
-    <h2>{{$selAzienda->Nome}}</h2>
+    <h2>{{$selAzienda->NomeAzienda}}</h2>
 
     <p> Sede: {{$selAzienda->Sede}}</p>
 

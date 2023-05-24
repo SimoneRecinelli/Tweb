@@ -76,7 +76,7 @@ public function storeazienda(NewAziendaRequest $request){
     $azienda = new Azienda;
     //bisogna controllare tramite form che tutti i campi siano inseriti
 
-    $azienda->Nome=$request->input('Nome');
+    $azienda->NomeAzienda=$request->input('NomeAzienda');
     $azienda->Sede=$request->input('Sede');
     $azienda->Tipologia=$request->input('Tipologia');
     $azienda->RagioneSociale=$request->input('RagioneSociale');
@@ -91,19 +91,19 @@ public function deleteazienda(){
     return view('deleteazienda')->with('aziende',$aziende);
 }
 
-public function destroyazienda($id){
-    $azienda=Azienda::find($id);
-    $offerte=Offerta::all()->where('Azienda',$azienda->Nome);
+public function destroyazienda($idAzienda){
+    $azienda=Azienda::find($idAzienda);
+    $offerte=Offerta::all()->where('Azienda',$azienda->NomeAzienda);
     
     
     foreach($offerte as $offerta){
         
         
-        $i=$offerta->id;
-        Offerta::destroy($i);
+        $idAzienda=$offerta->idAzienda;
+        Offerta::destroy($idAzienda);
     }
     
-    Azienda::destroy($id);
+    Azienda::destroy($idAzienda);
     return redirect('amministratore');
 }
 
@@ -112,16 +112,16 @@ public function modificaazienda(){
     return view('modificaazienda')->with('aziende',$aziende);
 }
 
-public function updateazienda($id){
-    $azienda=Azienda::all()->where('id',$id)->first();
+public function updateazienda($idAzienda){
+    $azienda=Azienda::all()->where('idAzienda',$idAzienda)->first();
     return view('modifyazienda')->with('azienda',$azienda);
 }
 
-public function modifyazienda(NewAziendaRequest $request,$id)
+public function modifyazienda(NewAziendaRequest $request,$idAzienda)
 {
 
-    $azienda = Azienda::find($id);
-    $azienda->Nome=$request->input('Nome');
+    $azienda = Azienda::find($idAzienda);
+    $azienda->NomeAzienda=$request->input('NomeAzienda');
     $azienda->Sede=$request->input('Sede');
     $azienda->Tipologia=$request->input('Tipologia');
     $azienda->RagioneSociale=$request->input('RagioneSociale');

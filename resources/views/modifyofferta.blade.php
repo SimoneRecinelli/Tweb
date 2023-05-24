@@ -45,11 +45,11 @@
             </a>
 
 
-    {{Form::label('Azienda', 'Azienda') }}
-    {{ Form::text('Azienda', $offerta->Azienda, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('Azienda'))
+    {{Form::label('NomeAzienda', 'Nome Azienda') }}
+    {{ Form::text('NomeAzienda', $offerta->NomeAzienda, ['class' => 'form-control']) }}<br>
+    @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
-                    @foreach ($errors->get('Azienda') as $message)
+                    @foreach ($errors->get('NomeAzienda') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>

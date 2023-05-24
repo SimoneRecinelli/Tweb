@@ -11,8 +11,8 @@
             @isset($aziende)
 
                 @foreach($aziende as $azienda)
-                    <a class="card" href="{{route('paginaazienda', [$azienda->id])}}">
-                    <p>{{ $azienda->Nome }}</p>
+                    <a class="card" href="{{route('paginaazienda', [$azienda->idAzienda])}}">
+                    <p>{{ $azienda->NomeAzienda }}</p>
                     <div class="image">
                         @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image])
                     </div>
