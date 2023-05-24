@@ -61,12 +61,14 @@ class StaffController extends Controller {
     
     public function modificaofferta(){
         $offerte=Offerta::all();
-        return view('modificaofferta')->with('offerte',$offerte);
+        return view('modificaofferta')->with('offerte',$offerte)->with();
     }
     
     public function updateofferta($idOfferta){
         $offerta=Offerta::all()->where('idOfferta',$idOfferta)->first();
-        return view('modifyofferta')->with('offerta',$offerta);
+        $model = new Azienda;
+        $aziende=$model->getAziende();
+        return view('modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
     }
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)
