@@ -122,7 +122,7 @@ public function showSingleAzienda($idAzienda): View
     public function search(Request $request)
     {
         $oggetto = $request->input('oggetto');
-        $azienda = $request->input('azienda');
+        $azienda = $request->input('NomeAzienda');
         
         if(isset($oggetto)&&($azienda==null))
         {
@@ -130,11 +130,11 @@ public function showSingleAzienda($idAzienda): View
         }
         else if(isset($azienda)&&($oggetto==null))
         {
-            $results = Offerta::where('Azienda', 'like', '%' . $azienda . '%')->get();
+            $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->get();
         }
 
         else if(isset($oggetto)&&(isset($azienda))) {
-            $results = Offerta::where('Azienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
+            $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
         }
         else{
             $results = Offerta::all();
