@@ -60,12 +60,12 @@ class StaffController extends Controller {
     }
     
     public function modificaofferta(){
-        $offerte=Offerta::all();
+        $offerte=Offerta::getOfferte();
         return view('modificaofferta')->with('offerte',$offerte);
     }
     
     public function updateofferta($idOfferta){
-        $offerta=Offerta::all()->where('idOfferta',$idOfferta)->first();
+        $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();
         return view('modifyofferta')->with('offerta',$offerta);
     }
     
