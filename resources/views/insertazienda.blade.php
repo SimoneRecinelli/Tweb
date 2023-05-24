@@ -1,26 +1,34 @@
 @extends('public')
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
-<section class="form_section">
+<div class="signup-container">
     
-    <h2 class="titolo">Inserisci Azienda</h2>
+    <h1>Inserisci Azienda</h1>
 
-{{ Form::open(array('route' => 'storeazienda', 'class' => 'form-wrapper')) }}
+    <div class="content">
+
+{{ Form::open(array('route' => 'storeazienda', 'class' => 'contact-form')) }}
 {{ Form::token() }}
-    {{ Form::label('NomeAzienda', 'NomeAzienda') }}
-    {{ Form::textArea('NomeAzienda', null, ['class' => 'form-control']) }}<br>
+
+    <div class="user-details">
+
+    <div class="input-box">
+    {{ Form::label('NomeAzienda', 'Nome Azienda', ['class' => 'label-input']) }}
+    {{ Form::text('NomeAzienda', null, ['class' => 'input']) }}
     @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
-                    @foreach ($errors->get('NomeAzienda') as $message)
+                    @foreach ($errors->get('Nome') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>
                 @endif
+    </div>
 
-    {{Form::label('Sede', 'Sede') }}
-    {{ Form::textArea('Sede', null, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('Sede', 'Sede', ['class' => 'label-input']) }}
+    {{ Form::text('Sede', null, ['class' => 'input']) }}
     @if ($errors->first('Sede'))
                 <ul class="errors">
                     @foreach ($errors->get('Sede') as $message)
@@ -28,9 +36,11 @@
                     @endforeach
                 </ul>
                 @endif
+    </div>
 
-    {{Form::label('Tipologia', 'Tipologia') }}
-    {{ Form::textArea('Tipologia', null, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('Tipologia', 'Tipologia', ['class' => 'label-input']) }}
+    {{ Form::text('Tipologia', null, ['class' => 'input']) }}
     @if ($errors->first('Tipologia'))
                 <ul class="errors">
                     @foreach ($errors->get('Tipologia') as $message)
@@ -38,9 +48,11 @@
                     @endforeach
                 </ul>
                 @endif
+    </div>
 
-    {{Form::label('RagioneSociale', 'RagioneSociale') }}
-    {{ Form::textArea('RagioneSociale', null, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('RagioneSociale', 'RagioneSociale', ['class' => 'label-input']) }}
+    {{ Form::text('RagioneSociale', null, ['class' => 'input']) }}
     @if ($errors->first('RagioneSociale'))
                 <ul class="errors">
                     @foreach ($errors->get('RagioneSociale') as $message)
@@ -48,9 +60,14 @@
                     @endforeach
                 </ul>
                 @endif
+    </div>
 
-    {{ Form::submit('Crea azienda', ['class' => 'btn-modify']) }}
+    <div class="button">
+    {{ Form::submit('Crea azienda', ['class' => 'form-btn1']) }}
+    </div>
 
 {{ Form::close() }}
+</div>
+</div>
 </div>
 @endsection

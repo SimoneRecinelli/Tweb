@@ -53,7 +53,7 @@ form .user-details .input-radio-button input{
 
 form .button{
   height:45px;
-  margin:35px 0
+  margin:35px auto;
 }
 form .button input{
   background-color:#58b99d;

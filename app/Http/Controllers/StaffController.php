@@ -50,7 +50,7 @@ class StaffController extends Controller {
     }
     
     public function deleteofferta(){
-        $offerte=Offerta::all();
+        $offerte=Offerta::getOfferte();
         return view('deleteofferta')->with('offerte',$offerte);
     }
     
@@ -61,15 +61,12 @@ class StaffController extends Controller {
     
     public function modificaofferta(){
         $offerte=Offerta::all();
-       
         return view('modificaofferta')->with('offerte',$offerte);
     }
     
     public function updateofferta($idOfferta){
         $offerta=Offerta::all()->where('idOfferta',$idOfferta)->first();
-        $model = new Azienda;
-        $aziende = $model->getAziende();
-        return view('modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
+        return view('modifyofferta')->with('offerta',$offerta);
     }
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)

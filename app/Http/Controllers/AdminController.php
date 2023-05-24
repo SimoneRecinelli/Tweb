@@ -14,7 +14,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\NewAziendaRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class AdminController extends Controller {
 
