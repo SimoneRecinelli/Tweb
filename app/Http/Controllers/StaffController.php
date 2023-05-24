@@ -23,15 +23,20 @@ class StaffController extends Controller {
         return view('insertofferta')->with('aziende',$aziende);
     }
 
+    
+
     public function storeofferta(NewOffertaRequest $request){
         $offerta = new Offerta;
+        $model = new Azienda;
+        $aziende = $model->getNome(($request->input('NomeAzienda')));
+       
         //bisogna controllare tramite form che tutti i campi siano inseriti
     
         $offerta->DescrizioneOfferta=$request->input('DescrizioneOfferta');
         $offerta->Categoria=$request->input('Categoria');
         $offerta->Scadenza=$request->input('Scadenza');
         $offerta->Oggetto=$request->input('Oggetto');
-        $offerta->NomeAzienda=$request->input('NomeAzienda');
+        $offerta->NomeAzienda=$aziende;
         $offerta->Prezzo=$request->input('Prezzo');
         $offerta->PercentualeSconto=$request->input('PercentualeSconto');
         $offerta->Luogo=$request->input('Luogo');
@@ -55,30 +60,33 @@ class StaffController extends Controller {
     }
     
     public function modificaofferta(){
-        $offerte=Offerta::getOfferte();
+        $offerte=Offerta::all();
         return view('modificaofferta')->with('offerte',$offerte);
     }
     
     public function updateofferta($idOfferta){
-        $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();
+        $offerta=Offerta::all()->where('idOfferta',$idOfferta)->first();
         return view('modifyofferta')->with('offerta',$offerta);
     }
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)
     {
+        $model = new Azienda;
+        $aziende = $model->getNome(($request->input('NomeAzienda')));
     
-        $offerta = Offerta::find($idOfferta);
-        $offerta->DescrizioneOfferta=$request->input('DescrizioneOfferta');
-        $offerta->Categoria=$request->input('Categoria');
-        $offerta->Scadenza=$request->input('Scadenza');
-        $offerta->Oggetto=$request->input('Oggetto');
-        $offerta->NomeAzienda=$request->input('NomeAzienda');
-        $offerta->Prezzo=$request->input('Prezzo');
-        $offerta->PercentualeSconto=$request->input('PercentualeSconto');
-        $offerta->Luogo=$request->input('Luogo');
-        $offerta->Modalità=$request->input('Modalità');
-        $offerta->Evidenza=$request->input('Evidenza');
-        $offerta->save();
+       Offerta::where('idOfferta',$idOfferta)->update([
+      
+        'DescrizioneOfferta' =>$request->input('DescrizioneOfferta'),
+        'Categoria'=>$request->input('Categoria'),
+        'Scadenza'=>$request->input('Scadenza'),
+        'Oggetto'=>$request->input('Oggetto'),
+        'NomeAzienda'=>$aziende,
+        'Prezzo'=>$request->input('Prezzo'),
+        'PercentualeSconto'=>$request->input('PercentualeSconto'),
+        'Luogo'=>$request->input('Luogo'),
+        'Modalità'=>$request->input('Modalità'),
+        'Evidenza'=>$request->input('Evidenza'),
+       ]);
         return redirect('homestaff');
     }
 
