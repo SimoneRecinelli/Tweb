@@ -17,6 +17,7 @@ use App\Http\Requests\NewFaqRequest;
 use Illuminate\Support\Facades\Hash;
 
 
+
 class AdminController extends Controller {
 
   /*  protected $_adminModel;
