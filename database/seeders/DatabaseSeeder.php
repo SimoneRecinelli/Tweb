@@ -66,9 +66,9 @@ class DatabaseSeeder extends Seeder {
                 'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")]
         ]);
-    }
+    }*/
     
-*/
+
 
     DB::table('Aziende')->insert([
         [
@@ -439,7 +439,6 @@ class DatabaseSeeder extends Seeder {
             'Combinazione' => '...',
             'id' => '2',
             'idOfferta' => '4',
-            'codice' => '1234567890'
         ]
         ]);
 

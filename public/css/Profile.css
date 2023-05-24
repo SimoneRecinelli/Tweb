@@ -1,0 +1,28 @@
+.static {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.static h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.static p {
+    margin-bottom: 5px;
+}
+
+.bottone-modifica, .bottone-elimina {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color:#469680;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.bottone-modifica:hover, .bottone-elimina:hover {
+    background-color: #0056b3;
+}

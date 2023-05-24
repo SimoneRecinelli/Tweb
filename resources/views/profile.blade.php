@@ -1,7 +1,7 @@
 @extends('public')
 
 @section('content')
-
+    <link rel="stylesheet" type="text/css" href="{{asset('css/Profile.css')}}">
     <div class="static">
 
         <h1>Profilo utente</h1>

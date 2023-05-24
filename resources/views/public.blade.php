@@ -45,6 +45,7 @@
                 @if(Auth::user()->can('isAdmin'))
                     <li class="center"><a href="{{route('gestioneAdmin')}}">Gestione</a></li>
                     <li class="center"><a href="{{route('amministratore')}}">Home Admin</a></li>
+                    <li class="center"><a href="{{route('showStatistiche')}}">Statistiche</a></li>
                 @endif
             @endauth
 
