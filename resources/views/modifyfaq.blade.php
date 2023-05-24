@@ -2,6 +2,8 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/TextArea.js') }}"></script>
 
 <section class="form_section">
     <div class="card">
