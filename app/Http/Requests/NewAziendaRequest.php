@@ -25,7 +25,7 @@ class NewAziendaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'Nome' => 'required|max:25',
+            'NomeAzienda' => 'required|max:25',
             'Sede' => 'required|max:30',
             'Tipologia' => 'required|max:25',
             'RagioneSociale' => 'required|max:25',

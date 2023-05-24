@@ -1,13 +1,13 @@
 @extends('public')
 @section('content')
-{{ Form::open(array('route' => ['modifyazienda', $azienda->id], 'method' => 'POST')) }}
+{{ Form::open(array('route' => ['modifyazienda', $azienda->idAzienda], 'method' => 'POST')) }}
 @method('PUT')
 {{ Form::token() }}
-{{ Form::label('Nome', 'Nome') }}
-    {{ Form::text('Nome', $azienda->Nome, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('Nome'))
+{{ Form::label('NomeAzienda', 'NomeAzienda') }}
+    {{ Form::text('NomeAzienda', $azienda->NomeAzienda, ['class' => 'form-control']) }}<br>
+    @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
-                    @foreach ($errors->get('Nome') as $message)
+                    @foreach ($errors->get('NomeAzienda') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>

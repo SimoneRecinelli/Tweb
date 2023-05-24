@@ -31,7 +31,7 @@ class StaffController extends Controller {
         $offerta->Categoria=$request->input('Categoria');
         $offerta->Scadenza=$request->input('Scadenza');
         $offerta->Oggetto=$request->input('Oggetto');
-        $offerta->Azienda=$request->input('Azienda');
+        $offerta->NomeAzienda=$request->input('NomeAzienda');
         $offerta->Prezzo=$request->input('Prezzo');
         $offerta->PercentualeSconto=$request->input('PercentualeSconto');
         $offerta->Luogo=$request->input('Luogo');
@@ -72,7 +72,7 @@ class StaffController extends Controller {
         $offerta->Categoria=$request->input('Categoria');
         $offerta->Scadenza=$request->input('Scadenza');
         $offerta->Oggetto=$request->input('Oggetto');
-        $offerta->Azienda=$request->input('Azienda');
+        $offerta->NomeAzienda=$request->input('NomeAzienda');
         $offerta->Prezzo=$request->input('Prezzo');
         $offerta->PercentualeSconto=$request->input('PercentualeSconto');
         $offerta->Luogo=$request->input('Luogo');

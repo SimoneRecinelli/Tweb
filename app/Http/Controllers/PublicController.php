@@ -76,9 +76,9 @@ public function showAziende()
     return view('aziende', compact('aziende'));
 }*/
 
-public function showSingleAzienda($id): View
+public function showSingleAzienda($idAzienda): View
 {
-    $selAzienda = Azienda::all()->where('id', $id)->first();
+    $selAzienda = Azienda::all()->where('idAzienda', $idAzienda)->first();
 
     return view('paginaazienda')->with('selAzienda',$selAzienda);
 }

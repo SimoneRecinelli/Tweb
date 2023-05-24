@@ -31,7 +31,7 @@ class NewOffertaRequest extends FormRequest {
             'Categoria' => 'required|max:30',
             'Scadenza' => 'required',
             'Oggetto' => 'required|max:30',
-            'Azienda' => 'required|max:30',
+            'NomeAzienda' => 'required|max:30',
             'Prezzo' => 'required|min:0',
             'PercentualeSconto' => 'required|integer|min:0|max:100',
             'Luogo' => 'required|max:30',

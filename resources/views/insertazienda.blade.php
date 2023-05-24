@@ -9,11 +9,11 @@
 
 {{ Form::open(array('route' => 'storeazienda', 'class' => 'form-wrapper')) }}
 {{ Form::token() }}
-    {{ Form::label('Nome', 'Nome') }}
-    {{ Form::textArea('Nome', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('Nome'))
+    {{ Form::label('NomeAzienda', 'NomeAzienda') }}
+    {{ Form::textArea('NomeAzienda', null, ['class' => 'form-control']) }}<br>
+    @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
-                    @foreach ($errors->get('Nome') as $message)
+                    @foreach ($errors->get('NomeAzienda') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>

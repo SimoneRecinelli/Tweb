@@ -36,7 +36,7 @@ Route::get('/info', [PublicController::class, 'showInfo']) ->name('info');
 Route::get('/aziende', [PublicController::class, 'showAziende'])->name('aziende');
 
 /*Rotta per la singola azienda*/
-Route::get('/azienda/{id}', [PublicController::class, 'showSingleAzienda'])->name('paginaazienda');
+Route::get('/azienda/{idAzienda}', [PublicController::class, 'showSingleAzienda'])->name('paginaazienda');
 
 /* Rotta per la vista 'login' */
 /*Route::get('/login', [PublicController::class, 'showLogin']) ->name('login');*/
@@ -79,13 +79,13 @@ Route::post('/storeazienda', [AdminController::class, 'storeazienda'])->name('st
 
 Route::get('/deleteazienda', [AdminController::class, 'deleteazienda'])->name('deleteazienda');
 
-Route::delete('/destroyazienda/{id}', [AdminController::class, 'destroyazienda'])->name('destroyazienda');
+Route::delete('/destroyazienda/{idAzienda}', [AdminController::class, 'destroyazienda'])->name('destroyazienda');
 
 Route::get('/modificaazienda', [AdminController::class, 'modificaazienda'])->name('modificaazienda');
 
-Route::get('/updateazienda/{id}', [AdminController::class, 'updateazienda'])->name('updateazienda');
+Route::get('/updateazienda/{idAzienda}', [AdminController::class, 'updateazienda'])->name('updateazienda');
 
-Route::put('/modifyazienda/{id}', [AdminController::class, 'modifyazienda'])->name('modifyazienda');
+Route::put('/modifyazienda/{idAzienda}', [AdminController::class, 'modifyazienda'])->name('modifyazienda');
 /*------------------------------------------------------------------------------------------------------------------------*/
 
 

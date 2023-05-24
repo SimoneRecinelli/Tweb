@@ -46,11 +46,11 @@
                 @endif
     
     
-    {{Form::label('Azienda', 'Azienda') }}
-    {{ Form::text('Azienda', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('Azienda'))
+    {{Form::label('NomeAzienda', 'Nome Azienda') }}
+    {{ Form::text('NomeAzienda', null, ['class' => 'form-control']) }}<br>
+    @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
-                    @foreach ($errors->get('Azienda') as $message)
+                    @foreach ($errors->get('NomeAzienda') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>
