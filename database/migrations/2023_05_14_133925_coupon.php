@@ -20,6 +20,8 @@ return new class extends Migration
             $table->foreign('id')->references('id')->on('users');
             $table->unsignedBigInteger('idOfferta');
             $table->foreign('idOfferta')->references('idOfferta')->on('Offerte');
+            $table->string('codice')->unique();
+            $table->timestamps();
         });
     }
 

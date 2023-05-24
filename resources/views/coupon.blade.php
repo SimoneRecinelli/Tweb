@@ -3,12 +3,26 @@
 @section('content')
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/PaginaOfferta.css')}}">
+<style>
+  
+  #errore{
+    font-size:30px;
+    text-align:center;
+    color:red;
+  }
+</style>
+
+
+@isset($errore)
+  <p id="errore"><u>{{$errore}}</u></p>
+
+@endisset
+
     
 
-  
-    <section class="product">
+<section class="product" >
     <div class="image">
-        @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $selOfferta->image])
+    @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $selOfferta->image])
     </div>
 
     <div class="product-info">
@@ -20,8 +34,7 @@
 
         <p> Azienda: {{$selOfferta->NomeAzienda}}</p>
 
-        <p> Scadenza: {{$selOfferta->Scadenza}} ( @include('helpers/ExpirationHelper', ['expirationDate' => $selOfferta->Scadenza])
-)</p>
+        <p> Scadenza: {{$selOfferta->Scadenza}} </p>
 
 
 
@@ -44,7 +57,7 @@
 
         @can('isUser')
         <div>
-            <a href="{{ route('login') }}" class="button">Ottieni Coupon</a>
+            <a href="{{ route('newcoupon', [$selOfferta->idOfferta]) }}"  class="button">Ottieni Coupon</a>
         </div>
         @endcan
 

@@ -70,7 +70,9 @@ class StaffController extends Controller {
     
     public function updateofferta($idOfferta){
         $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();
-        return view('modifyofferta')->with('offerta',$offerta);
+        $model = new Azienda;
+        $aziende = $model->getAziende();
+        return view('modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
     }
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)

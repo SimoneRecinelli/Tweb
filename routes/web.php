@@ -157,3 +157,6 @@ Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('delet
 
 Route::delete('/destroyStaff/{id}', [AdminController::class, 'destroyStaff'])->name('destroyStaff');
 /* ------------------------------------------------------------------------------------------------------ */
+
+
+Route::get('/newcoupon/{idOfferta}', [UserController::class, 'newcoupon'])->name('newcoupon');

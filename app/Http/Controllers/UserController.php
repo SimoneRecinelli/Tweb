@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Form;
 use App\Models\User;
+use App\Models\Offerta;
+use App\Models\Coupon;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Str;
 
 
 
@@ -127,5 +129,38 @@ class userController extends Controller {
         dd($user->nome);*/
         return view('modifyProfilo')->with('user',$user);
     }
+
+
+    public function newcoupon($idOfferta){
+        $user = Auth::user();
+        $selOfferta=Offerta::where('idOfferta',$idOfferta)->first();
+        $num=Coupon::where('id',$user->id)->where('idOfferta',$idOfferta)->count();
+        
+        
+        if($num==0){
+           $coupon = new Coupon;
+        $coupon->Combinazione = 'prova';
+        $coupon->id=Auth::user()->id;
+         $coupon->idOfferta=$selOfferta->idOfferta;
+         $coupon->codice = Str::random(10);
+        $coupon->save();
+        return view('newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
+        }
+        else{
+            
+            $errore='puoi acquistare al massimo un coupon per ogni offerta';
+            return view('coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
+           //return  redirect('coupon/{$idOfferta}')->with('errore',$errore)->with('selOfferta',$selOfferta);
+        }
+
+
+
+
+        
+        
+
+
+    }
+
 
 }
