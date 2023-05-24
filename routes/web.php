@@ -119,6 +119,8 @@ Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('de
 /* ------------------------------------------------------------------------------------------------------ */
 
 Route::get('/homestaff', [StaffController::class, 'showHomeStaff'])->name('homestaff');
+Route::get('/gestioneOfferte', [StaffController::class, 'gestioneOfferte'])->name('gestioneOfferte');
+
 
 /* CUD Offerte -------------------------------------------------------------------------------------------- */
 Route::get('/insertofferta', [StaffController::class, 'insertofferta'])->name('insertofferta');
