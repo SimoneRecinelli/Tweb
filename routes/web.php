@@ -99,6 +99,7 @@ Route::put('/modifyazienda/{idAzienda}', [AdminController::class, 'modifyazienda
     }); */
 
 Route::get('/amministratore', [AdminController::class, 'homeadmin'])->name('amministratore');
+Route::get('/gestioneAdmin', [AdminController::class, 'gestioneAdmin'])->name('gestioneAdmin');
 
 Route::get('/homeuser', [UserController::class, 'showHomeUser'])->name('homeuser');
 

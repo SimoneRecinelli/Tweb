@@ -72,6 +72,12 @@ class AdminController extends Controller
         return view('homeadmin')->with('aziende', $aziende)->with('num', $num);
     }
 
+    public function gestioneAdmin() {
+        $azienda = new Azienda();
+        $aziende = $azienda->getAllAziende();
+        return view('gestioneAdmin')->with('aziende', $aziende);
+    }
+
     /* GESTIONE AZIENDE --------------------------------------------------------------------------------------------------*/
     public function insertazienda()
     {

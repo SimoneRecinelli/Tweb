@@ -10,8 +10,11 @@ class Azienda extends Model
     public $timestamps = false;
 
     public function getAziende(){
-
         return Azienda::all()->pluck('NomeAzienda');
+    }
+
+    public function getAllAziende() {
+        return Azienda::all();
     }
 
     //va messa nella select di iserimento offerta per estrarre il nome 
