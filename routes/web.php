@@ -142,5 +142,13 @@ Route::get('/insertStaff', [AdminController::class, 'insertStaff'])->name('inser
 
 Route::post('/storeStaff', [AdminController::class, 'storeStaff'])->name('storeStaff');
 
+Route::get('/showStaff', [AdminController::class, 'showStaff'])->name('showStaff');
 
+Route::get('/updateStaff/{id}', [AdminController::class, 'updateStaff'])->name('updateStaff');
+
+Route::put('/modifyStaff/{id}', [AdminController::class, 'modifyStaff'])->name('modifyStaff');
+
+Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('deleteStaff');
+
+Route::delete('/destroyStaff/{id}', [AdminController::class, 'destroyStaff'])->name('destroyStaff');
 /* ------------------------------------------------------------------------------------------------------ */

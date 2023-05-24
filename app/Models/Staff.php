@@ -36,17 +36,10 @@ class Staff extends Model {
     ];
 
 
-   /* public function getProfileData()
-    {
-        // Utilizza $this->id per ottenere l'ID dell'utente corrente
-        $userId = $this->id;
-
-        // Recupera i dati del profilo dell'utente dalla tabella 'users' utilizzando l'ID
-        $profileData = User::find($userId);
-
-        // Restituisci i dati del profilo
-        return $profileData;
-    } */
+   public function getStaff() {
+        $staff = User::where('role','staff')->get();
+        return $staff;
+    }
 
     
 

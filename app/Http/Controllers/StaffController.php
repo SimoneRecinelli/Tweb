@@ -82,15 +82,4 @@ class StaffController extends Controller {
         return redirect('homestaff');
     }
 
-    public function showProfile()
-    {
-        // Recupera l'utente autenticato
-        $user = Auth::user();
-
-        // Ottieni i dati del profilo dell'utente
-        $profileData = $user->getProfileData();
-
-        // Fai qualcosa con i dati del profilo (ad esempio, passali alla vista)
-        return view('profile', ['profileData' => $profileData]);
-    }
 }

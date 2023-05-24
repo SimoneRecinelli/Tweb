@@ -33,8 +33,8 @@
 
     <h2> Gestione Membri Dello Staff </h2>
         <a href="{{route('insertStaff')}}">Inserisci un membro dello staff</a>
-        <a href="{{route('insertazienda')}}">Modifica un membro dello staff</a>
-        <a href="{{route('insertazienda')}}">Elimina un membro dello staff</a>
+        <a href="{{route('showStaff')}}">Modifica un membro dello staff</a>
+        <a href="{{route('deleteStaff')}}">Elimina un membro dello staff</a>
 </div>
 
 
