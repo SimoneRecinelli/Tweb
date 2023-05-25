@@ -179,15 +179,16 @@ class AdminController extends Controller
     public function destroyfaq($id)
     {
         Faq::destroy($id);
-        return redirect('faq');
+        return redirect('gestionefaq');
 
     }
 
     public function gestionefaq()
     {
-        $faqs = Faq::all();
+        $faqs = Faq::paginate(5); 
         return view('gestionefaq')->with('faqs', $faqs);
     }
+    
 
     public function updatefaq($id)
     {

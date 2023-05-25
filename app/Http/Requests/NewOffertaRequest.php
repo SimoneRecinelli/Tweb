@@ -37,6 +37,7 @@ class NewOffertaRequest extends FormRequest {
             'Luogo' => 'required|max:30',
             'Modalità' => 'required|max:30',
             'Evidenza' => 'required|in:si,no',
+            'image' => 'required|image'
         ];
     }
 

@@ -24,6 +24,7 @@ class StaffController extends Controller {
     public function insertofferta(){
         $model = new Azienda;
         $aziende = $model->getAziende();
+
         return view('insertofferta')->with('aziende',$aziende);
     }
 
@@ -46,7 +47,9 @@ class StaffController extends Controller {
         $offerta->Luogo=$request->input('Luogo');
         $offerta->Modalità=$request->input('Modalità');
         $offerta->Evidenza=$request->input('Evidenza');
+        $offerta->image=$request->input('image');
         $offerta->save();
+
        
     
         return redirect('homestaff');
@@ -92,6 +95,7 @@ class StaffController extends Controller {
         'Luogo'=>$request->input('Luogo'),
         'Modalità'=>$request->input('Modalità'),
         'Evidenza'=>$request->input('Evidenza'),
+        'image'=>$request->input('image'),
        ]);
         return redirect('homestaff');
     }

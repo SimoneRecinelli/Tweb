@@ -5,7 +5,6 @@
 @method('DELETE')
 {{ Form::token() }}
 <a class="card" >
-                <img src="{{ asset('img/amazon.png') }}?t={{ time() }}" >
             <div class="container_card">
                 <p>Descrizione offerta: {{$offerta->DescrizioneOfferta}}</p>
                 <p>Categoria: {{$offerta->Categoria}}</p>
@@ -17,6 +16,8 @@
                 <p>Luogo: {{$offerta->Luogo}}</p>
                 <p>Modalità: {{$offerta->Modalità}}</p>
                 <p>Evidenza: {{$offerta->Evidenza}}</p>
+                <p>Immagine:</p>
+                @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
             </div>
             </a>
             {{ Form::submit('Elimina offerta', ['class' => 'btn btn-primary']) }}

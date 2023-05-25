@@ -1,67 +1,46 @@
 @extends('public')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{asset('css/Faq.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/ModificaFaq.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
-<section id="faq_section">
-        <h2 class="titolo">DOMANDE FREQUENTI</h2>
-        <br>
-        
+<div class="faq-section">
+    <h2 class="titolo">DOMANDE FREQUENTI</h2>
+    <br>
+
+    <table class="faq-table">
+        <tr>
+            <th>Numero</th>
+            <th>Domanda</th>
+            <th>Risposta</th>
+            <th>Modifica</th>
+            <th>Elimina</th>
+
+        </tr>
+
+        @isset($faqs)
         @foreach($faqs as $faq)
-        <div class="bottone-faq">
-            <a href="{{ route('updatefaq', $faq->id) }}" class="btn">Modifica faq</a>
-        </div>
+        <tr>
+            <td>{{$faq->id}}</td>
+            <td>{{$faq->Domanda}}</td>
+            <td>{{$faq->Risposta}}</td>
+            <td><a href="{{ route('updatefaq', $faq->id) }}" class="btn-modify">Modifica faq</a></td>
 
-        <details>
-            <summary>
-                {{$faq->Domanda}} 
-            </summary>
-            <p>
-                {{$faq->Risposta}} 
-            </p>
-        </details>
-        
-        <hr>
+            <td>
+            {{ Form::open(array('route' => ['destroyfaq', $faq->id], 'method' => 'POST')) }}
+            @method('DELETE')
+            {{ Form::token() }}
+            {{ Form::submit('Elimina faq', ['class' => 'btn-delete']) }}
+            {{ Form::close() }}  
+            </td>
+
+
+        </tr>
         @endforeach
-</section>
+        
+    </table>
+
+    @include('pagination.paginator', ['paginator' => $faqs])
+@endisset()
+
+</div>
 @endsection
-
-
-<!--  html con button
-        @section('content')
-
-<link rel="stylesheet" type="text/css" href="css/Faq.css">
-<link rel="stylesheet" type="text/css" href="css/ModificaFaq.css">
-
-<section id="faq_section">
-        <h2 class="titolo">DOMANDE FREQUENTI</h2>
-        <br>
-        
-        @foreach($faqs as $faq)
-        {{ Form::open(array('route' => ['updatefaq', $faq->id], 'method' => 'GET')) }}
-@method('GET')
-{{ Form::token() }}
-
-<div class="bottone-faq">
-        {{ Form::submit('Modifica faq', ['class' => 'btn']) }}
-            {{ Form::close() }}
-        </div>
-
-        <details>
-                <summary>
-                {{$faq->Domanda}} 
-
-                </summary>
-                <p>
-                {{$faq->Risposta}} 
-                </p>
-                
-        </details>
-        
-  
-       
-<hr>
-        @endforeach
-</section>
-@endsection -->

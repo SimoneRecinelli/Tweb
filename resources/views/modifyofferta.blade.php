@@ -71,7 +71,7 @@
 
 
     {{Form::label('PercentualeSconto', 'PercentualeSconto') }}
-    {{ Form::number('PercentualeSconto', $offerta->PercentualeSconto, ['class' => 'form-control', 'step' => '0.01']) }}<br>
+    {{ Form::number('PercentualeSconto', $offerta->PercentualeSconto, ['class' => 'form-control']) }}%<br>
     @if ($errors->first('PercentualeSconto'))
                 <ul class="errors">
                     @foreach ($errors->get('PercentualeSconto') as $message)
@@ -116,6 +116,17 @@
                 </ul>
                 @endif
             </a>
+
+
+    {{Form::label('image', 'Immagine') }}
+    {{ Form::file('image', null, ['class' => 'form-control']) }}<br>
+    @if ($errors->has('image'))
+    <ul class="errors">
+        @foreach ($errors->get('image') as $message)
+            <li>{{ $message }}</li>
+        @endforeach
+    </ul>
+@endif
             {{ Form::submit('Modifica offerta', ['class' => 'btn btn-primary']) }}
             {{ Form::close() }}  
 @endsection
