@@ -3,6 +3,7 @@
 
 
 {{ Form::open(array('route' => 'storeofferta')) }}
+@csrf
 {{ Form::token() }}
     {{ Form::label('DescrizioneOfferta', 'DescrizioneOfferta') }}
     {{ Form::text('DescrizioneOfferta', null, ['class' => 'form-control']) }}<br>

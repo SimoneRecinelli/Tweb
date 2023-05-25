@@ -6,6 +6,7 @@
     @foreach($aziende as $azienda)
         {{ Form::open(array('route' => ['updateazienda', $azienda->idAzienda], 'method' => 'GET')) }}
         @method('GET')
+        @csrf
         {{ Form::token() }}
         <div class="table-container">
         <table class="form-table">

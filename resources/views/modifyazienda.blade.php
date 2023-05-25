@@ -12,7 +12,8 @@
 
 
 {{ Form::open(array('route' => ['modifyazienda', $azienda->idAzienda], 'method' => 'POST', 'class' => 'form-wrapper')) }}
-@method('PUT')
+    @csrf
+    @method('PUT')
 {{ Form::token() }}
 {{ Form::label('NomeAzienda', 'Nome Azienda') }}
     {{ Form::textArea('NomeAzienda', $azienda->NomeAzienda, ['class' => 'form-control']) }}

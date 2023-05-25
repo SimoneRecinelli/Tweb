@@ -10,7 +10,8 @@
         <h2 class="titolo">INSERISCI FAQ</h2>
     
 {{ Form::open(array('route' => 'storefaq', 'class' => 'form-wrapper' )) }}
-{{ Form::token() }}
+    @csrf
+    {{ Form::token() }}
 {{ Form::label('Domanda', 'Domanda') }}
     {{ Form::textArea('Domanda', null, ['class' => 'form-control']) }}
     @if ($errors->first('Domanda'))

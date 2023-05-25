@@ -11,7 +11,8 @@
         <h2 class="titolo">MODIFICA FAQ</h2>
         
         {{ Form::open(array('route' => ['modifyfaq', $faq->id], 'method' => 'POST', 'class' => 'form-wrapper')) }}
-@method('PUT')
+        @csrf
+        @method('PUT')
 {{ Form::token() }}
 {{ Form::label('Domanda', 'Domanda') }}
     {{ Form::textArea('Domanda', $faq->Domanda, ['class' => 'form-control']) }}

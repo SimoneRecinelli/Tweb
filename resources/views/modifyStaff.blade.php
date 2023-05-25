@@ -8,6 +8,7 @@
         <h1>Modifica dati membro Staff</h1>
 
         {{ Form::open(array('route' => ['modifyStaff', $staff->id], 'method' => 'POST', 'class' => 'form-wrapper')) }}
+        @csrf
         @method('PUT')
         {{ Form::token() }}
 

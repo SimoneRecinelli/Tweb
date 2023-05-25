@@ -22,6 +22,7 @@
 
         {{ Form::open(array('route' => ['putpassword'], 'method' => 'POST', 'class' => 'form-wrapper')) }}
     @method('PUT')
+        @csrf
     {{ Form::token() }}
     <p><strong>{{Form::label('password', 'Password:') }}</strong>
     {{ Form::text('password', null, ['class' => 'form-control', 'id' => 'pass', 'placeholder' => 'Inserisci nuova password']) }} </p>

@@ -9,6 +9,7 @@
     <h1>Inserisci membro Staff</h1>
 
     {{ Form::open(array('route' => 'storeStaff', 'class' => 'form-wrapper')) }}
+    @csrf
     {{ Form::token() }}
 
     <div class="user-details">
@@ -108,7 +109,7 @@
                 </ul>
             @endif
         </div>
-
+</section>
         <div class="input-box">
             {{Form::label('genere', 'Genere:', ['class' => 'label-input']) }}
             {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna'], null, ['class' => 'input', 'placeholder' => 'Seleziona il genere']) }}

@@ -4,6 +4,7 @@
 @foreach($offerte as $offerta)
 {{ Form::open(array('route' => ['updateofferta', $offerta->idOfferta], 'method' => 'GET')) }}
 @method('GET')
+@csrf
 {{ Form::token() }}
 <a class="card" >
                 <img src="{{ asset('img/amazon.png') }}?t={{ time() }}" >

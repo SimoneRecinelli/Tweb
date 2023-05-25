@@ -10,6 +10,7 @@
     <h2 class="titolo">Inserisci Profilo</h2>
 
     {{ Form::open(array('route' => ['putProfile'], 'method' => 'POST', 'class' => 'form-wrapper')) }}
+    @csrf
     @method('PUT')
     {{ Form::token() }}
     {{ Form::label('nome', 'Nome:') }}

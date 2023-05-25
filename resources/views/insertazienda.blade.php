@@ -10,6 +10,7 @@
             <h2 class="titolo">Inserisci Azienda</h2>
 
             {{ Form::open(array('route' => 'storeazienda', 'class' => 'form-wrapper')) }}
+            @csrf
             {{ Form::token() }}
 
             {{ Form::label('NomeAzienda', 'Nome Azienda') }}
