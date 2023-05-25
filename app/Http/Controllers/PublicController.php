@@ -64,7 +64,7 @@ public function showCatalog($Categoria=null): View {
 
 
 public function showAziende() { 
-    $aziende = Azienda::paginate(1);
+    $aziende = Azienda::paginate(3);
     return view('aziende', compact('aziende'));
 }
 
