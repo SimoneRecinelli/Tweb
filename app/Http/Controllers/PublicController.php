@@ -167,7 +167,7 @@ public function homeScadenza() : View
     $offerte=Offerta::all();
     $prossimeOfferte = Offerta::where('Scadenza', '>=', Carbon::now())
         ->orderBy('Scadenza')
-        ->take(1) // Puoi personalizzare il numero di offerte per slide
+        //->take(1) // Puoi personalizzare il numero di offerte
         ->get();
 
     return view('home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
