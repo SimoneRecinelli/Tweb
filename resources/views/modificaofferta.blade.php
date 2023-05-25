@@ -7,7 +7,6 @@
 @csrf
 {{ Form::token() }}
 <a class="card" >
-                <img src="{{ asset('img/amazon.png') }}?t={{ time() }}" >
             <div class="container_card">
                 <p>Descrizione offerta: {{$offerta->DescrizioneOfferta}}</p>
                 <p>Categoria: {{$offerta->Categoria}}</p>
