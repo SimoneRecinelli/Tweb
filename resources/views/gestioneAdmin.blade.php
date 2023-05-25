@@ -6,9 +6,10 @@
     <div id="catalogo">
 
         <h1>Area di gestione admin</h1>
+        <h4>Gestisci le aziende o i membri dello staff:</h4>
         <h3>Queste sono tutte le aziende:</h3>
         @if (count($aziende) == 0)
-            <p>Siamo spiacenti ma i parametri da lei selezionati non hanno prodotto nessuno risultato</p>
+            <p>Siamo spiacenti ma non risulta presente alcuna azienda.</p>
         @else
             @foreach($aziende as $azienda)
 
@@ -34,6 +35,6 @@
         <a href="{{route('showStaff')}}">Modifica un membro dello staff</a>
         <a href="{{route('deleteStaff')}}">Elimina un membro dello staff</a>
     </div>
-
+    <hr>
 
 @endsection()

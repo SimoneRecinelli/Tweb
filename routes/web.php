@@ -146,7 +146,6 @@ Route::put('/modifyofferta/{idOfferta}', [StaffController::class, 'modifyofferta
 /* ROTTE AMMINISTRATORE --------------------------------------------------- */
 
 Route::get('/amministratore', [AdminController::class, 'homeadmin'])->name('amministratore');
-Route::get('/gestioneAdmin', [AdminController::class, 'gestioneAdmin'])->name('gestioneAdmin');
 Route::get('/showStatistiche', [AdminController::class, 'showStatistiche'])->name('showStatistiche');
 
 /* CRUD Staff -------------------------------------------------------------------------------------------- */
