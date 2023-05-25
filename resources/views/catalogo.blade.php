@@ -3,6 +3,8 @@
 @section('content')
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/Catalogo.css')}}">
+
+
     <div id="container">
 
     <div class="search_container">
@@ -44,9 +46,10 @@
                     </div>
             <div class="container_card">
                 <p>{{$offerta->Oggetto}}</p>
-                <p style="font-size:30px;">-{{$offerta->PercentualeSconto}}%</p>
+                <p style="font-size:30px;" >-{{$offerta->PercentualeSconto}}%</p>
             </div>
             </a>
+           
             
         @endforeach
         @include('pagination.paginator', ['paginator' => $offerte])

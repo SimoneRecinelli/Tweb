@@ -439,6 +439,7 @@ class DatabaseSeeder extends Seeder {
             'Combinazione' => '...',
             'id' => '2',
             'idOfferta' => '4',
+            'codice' => '1234567890',
         ]
         ]);
 
