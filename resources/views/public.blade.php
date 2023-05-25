@@ -50,8 +50,7 @@
 
             @auth
                 @if(Auth::user()->can('isStaff'))
-                    <li class="center"><a href="{{route('gestioneOfferte')}}">Gestione Offerte</a></li>
-                    <li class="center"><a href="{{route('homestaff')}}">Home Staff</a></li>
+                    <li class="center"><a href="{{route('homestaff')}}">Area Staff</a></li>
                 @endif
             @endauth
 

@@ -120,11 +120,11 @@ Route::put('/putpassword', [UserController::class, 'putpassword'])->name('putpas
 Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile');
 /* ------------------------------------------------------------------------------------------------------ */
 
+/* ROTTE STAFF ----------------------------------------------------------------------------------------- */
+
 Route::get('/homestaff', [StaffController::class, 'showHomeStaff'])->name('homestaff');
-Route::get('/gestioneOfferte', [StaffController::class, 'gestioneOfferte'])->name('gestioneOfferte');
 
-
-/* CUD Offerte -------------------------------------------------------------------------------------------- */
+/* CUD Offerte ------------------------------------------------------ */
 Route::get('/insertofferta', [StaffController::class, 'insertofferta'])->name('insertofferta');
 
 Route::post('/storeofferta', [StaffController::class, 'storeofferta'])->name('storeofferta');
@@ -139,17 +139,18 @@ Route::get('/updateofferta/{idOfferta}', [StaffController::class, 'updateofferta
 
 Route::put('/modifyofferta/{idOfferta}', [StaffController::class, 'modifyofferta'])->name('modifyofferta');
 
+/* ------------------------------------------------------------------ */
 
 /* ------------------------------------------------------------------------------------------------------ */
 
 
 
-/* ROTTE AMMINISTRATORE --------------------------------------------------- */
+/* ROTTE AMMINISTRATORE ---------------------------------------------------------------------------------- */
 
 Route::get('/amministratore', [AdminController::class, 'homeadmin'])->name('amministratore');
 Route::get('/showStatistiche', [AdminController::class, 'showStatistiche'])->name('showStatistiche');
 
-/* CRUD Staff -------------------------------------------------------------------------------------------- */
+/* CRUD Staff ------------------------------------------------------------- */
 Route::get('/insertStaff', [AdminController::class, 'insertStaff'])->name('insertStaff');
 
 Route::post('/storeStaff', [AdminController::class, 'storeStaff'])->name('storeStaff');
@@ -163,8 +164,9 @@ Route::put('/modifyStaff/{id}', [AdminController::class, 'modifyStaff'])->name('
 Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('deleteStaff');
 
 Route::delete('/destroyStaff/{id}', [AdminController::class, 'destroyStaff'])->name('destroyStaff');
-/* ------------------------------------------------------------------------------------------------------ */
+/* ----------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------------------------------------- */
 Route::get('/newcoupon/{idOfferta}', [UserController::class, 'newcoupon'])->name('newcoupon');
 
 Route::get('/statsutente/{id}}', [AdminController::class, 'statsutente'])->name('statsutente');
