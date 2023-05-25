@@ -166,6 +166,7 @@ public function homeScadenza() : View
 {
     $offerte=Offerta::all();
     $prossimeOfferte = Offerta::where('Scadenza', '>=', Carbon::now())
+        ->where('Scadenza', '<=', '2023/09/01')
         ->orderBy('Scadenza')
         //->take(1) // Puoi personalizzare il numero di offerte
         ->get();
