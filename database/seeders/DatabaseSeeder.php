@@ -115,7 +115,7 @@ class DatabaseSeeder extends Seeder {
     DB::table('Offerte')->insert([
         ['Categoria'=>'Animali',
         'DescrizioneOfferta'=> '...',
-        'Scadenza'=>'30/05/2023',
+        'Scadenza'=>'2023/05/30',
         'Oggetto'=>'Tiragraffi per gatto',
         'NomeAzienda'=>'Amazon',
         'Prezzo'=>160,
@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder {
 
         ['Categoria'=>'Elettronica',
          'DescrizioneOfferta'=> '...',
-         'Scadenza'=>'20/10/2025',
+         'Scadenza'=>'2025/10/20',
          'Oggetto'=>'Ipad 5',
          'NomeAzienda'=>'Apple',
          'Prezzo'=>1200,
@@ -139,7 +139,7 @@ class DatabaseSeeder extends Seeder {
 
         ['Categoria'=>'Elettronica',
          'DescrizioneOfferta'=> '...',
-         'Scadenza'=>'28/05/2023',
+         'Scadenza'=>'2023/05/28',
          'Oggetto'=>'Iphone 13',
          'NomeAzienda'=>'Apple',
          'Prezzo'=>1400,
@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder {
 
         ['Categoria'=>'Abbigliamento',
          'DescrizioneOfferta'=> '...',
-         'Scadenza'=>'25/06/2023',
+         'Scadenza'=>'2023/06/25',
          'Oggetto'=>'Air Force 1',
          'NomeAzienda'=>'Nike',
          'Prezzo'=>1230,
