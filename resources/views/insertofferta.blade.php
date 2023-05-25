@@ -71,7 +71,7 @@
             @endif
 
             {{ Form::label('PercentualeSconto', 'PercentualeSconto') }}
-            {{ Form::number('PercentualeSconto', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la percentuale di sconto']) }}<br>
+            {{ Form::number('PercentualeSconto', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la percentuale di sconto']) }}%<br>
             @if ($errors->first('PercentualeSconto'))
                 <ul class="errors">
                     @foreach ($errors->get('PercentualeSconto') as $message)
