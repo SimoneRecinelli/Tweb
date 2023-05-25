@@ -1,0 +1,31 @@
+.card {
+    height: fit-content;
+    width: 80vh;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    display: block;
+    margin: 100px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+.card .titolo {
+    font-size: 24px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color:#000;
+}
+
+.card p {
+    color:#5c5c5c;
+}
+
+.card li{
+    margin:5px auto;
+}
+

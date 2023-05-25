@@ -1,5 +1,5 @@
 <style>
-    #pag{
+.pag{
         border:1px solid black;
         width:fit-content;
         padding:10px;
@@ -9,7 +9,7 @@
 
 
 <h2>Pagina da stampare</h2>
-<div id="pag">
+<div class="pag">
 <h3>Descrizione del prodotto: {{$selOfferta->Oggetto}}</h3>
 <h3>Nome: {{$user->nome}}</h3>
 <h3>Cognome:   {{$user->cognome}}</h3>

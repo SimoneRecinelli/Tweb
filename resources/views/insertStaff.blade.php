@@ -1,104 +1,133 @@
 @extends('public')
 @section('content')
 
+<link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
-<section class="form_section">
+
+<div class="signup-container">
     
-    <h2 class="titolo">Inserisci membro dello staff</h2>
+    <h1>Inserisci membro Staff</h1>
 
     {{ Form::open(array('route' => 'storeStaff', 'class' => 'form-wrapper')) }}
     {{ Form::token() }}
-    {{ Form::label('nome', 'Nome:') }}
-    {{ Form::text('nome', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('nome'))
-        <ul class="errors">
-            @foreach ($errors->get('nome') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
 
-    {{Form::label('cognome', 'Cognome:') }}
-    {{ Form::text('cognome', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('cognome'))
-        <ul class="errors">
-            @foreach ($errors->get('cognome') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
+    <div class="user-details">
 
-    {{ Form::label('email', 'Email:') }}
-    {{ Form::text('email', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('email'))
-        <ul class="errors">
-            @foreach ($errors->get('email') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
-
-    {{Form::label('eta', 'Età:') }}
-    {{ Form::number('eta', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('eta'))
-        <ul class="errors">
-            @foreach ($errors->get('eta') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
-
-    {{Form::label('telefono', 'Telefono:') }}
-    {{ Form::text('telefono', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('telefono'))
-        <ul class="errors">
-            @foreach ($errors->get('telefono') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
-
-    {{Form::label('residenza', 'Residenza:') }}
-    {{ Form::text('residenza', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('residenza'))
-        <ul class="errors">
-            @foreach ($errors->get('residenza') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
-    {{Form::label('username', 'Username:') }}
-    {{ Form::text('username', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('username'))
-        <ul class="errors">
-            @foreach ($errors->get('username') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
-    {{Form::label('password', 'Password:') }}
-    {{ Form::text('password', null, ['class' => 'form-control']) }}<br>
-    @if ($errors->first('password'))
-        <ul class="errors">
-            @foreach ($errors->get('password') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-    @endif
-    {{Form::label('genere', 'Genere:') }}
-    {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'form-control']) }}<br>
-    @if ($errors->first('genere'))
-        <ul class="errors">
-            @foreach ($errors->get('genere') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-
-        </a>
-        {{ Form::submit('Crea Membro Staff', ['class' => 'btn-modify']) }}
-        {{ Form::close() }}
-
+        <div class="input-box">
+            {{ Form::label('nome', 'Nome:', ['class' => 'label-input']) }}
+            {{ Form::text('nome', null, ['class' => 'input', 'placeholder' => 'Inserisci il nome']) }}
+            @if ($errors->first('nome'))
+                <ul class="errors">
+                    @foreach ($errors->get('nome') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
 
-        @endsection
+        <div class="input-box">
+            {{Form::label('cognome', 'Cognome:', ['class' => 'label-input']) }}
+            {{ Form::text('cognome', null, ['class' => 'input', 'placeholder' => 'Inserisci il cognome']) }}
+            @if ($errors->first('cognome'))
+                <ul class="errors">
+                    @foreach ($errors->get('cognome') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <div class="input-box">
+            {{ Form::label('email', 'Email:', ['class' => 'label-input']) }}
+            {{ Form::text('email', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'email']) }}
+            @if ($errors->first('email'))
+                <ul class="errors">
+                    @foreach ($errors->get('email') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <div class="input-box">
+            {{Form::label('eta', 'Età:', ['class' => 'label-input']) }}
+            {{ Form::number('eta', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'età']) }}
+            @if ($errors->first('eta'))
+                <ul class="errors">
+                    @foreach ($errors->get('eta') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <div class="input-box">
+            {{Form::label('telefono', 'Telefono:', ['class' => 'label-input']) }}
+            {{ Form::text('telefono', null, ['class' => 'input', 'placeholder' => 'Inserisci il telefono']) }}
+            @if ($errors->first('telefono'))
+                <ul class="errors">
+                    @foreach ($errors->get('telefono') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <div class="input-box">
+            {{Form::label('residenza', 'Residenza:', ['class' => 'label-input']) }}
+            {{ Form::text('residenza', null, ['class' => 'input', 'placeholder' => 'Inserisci la residenza']) }}
+            @if ($errors->first('residenza'))
+                <ul class="errors">
+                    @foreach ($errors->get('residenza') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <div class="input-box">
+            {{Form::label('username', 'Username:', ['class' => 'label-input']) }}
+            {{ Form::text('username', null, ['class' => 'input', 'placeholder' => 'Inserisci lo username']) }}
+            @if ($errors->first('username'))
+                <ul class="errors">
+                    @foreach ($errors->get('username') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <div class="input-box">
+            {{Form::label('password', 'Password:', ['class' => 'label-input']) }}
+            {{ Form::text('password', null, ['class' => 'input', 'placeholder' => 'Inserisci la password']) }}
+            @if ($errors->first('password'))
+                <ul class="errors">
+                    @foreach ($errors->get('password') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <div class="input-box">
+            {{Form::label('genere', 'Genere:', ['class' => 'label-input']) }}
+            {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna'], null, ['class' => 'input', 'placeholder' => 'Seleziona il genere']) }}
+            @if ($errors->first('genere'))
+                <ul class="errors">
+                    @foreach ($errors->get('genere') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+    </div>
+   
+    <div class="button">
+        {{ Form::submit('Crea Membro Staff', ['class' => 'form-btn1']) }}
+    </div>
+
+    {{ Form::close() }}
+</div>
+
+@endsection
