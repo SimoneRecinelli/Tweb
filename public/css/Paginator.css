@@ -1,0 +1,14 @@
+.pagination {
+    margin: 10px 0;
+}
+.pagination a{
+    color: #fff;
+  }
+
+  .pagination a:hover, .pagination a:active{
+    color: rgb(88,185,157);
+}
+
+span{
+    color: rgb(88,185,157);
+}

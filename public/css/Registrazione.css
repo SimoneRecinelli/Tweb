@@ -11,8 +11,9 @@
 .signup-container h1{
   text-align:center;
   margin-bottom:20px
+}
 
-}.content form .user-details{
+.content form .user-details{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
