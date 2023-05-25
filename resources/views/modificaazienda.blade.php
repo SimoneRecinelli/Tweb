@@ -6,7 +6,7 @@
 @method('GET')
 {{ Form::token() }}
 <a class="card" >
-                <img src="{{ asset('img/amazon.png') }}?t={{ time() }}" >
+    @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image])
             <div class="container_card">
                 <p>{{$azienda->NomeAzienda}}</p>
             </div>
