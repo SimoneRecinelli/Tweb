@@ -37,14 +37,14 @@
   font-size: 0.9rem;
   color: #24262b;
   outline: none;
-  padding-left: 20px;
-  padding-right: 10px;
+
   margin: 15px 0;
   box-sizing: border-box;
   resize: vertical; /* Consente all'utente di ridimensionare verticalmente la textarea se necessario */
   overflow: hidden; /* Nasconde completamente la scrollbar */
-  padding-top:10px;
 
+  text-align: center; /* Centra il testo all'interno del campo */
+  padding: 8px;
 
 }
 

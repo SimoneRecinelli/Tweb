@@ -3,29 +3,29 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/HomeAdmin.css')}}">
 
-    <div id="catalogo">
+    <div class="container-admin">
+    <div class="container1">
 
         <h1>Area di gestione admin</h1>
-
-        <h4>Benvenuto {{ Auth::user()->nome }} {{ Auth::user()->cognome }}</h4>
-        <h4>Gestisci le aziende o i membri dello staff:</h4>
-
-
-        <h2> Gestione aziende</h2>
-        <a href="{{route('insertazienda')}}">Inserisci Azienda</a>
-        <a href="{{route('deleteazienda')}}">Elimina Azienda</a>
-        <a href="{{route('modificaazienda')}}">Modifica Azienda</a>
-
-
-        <hr>
-
-        <h2> Gestione Membri Dello Staff </h2>
-        <a href="{{route('insertStaff')}}">Inserisci un membro dello staff</a>
-        <a href="{{route('showStaff')}}">Modifica un membro dello staff</a>
-        <a href="{{route('deleteStaff')}}">Elimina un membro dello staff</a>
+        <h2>Benvenuto {{ Auth::user()->nome }} {{ Auth::user()->cognome }}</h2>
+        <h3>Gestisci le aziende o i membri dello staff:</h3>
     </div>
-    <hr>
 
+    <div class="container2">
+        <h2> Gestione aziende</h2>
+        <a class="bottone" href="{{route('insertazienda')}}">Inserisci Azienda</a>
+        <a class="bottone" href="{{route('modificaazienda')}}">Modifica Azienda</a>
+        <a class="bottone-elimina" href="{{route('deleteazienda')}}">Elimina Azienda</a>
+    </div>
+
+    <div class="container3">
+        <h2> Gestione Membri Dello Staff </h2>
+        <a class="bottone" href="{{route('insertStaff')}}">Inserisci Membro Staff</a>
+        <a class="bottone" href="{{route('showStaff')}}">Modifica Membro Staff</a>
+        <a class="bottone-elimina" href="{{route('deleteStaff')}}">Elimina Membro Staff</a>
+    </div>
+
+    </div>
 @endsection()
 
 
