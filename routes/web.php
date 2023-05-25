@@ -21,7 +21,8 @@ use App\Http\Middleware\Authenticate;
 
 
 /* Rotta per la vista 'home' */
-Route::get('/', [PublicController::class, 'showHome']) ->name('home');
+Route::get('/', [PublicController::class, 'homeScadenza', 'showHome' ]) ->name('home');
+// Route::get('/', [PublicController::class, 'homeScadenza']) ->name('homeScadenza');
 
 /* Rotta per la vista 'catalogo' */
 Route::get('/catalogo/{Categoria?}', [PublicController::class, 'showCatalog'])->name('catalogo');

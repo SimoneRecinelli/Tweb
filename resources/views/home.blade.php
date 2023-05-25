@@ -4,20 +4,23 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/Home.css')}}">
 
 <div class="slideshow-container">
-
-<a> <div  class="mySlides fade">
-  <img src="img/coupon.jpg">
-</div> </a>
-
 <a >
 <div class="mySlides fade">
-  <img src="img/coupon1.jpg">
+ @foreach($prossimeOfferte as $slideOfferte)
+ <div>
+    @foreach ($prossimeOfferte as $offerta)
+            <li class="slide-card">
+                @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
+                <h3>Oggetto: {{ $offerta->Oggetto }}</h3>
+                <p>Sconto: -{{ $offerta->PercentualeSconto }}%</p>
+                <p>SCADENZA: {{ $offerta->Scadenza }}</p>
+            </li>
+        @endforeach
+  </div>
+    @endforeach
 </div> </a>
 
-<a  >
-<div class="mySlides fade">
-  <img src="img/coupon2.jpg">
-</div> </a>
+
 
 <!-- L'attributo onclick definisce la funzione JavaScript plusSlides(...) da eseguire quando l'utente fa clic sul link.
   Questa funzione potrebbe essere utilizzata per passare alla diapositiva precedente (o successiva) in uno slideshow.
