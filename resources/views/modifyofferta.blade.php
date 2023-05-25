@@ -71,7 +71,7 @@
 
 
     {{Form::label('PercentualeSconto', 'PercentualeSconto') }}
-    {{ Form::number('PercentualeSconto', $offerta->PercentualeSconto, ['class' => 'form-control', 'step' => '0.01']) }}<br>
+    {{ Form::number('PercentualeSconto', $offerta->PercentualeSconto, ['class' => 'form-control']) }}<br>
     @if ($errors->first('PercentualeSconto'))
                 <ul class="errors">
                     @foreach ($errors->get('PercentualeSconto') as $message)
