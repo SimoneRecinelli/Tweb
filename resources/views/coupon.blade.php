@@ -57,7 +57,7 @@
 
         @can('isUser')
         <div>
-            <a href="{{ route('newcoupon', [$selOfferta->idOfferta]) }}"  class="button">Ottieni Coupon</a>
+            <a href="{{ route('newcoupon', [$selOfferta->idOfferta]) }}"   class="button">Ottieni Coupon</a>
         </div>
         @endcan
 
