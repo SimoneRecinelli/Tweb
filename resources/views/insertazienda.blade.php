@@ -14,7 +14,7 @@
             {{ Form::token() }}
 
             {{ Form::label('NomeAzienda', 'Nome Azienda') }}
-            {{ Form::text('NomeAzienda', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il nome dell\'azienda']) }}
+            {{ Form::textArea('NomeAzienda', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il nome dell\'azienda']) }}
             @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
                     @foreach ($errors->get('Nome') as $message)
@@ -24,7 +24,7 @@
             @endif
 
             {{Form::label('Sede', 'Sede') }}
-            {{ Form::text('Sede', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la sede dell\'azienda']) }}
+            {{ Form::textArea('Sede', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la sede dell\'azienda']) }}
             @if ($errors->first('Sede'))
                 <ul class="errors">
                     @foreach ($errors->get('Sede') as $message)
@@ -35,7 +35,7 @@
 
 
             {{Form::label('Tipologia', 'Tipologia') }}
-            {{ Form::text('Tipologia', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la tipologia dell\'azienda']) }}
+            {{ Form::textArea('Tipologia', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la tipologia dell\'azienda']) }}
             @if ($errors->first('Tipologia'))
                 <ul class="errors">
                     @foreach ($errors->get('Tipologia') as $message)
@@ -47,7 +47,7 @@
 
 
             {{Form::label('RagioneSociale', 'RagioneSociale') }}
-            {{ Form::text('RagioneSociale', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la ragione sociale dell\'azienda']) }}
+            {{ Form::textArea('RagioneSociale', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la ragione sociale dell\'azienda']) }}
             @if ($errors->first('RagioneSociale'))
                 <ul class="errors">
                     @foreach ($errors->get('RagioneSociale') as $message)

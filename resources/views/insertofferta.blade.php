@@ -1,17 +1,22 @@
 @extends('public')
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/FormCRUD.css') }}">
-    <section class="form_section">
-        <div class="card">
-            <h2 class="titolo">Inserisci Offerta</h2>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/Registrazione.css') }}">
 
-            {{ Form::open(array('route' => 'storeofferta', 'class' => 'form-wrapper')) }}
-            @csrf
-            {{ Form::token() }}
 
-            {{ Form::label('DescrizioneOfferta', 'DescrizioneOfferta') }}
-            {{ Form::text('DescrizioneOfferta', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la descrizione dell\'offerta']) }}<br>
+    <div class="signup-container">
+
+    <h1>Inserisci Offerta</h1>
+
+    <div class="content">
+    {{ Form::open(array('route' => 'storeofferta', 'class' => 'contact-form')) }}
+       @csrf
+       {{ Form::token() }}
+         <div class="user-details">
+            
+            <div class="input-box">
+            {{ Form::label('DescrizioneOfferta', 'DescrizioneOfferta', ['class' => 'label-input']) }}
+            {{ Form::textArea('DescrizioneOfferta', null, ['class' => 'input', 'placeholder' => 'Inserisci la descrizione dell\'offerta']) }}
             @if ($errors->first('DescrizioneOfferta'))
                 <ul class="errors">
                     @foreach ($errors->get('DescrizioneOfferta') as $message)
@@ -19,9 +24,11 @@
                     @endforeach
                 </ul>
             @endif
+</div>
 
-            {{ Form::label('Categoria', 'Categoria') }}
-            {{ Form::text('Categoria', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la categoria dell\'offerta']) }}<br>
+            <div class="input-box">
+            {{ Form::label('Categoria', 'Categoria', ['class' => 'label-input']) }}
+            {{ Form::textArea('Categoria', null, ['class' => 'input', 'placeholder' => 'Inserisci la categoria dell\'offerta']) }}
             @if ($errors->first('Categoria'))
                 <ul class="errors">
                     @foreach ($errors->get('Categoria') as $message)
@@ -30,8 +37,11 @@
                 </ul>
             @endif
 
-            {{ Form::label('Scadenza', 'Scadenza') }}
-            {{ Form::date('Scadenza', null, ['class' => 'form-control']) }}<br>
+            </div>
+
+            <div class="input-box">
+            {{ Form::label('Scadenza', 'Scadenza', ['class' => 'label-input']) }}
+            {{ Form::date('Scadenza', null, ['class' => 'input']) }}
             @if ($errors->first('Scadenza'))
                 <ul class="errors">
                     @foreach ($errors->get('Scadenza') as $message)
@@ -39,9 +49,11 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
 
-            {{ Form::label('Oggetto', 'Oggetto') }}
-            {{ Form::text('Oggetto', null, ['class' => 'form-control', 'placeholder' => 'Inserisci l\'oggetto dell\'offerta']) }}<br>
+            <div class="input-box">
+            {{ Form::label('Oggetto', 'Oggetto', ['class' => 'label-input']) }}
+            {{ Form::textArea('Oggetto', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'oggetto dell\'offerta']) }}
             @if ($errors->first('Oggetto'))
                 <ul class="errors">
                     @foreach ($errors->get('Oggetto') as $message)
@@ -49,9 +61,11 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
 
-            {{ Form::label('NomeAzienda', 'Nome Azienda') }}
-            {{ Form::select('NomeAzienda', $aziende, null, ['class' => 'form-control', 'placeholder' => 'Seleziona un\'azienda']) }}<br>
+            <div class="input-box">
+            {{ Form::label('NomeAzienda', 'Nome Azienda', ['class' => 'label-input']) }}
+            {{ Form::select('NomeAzienda', $aziende, null, ['class' => 'input', 'placeholder' => 'Seleziona un\'azienda']) }}
             @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
                     @foreach ($errors->get('NomeAzienda') as $message)
@@ -59,9 +73,11 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
 
-            {{ Form::label('Prezzo', 'Prezzo') }}
-            {{ Form::number('Prezzo', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il prezzo dell\'offerta']) }}<br>
+            <div class="input-box">
+            {{ Form::label('Prezzo', 'Prezzo', ['class' => 'label-input']) }}
+            {{ Form::number('Prezzo', null, ['class' => 'input', 'placeholder' => 'Inserisci il prezzo dell\'offerta']) }}
             @if ($errors->first('Prezzo'))
                 <ul class="errors">
                     @foreach ($errors->get('Prezzo') as $message)
@@ -69,9 +85,11 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
 
-            {{ Form::label('PercentualeSconto', 'PercentualeSconto') }}
-            {{ Form::number('PercentualeSconto', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la percentuale di sconto']) }}%<br>
+            <div class="input-box">
+            {{ Form::label('PercentualeSconto', 'PercentualeSconto', ['class' => 'label-input']) }}
+            {{ Form::number('PercentualeSconto', null, ['class' => 'input', 'placeholder' => 'Inserisci la percentuale di sconto']) }}%
             @if ($errors->first('PercentualeSconto'))
                 <ul class="errors">
                     @foreach ($errors->get('PercentualeSconto') as $message)
@@ -79,9 +97,11 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
 
-            {{ Form::label('Luogo', 'Luogo') }}
-            {{ Form::text('Luogo', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il luogo dell\'offerta']) }}<br>
+            <div class="input-box">
+            {{ Form::label('Luogo', 'Luogo', ['class' => 'label-input']) }}
+            {{ Form::textArea('Luogo', null, ['class' => 'input', 'placeholder' => 'Inserisci il luogo dell\'offerta']) }}
             @if ($errors->first('Luogo'))
                 <ul class="errors">
                     @foreach ($errors->get('Luogo') as $message)
@@ -89,9 +109,11 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
 
-            {{ Form::label('Modalità', 'Modalità') }}
-            {{ Form::text('Modalità', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la modalità dell\'offerta']) }}<br>
+            <div class="input-box">
+            {{ Form::label('Modalità', 'Modalità', ['class' => 'label-input']) }}
+            {{ Form::textArea('Modalità', null, ['class' => 'input', 'placeholder' => 'Inserisci la modalità dell\'offerta']) }}
             @if ($errors->first('Modalità'))
                 <ul class="errors">
                     @foreach ($errors->get('Modalità') as $message)
@@ -99,20 +121,24 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
 
-            {{ Form::label('Evidenza', 'Evidenza') }}
-            {{ Form::text('Evidenza', null, ['class' => 'form-control', 'placeholder' => 'Inserisci l\'evidenza dell\'offerta']) }}<br>
-            @if ($errors->first('Evidenza'))
-                <ul class="errors">
-                    @foreach ($errors->get('Evidenza') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-            @endif
+<div class="input-box">
+        {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
+        {{ Form::textArea('Evidenza', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'evidenza dell\'offerta']) }}
+        @if ($errors->first('Evidenza'))
+        <ul class="errors">
+        @foreach ($errors->get('Evidenza') as $message)
+              <li>{{ $message }}</li>
+        @endforeach
+    </ul>
+@endif
 
+</div>
 
-    {{Form::label('image', 'Immagine') }}
-    {{ Form::file('image', null, ['class' => 'form-control']) }}<br>
+<div class="input-box">
+    {{Form::label('image', 'Immagine', ['class' => 'label-input']) }}
+    {{ Form::file('image', null, ['class' => 'input']) }}
     @if ($errors->has('image'))
     <ul class="errors">
         @foreach ($errors->get('image') as $message)
@@ -120,12 +146,17 @@
         @endforeach
     </ul>
 @endif
+</div>
 
+</div>
 
+    <div class="button">
+    {{ Form::submit('Crea offerta', ['class' => 'form-btn1']) }}
+    </div>
+    
+    {{ Form::close() }}
+   
+   </div>
+</div>
 
-    {{ Form::submit('Crea offerta', ['class' => 'btn btn-primary']) }}
-
-            {{ Form::close() }}
-        </div>
-    </section>
 @endsection

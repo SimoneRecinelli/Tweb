@@ -1,20 +1,24 @@
 @extends('public')
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{asset('css/FormCRUD.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
 
 
-<section class="form_section">
+<div class="signup-container">
     
-    <h2 class="titolo">Inserisci Profilo</h2>
+    <h1>Modifica Profilo</h1>
+    <div class="content">
 
-    {{ Form::open(array('route' => ['putProfile'], 'method' => 'POST', 'class' => 'form-wrapper')) }}
+    {{ Form::open(array('route' => ['putProfile'], 'method' => 'POST', 'class' => 'contact-form')) }}
     @csrf
     @method('PUT')
     {{ Form::token() }}
-    {{ Form::label('nome', 'Nome:') }}
-    {{ Form::text('nome', $user->nome, ['class' => 'form-control']) }}<br>
+    <div class="user-details">
+
+    <div class="input-box">
+    {{ Form::label('nome', 'Nome:', ['class' => 'label-input']) }}
+    {{ Form::text('nome', $user->nome, ['class' => 'input']) }}
     @if ($errors->first('nome'))
         <ul class="errors">
             @foreach ($errors->get('nome') as $message)
@@ -22,9 +26,11 @@
             @endforeach
         </ul>
     @endif
+    </div>
 
-    {{Form::label('cognome', 'Cognome:') }}
-    {{ Form::text('cognome', $user->cognome, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('cognome', 'Cognome:', ['class' => 'label-input']) }}
+    {{ Form::text('cognome', $user->cognome, ['class' => 'input']) }}
     @if ($errors->first('cognome'))
         <ul class="errors">
             @foreach ($errors->get('cognome') as $message)
@@ -32,9 +38,11 @@
             @endforeach
         </ul>
     @endif
+    </div>
 
-    {{Form::label('email', 'Email:') }}
-    {{ Form::text('email', $user->email, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('email', 'Email:', ['class' => 'label-input']) }}
+    {{ Form::text('email', $user->email, ['class' => 'input']) }}
     @if ($errors->first('email'))
         <ul class="errors">
             @foreach ($errors->get('email') as $message)
@@ -42,9 +50,11 @@
             @endforeach
         </ul>
     @endif
+    </div>
 
-    {{Form::label('eta', 'Età:') }}
-    {{ Form::number('eta', $user->eta, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('eta', 'Età:', ['class' => 'label-input']) }}
+    {{ Form::number('eta', $user->eta, ['class' => 'input']) }}
     @if ($errors->first('eta'))
         <ul class="errors">
             @foreach ($errors->get('eta') as $message)
@@ -52,19 +62,23 @@
             @endforeach
         </ul>
     @endif
+    </div>
 
-    {{Form::label('telefono', 'Telefono:') }}
-    {{ Form::text('telefono', $user->telefono, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('telefono', 'Telefono:', ['class' => 'label-input']) }}
+    {{ Form::text('telefono', $user->telefono, ['class' => 'input']) }}
     @if ($errors->first('telefono'))
         <ul class="errors">
             @foreach ($errors->get('telefono') as $message)
                 <li>{{ $message }}</li>
             @endforeach
         </ul>
-        @endif
+    @endif
+    </div>
 
-    {{Form::label('residenza', 'Residenza:') }}
-    {{ Form::text('residenza', $user->residenza, ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('residenza', 'Residenza:', ['class' => 'label-input']) }}
+    {{ Form::text('residenza', $user->residenza, ['class' => 'input']) }}
     @if ($errors->first('residenza'))
         <ul class="errors">
             @foreach ($errors->get('residenza') as $message)
@@ -72,20 +86,23 @@
             @endforeach
         </ul>
         @endif
-    {{Form::label('username', 'Username:') }}
-    {{ Form::text('username', $user->username, ['class' => 'form-control']) }}<br>
+    </div>
+
+    <div class="input-box">
+    {{Form::label('username', 'Username:', ['class' => 'label-input']) }}
+    {{ Form::text('username', $user->username, ['class' => 'input']) }}
     @if ($errors->first('username'))
         <ul class="errors">
             @foreach ($errors->get('username') as $message)
                 <li>{{ $message }}</li>
             @endforeach
         </ul>
-        @endif
-        
-      
+        @endif    
+    </div>
 
-    {{Form::label('genere', 'Genere:') }}
-    {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'form-control']) }}<br>
+    <div class="input-box">
+    {{Form::label('genere', 'Genere:', ['class' => 'label-input']) }}
+    {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'input']) }}<br>
     @if ($errors->first('genere'))
         <ul class="errors">
             @foreach ($errors->get('genere') as $message)
@@ -93,10 +110,14 @@
             @endforeach
         </ul>
         @endif
+        </div>
 
-        </a>
-        {{ Form::submit('Modifica profilo', ['class' => 'btn btn-primary']) }}
+        <div class="button">
+        {{ Form::submit('Modifica profilo', ['class' => 'form-btn1']) }}
+        </div>
         {{ Form::close() }}
-        </section>
+        </div>
 
+
+  </div>
         @endsection
