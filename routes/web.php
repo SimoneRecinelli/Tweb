@@ -21,7 +21,8 @@ use App\Http\Middleware\Authenticate;
 
 
 /* Rotta per la vista 'home' */
-Route::get('/', [PublicController::class, 'showHome']) ->name('home');
+Route::get('/', [PublicController::class, 'homeScadenza', 'showHome' ]) ->name('home');
+// Route::get('/', [PublicController::class, 'homeScadenza']) ->name('homeScadenza');
 
 /* Rotta per la vista 'catalogo' */
 Route::get('/catalogo/{Categoria?}', [PublicController::class, 'showCatalog'])->name('catalogo');
@@ -146,7 +147,6 @@ Route::put('/modifyofferta/{idOfferta}', [StaffController::class, 'modifyofferta
 /* ROTTE AMMINISTRATORE --------------------------------------------------- */
 
 Route::get('/amministratore', [AdminController::class, 'homeadmin'])->name('amministratore');
-Route::get('/gestioneAdmin', [AdminController::class, 'gestioneAdmin'])->name('gestioneAdmin');
 Route::get('/showStatistiche', [AdminController::class, 'showStatistiche'])->name('showStatistiche');
 
 /* CRUD Staff -------------------------------------------------------------------------------------------- */

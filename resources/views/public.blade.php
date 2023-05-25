@@ -43,8 +43,7 @@
 
             @auth
                 @if(Auth::user()->can('isAdmin'))
-                    <li class="center"><a href="{{route('gestioneAdmin')}}">Gestione</a></li>
-                    <li class="center"><a href="{{route('amministratore')}}">Home Admin</a></li>
+                    <li class="center"><a href="{{route('amministratore')}}">Area Admin</a></li>
                     <li class="center"><a href="{{route('showStatistiche')}}">Statistiche</a></li>
                 @endif
             @endauth
@@ -93,7 +92,7 @@
             <div class="footer-col">
                 <h4>Aiuto</h4>
                 <ul class="help_section">
-                    <li><a href="{{route('faq')}}">FAQ</a></li>
+                    <li><a href="{{route('faq')}}">FAQs</a></li>
                 </ul>
             </div>
             <div class="footer-col">

@@ -1,28 +1,69 @@
-.static {
-    background-color: #f5f5f5;
+.card {
+    height: fit-content;
+    width: 80vh;
+    background-color: #fff;
+    border-radius: 5px;
     padding: 20px;
-    margin-bottom: 20px;
+    display: block;
+    margin: 100px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.static h1 {
+.card h1 {
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-.static p {
-    margin-bottom: 5px;
+.card p {
+    margin: 2px 0px;
 }
 
-.bottone-modifica, .bottone-elimina {
+
+.btn-bottom{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+    
+.bottone-modifica,.bottone-elimina {
     display: inline-block;
-    margin-right: 10px;
+    margin: 0px 10px;
     padding: 8px 16px;
-    background-color:#469680;
     color: #fff;
+    border-radius: 40px;
+    border: none;
     text-decoration: none;
-    border-radius: 4px;
 }
 
-.bottone-modifica:hover, .bottone-elimina:hover {
-    background-color: #0056b3;
+
+
+.bottone-modifica{
+    background-color: rgb(88,185,157);
+}
+
+.bottone-modifica:hover{
+    background-color: rgb(70, 150, 128);
+}
+
+.bottone-elimina{
+    background-color: red;
+}
+
+.bottone-elimina:hover {
+    background-color: rgb(198, 0, 0);
+}
+
+.form-control {
+    border: 1px solid #bbb;
+    border-radius: 2rem;
+    background: white;
+    height: 40px;
+    font-size: 0.9rem;
+    color: #24262b;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin: 15px 0;
+    box-sizing: border-box;
 }

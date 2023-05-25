@@ -10,6 +10,7 @@ use App\Models\Offerta;
 use App\Models\Faq;
 use App\Models\Catalog;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 
 
@@ -63,7 +64,7 @@ public function showCatalog($Categoria=null): View {
 
 
 public function showAziende() { 
-    $aziende = Azienda::paginate(2);
+    $aziende = Azienda::paginate(1);
     return view('aziende', compact('aziende'));
 }
 
@@ -157,5 +158,21 @@ public function showSingleAzienda($idAzienda): View
 
         return view('catalogo', compact('offerta_pagin'));
     }
+
+    
+
+
+public function homeScadenza() : View
+{
+    $offerte=Offerta::all();
+    $prossimeOfferte = Offerta::where('Scadenza', '>=', Carbon::now())
+        ->orderBy('Scadenza')
+        ->take(1) // Puoi personalizzare il numero di offerte per slide
+        ->get();
+
+    return view('home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
+}
+
+
 }
 

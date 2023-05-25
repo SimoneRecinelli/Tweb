@@ -4,9 +4,19 @@
 CSS SLIDESHOW
 -------------------- */
 .slideshow-container {
-  max-width: 800px;
+  max-width: 900px;
   position: relative;
-  margin: 20px auto;
+  margin: 10px auto;
+}
+
+::marker {
+  color: transparent;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  text-indent: 0px !important;
+  text-align: start !important;
+  text-align-last: start !important;
 }
 
 .mySlides {
@@ -15,7 +25,7 @@ CSS SLIDESHOW
 }
 
 .mySlides img {
-  width: 100%;
+  width: 60%;
 }
 
 .prev, .next {
