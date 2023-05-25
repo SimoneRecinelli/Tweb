@@ -1,3 +1,6 @@
+@extends('public')
+@section('content')
+<link rel="stylesheet" type="text/css" href="{{asset('css/Home.css')}}">
 <style>
    *{
       font-size:30px;
@@ -23,7 +26,7 @@
    </style>
 
 
-
+<br><br>
    <h2>Numero totale coupon emessi: {{$num}}</h1>
    <br><hr><br>
    <div id="s">
@@ -60,7 +63,7 @@
 </div>
 </div>
 
-
+@endsection
 
 
 
