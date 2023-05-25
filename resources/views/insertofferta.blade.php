@@ -113,6 +113,18 @@
                 @endif
 
 
+    {{Form::label('image', 'Immagine') }}
+    {{ Form::file('image', null, ['class' => 'form-control']) }}<br>
+    @if ($errors->has('image'))
+    <ul class="errors">
+        @foreach ($errors->get('image') as $message)
+            <li>{{ $message }}</li>
+        @endforeach
+    </ul>
+@endif
+
+
+
     {{ Form::submit('Crea offerta', ['class' => 'btn btn-primary']) }}
 
 {{ Form::close() }}
