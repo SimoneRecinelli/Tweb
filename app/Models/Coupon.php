@@ -14,4 +14,14 @@ class Coupon extends Model
         $num = $this->count();
         return $num;
     }
+
+    public function couponutente($id){
+        $num= $this->where('id',$id)->count();
+        return $num;
+    }
+
+    public function couponofferta($idOfferta){
+        $num= $this->where('idOfferta',$idOfferta)->count();
+        return $num;
+    }
 }

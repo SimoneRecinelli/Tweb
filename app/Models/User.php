@@ -68,5 +68,10 @@ class User extends Authenticatable
         return $profileData;
     }
 
+    public function getusers(){
+        $users = $this->where('role','user')->get();
+        return $users;
+    }
+
 
 }

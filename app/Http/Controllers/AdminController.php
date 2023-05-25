@@ -9,6 +9,7 @@ use App\Models\Azienda;
 use App\Models\Coupon;
 use App\Models\Offerta;
 use App\Models\Faq;
+use App\Models\User;
 use App\Models\Staff;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewAziendaRequest;
@@ -21,12 +22,12 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
 
-    /*  protected $_adminModel;
+    protected $_adminModel;
 
       public function __construct() {
           $this->_adminModel = new Admin;
           $this->middleware('can:isAdmin');
-      } */
+      } 
 
     public function index()
     {
@@ -288,10 +289,55 @@ class AdminController extends Controller
 
 /* STATISTICHE ---------------------------------------------------------------------------------------*/
 public function showStatistiche() {
-    $ncoupon = new Coupon;
-    $num = $ncoupon->ncoupons();
-    return view('showStatistiche')->with('num', $num);
+    $coupon = new Coupon;
+    $num = $coupon->ncoupons();
+    $user = new User;
+    $users=$user->getusers();
+    $offerta = new Offerta;
+    $offerte=$offerta->getOfferte();
+    return view('showStatistiche')->with('num', $num)->with('users',$users)->with('offerte',$offerte);
+
+
 }
+
+public function statsutente($id){
+
+    $coupon = new Coupon;
+    $num = $coupon->ncoupons();
+    $user = new User;
+    $users=$user->getusers();
+    $offerta = new Offerta;
+    $offerte=$offerta->getOfferte();
+    
+    $numutente = $coupon->couponutente($id);
+    return view('showStatistiche')->with('num', $num)->with('users',$users)->with('numutente',$numutente)->with('offerte',$offerte)->with('id',$id);
+    
+    
+}
+
+public function statsofferta($idOfferta)
+{
+    
+    $coupon = new Coupon;
+    $num = $coupon->ncoupons();
+    $user = new User;
+    $users=$user->getusers();
+    $offerta = new Offerta;
+    $offerte=$offerta->getOfferte();
+    $numofferte = $coupon->couponofferta($idOfferta);
+    
+    return view('showStatistiche')->with('num', $num)->with('users',$users)->with('numofferte',$numofferte)->with('offerte',$offerte)->with('idOfferta',$idOfferta);
+
+}
+    
+
+
+
+
+
+
+
+
 
 
 
