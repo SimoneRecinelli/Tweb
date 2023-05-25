@@ -3,6 +3,7 @@
 }
 .pagination a{
     color: #fff;
+    text-decoration: none;
   }
 
   .pagination a:hover, .pagination a:active{
