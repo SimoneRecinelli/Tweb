@@ -24,7 +24,7 @@
         </ul>
         @isset($numutente)
             @if($id==$user->id)
-                <p>numero coupon emessi: {{$numutente}}</p>
+                <p>Numero coupon emessi: {{$numutente}}</p>
             @endif
         @endisset
     @endforeach
@@ -47,7 +47,7 @@
             </ul>
             @isset($numofferte)
                 @if($idOfferta==$offerta->idOfferta)
-                    <p>numero coupon emessi: {{$numofferte}} </p>
+                    <p>Numero coupon emessi: {{$numofferte}} </p>
                 @endif
             @endisset
         @endforeach

@@ -13,16 +13,41 @@
         <p><strong>Genere:</strong> {{ Auth::user()->genere }}</p>
         <p><strong>Età:</strong> {{ Auth::user()->eta}}</p>
         <p><strong>Residenza:</strong> {{ Auth::user()->residenza }}</p>
-        <!--<p><strong>Password:</strong> {{ Auth::user()->password }}</p>-->
+        @guest
         <p><strong>Ruolo:</strong> {{ Auth::user()->role }}</p>
+        @endguest
 
-    <div class="btn-bottom">
-    <a class="bottone-modifica" href="{{ route('showUser')}}">Modifica profilo</a>
-    <a class="bottone-modifica" href="{{ route('modificapassword')}}">Modifica password</a>
-    <a class="bottone-elimina" href="{{ route('deleteProfile')}}">Elimina profilo</a>
-    </div>
+        <div class="btn-bottom">
+        <a class="bottone-modifica" href="{{ route('showUser')}}">Modifica profilo</a>
+        <a class="bottone-modifica" href="{{ route('modificapassword')}}">Modifica password</a>
+        <a class="bottone-elimina" href="{{ route('deleteProfile')}}">Elimina profilo</a>
+        </div>
 
-  
+        @auth
+            @if(Auth::user()->can('isUser'))
+                <h3>Di seguito i coupon che hai acquistato:</h3>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id Utente</th>
+                        <th>Id Coupon</th>
+                        <th>Codice Coupon</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($userCoupons as $coupon)
+                        <tr>
+                            <td>{{ $coupon->id }}</td>
+                            <td>{{ $coupon->Codice_coupon }}</td>
+                            <td>{{ $coupon->codice }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            @endif
+        @endauth
+
+
     </div>
 
     

@@ -30,8 +30,12 @@ class userController extends Controller {
         // Ottieni i dati del profilo dell'utente
         $profileData = $user->getProfileData();
 
+        $userCoupons = Coupon::getUserCoupons();
+
         // Fai qualcosa con i dati del profilo (ad esempio, passali alla vista)
-        return view('profile', ['profileData' => $profileData]);
+        return view('profile', ['profileData' => $profileData], ['userCoupons' => $userCoupons]);
+
+
     }
 
     public function updateProfile(Request $request){
@@ -152,15 +156,13 @@ class userController extends Controller {
             return view('coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
            //return  redirect('coupon/{$idOfferta}')->with('errore',$errore)->with('selOfferta',$selOfferta);
         }
-
-
-
-
-        
-        
-
-
     }
 
+   /* public function showCoupon()
+    {
+        $userCoupons = new Coupon();
+        $userCoupons = Coupon::getUserCoupons();
+        return view('profile')->with('userCoupons', $userCoupons);
+    } */
 
 }
