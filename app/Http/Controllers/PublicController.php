@@ -123,8 +123,8 @@ public function showSingleAzienda($idAzienda): View
 
     public function search(Request $request)
     {
-        $oggetto = $request->input('Oggetto');
-        $azienda = $request->input('NomeAzienda');
+        $oggetto = $request->input('oggetto');
+        $azienda = $request->input('azienda');
 
         $query = Offerta::query();
         

@@ -161,6 +161,30 @@ class DatabaseSeeder extends Seeder {
         'Evidenza'=>'sì',
         'image' => 'AirForce.png'],
 
+        ['Categoria'=>'Abbigliamento',
+         'DescrizioneOfferta'=> '...',
+         'Scadenza'=>'2023/06/25',
+         'Oggetto'=>'Air Force 1',
+         'NomeAzienda'=>'Nike',
+         'Prezzo'=>1230,
+         'PercentualeSconto'=>'60',
+         'Luogo'=>'Evento',
+         'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'sì',
+        'image' => 'AirForce.png'],
+
+        ['Categoria'=>'Abbigliamento',
+         'DescrizioneOfferta'=> '...',
+         'Scadenza'=>'2023/06/25',
+         'Oggetto'=>'Air Force 1',
+         'NomeAzienda'=>'Nike',
+         'Prezzo'=>1230,
+         'PercentualeSconto'=>'60',
+         'Luogo'=>'Evento',
+         'Modalità'=>'Utilizzo online',
+        'Evidenza'=>'sì',
+        'image' => 'AirForce.png'],
+
         
     ]);
 
