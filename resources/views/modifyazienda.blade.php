@@ -11,7 +11,7 @@
 <h2 class="titolo"> Modifica Azienda</h2>
 
 
-{{ Form::open(array('route' => ['modifyazienda', $azienda->idAzienda], 'method' => 'POST', 'class' => 'form-wrapper')) }}
+{{ Form::open(array('route' => ['modifyazienda', $azienda->idAzienda], 'method' => 'POST', 'class' => 'form-wrapper', 'enctype' => 'multipart/form-data')) }}
     @csrf
     @method('PUT')
 {{ Form::token() }}
@@ -56,9 +56,9 @@
                 @endif
 
 
-    {{Form::label('image', 'Logo aziendale', ['class' => 'label-input']) }}
-    {{ Form::file('image', null, ['class' => 'input']) }}
-     @if ($errors->has('image'))
+    {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
+    {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+    @if ($errors->first('image'))
                 <ul class="errors">
                     @foreach ($errors->get('image') as $message)
                     <li>{{ $message }}</li>
@@ -67,7 +67,7 @@
                 @endif
 
             </a>
-            
+
             {{ Form::submit('Modifica azienda', ['class' => 'btn-modify']) }}
             {{ Form::close() }}  
 

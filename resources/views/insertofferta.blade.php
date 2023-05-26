@@ -9,7 +9,7 @@
     <h1>Inserisci Offerta</h1>
 
     <div class="content">
-    {{ Form::open(array('route' => 'storeofferta', 'class' => 'contact-form')) }}
+    {{ Form::open(array('route' => 'storeofferta', 'class' => 'contact-form', 'enctype' => 'multipart/form-data')) }}
        @csrf
        {{ Form::token() }}
          <div class="user-details">
@@ -137,12 +137,12 @@
 </div>
 
 <div class="input-box">
-    {{Form::label('image', 'Immagine', ['class' => 'label-input']) }}
-    {{ Form::file('image', null, ['class' => 'input']) }}
-    @if ($errors->has('image'))
-    <ul class="errors">
+        {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
+        {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+        @if ($errors->first('image'))
+        <ul class="errors">
         @foreach ($errors->get('image') as $message)
-            <li>{{ $message }}</li>
+                <li>{{ $message }}</li>
         @endforeach
     </ul>
 @endif

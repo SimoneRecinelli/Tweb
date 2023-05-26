@@ -87,6 +87,14 @@ class AdminController extends Controller
 
     public function storeazienda(NewAziendaRequest $request)
     {
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
+
         $azienda = new Azienda;
         //bisogna controllare tramite form che tutti i campi siano inseriti
 
@@ -94,8 +102,13 @@ class AdminController extends Controller
         $azienda->Sede = $request->input('Sede');
         $azienda->Tipologia = $request->input('Tipologia');
         $azienda->RagioneSociale = $request->input('RagioneSociale');
-        $azienda->image = $request->input('image');
+        $azienda->image=$imageName;
         $azienda->save();
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/img/products';
+            $image->move($destinationPath, $imageName);
+        };
 
         return redirect('amministratore');
 

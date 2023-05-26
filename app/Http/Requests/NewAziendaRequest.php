@@ -29,6 +29,7 @@ class NewAziendaRequest extends FormRequest {
             'Sede' => 'required|max:30',
             'Tipologia' => 'required|max:25',
             'RagioneSociale' => 'required|max:25',
+            'image' => 'image|max:1024|mimes:jpeg,png,jpg'
         ];
     }
 

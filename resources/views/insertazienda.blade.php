@@ -9,7 +9,7 @@
 
             <h2 class="titolo">Inserisci Azienda</h2>
 
-            {{ Form::open(array('route' => 'storeazienda', 'class' => 'form-wrapper')) }}
+            {{ Form::open(array('route' => 'storeazienda', 'class' => 'form-wrapper', 'enctype' => 'multipart/form-data')) }}
             @csrf
             {{ Form::token() }}
 
@@ -57,12 +57,12 @@
             @endif
 
 
-            {{Form::label('image', 'Logo aziendale', ['class' => 'label-input']) }}
-            {{ Form::file('image', null, ['class' => 'input']) }}
-            @if ($errors->has('image'))
+            {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
+            {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+            @if ($errors->first('image'))
                 <ul class="errors">
                     @foreach ($errors->get('image') as $message)
-                         <li>{{ $message }}</li>
+                        <li>{{ $message }}</li>
                     @endforeach
                 </ul>
             @endif

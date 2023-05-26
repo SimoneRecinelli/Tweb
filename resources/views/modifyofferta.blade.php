@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
 <div class="signup-container">
-{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'POST', 'class' => 'contact-form')) }}
+{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'POST', 'class' => 'contact-form', 'enctype' => 'multipart/form-data')) }}
 @csrf
 @method('PUT')
 <div class="user-details">
@@ -137,15 +137,15 @@
     </div>
 
     <div class="input-box">
-    {{Form::label('image', 'Immagine', ['class' => 'label-input-img']) }}
-    {{ Form::file('image', null) }}
-    @if ($errors->has('image'))
-    <ul class="errors">
-        @foreach ($errors->get('image') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-            </ul>
-            @endif
+    {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
+    {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+    @if ($errors->first('image'))
+                <ul class="errors">
+                    @foreach ($errors->get('image') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
     </div>
 </div>
             <div class="button">

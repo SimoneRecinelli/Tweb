@@ -37,8 +37,17 @@ class NewOffertaRequest extends FormRequest {
             'Luogo' => 'required|max:30',
             'Modalità' => 'required|max:30',
             'Evidenza' => 'required|in:si,no',
-            'image' => 'required|image'
+            'image' => 'image|max:1024|mimes:jpeg,png,jpg'
+        ];
+
+    }
+/*
+    public function messages() {
+        return [
+            'image.required' => 'Il campo immagine è obbligatorio.',
+            'image.image' => 'Il file caricato deve essere un\'immagine.',
+            'image.mimes' => 'Il file immagine deve essere di tipo jpeg, png, jpg o gif.',
         ];
     }
-
+*/
 }
