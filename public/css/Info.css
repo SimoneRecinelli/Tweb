@@ -3,13 +3,19 @@
   margin: 20px auto;
 }
 
+.container-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .container-info .chisiamo_content, .container-info .dovesiamo_content {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: fit-content;
   text-align: center;
   padding: 8px;
-  display: inline-block;
   margin: 10px;
   color: #ffffff;
   border: 1px solid #bbbbbb;
@@ -28,7 +34,6 @@
   position: relative;
   width: 50%;
   height: 200px;
-  float: right;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Allinea orizzontalmente al centro */
