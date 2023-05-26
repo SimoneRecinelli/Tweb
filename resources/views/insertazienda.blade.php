@@ -13,7 +13,7 @@
             @csrf
             {{ Form::token() }}
 
-            {{ Form::label('NomeAzienda', 'Nome Azienda') }}
+            {{ Form::label('NomeAzienda', 'Nome azienda') }}
             {{ Form::textArea('NomeAzienda', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il nome dell\'azienda']) }}
             @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
@@ -46,7 +46,7 @@
 
 
 
-            {{Form::label('RagioneSociale', 'RagioneSociale') }}
+            {{Form::label('RagioneSociale', 'Ragione sociale') }}
             {{ Form::textArea('RagioneSociale', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la ragione sociale dell\'azienda']) }}
             @if ($errors->first('RagioneSociale'))
                 <ul class="errors">
@@ -55,6 +55,19 @@
                     @endforeach
                 </ul>
             @endif
+
+
+            {{Form::label('image', 'Logo aziendale', ['class' => 'label-input']) }}
+            {{ Form::file('image', null, ['class' => 'input']) }}
+            @if ($errors->has('image'))
+                <ul class="errors">
+                    @foreach ($errors->get('image') as $message)
+                         <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+
             {{ Form::submit('Crea azienda', ['class' => 'btn-modify']) }}
 
             {{ Form::close() }}

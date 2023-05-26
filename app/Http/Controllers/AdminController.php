@@ -94,6 +94,7 @@ class AdminController extends Controller
         $azienda->Sede = $request->input('Sede');
         $azienda->Tipologia = $request->input('Tipologia');
         $azienda->RagioneSociale = $request->input('RagioneSociale');
+        $azienda->image = $request->input('image');
         $azienda->save();
 
         return redirect('amministratore');
@@ -143,6 +144,7 @@ class AdminController extends Controller
         $azienda->Sede = $request->input('Sede');
         $azienda->Tipologia = $request->input('Tipologia');
         $azienda->RagioneSociale = $request->input('RagioneSociale');
+        $azienda->image = $request->input('image');
         $azienda->save();
         return redirect('amministratore');
     }
