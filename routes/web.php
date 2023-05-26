@@ -165,7 +165,12 @@ Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('delet
 
 Route::delete('/destroyStaff/{id}', [AdminController::class, 'destroyStaff'])->name('destroyStaff');
 /* ----------------------------------------------------------------------- */
+/* Delete Utenti ------------------------------------------------------------- */
+Route::get('/showUtenti', [AdminController::class, 'showUtenti'])->name('showUtenti');
 
+Route::delete('/destroyUtenti/{id}', [AdminController::class, 'destroyUtenti'])->name('destroyUtenti');
+
+/* ----------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------- */
 Route::get('/newcoupon/{idOfferta}', [UserController::class, 'newcoupon'])->name('newcoupon');
 

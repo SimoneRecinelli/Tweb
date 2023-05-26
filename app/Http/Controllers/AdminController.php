@@ -286,6 +286,22 @@ class AdminController extends Controller
         return redirect()->route('amministratore');
     }
 
+/* ELIMINAZIONE UTENTI --------------------------------------------------------------------------------  */
+    public function showUtenti()
+    {
+        $user = new User();
+        $users = $user->getusers();
+
+        return view('showUtenti')->with('user', $users);
+    }
+
+    public function destroyUtenti($id) {
+        User::destroy($id);
+        return redirect()->route('showUtenti');
+    }
+
+/* --------------------------------------------------------------------------------  */
+
 //---------------------------------------------------------------------------------------------------------------------------//
 
 /* STATISTICHE ---------------------------------------------------------------------------------------*/
@@ -330,19 +346,12 @@ public function statsofferta($idOfferta)
     return view('showStatistiche')->with('num', $num)->with('users',$users)->with('numofferte',$numofferte)->with('offerte',$offerte)->with('idOfferta',$idOfferta);
 
 }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 //---------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
+
+
 }
