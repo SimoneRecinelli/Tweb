@@ -122,12 +122,10 @@ class AdminController extends Controller
 
     public function destroyazienda($idAzienda)
     {
-        /*
+        
         $azienda = new Azienda;
         $azienda = $azienda->getAzienda($idAzienda);
-        $az*/
-
-        $azienda = Azienda::find($idAzienda);
+        
 
             $azienda->delete();
         
@@ -329,7 +327,7 @@ class AdminController extends Controller
         $coupons = $coupon->getcoupons($id);
         foreach($coupons as $c){
             $c->attivo='no';
-            $c->id=$id;
+            
         }
         User::destroy($id);
         return redirect()->route('showUtenti');
