@@ -93,6 +93,14 @@ class StaffController extends Controller {
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)
     {
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
         $model = new Azienda;
         $aziende = $model->getNome(($request->input('NomeAzienda')));
     
@@ -108,8 +116,15 @@ class StaffController extends Controller {
         'Luogo'=>$request->input('Luogo'),
         'Modalità'=>$request->input('Modalità'),
         'Evidenza'=>$request->input('Evidenza'),
-        'image'=>$request->input('image'),
+        'image'=>$imageName,
        ]);
+
+
+       if (!is_null($imageName)) {
+        $destinationPath = public_path() . '/img/products';
+        $image->move($destinationPath, $imageName);
+        };
+
         return redirect('homestaff');
     }
 

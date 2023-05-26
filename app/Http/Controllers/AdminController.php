@@ -152,13 +152,28 @@ class AdminController extends Controller
     public function modifyazienda(NewAziendaRequest $request, $idAzienda)
     {
 
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
+
         $azienda = Azienda::find($idAzienda);
         $azienda->NomeAzienda = $request->input('NomeAzienda');
         $azienda->Sede = $request->input('Sede');
         $azienda->Tipologia = $request->input('Tipologia');
         $azienda->RagioneSociale = $request->input('RagioneSociale');
-        $azienda->image = $request->input('image');
+        $azienda->image = $imageName;
         $azienda->save();
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/img/products';
+            $image->move($destinationPath, $imageName);
+        };
+
+
         return redirect('amministratore');
     }
     /* ------------------------------------------------------------------------------------------------------*/
