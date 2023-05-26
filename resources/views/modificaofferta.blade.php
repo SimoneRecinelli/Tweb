@@ -4,9 +4,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
 <div class="section">
+    <br>
 <h2 class="titolo">OFFERTE</h2>
-<br>
-
 
     <table class="table">
             <tr>
