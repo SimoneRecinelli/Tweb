@@ -64,8 +64,8 @@ class StaffController extends Controller {
             $destinationPath = public_path() . '/img/products';
             $image->move($destinationPath, $imageName);
         };
-    
-        return redirect('homestaff');
+        return response()->json(['redirect' => route('homestaff')]);
+        //return redirect('homestaff');
     
     }
     
