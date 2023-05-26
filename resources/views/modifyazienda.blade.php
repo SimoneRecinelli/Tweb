@@ -54,7 +54,20 @@
                     @endforeach
                 </ul>
                 @endif
+
+
+    {{Form::label('image', 'Logo aziendale', ['class' => 'label-input']) }}
+    {{ Form::file('image', null, ['class' => 'input']) }}
+     @if ($errors->has('image'))
+                <ul class="errors">
+                    @foreach ($errors->get('image') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
+
             </a>
+            
             {{ Form::submit('Modifica azienda', ['class' => 'btn-modify']) }}
             {{ Form::close() }}  
 
