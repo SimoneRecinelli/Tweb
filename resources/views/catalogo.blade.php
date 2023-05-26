@@ -53,12 +53,15 @@
             
         @endforeach
         @include('pagination.paginator', ['paginator' => $offerte])
-                @endisset()
+    
+        @endisset()
        
     @endif
-        
+      
    
     </div>
+
+    
   
     
    
