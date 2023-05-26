@@ -15,12 +15,14 @@
             <h2> Gestione aziende</h2>
             <a class="bottone" href="{{route('insertazienda')}}">Inserisci Azienda</a>
             <a class="bottone" href="{{route('modificaazienda')}}">Modifica Azienda</a>
+            <a class="bottone-elimina" href="{{route('deleteazienda')}}">Elimina Azienda</a>
         </div>
 
         <div class="container3">
             <h2> Gestione Membri Dello Staff </h2>
             <a class="bottone" href="{{route('insertStaff')}}">Inserisci Membro Staff</a>
             <a class="bottone" href="{{route('showStaff')}}">Modifica Membro Staff</a>
+            <a class="bottone-elimina" href="{{route('deleteStaff')}}">Elimina Azienda</a>
             </div>
 
         <div class="container4">

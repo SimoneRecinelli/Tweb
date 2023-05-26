@@ -122,18 +122,16 @@ class AdminController extends Controller
 
     public function destroyazienda($idAzienda)
     {
+        /*
+        $azienda = new Azienda;
+        $azienda = $azienda->getAzienda($idAzienda);
+        $az*/
+
         $azienda = Azienda::find($idAzienda);
-        $offerte = Offerta::all()->where('Azienda', $azienda->NomeAzienda);
 
-
-        foreach ($offerte as $offerta) {
-
-
-            $idAzienda = $offerta->idAzienda;
-            Offerta::destroy($idAzienda);
-        }
-
-        Azienda::destroy($idAzienda);
+            $azienda->delete();
+        
+        
         return redirect('amministratore');
     }
 
@@ -326,6 +324,13 @@ class AdminController extends Controller
     }
 
     public function destroyUtenti($id) {
+        $user = new User();
+        $coupon = new Coupon;
+        $coupons = $coupon->getcoupons($id);
+        foreach($coupons as $c){
+            $c->attivo='no';
+            $c->id=$id;
+        }
         User::destroy($id);
         return redirect()->route('showUtenti');
     }

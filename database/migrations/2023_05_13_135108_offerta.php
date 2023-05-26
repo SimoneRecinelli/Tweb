@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('Scadenza',25);     
             $table->string('Oggetto',100);
             $table->string('NomeAzienda',25);
-            $table->foreign('NomeAzienda',25)->references('NomeAzienda')->on('Aziende');
+            $table->foreign('NomeAzienda',25)->references('NomeAzienda')->on('Aziende')->onDelete('cascade');
             $table->float('Prezzo')->unsigned();
            // $table->float('PrezzoScontato')->unsigned();
             $table->tinyInteger('PercentualeSconto')->unsigned();

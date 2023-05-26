@@ -244,7 +244,7 @@ class DatabaseSeeder extends Seeder {
     DB::table('Coupons')->insert([
         [
             'Combinazione' => '...',
-            'id' => '2',
+            'id' => '1',
             'idOfferta' => '4',
             'codice' => '1234567890',
         ]

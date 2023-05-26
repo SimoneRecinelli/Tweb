@@ -31,5 +31,8 @@ class Coupon extends Model
         $userCoupons = self::where('id', Auth::user()->id)->get();
         return $userCoupons;
     }
+    public function getcoupons($id){
+        return $this->where('id',$id);
+    }
 
 }

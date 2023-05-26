@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Azienda extends Model
 {
     protected $table = 'Aziende';
+    protected $primaryKey = 'idAzienda';
     public $timestamps = false;
 
     public function getAziende(){
@@ -29,6 +30,10 @@ class Azienda extends Model
             $i++;
         }
         }
+    }
+
+    public function getAzienda($idAzienda){
+        return Azienda::where('idAzienda',$idAzienda)->first();
     }
 
 }
