@@ -7,7 +7,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.container1, .container2, .container3 {
+.container1, .container2, .container3, .container4 {
   text-align: center;
   margin: 20px;
   color: #ffffff;
@@ -15,10 +15,10 @@
   padding: 20px;
 }
 
-.container2, .container3 {
+.container2, .container3, .container4 {
   border-radius: 40px;
   border: 2px solid #bbbbbb;
-  width: fit-content;
+  width: 700px;
 }
 
 .bottone {
@@ -35,7 +35,7 @@
   background-color: rgb(70, 150, 128);
 }
 
-.container2 h2, .container3 h2 {
+.container2 h2, .container3 h2, .container4 h2 {
   margin-bottom: 20px;
 }
 
@@ -51,8 +51,4 @@
 
 .bottone-elimina:hover {
   background-color: rgb(198, 0, 0);
-}
-
-h1,h2,h3 {
-  margin: 5px;
 }

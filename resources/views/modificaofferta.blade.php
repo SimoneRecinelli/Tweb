@@ -1,29 +1,58 @@
 @extends('public')
 @section('content')
 
-@foreach($offerte as $offerta)
-{{ Form::open(array('route' => ['updateofferta', $offerta->idOfferta], 'method' => 'GET')) }}
-@method('GET')
-@csrf
-{{ Form::token() }}
-<a class="card" >
-            <div class="container_card">
-                <p>Descrizione offerta: {{$offerta->DescrizioneOfferta}}</p>
-                <p>Categoria: {{$offerta->Categoria}}</p>
-                <p>Scadenza: {{$offerta->Scadenza}}</p>
-                <p>Oggetto: {{$offerta->Oggetto}}</p>
-                <p>Nome Azienda: {{$offerta->NomeAzienda}}</p>
-                <p>Prezzo: {{$offerta->Prezzo}}</p>
-                <p>Percentuale sconto: {{$offerta->PercentualeSconto}}%</p>
-                <p>Luogo: {{$offerta->Luogo}}</p>
-                <p>Modalità: {{$offerta->Modalità}}</p>
-                <p>Evidenza: {{$offerta->Evidenza}}</p>
-                <p>Immagine:</p>
-                @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
-            </div>
-            </a>
-            {{ Form::submit('Modifica offerta', ['class' => 'btn btn-primary']) }}
-            {{ Form::close() }}  
-        @endforeach
+<link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
+<div class="section">
+    <br>
+<h2 class="titolo">OFFERTE</h2>
+
+    <table class="table">
+            <tr>
+                <th>Oggetto</th>
+                <th>Descrizione</th>
+                <th>Categoria</th>
+                <th>Scadenza</th>
+                <th>Azienda</th>
+                <th>Prezzo</th>
+                <th>Percentuale</th>
+                <th>Luogo</th>
+                <th>Modalità</th>
+                <th>Evidenza</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+        <tbody>
+            @foreach($offerte as $offerta)
+                <tr>
+                    <td>{{$offerta->Oggetto}}</td>
+                    <td>{{$offerta->DescrizioneOfferta}}</td>
+                    <td>{{$offerta->Categoria}}</td>
+                    <td>{{$offerta->Scadenza}}</td>
+                    <td>{{$offerta->NomeAzienda}}</td>
+                    <td>{{$offerta->Prezzo}}</td>
+                    <td>{{$offerta->PercentualeSconto}}%</td>
+                    <td>{{$offerta->Luogo}}</td>
+                    <td>{{$offerta->Modalità}}</td>
+                    <td>{{$offerta->Evidenza}}</td>
+                    <td>
+                        {{ Form::open(array('route' => ['updateofferta', $offerta->idOfferta], 'method' => 'GET')) }}
+                        @method('GET')
+                        @csrf
+                        {{ Form::token() }}
+                        {{ Form::submit('Modifica offerta', ['class' => 'btn-modify']) }}
+                        {{ Form::close() }}
+                    </td>
+
+                    <td>
+                    {{ Form::open(array('route' => ['destroyofferta', $offerta->idOfferta], 'method' => 'POST')) }}
+                    @method('DELETE')
+                    {{ Form::token() }}
+                    {{ Form::submit('Elimina offerta', ['class' => 'btn-delete']) }}
+                    {{ Form::close() }} 
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endsection

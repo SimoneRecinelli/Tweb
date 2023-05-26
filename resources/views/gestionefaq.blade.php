@@ -3,11 +3,11 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
-<div class="faq-section">
+<div class="section">
     <h2 class="titolo">DOMANDE FREQUENTI</h2>
     <br>
 
-    <table class="faq-table">
+    <table class="table">
         <tr>
             <th>Numero</th>
             <th>Domanda</th>
@@ -44,3 +44,5 @@
 
 </div>
 @endsection
+
+
