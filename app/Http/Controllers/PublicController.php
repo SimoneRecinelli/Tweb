@@ -32,14 +32,16 @@ class PublicController extends Controller
   
 public function showCatalog($Categoria = null): View {
     $categorie = Offerta::all()->pluck('Categoria')->unique();
+    $query=Offerta::query();
 
     if(isset($Categoria)){
-        $offerte = Offerta::where('Categoria', $Categoria)->paginate(2);
+        $query->where('Categoria', $Categoria);
         $catselezionata = $Categoria;
     } else {
-        $offerte = Offerta::paginate(5);
         $catselezionata = null;
     }
+
+    $offerte = $query->paginate(2);
 
     return view('catalogo')
         ->with('offerte', $offerte)
@@ -123,23 +125,26 @@ public function showSingleAzienda($idAzienda): View
     {
         $oggetto = $request->input('Oggetto');
         $azienda = $request->input('NomeAzienda');
+
+        $query = Offerta::query();
         
         if(isset($oggetto)&&($azienda==null))
         {
-            $results = Offerta::where('Oggetto', 'like', '%' . $oggetto . '%')->get();
+            $query->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
         }
         else if(isset($azienda)&&($oggetto==null))
         {
-            $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->get();
+            $query->where('NomeAzienda', 'like', '%' . $azienda . '%')->get();
         }
 
         else if(isset($oggetto)&&(isset($azienda))) {
-            $results = Offerta::where('NomeAzienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
+            $query->where('NomeAzienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
         }
         else{
             $results = Offerta::getOfferte();
         }
-        
+
+        $results = $query->paginate(2);
 
         $categorie = Offerta::getOfferte()->pluck('Categoria')->unique();  
         
