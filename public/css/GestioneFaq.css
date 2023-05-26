@@ -1,33 +1,33 @@
-.faq-section{
-        margin: 20px auto;
-        max-width: 800px;
-        text-align: center;
-
+.section{
+display: flex;
+justify-content: center;
+flex-direction: column;
 }
 
-.faq-section .titolo{
+.section .titolo{
     color: #fff;
     text-align: center;
     margin: 10px auto;
     
 }
 
-.faq-table {
+.table {
+    zoom:80%;
     border-collapse: collapse;
-    margin: 0px auto;
+    margin: 20px auto;
     background-color: #f5f5f5;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     overflow: hidden;
   }
   
-  .faq-table th {
+  .table th {
     font-weight: bold;
     border: 1px solid #bbb;
     padding: 10px 20px;
   }
 
-  .faq-table td {
+  .table td {
     border: 1px solid #bbb;
     padding: 10px 20px;
     border-radius: 10px;
@@ -38,7 +38,7 @@
 }
 
   
-.faq-table .btn-modify, .faq-table .btn-delete{
+.table .btn-modify, .table .btn-delete{
    color: #fff;
     padding: 8px;
     border-radius: 50px;
@@ -48,19 +48,19 @@
     font-size:14px;
 }
 
-.faq-table .btn-modify{
+.table .btn-modify{
 background-color: rgb(88,185,157);
 }
 
-.faq-table .btn-modify:hover{
+.table .btn-modify:hover{
     background-color: rgb(70, 150, 128);
 }
 
-.faq-table .btn-delete {
+.table .btn-delete {
     background-color: red;
 }
 
-.faq-table .btn-delete:hover {
+.table .btn-delete:hover {
     background-color: rgb(198, 0, 0);
 }
 

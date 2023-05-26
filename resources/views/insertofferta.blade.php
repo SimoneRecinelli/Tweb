@@ -1,7 +1,7 @@
 @extends('public')
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/Registrazione.css') }}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
 
     <div class="signup-container">
@@ -16,7 +16,7 @@
             
             <div class="input-box">
             {{ Form::label('DescrizioneOfferta', 'DescrizioneOfferta', ['class' => 'label-input']) }}
-            {{ Form::textArea('DescrizioneOfferta', null, ['class' => 'input', 'placeholder' => 'Inserisci la descrizione dell\'offerta']) }}
+            {{ Form::text('DescrizioneOfferta', null, ['class' => 'input', 'placeholder' => 'Inserisci la descrizione dell\'offerta']) }}
             @if ($errors->first('DescrizioneOfferta'))
                 <ul class="errors">
                     @foreach ($errors->get('DescrizioneOfferta') as $message)
@@ -28,7 +28,7 @@
 
             <div class="input-box">
             {{ Form::label('Categoria', 'Categoria', ['class' => 'label-input']) }}
-            {{ Form::textArea('Categoria', null, ['class' => 'input', 'placeholder' => 'Inserisci la categoria dell\'offerta']) }}
+            {{ Form::text('Categoria', null, ['class' => 'input', 'placeholder' => 'Inserisci la categoria dell\'offerta']) }}
             @if ($errors->first('Categoria'))
                 <ul class="errors">
                     @foreach ($errors->get('Categoria') as $message)
@@ -53,7 +53,7 @@
 
             <div class="input-box">
             {{ Form::label('Oggetto', 'Oggetto', ['class' => 'label-input']) }}
-            {{ Form::textArea('Oggetto', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'oggetto dell\'offerta']) }}
+            {{ Form::text('Oggetto', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'oggetto dell\'offerta']) }}
             @if ($errors->first('Oggetto'))
                 <ul class="errors">
                     @foreach ($errors->get('Oggetto') as $message)
@@ -89,7 +89,7 @@
 
             <div class="input-box">
             {{ Form::label('PercentualeSconto', 'PercentualeSconto', ['class' => 'label-input']) }}
-            {{ Form::number('PercentualeSconto', null, ['class' => 'input', 'placeholder' => 'Inserisci la percentuale di sconto']) }}%
+            {{ Form::number('PercentualeSconto', null, ['class' => 'input', 'placeholder' => 'Inserisci la percentuale di sconto']) }}
             @if ($errors->first('PercentualeSconto'))
                 <ul class="errors">
                     @foreach ($errors->get('PercentualeSconto') as $message)
@@ -101,7 +101,7 @@
 
             <div class="input-box">
             {{ Form::label('Luogo', 'Luogo', ['class' => 'label-input']) }}
-            {{ Form::textArea('Luogo', null, ['class' => 'input', 'placeholder' => 'Inserisci il luogo dell\'offerta']) }}
+            {{ Form::text('Luogo', null, ['class' => 'input', 'placeholder' => 'Inserisci il luogo dell\'offerta']) }}
             @if ($errors->first('Luogo'))
                 <ul class="errors">
                     @foreach ($errors->get('Luogo') as $message)
@@ -113,7 +113,7 @@
 
             <div class="input-box">
             {{ Form::label('Modalità', 'Modalità', ['class' => 'label-input']) }}
-            {{ Form::textArea('Modalità', null, ['class' => 'input', 'placeholder' => 'Inserisci la modalità dell\'offerta']) }}
+            {{ Form::text('Modalità', null, ['class' => 'input', 'placeholder' => 'Inserisci la modalità dell\'offerta']) }}
             @if ($errors->first('Modalità'))
                 <ul class="errors">
                     @foreach ($errors->get('Modalità') as $message)
@@ -125,7 +125,7 @@
 
 <div class="input-box">
         {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
-        {{ Form::textArea('Evidenza', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'evidenza dell\'offerta']) }}
+        {{ Form::text('Evidenza', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'evidenza dell\'offerta']) }}
         @if ($errors->first('Evidenza'))
         <ul class="errors">
         @foreach ($errors->get('Evidenza') as $message)

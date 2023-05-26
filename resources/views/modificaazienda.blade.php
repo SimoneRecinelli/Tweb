@@ -1,30 +1,50 @@
 @extends('public')
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/ModificaAzienda.css') }}">
-    <h1 class="titolo"> Gestisci le seguenti aziende:</h1>
-    @foreach($aziende as $azienda)
-        {{ Form::open(array('route' => ['updateazienda', $azienda->idAzienda], 'method' => 'GET')) }}
-        @method('GET')
-        @csrf
-        {{ Form::token() }}
-        <div class="table-container">
-        <table class="form-table">
-            <tr>
-                <td>
-                    <p>{{ $azienda->NomeAzienda }}</p>
-                </td>
-                <td>
-                    {{ Form::submit('Modifica azienda', ['class' => 'btn btn-primary']) }}
-                </td>
-            </tr>
-        </table>
-        </div>
-        {{ Form::close() }}
+<link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
-        @unless($loop->last)
-            <hr> <!-- Aggiungi un separatore tra le iterazioni tranne l'ultima -->
-        @endunless
-    @endforeach
+<div class="section">
+    <h1 class="titolo"> Gestisci le seguenti aziende:</h1>
+    
+        <table class="table">
+                <tr>
+                    <th>Nome Azienda</th>
+                    <th>Sede</th>
+                    <th>Tipologia</th>
+                    <th>Ragione Sociale</th>
+                    <th>Modifica</th>
+                    <th>Elimina</th>
+
+                </tr>
+            <tbody>
+                @foreach($aziende as $azienda)
+                    <tr>
+                        <td>{{ $azienda->NomeAzienda }}</td>
+                        <td>{{ $azienda->Sede }}</td>
+                        <td>{{ $azienda->Tipologia }}</td>
+                        <td>{{ $azienda->RagioneSociale }}</td>
+
+                        <td>
+                            {{ Form::open(array('route' => ['updateazienda', $azienda->idAzienda], 'method' => 'GET')) }}
+                            @method('GET')
+                            @csrf
+                            {{ Form::token() }}
+                            {{ Form::submit('Modifica azienda', ['class' => 'btn-modify']) }}
+                            {{ Form::close() }}
+                        </td>
+
+                        <td>
+                            {{ Form::open(array('route' => ['destroyazienda', $azienda->idAzienda], 'method' => 'POST')) }}
+                            @method('DELETE')
+                            {{ Form::token() }}
+                            {{ Form::submit('Elimina azienda', ['class' => 'btn-delete']) }}
+                            {{ Form::close() }}
+                        </td>
+                        
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
 @endsection
