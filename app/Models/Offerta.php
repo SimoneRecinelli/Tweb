@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Offerta extends Model
 {
     protected $table = 'Offerte';
+    protected $primaryKey = 'idOfferta';
 /*
     public function getCat(){
         $categorie = Offerta::all()->pluck('Categoria')->unique();
