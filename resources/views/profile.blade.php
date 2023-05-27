@@ -19,7 +19,7 @@
 
 
         @auth
-                @if(Auth::user()->can('isUser'))
+                @if(Auth::user()->can('isUser')||Auth::user()->can('isStaff'))
         <div class="btn-bottom">
         <a class="bottone-modifica" href="{{ route('showUser')}}">Modifica profilo</a>
         <a class="bottone-modifica" href="{{ route('modificapassword')}}">Modifica password</a>
@@ -28,13 +28,7 @@
             @endauth
 
         
-            @auth
-                @if(Auth::user()->can('isStaff'))
-        <div class="btn-bottom">
-        <a class="bottone-modifica" href="{{ route('showStaff')}}">Modifica profilo</a>
-        <a class="bottone-modifica" href="{{ route('modificapassword')}}">Modifica password</a> 
-        @endif
-            @endauth
+           
 
 
         @auth

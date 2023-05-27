@@ -114,9 +114,7 @@ Route::get('/prova', [PublicController::class, 'showCatalog']) ->name('prova');
 
 /* CUD Users -------------------------------------------------------------------------------------------- */
 Route::get('/showUser', [UserController::class, 'showUser'])->name('showUser');
-Route::get('/showStaff', [StaffController::class, 'showStaff'])->name('showStaff');
 Route::put('/putProfile', [UserController::class, 'updateProfile'])->name('putProfile');
-Route::put('/putProfileStaff', [StaffController::class, 'updateProfileStaff'])->name('putProfile');
 Route::get('/modificapassword', [UserController::class, 'modificapassword'])->name('modificapassword');
 Route::put('/putpassword', [UserController::class, 'putpassword'])->name('putpassword');
 Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile');

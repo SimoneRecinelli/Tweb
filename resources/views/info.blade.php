@@ -12,7 +12,13 @@
             <p>Perché CheapestCoupon? Trattiamo con le migliori aziende che operano sul web per offrire coupon esclusivi e sconti speciali dei tuoi negozi online preferiti.</p>
             <br>
         </div>
-
+        <div class="chisiamo_content">
+            <h1>Come è organizzato il sito?</h1>
+            <p>Nella sezione <a href="{{route('home')}}">Home</a> puoi trovare le offerte in evidenza e altro.<br>Nella sezione<a href="{{route('catalogo')}}">Catalogo</a> puoi trovare tutte le offerte che puoi filtrare per categoria o ricercare in base all'oggetto e\o all'azienda.
+            <br> Nella sezione <a href="{{route('aziende')}}">Aziende</a> puoi trovare tutte le nostre aziende e le offerte ad esse relativi. </p>
+            
+            <br>
+        </div>
         <div class="dovesiamo_content">
             <h1>Dove siamo?</h1>
             <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2650.05287006715!2d13.513330243081203!3d43.58773491918392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132d80233dd931ef%3A0x161719e4f3f5daaf!2sUniversit%C3%A0%20Politecnica%20delle%20Marche%20-%20Facolt%C3%A0%20di%20Ingegneria!5e0!3m2!1sit!2sit!4v1683820013106!5m2!1sit!2sit" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
