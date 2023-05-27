@@ -36,7 +36,21 @@
     text-decoration: none;
 }
 
+.bottone-modificaPass{
+    display: inline-block;
+    margin: 0px 10px;
+    padding: 8px 16px;
+    color: #fff;
+    border-radius: 40px;
+    border: none;
+    text-decoration: none;
+    background-color: rgb(88,185,157);
+    font-size: large;
+}
 
+.bottone-modificaPass:hover{
+    background-color: rgb(70, 150, 128);
+}
 
 .bottone-modifica{
     background-color: rgb(88,185,157);
@@ -92,3 +106,8 @@
     overflow: hidden; /* Nasconde il testo in eccesso */
     text-overflow: ellipsis; /* Aggiunge i puntini di sospensione per il testo in eccesso */
 }
+
+#pass {
+    width: 200px; /* Regola il valore in base alle tue esigenze */
+}
+

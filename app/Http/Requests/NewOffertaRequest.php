@@ -25,22 +25,27 @@ class NewOffertaRequest extends FormRequest {
      *
      * @return array
      */
-    public function rules() {
+    public function rules()
+    {
+        /* l'espressione regolare /^[a-zA-Z\s]+$/ permette solo lettere
+        (sia maiuscole che minuscole) e spazi nei campi specificati. */
+
         return [
-            'DescrizioneOfferta' => 'required|max:2500',
-            'Categoria' => 'required|max:30',
+            'DescrizioneOfferta' => 'required|max:2500|regex:/^[a-zA-Z\s]+$/',
+            'Categoria' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
             'Scadenza' => 'required',
-            'Oggetto' => 'required|max:30',
+            'Oggetto' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
             'NomeAzienda' => 'required|max:30',
-            'Prezzo' => 'required|min:0',
-            'PercentualeSconto' => 'required|integer|min:0|max:100',
-            'Luogo' => 'required|max:30',
-            'Modalità' => 'required|max:30',
+            'Prezzo' => 'required|numeric|min:0',
+            'PercentualeSconto' => 'required|numeric|min:0|max:100',
+            'Luogo' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
+            'Modalità' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
             'Evidenza' => 'required',
             'image' => 'file|mimes:jpeg,png,jpg|max:1024'
         ];
-
     }
+
+
     /**
      * Override: response in formato JSON
      */

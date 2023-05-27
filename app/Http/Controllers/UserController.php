@@ -44,12 +44,12 @@ class userController extends Controller {
 
         //Validazione dei dati
          $validatedData = $request->validate([
-            'nome' => ['required', 'string', 'max:255'],
-            'cognome' => ['required', 'string', 'max:255'],
+
+            'nome' => ['required', 'string', 'min:3', 'regex:/^[a-zA-Z\s]+$/'],
+            'cognome' => ['required','min:3', 'string', 'regex:/^[a-zA-Z\s]+$/'],
             'email' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'min:8'],
-            
-            'telefono' => ['required', 'string', 'min:10'],
+            'telefono' => ['required', 'string', 'min:10','regex:/^[0-9]+$/'],
             'genere' => ['required','string'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
             'residenza' => ['required','string'],
@@ -65,17 +65,11 @@ class userController extends Controller {
         $user->eta = $validatedData['eta'];
         $user->residenza = $validatedData['residenza'];
         $user->genere =($validatedData['genere']==0)?'Uomo':'Donna';
-        // Aggiorna gli altri campi del profilo dell'utente
-        // ...
 
 
-        // Salva le modifiche
-        //$user->save();
         $user->update();
 
-        return redirect()->route('profile')->withErrors(['success' => 'Il profilo è stato aggiornato con successo.']);
-        //Aggiorna il profilo dell'utente con i nuovi dati
-        //$user->updateProfile($validatedData);
+        return redirect()->route('profile');
 
     }
 

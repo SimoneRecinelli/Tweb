@@ -20,7 +20,6 @@
         <div class="btn-bottom">
         <a class="bottone-modifica" href="{{ route('showUser')}}">Modifica profilo</a>
         <a class="bottone-modifica" href="{{ route('modificapassword')}}">Modifica password</a>
-        <a class="bottone-elimina" href="{{ route('deleteProfile')}}">Elimina profilo</a>
         </div>
 
         @auth

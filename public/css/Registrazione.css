@@ -96,3 +96,9 @@ form .button input:hover{
   font-size:14px;
   padding-left:15px
 }
+
+.signup-container .content .user-details .input-box textarea {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}

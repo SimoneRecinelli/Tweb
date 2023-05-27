@@ -26,9 +26,7 @@
     {{ Form::token() }}
     <p><strong>{{Form::label('password', 'Password:') }}</strong>
     {{ Form::text('password', null, ['class' => 'form-control', 'id' => 'pass', 'placeholder' => 'Inserisci nuova password']) }} </p>
-    
-    
-        
+
         @if ($errors->first('password')  )
         
         <ul class="errors" >
@@ -39,7 +37,7 @@
 
         @endif
         <div class="btn-bottom">
-        {{ Form::submit('Modifica password', ['class' => 'bottone-modifica']) }}
+        {{ Form::submit('Modifica password', ['class' => 'bottone-modificaPass']) }}
         {{ Form::close() }}
 </div>
     </div>
