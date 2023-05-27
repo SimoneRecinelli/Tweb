@@ -81,8 +81,9 @@ public function showAziende()
 public function showSingleAzienda($idAzienda): View
 {
     $selAzienda = Azienda::all()->where('idAzienda', $idAzienda)->first();
-
-    return view('paginaazienda')->with('selAzienda',$selAzienda);
+    $offerte = new Offerta;
+    $offerte = $offerte->getbyazienda($selAzienda->NomeAzienda);
+    return view('paginaazienda')->with('selAzienda',$selAzienda)->with('offerte',$offerte);
 }
 
 /**

@@ -25,4 +25,10 @@ class Offerta extends Model
         $offerteInEvidenza = Offerta::where('Evidenza', 'sì')->take(4)->get();
         return $offerteInEvidenza;
     }
+
+    public function getbyazienda($NomeAzienda){
+
+        $offerte = Offerta::where('NomeAzienda',$NomeAzienda)->get();
+         return $offerte;
+    }
 }
