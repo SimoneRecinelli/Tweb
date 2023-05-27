@@ -68,8 +68,7 @@ class StaffController extends Controller {
             $image->move($destinationPath, $imageName);
         }
         return response()->json(['redirect' => route('homestaff')]);
-        //return redirect('homestaff');
-    
+
     }
     
     public function deleteofferta(){
@@ -128,7 +127,7 @@ class StaffController extends Controller {
         $image->move($destinationPath, $imageName);
         };
 
-        return redirect('homestaff');
+        return response()->json(['redirect' => route('homestaff')]);
     }
 
 }

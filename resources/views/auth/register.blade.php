@@ -51,27 +51,17 @@
           </div>
 
 
-          <div class="input-radio-button">
-          {{ Form::label('genere', 'Genere', ['class' => 'label-input']) }}
-          <div class="radio-buttons">
-          {{ Form::radio('genere', 'Uomo', false, ['id' => 'uomo']) }}
-                {{ Form::label('Uomo', 'Uomo') }}
-
-          {{ Form::radio('genere', 'Donna', false, ['id' => 'donna']) }}
-                {{ Form::label('Donna', 'Donna') }}
-
-          {{ Form::radio('genere', 'Altro', false, ['id' => 'altro']) }}
-                {{ Form::label('Altro', 'Altro') }}
-          </div>
-
-               @if ($errors->first('genere'))
-              <ul class="errors">
-                  @foreach ($errors->get('genere') as $message)
-                 <li>{{ $message }}</li>
-                 @endforeach
-              </ul>
-              @endif
-         </div>
+            <div class="input-box">
+                {{Form::label('genere', 'Genere:', ['class' => 'label-input']) }}
+                {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'input']) }}<br>
+                @if ($errors->first('genere'))
+                    <ul class="errors">
+                        @foreach ($errors->get('genere') as $message)
+                            <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
 
          <div class="input-box">
           {{ Form::label('residenza', 'Residenza', ['class' => 'label-input']) }}

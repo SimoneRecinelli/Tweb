@@ -150,11 +150,4 @@ class userController extends Controller {
         }
     }
 
-   /* public function showCoupon()
-    {
-        $userCoupons = new Coupon();
-        $userCoupons = Coupon::getUserCoupons();
-        return view('profile')->with('userCoupons', $userCoupons);
-    } */
-
 }
