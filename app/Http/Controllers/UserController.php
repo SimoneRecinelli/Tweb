@@ -122,9 +122,7 @@ class userController extends Controller {
 
     public function showUser() {
         $user = Auth::user();
-        /*$id=Auth::user()->id;
-        $user = User::where('id',$id);
-        dd($user->nome);*/
+        
         return view('modifyProfilo')->with('user',$user);
     }
 

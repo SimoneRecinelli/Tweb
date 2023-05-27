@@ -14,7 +14,9 @@
     @csrf
     @method('PUT')
     {{ Form::token() }}
+    
     <div class="user-details">
+
 
     <div class="input-box">
     {{ Form::label('nome', 'Nome:', ['class' => 'label-input']) }}

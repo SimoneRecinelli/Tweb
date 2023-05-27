@@ -17,6 +17,38 @@ class StaffController extends Controller {
         return view('homestaff');
     }
 
+    public function showStaff() {
+        $staff = new Staff;
+        $staff = $staff->getProfile(Auth::user()->id);
+        dd($staff);
+        return view('modifyProfiloStaff')->with('staff',$staff);
+    }
+
+    public function updateProfileStaff(Request $request){
+        // Recupera l'utente autenticato
+        $user = Auth::user();
+
+        //Validazione dei dati
+         $validatedData = $request->validate([
+
+            'nome' => ['required', 'string', 'min:3', 'regex:/^[a-zA-Z\s]+$/'],
+            'cognome' => ['required','min:3', 'string', 'regex:/^[a-zA-Z\s]+$/'],
+            
+        ]);
+
+        // Aggiorna i dati del profilo dell'utente con i nuovi valori
+        $user->nome =$validatedData['nome'];
+        $user->cognome = $validatedData['cognome'];
+        
+
+
+        $user->update();
+
+        return redirect()->route('profile');
+
+    }
+
+
     public function gestioneOfferte() {
         return view('gestioneOfferte');
     }
