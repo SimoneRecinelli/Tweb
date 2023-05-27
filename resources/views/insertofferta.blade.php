@@ -37,11 +37,6 @@
         @csrf
         {{ Form::token() }}
         <div class="user-details">
-            
-            <div class="input-box">
-            {{ Form::label('DescrizioneOfferta', 'Descrizione Estesa', ['class' => 'label-input']) }}
-            {{ Form::text('DescrizioneOfferta', null, ['class' => 'input', 'placeholder' => 'Inserisci la descrizione dell\'offerta', 'id' => 'DescrizioneOfferta']) }}
-            </div>
 
             <div class="input-box">
             {{ Form::label('Categoria', 'Categoria', ['class' => 'label-input']) }}
@@ -93,6 +88,11 @@
             <div class="input-box">
             {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
             {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+            </div>
+
+            <div class="input-box">
+                {{ Form::label('DescrizioneOfferta', 'Descrizione Estesa', ['class' => 'label-input']) }}
+                {{ Form::textarea('DescrizioneOfferta', null, ['class' => 'input', 'placeholder' => 'Inserisci la descrizione dell\'offerta', 'id' => 'DescrizioneOfferta',  'rows' => 2]) }}
             </div>
 
         </div>
