@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\DB;
 use App\Models\Azienda;
 use App\Models\Offerta;
 use App\Models\Faq;

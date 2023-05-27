@@ -33,7 +33,7 @@
 </div>
 
 <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>  
-  <script src="function.js"></script>
+
   <script>
         /**Cliccando un elemento <a> dell'accordion, la funzione toggleAccordion viene eseguita.
          *  Questa funzione aggiunge o rimuove la classe "active" sia all'elemento <a> che all'elemento successivo .content, 

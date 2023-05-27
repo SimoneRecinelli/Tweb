@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder {
 
         ],
 
-        [
+        /*[
             'NomeAzienda' => 'Ebay',
             'Sede' => 'Ancona',
             'Tipologia' => 'e-commerce',
@@ -109,8 +109,7 @@ class DatabaseSeeder extends Seeder {
             'Descrizione' => 'prova',
 
 
-        ]
-
+        ] */
 
     ]);
 

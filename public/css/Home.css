@@ -3,67 +3,6 @@
 /* -----------------
 CSS SLIDESHOW
 -------------------- */
-/*
-.slideshow-container {
-  max-width: 900px;
-  position: relative;
-  margin: 10px auto;
-}
-
-::marker {
-  color: transparent;
-  unicode-bidi: isolate;
-  font-variant-numeric: tabular-nums;
-  text-transform: none;
-  text-indent: 0px !important;
-  text-align: start !important;
-  text-align-last: start !important;
-}
-
-.mySlides {
-  display: block;
-  text-align: center;
-}
-
-.mySlides img {
-  width: 60%;
-}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: #24262b;
-  color: #fff;
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-*/
-
 .wrapper{
   position: relative;
   display: flex;
@@ -73,16 +12,16 @@ CSS SLIDESHOW
 }
 
 .container-slide{
-  border-color: red;
-  border-style: solid;
+  width:80rem;
+  text-align: center;
+  overflow: hidden;
 }
 
 .slide img{
-  width: 100%;
-}
 
-.slide h3 p {
-  margin: 0 auto;
+  width: auto;
+  max-width: 99%;
+  height: 30rem;
 }
 
 .carousel{
@@ -95,11 +34,11 @@ CSS SLIDESHOW
 
 .fade{
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
 }
 
 @keyframes fade {
-  from {opacity: .4}
+  from {opacity: .1}
   to {opacity: 1}
 }
 
@@ -107,6 +46,9 @@ CSS SLIDESHOW
 
 .card_title{
   font-size: 30px;
+  text-align: center;
+  color:white;
+  padding: 15px;
 }
 
 #catalogo img{
@@ -141,7 +83,6 @@ CSS SLIDESHOW
 
 .card h4 {
   text-align: center;
-  
 }
 
 .card:hover {

@@ -116,7 +116,7 @@ class StaffController extends Controller {
         $image->move($destinationPath, $imageName);
         };
 
-        return response()->json(['redirect' => route('StaffViews.homestaff')]);
+        return response()->json(['redirect' => route('homestaff')]);
     }
 
 }

@@ -1,28 +1,24 @@
 @extends('public')
+
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/Home.css')}}">
 
-    <!--
-<div class="slideshow-container">
-<a >
-<div class="mySlides fade">
- @foreach($prossimeOfferte as $slideOfferte)
-        <div>
-@foreach ($prossimeOfferte as $offerta)
-            <li class="slide-card">
-                @include('helpers.productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
-            <h3>Oggetto: {{ $offerta->Oggetto }}</h3>
-                <p>Sconto: -{{ $offerta->PercentualeSconto }}%</p>
-                <p>SCADENZA: {{ $offerta->Scadenza }}</p>
-            </li>
-
-        @endforeach
+    <div class="catalogo">
+        <h3 class="card_title"> Le nostre aziende </h3>
+        <div class="wrapper">
+            <div class="container-slide">
+                <?php
+                $aziende = (new \App\Models\Azienda())->getAllAziende();
+                ?>
+                @foreach($aziende as $azienda)
+                    <div class="slide fade">
+                        <img src="{{'img/products/'.$azienda->image}}">
+                    </div>
+                @endforeach
+            </div>
         </div>
-
-    @endforeach
-    </div> </a>
--->
+    </div>
 
     <div id="catalogo">
 

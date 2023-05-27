@@ -3,7 +3,7 @@
 @section('scripts')
 
     @parent
-    <script src="{{ asset('js/functions.js') }}" ></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
@@ -82,7 +82,7 @@
 
             <div class="input-box">
             {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
-            {{ Form::select('Evidenza', ['1' => 'Si', '0' => 'No'], 0, ['class' => 'input', 'id' => 'Evidenza']) }}
+            {{ Form::select('Evidenza', ['1' => 'si', '0' => 'no'], $offerte->evidenza, ['class' => 'input', 'id' => 'Evidenza']) }}
             </div>
 
             <div class="input-box">
