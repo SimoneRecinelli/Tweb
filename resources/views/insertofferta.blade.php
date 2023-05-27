@@ -34,11 +34,12 @@
 
     <div class="content">
     {{ Form::open(array('route' => 'storeofferta', 'class' => 'contact-form', 'id' => 'addofferta', 'files' => true, 'enctype' => 'multipart/form-data')) }}
-       {{ Form::token() }}
-         <div class="user-details">
+        @csrf
+        {{ Form::token() }}
+        <div class="user-details">
             
             <div class="input-box">
-            {{ Form::label('DescrizioneOfferta', 'DescrizioneOfferta', ['class' => 'label-input']) }}
+            {{ Form::label('DescrizioneOfferta', 'Descrizione Estesa', ['class' => 'label-input']) }}
             {{ Form::text('DescrizioneOfferta', null, ['class' => 'input', 'placeholder' => 'Inserisci la descrizione dell\'offerta', 'id' => 'DescrizioneOfferta']) }}
             </div>
 
@@ -75,18 +76,18 @@
             </div>
 
             <div class="input-box">
-            {{ Form::label('Luogo', 'Luogo', ['class' => 'label-input']) }}
+            {{ Form::label('Luogo', 'Luogo di fruizione', ['class' => 'label-input']) }}
             {{ Form::text('Luogo', null, ['class' => 'input', 'placeholder' => 'Inserisci il luogo dell\'offerta', 'id' => 'Luogo']) }}
             </div>
 
             <div class="input-box">
-            {{ Form::label('Modalità', 'Modalità', ['class' => 'label-input']) }}
+            {{ Form::label('Modalità', 'Modalità di fruizione', ['class' => 'label-input']) }}
             {{ Form::text('Modalità', null, ['class' => 'input', 'placeholder' => 'Inserisci la modalità dell\'offerta', 'id' => 'Modalità']) }}
             </div>
 
             <div class="input-box">
             {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
-            {{ Form::text('Evidenza', null, ['class' => 'input', 'placeholder' => 'Inserisci l\'evidenza dell\'offerta', 'id' => 'Evidenza']) }}
+            {{ Form::select('Evidenza', ['1' => 'Si', '0' => 'No'], 0, ['class' => 'input', 'id' => 'Evidenza']) }}
             </div>
 
             <div class="input-box">

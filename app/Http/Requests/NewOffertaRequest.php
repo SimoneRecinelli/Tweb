@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use App\Models\Staff;
-use App\Models\Offerta;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Response;
 
 class NewOffertaRequest extends FormRequest {
 
@@ -36,18 +36,16 @@ class NewOffertaRequest extends FormRequest {
             'PercentualeSconto' => 'required|integer|min:0|max:100',
             'Luogo' => 'required|max:30',
             'Modalità' => 'required|max:30',
-            'Evidenza' => 'required|in:si,no',
-            'image' => 'image|max:1024|mimes:jpeg,png,jpg'
+            'Evidenza' => 'required',
+            'image' => 'file|mimes:jpeg,png,jpg|max:1024'
         ];
 
     }
-/*
-    public function messages() {
-        return [
-            'image.required' => 'Il campo immagine è obbligatorio.',
-            'image.image' => 'Il file caricato deve essere un\'immagine.',
-            'image.mimes' => 'Il file immagine deve essere di tipo jpeg, png, jpg o gif.',
-        ];
+    /**
+     * Override: response in formato JSON
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
     }
-*/
 }
