@@ -77,6 +77,7 @@ class DatabaseSeeder extends Seeder {
             'Tipologia' => 'e-commerce',
             'RagioneSociale' => 'jhwfhewg743',
             'image' => 'nike.png',
+            'Descrizione' => 'prova',
 
         ],
         [
@@ -85,6 +86,7 @@ class DatabaseSeeder extends Seeder {
             'Tipologia' => 'sport',
             'RagioneSociale' => 'vrt73',
             'image' => 'apple.png',
+            'Descrizione' => 'prova',
 
         ],
 
@@ -94,6 +96,7 @@ class DatabaseSeeder extends Seeder {
             'Tipologia' => 'sport',
             'RagioneSociale' => 'jhwfhewg7453',
             'image' => 'amazon.png',
+            'Descrizione' => 'prova',
 
         ],
 
@@ -103,6 +106,7 @@ class DatabaseSeeder extends Seeder {
             'Tipologia' => 'e-commerce',
             'RagioneSociale' => 'jhwfhewg7487983',
             'image' => '',
+            'Descrizione' => 'prova',
 
 
         ]
