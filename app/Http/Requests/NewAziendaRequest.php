@@ -25,10 +25,10 @@ class NewAziendaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'NomeAzienda' => 'required|max:25',
-            'Sede' => 'required|max:30',
-            'Tipologia' => 'required|max:25',
-            'RagioneSociale' => 'required|max:25',
+            'NomeAzienda' => 'required|string|min:3|regex:/^[a-zA-Z\s]+$/',
+            'Sede' => 'required|min:3',
+            'Tipologia' => 'required|min:3|regex:/^[a-zA-Z\s]+$/',
+            'RagioneSociale' => 'required|min:3',
             'image' => 'image|max:1024|mimes:jpeg,png,jpg'
         ];
     }

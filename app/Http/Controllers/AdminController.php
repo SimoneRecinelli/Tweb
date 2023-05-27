@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
-/*use App\Models\Resources\Product;
-use App\Http\Requests\NewProductRequest;*/
 use App\Models\Azienda;
 use App\Models\Coupon;
 use App\Models\Offerta;
@@ -27,62 +25,20 @@ class AdminController extends Controller
       public function __construct() {
           $this->_adminModel = new Admin;
           $this->middleware('can:isAdmin');
-      } 
-
-    public function index()
-    {
-        return view('admin');
-    }
-
-    /*
-    public function addProduct() {
-        $prodCats = $this->_adminModel->getProdsCats()->pluck('name', 'catId');
-        return view('product.insert')
-                        ->with('cats', $prodCats);
-    }
-
-    public function storeProduct(NewProductRequest $request) {
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-        } else {
-            $imageName = NULL;
-        }
-
-        $product = new Product;
-        $product->fill($request->validated());
-        $product->image = $imageName;
-        $product->save();
-
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images/products';
-            $image->move($destinationPath, $imageName);
-        };
-
-        return redirect()->action([AdminController::class, 'index']);
-        ;
-    }
-*/
+      }
 
     public function homeadmin()
     {
         $aziende = Azienda::all();
         $ncoupon = new Coupon;
         $num = $ncoupon->ncoupons();
-        return view('homeadmin')->with('aziende', $aziende)->with('num', $num);
-    }
-
-    public function gestioneAdmin() {
-        $azienda = new Azienda();
-        $aziende = $azienda->getAllAziende();
-        return view('gestioneAdmin')->with('aziende', $aziende);
+        return view('AdminViews.homeadmin')->with('aziende', $aziende)->with('num', $num);
     }
 
     /* GESTIONE AZIENDE --------------------------------------------------------------------------------------------------*/
     public function insertazienda()
     {
-        return view('insertazienda');
+        return view('AdminViews.insertazienda');
     }
 
     public function storeazienda(NewAziendaRequest $request)
@@ -118,7 +74,7 @@ class AdminController extends Controller
     public function deleteazienda()
     {
         $aziende = Azienda::all();
-        return view('deleteazienda')->with('aziende', $aziende);
+        return view('AdminViews.deleteazienda')->with('aziende', $aziende);
     }
 
     public function destroyazienda($idAzienda)
@@ -137,13 +93,13 @@ class AdminController extends Controller
     public function modificaazienda()
     {
         $aziende = Azienda::all();
-        return view('modificaazienda')->with('aziende', $aziende);
+        return view('AdminViews.modificaazienda')->with('aziende', $aziende);
     }
 
     public function updateazienda($idAzienda)
     {
         $azienda = Azienda::all()->where('idAzienda', $idAzienda)->first();
-        return view('modifyazienda')->with('azienda', $azienda);
+        return view('AdminViews.modifyazienda')->with('azienda', $azienda);
     }
 
     public function modifyazienda(NewAziendaRequest $request, $idAzienda)
@@ -180,7 +136,7 @@ class AdminController extends Controller
     public function insertfaq()
     {
 
-        return view('insertfaq');
+        return view('AdminViews.insertfaq');
 
     }
 
@@ -201,27 +157,26 @@ class AdminController extends Controller
     public function deletefaq()
     {
         $faqs = Faq::all();
-        return view('deletefaq')->with('faqs', $faqs);
+        return view('AdminViews.deletefaq')->with('faqs', $faqs);
     }
 
     public function destroyfaq($id)
     {
         Faq::destroy($id);
         return redirect('gestionefaq');
-
     }
 
     public function gestionefaq()
     {
         $faqs = Faq::paginate(5); 
-        return view('gestionefaq')->with('faqs', $faqs);
+        return view('AdminViews.gestionefaq')->with('faqs', $faqs);
     }
     
 
     public function updatefaq($id)
     {
         $faq = Faq::all()->where('id', $id)->first();
-        return view('modifyfaq')->with('faq', $faq);
+        return view('AdminViews.modifyfaq')->with('faq', $faq);
     }
 
     public function modifyfaq(NewFaqRequest $request, $id)
@@ -236,7 +191,7 @@ class AdminController extends Controller
     /* GESTIONE MEMBRI STAFF--------------------------------------------------------------------------------------------------- */
     public function insertStaff()
     {
-        return view('insertStaff');
+        return view('AdminViews.insertStaff');
     }
 
     public function storeStaff(NewStaffRequest $request)
@@ -267,12 +222,12 @@ class AdminController extends Controller
         $staff = new Staff();
         $staffMembers = $staff->getStaff();
 
-        return view('showStaff')->with('staff', $staffMembers);
+        return view('AdminViews.showStaff')->with('staff', $staffMembers);
     }
 
     public function updateStaff($id){
         $staff=Staff::all()->where('id',$id)->first();
-        return view('modifyStaff')->with('staff',$staff);
+        return view('AdminViews.modifyStaff')->with('staff',$staff);
     }
     public function modifyStaff(Request $request, $id) {
             $staff = Staff::find($id);
@@ -297,7 +252,7 @@ class AdminController extends Controller
             // Salva le modifiche
             $staff->save();
 
-            return redirect()->route('amministratore')->with('success', 'Profilo dello staff aggiornato con successo');
+            return redirect()->route('amministratore');
         }
 
     public function deleteStaff()
@@ -305,9 +260,8 @@ class AdminController extends Controller
         $staff = new Staff();
         $staffMembers = $staff->getStaff();
 
-        return view('deleteStaff')->with('staff', $staffMembers);
+        return view('AdminViews.deleteStaff')->with('staff', $staffMembers);
     }
-
 
     public function destroyStaff($id) {
         Staff::destroy($id);
@@ -320,7 +274,7 @@ class AdminController extends Controller
         $user = new User();
         $users = $user->getusers();
 
-        return view('showUtenti')->with('user', $users);
+        return view('AdminViews.showUtenti')->with('user', $users);
     }
 
     public function destroyUtenti($id) {
@@ -329,10 +283,9 @@ class AdminController extends Controller
         $coupons = $coupon->getcoupons($id);
         foreach($coupons as $c){
             $c->attivo='no';
-            
         }
         User::destroy($id);
-        return redirect()->route('showUtenti');
+        return redirect()->route('AdminViews.showUtenti');
     }
 
 /* --------------------------------------------------------------------------------  */
@@ -347,9 +300,10 @@ public function showStatistiche() {
     $users=$user->getusers();
     $offerta = new Offerta;
     $offerte=$offerta->getOfferte();
-    return view('showStatistiche')->with('num', $num)->with('users',$users)->with('offerte',$offerte);
-
-
+    return view('AdminViews.showStatistiche')
+        ->with('num', $num)
+        ->with('users',$users)
+        ->with('offerte',$offerte);
 }
 
 public function statsutente($id){
@@ -362,9 +316,12 @@ public function statsutente($id){
     $offerte=$offerta->getOfferte();
     
     $numutente = $coupon->couponutente($id);
-    return view('showStatistiche')->with('num', $num)->with('users',$users)->with('numutente',$numutente)->with('offerte',$offerte)->with('id',$id);
-    
-    
+    return view('AdminViews.showStatistiche')
+        ->with('num', $num)
+        ->with('users',$users)
+        ->with('numutente',$numutente)
+        ->with('offerte',$offerte)
+        ->with('id',$id);
 }
 
 public function statsofferta($idOfferta)
@@ -378,8 +335,11 @@ public function statsofferta($idOfferta)
     $offerte=$offerta->getOfferte();
     $numofferte = $coupon->couponofferta($idOfferta);
     
-    return view('showStatistiche')->with('num', $num)->with('users',$users)->with('numofferte',$numofferte)->with('offerte',$offerte)->with('idOfferta',$idOfferta);
-
+    return view('AdminViews.showStatistiche')
+        ->with('num', $num)->with('users',$users)
+        ->with('numofferte',$numofferte)
+        ->with('offerte',$offerte)
+        ->with('idOfferta',$idOfferta);
 }
 //---------------------------------------------------------------------------------------------------------------------------//
 

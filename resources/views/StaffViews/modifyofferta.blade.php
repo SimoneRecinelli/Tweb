@@ -33,7 +33,6 @@
 {{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'PUT', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
     @csrf
     {{ Form::token() }}
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="user-details">
 
@@ -49,7 +48,7 @@
 
     <div class="input-box">
     {{Form::label('Scadenza', 'Scadenza', ['class' => 'label-input']) }}
-    {{ Form::date('Scadenza', $offerta->Scadenza, ['class' => 'input', 'id' => 'Scadenza']) }}
+    {{ Form::date('Scadenza', $offerta->Scadenza, ['class' => 'input', 'id' => 'Scadenza', 'value' => $offerta->Scadenza]) }}
     </div>
 
 
@@ -61,7 +60,7 @@
 
     <div class="input-box">
     {{Form::label('NomeAzienda', 'Nome Azienda', ['class' => 'label-input']) }}
-    {{ Form::select('NomeAzienda', $aziende,$offerta->NomeAzienda, ['class' => 'input', 'id' => 'NomeAzienda']) }}
+    {{ Form::select('NomeAzienda', $aziende, $offerta->NomeAzienda, ['class' => 'input', 'id' => 'NomeAzienda']) }}
     </div>
 
 
@@ -90,7 +89,7 @@
 
     <div class="input-box">
         {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
-        {{ Form::select('Evidenza', ['1' => 'Si', '0' => 'No'], 0, ['class' => 'input', 'id' => 'Evidenza']) }}
+        {{ Form::select('Evidenza', ['1' => 'Si', '0' => 'No'], $offerta->Evidenza, ['class' => 'input', 'id' => 'Evidenza']) }}
     </div>
 
     <div class="input-box">

@@ -16,18 +16,11 @@ use Carbon\Carbon;
 
 class PublicController extends Controller
 {
-/*
-    protected $_catalogModel;
-
-    public function __construct() {
-        $this->_catalogModel = new Catalog;
-    }*/
-
 
     public function showHome(): View
 {
     $offerteInEvidenza = Offerta::getOfferteEvidenza();
-    return view('home', ['offerte' => $offerteInEvidenza]);
+    return view('UnregisteredUserViews.home', ['offerte' => $offerteInEvidenza]);
 }
   
 public function showCatalog($Categoria = null): View {
@@ -43,83 +36,46 @@ public function showCatalog($Categoria = null): View {
 
     $offerte = $query->paginate(2);
 
-    return view('catalogo')
+    return view('UnregisteredUserViews.catalogo')
         ->with('offerte', $offerte)
         ->with('categorie', $categorie)
         ->with('catselezionata', $catselezionata);
 }
 
-/*
-public function showCatalog($Categoria=null): View {
-    $categorie=Offerta::all()->pluck('Categoria')->unique();
-    if(isset($Categoria)){
-        $offerte=Offerta::all()->where('Categoria',$Categoria);
-        $catselezionata=$Categoria;
-    }else{
-        $offerte=Offerta::all();
-        $catselezionata=null;
-
-    }
-    return view('catalogo')->with('offerte',$offerte)->with('categorie',$categorie)->with('catselezionata',$catselezionata);
-       
-} */
-
 
 public function showAziende() { 
     $aziende = Azienda::paginate(3);
-    return view('aziende', compact('aziende'));
+    return view('UnregisteredUserViews.aziende', compact('aziende'));
 }
 
-
-/* funzione prima di inserire il paginate
-public function showAziende()
-{
-    $aziende = Azienda::all();
-    return view('aziende', compact('aziende'));
-}*/
 
 public function showSingleAzienda($idAzienda): View
 {
     $selAzienda = Azienda::all()->where('idAzienda', $idAzienda)->first();
     $offerte = new Offerta;
     $offerte = $offerte->getbyazienda($selAzienda->NomeAzienda);
-    return view('paginaazienda')->with('selAzienda',$selAzienda)->with('offerte',$offerte);
+    return view('UnregisteredUserViews.paginaazienda')->with('selAzienda',$selAzienda)->with('offerte',$offerte);
 }
-
-/**
-     * Show faq page for a public user.
-     */
-
 
      public function showFaq(): View {
         $faqs = Faq::paginate(4);
-        return view('faq', compact('faqs'));
+        return view('UnregisteredUserViews.faq', compact('faqs'));
     }
-    
 
-  /*  public function showFaq(): View {
-        $faqs=Faq::all();
-        return view('faq')->with('faqs',$faqs);
-    }*/
     /**
      * Show info page for a public user.
      */
     public function showInfo(): View {
-        return view('info');
+        return view('UnregisteredUserViews.info');
     }
-    /**
-     * Show login page for a public user.
-     */
-    public function showLogin(): View {
-        return view('login');
-    }
+
     /**
      * Show coupon page for a public user.
      */
     public function showCoupon($idOfferta): View {
         $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
         
-        return view('coupon')->with('selOfferta',$selOfferta);
+        return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta);
     }
 
     public function search(Request $request)
@@ -149,20 +105,16 @@ public function showSingleAzienda($idAzienda): View
 
         $categorie = Offerta::getOfferte()->pluck('Categoria')->unique();  
         
-        return view('catalogo')->with('offerte' , $results)->with('categorie',$categorie);
+        return view('UnregisteredUserViews.catalogo')->with('offerte' , $results)->with('categorie',$categorie);
         
     }
 
-
-    public function showStampaCoupon(): View{
-        return view('stampacoupon');
-    }
 
     public function paginate_index()
     {
         $offerta_pagin = Catalog::paginate(10); // Ottieni le offerte paginate, 10 per pagina
 
-        return view('catalogo', compact('offerta_pagin'));
+        return view('UnregisteredUserViews.catalogo', compact('offerta_pagin'));
     }
 
     
@@ -177,7 +129,7 @@ public function homeScadenza() : View
         //->take(1) // Puoi personalizzare il numero di offerte
         ->get();
 
-    return view('home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
+    return view('UnregisteredUserViews.home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
 }
 
 

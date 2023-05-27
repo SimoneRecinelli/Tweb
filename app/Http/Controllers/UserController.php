@@ -19,7 +19,7 @@ use Illuminate\Support\Str;
 class userController extends Controller {
 
     public function showHomeUser(){
-        return view('homeuser'); //alternativa di can:isUser come definito nell'AdminController
+        return view('RegisteredUserViews.homeuser'); //alternativa di can:isUser come definito nell'AdminController
     }
 
     public function showProfile()
@@ -33,7 +33,7 @@ class userController extends Controller {
         $userCoupons = Coupon::getUserCoupons();
 
         // Fai qualcosa con i dati del profilo (ad esempio, passali alla vista)
-        return view('profile', ['profileData' => $profileData], ['userCoupons' => $userCoupons]);
+        return view('RegisteredUserViews.profile', ['profileData' => $profileData], ['userCoupons' => $userCoupons]);
 
 
     }
@@ -49,7 +49,7 @@ class userController extends Controller {
             'cognome' => ['required','min:3', 'string', 'regex:/^[a-zA-Z\s]+$/'],
             'email' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'min:8'],
-            'telefono' => ['required', 'string', 'min:10','regex:/^[0-9]+$/'],
+            'telefono' => ['required', 'numeric', 'min:10','max:10','regex:/^[0-9]+$/'],
             'genere' => ['required','string'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
             'residenza' => ['required','string'],
@@ -69,12 +69,12 @@ class userController extends Controller {
 
         $user->update();
 
-        return redirect()->route('profile');
+        return redirect()->route('RegisteredUserViews.profile');
 
     }
 
     public function modificapassword(){
-        return view('modificapassword'); 
+        return view('RegisteredUserViews.modificapassword');
     }
 
     public function putpassword(Request $request){
@@ -89,16 +89,10 @@ class userController extends Controller {
         // Aggiorna i dati del profilo dell'utente con i nuovi valori
         
         $user->password = Hash::make($validatedData['password']);
-        
 
-
-        // Salva le modifiche
-        //$user->save();
         $user->update();
 
-        return redirect()->route('profile');
-        //Aggiorna il profilo dell'utente con i nuovi dati
-        //$user->updateProfile($validatedData);
+        return redirect()->route('RegisteredUserViews.profile');
 
     }
 
@@ -112,18 +106,14 @@ class userController extends Controller {
         if ($user) {
             // Eliminazione del profilo
             $user->delete();
-            return redirect()->route('login');
+            return redirect()->route('auth.login');
         }
-    }
-
-    public function showForm() {
-        return view('modifyProfilo');
     }
 
     public function showUser() {
         $user = Auth::user();
         
-        return view('modifyProfilo')->with('user',$user);
+        return view('RegisteredUserViews.modifyProfilo')->with('user',$user);
     }
 
 
@@ -145,8 +135,7 @@ class userController extends Controller {
         else{
             
             $errore='puoi acquistare al massimo un coupon per ogni offerta';
-            return view('coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
-           //return  redirect('coupon/{$idOfferta}')->with('errore',$errore)->with('selOfferta',$selOfferta);
+            return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
         }
     }
 

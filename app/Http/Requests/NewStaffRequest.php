@@ -25,16 +25,15 @@ class NewStaffRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'nome' => 'required|max:25',
-            'cognome' => 'required|max:30',
-            'email' => 'required|max:30',
-            'eta' => 'required|max:25',
-            'telefono' => 'required|min:10|max:10',
+            'nome' => 'required|string|min:3|regex:/^[a-zA-Z\s]+$/',
+            'cognome' => 'required|string|min:3|regex:/^[a-zA-Z\s]+$/',
+            'email' => 'required|max:255',
+            'eta' => 'required|integer|min:1|max:100',
+            'telefono' => 'required|string|min:10|max:10|regex:/^[0-9]+$/',
             'residenza' => 'required|max:25',
-            'username' => 'required|max:25',
+            'username' => 'required|string|min:8',
             'password' => 'required|max:25',
-            'genere' => 'required|max:25',
-            //'ruolo' => ['required', Rule::in(['staff'])], // Aggiungi la regola per verificare che il campo "ruolo" sia "staff"
+            'genere' => 'required|string',
         ];
     }
 

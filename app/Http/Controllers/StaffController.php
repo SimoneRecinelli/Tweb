@@ -2,33 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewOffertaRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
-use App\Models\Staff;
 use App\Models\Offerta;
 use App\Models\Azienda;
 
 class StaffController extends Controller {
 
     public function showHomeStaff() {
-        return view('homestaff');
+        return view('StaffViews.homestaff');
     }
 
-    
-
-
-    public function gestioneOfferte() {
-        return view('gestioneOfferte');
-    }
 
     public function insertofferta(){
         $model = new Azienda;
         $aziende = $model->getAziende();
 
-        return view('insertofferta')->with('aziende',$aziende);
+        return view('StaffViews.insertofferta')->with('aziende',$aziende);
     }
 
     
@@ -67,30 +56,30 @@ class StaffController extends Controller {
             $destinationPath = public_path() . '/img/products';
             $image->move($destinationPath, $imageName);
         }
-        return response()->json(['redirect' => route('homestaff')]);
+        return response()->json(['redirect' => route('StaffViews.homestaff')]);
 
     }
     
     public function deleteofferta(){
         $offerte=Offerta::getOfferte();
-        return view('deleteofferta')->with('offerte',$offerte);
+        return view('StaffViews.deleteofferta')->with('offerte',$offerte);
     }
     
     public function destroyofferta($idOfferta){
         Offerta::destroy($idOfferta);
-        return redirect('homestaff');
+        return redirect('StaffViews.homestaff');
     }
     
     public function modificaofferta(){
         $offerte=Offerta::getOfferte();
-        return view('modificaofferta')->with('offerte',$offerte);
+        return view('StaffViews.modificaofferta')->with('offerte',$offerte);
     }
     
     public function updateofferta($idOfferta){
         $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();
         $model = new Azienda;
         $aziende = $model->getAziende();
-        return view('modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
+        return view('StaffViews.modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
     }
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)
@@ -127,7 +116,7 @@ class StaffController extends Controller {
         $image->move($destinationPath, $imageName);
         };
 
-        return response()->json(['redirect' => route('homestaff')]);
+        return response()->json(['redirect' => route('StaffViews.homestaff')]);
     }
 
 }

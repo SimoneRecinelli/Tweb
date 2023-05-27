@@ -31,10 +31,10 @@ class NewOffertaRequest extends FormRequest {
         (sia maiuscole che minuscole) e spazi nei campi specificati. */
 
         return [
-            'DescrizioneOfferta' => 'required|max:2500|regex:/^[a-zA-Z\s]+$/',
+            'DescrizioneOfferta' => 'required|min:10|max:2500',
             'Categoria' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
             'Scadenza' => 'required',
-            'Oggetto' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
+            'Oggetto' => 'required|min:2|max:30|',
             'NomeAzienda' => 'required|max:30',
             'Prezzo' => 'required|numeric|min:0',
             'PercentualeSconto' => 'required|numeric|min:0|max:100',

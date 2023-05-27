@@ -13,8 +13,7 @@
         <div class="container2">
             <h2> Gestione offerte</h2>
             <a class="bottone" href="{{route('insertofferta')}}">Inserisci un'offerta</a>
-            <a class="bottone" href="{{route('modificaofferta')}}">Modifica un'offerta</a>
-            <a class="bottone-elimina" href="{{route('deleteofferta')}}">Elimina un'offerta</a>
+            <a class="bottone" href="{{route('modificaofferta')}}">Modifica/elimina un'offerta</a>
         </div>
 
     </div>
