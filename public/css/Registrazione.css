@@ -31,6 +31,13 @@ form .user-details .input-radio-button input{
   cursor:pointer
 }
 
+.radio-buttons input[type="radio"] {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+
 .label-input{
   display:block;
   margin-bottom:5px;

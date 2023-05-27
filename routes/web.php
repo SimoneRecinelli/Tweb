@@ -22,7 +22,6 @@ use App\Http\Middleware\Authenticate;
 
 /* Rotta per la vista 'home' */
 Route::get('/', [PublicController::class, 'homeScadenza', 'showHome' ]) ->name('home');
-// Route::get('/', [PublicController::class, 'homeScadenza']) ->name('homeScadenza');
 
 /* Rotta per la vista 'catalogo' */
 Route::get('/catalogo/{Categoria?}', [PublicController::class, 'showCatalog'])->name('catalogo');
@@ -38,11 +37,6 @@ Route::get('/aziende', [PublicController::class, 'showAziende'])->name('aziende'
 
 /*Rotta per la singola azienda*/
 Route::get('/azienda/{idAzienda}', [PublicController::class, 'showSingleAzienda'])->name('paginaazienda');
-
-/* Rotta per la vista 'login' */
-/*Route::get('/login', [PublicController::class, 'showLogin']) ->name('login');*/
-//Route::post('/login', [PublicController::class, 'showLogin'])->name('login');
-//Route::post('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@destroy')->name('logout');
 
 
 /* Rotta per la vista 'coupon' */

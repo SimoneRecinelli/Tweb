@@ -34,26 +34,30 @@
         @auth
             @if(Auth::user()->can('isUser'))
                 <h3>Di seguito i coupon che hai acquistato:</h3>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Id Utente</th>
-                        <th>Id Coupon</th>
-                        <th>Codice Coupon</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($userCoupons as $coupon)
+                @if ($userCoupons->isEmpty())
+                    <p>Al momento non risulta riscattato nessun coupon.</p>
+                @else
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <td>{{ $coupon->id }}</td>
-                            <td>{{ $coupon->Codice_coupon }}</td>
-                            <td>{{ $coupon->codice }}</td>
+                            <th>Oggetto Offerta</th>
+                            <th>Codice Coupon</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        @foreach($userCoupons as $coupon)
+                            <tr>
+                                <td>{{ $coupon->Oggetto }}</td>
+                                <td>{{ $coupon->codice }}</td>
+                            </tr>
+                        @endforeach
+
+                        </tbody>
+                    </table>
+                @endif
             @endif
         @endauth
+
         <div> </div>
 
     </div>

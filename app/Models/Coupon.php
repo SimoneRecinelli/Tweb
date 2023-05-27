@@ -28,9 +28,13 @@ class Coupon extends Model
 
     public static function getUserCoupons()
     {
-        $userCoupons = self::where('id', Auth::user()->id)->get();
+        $userCoupons = self::join('offerte', 'coupons.idOfferta', '=', 'offerte.idOfferta')
+            ->where('coupons.id', Auth::user()->id)
+            ->select('coupons.codice', 'offerte.Oggetto')
+            ->get();
         return $userCoupons;
     }
+
     public function getcoupons($id){
         return $this->where('id',$id);
     }
