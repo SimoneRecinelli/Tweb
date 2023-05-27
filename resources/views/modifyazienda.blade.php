@@ -54,6 +54,16 @@
                     @endforeach
                 </ul>
                 @endif
+    
+                {{Form::label('Descrizione', 'Descrizione') }}
+            {{ Form::textArea('Descrizione', $azienda->Descrizione, ['class' => 'form-control', 'placeholder' => 'Inserisci una descrizione dell\'azienda']) }}
+            @if ($errors->first('Descrizione'))
+                <ul class="errors">
+                    @foreach ($errors->get('Descrizione') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
 
 
     {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}

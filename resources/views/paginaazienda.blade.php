@@ -17,7 +17,11 @@
 
     <p> Settore: {{$selAzienda->Tipologia}}</p>
 
+    <p> Descrizione: {{$selAzienda->Descrizione}}</p>
+
     <p> Ragione sociale: {{$selAzienda->RagioneSociale}}</p>
+
+
 
   </div>
 </section>
