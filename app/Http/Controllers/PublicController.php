@@ -72,11 +72,14 @@ public function showSingleAzienda($idAzienda): View
     /**
      * Show coupon page for a public user.
      */
+
+     /*
     public function showCoupon($idOfferta): View {
         $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
         
         return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta);
     }
+    */
     
     public function search(Request $request)
     {
