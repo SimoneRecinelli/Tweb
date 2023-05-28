@@ -17,8 +17,7 @@ class PublicController extends Controller
 
     public function showHome(): View
 {
-    $offerteInEvidenza = Offerta::getOfferteEvidenza();
-    return view('UnregisteredUserViews.home', ['offerte' => $offerteInEvidenza]);
+    return view('UnregisteredUserViews.home');
 }
 
 public function showCatalog($Categoria = null): View {

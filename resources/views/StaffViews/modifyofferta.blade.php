@@ -3,7 +3,7 @@
 @section('scripts')
 
     @parent
-    <script src="{{ asset('js/functionsPUT.js') }}" ></script>
+    <script src="{{ asset('js/functions.js') }}" ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
 <div class="signup-container">
-{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'PUT', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
+{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'POST', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
     @csrf
     {{ Form::token() }}
 
@@ -71,7 +71,7 @@
 
 
     <div class="input-box">
-    {{Form::label('PercentualeSconto', 'PercentualeSconto', ['class' => 'label-input']) }}
+    {{Form::label('PercentualeSconto', 'Percentuale sconto', ['class' => 'label-input']) }}
     {{ Form::number('PercentualeSconto', $offerta->PercentualeSconto, ['class' => 'input', 'id' => 'PercentualeSconto']) }}
     </div>
 
@@ -89,7 +89,7 @@
 
     <div class="input-box">
         {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
-        {{ Form::select('Evidenza', ['1' => 'Si', '0' => 'No'], $offerta->Evidenza, ['class' => 'input', 'id' => 'Evidenza']) }}
+        {{ Form::select('Evidenza', ['1' => 'Si', '0' => 'No'], ($offerta->Evidenza == 'si') ? '1' : '0', ['class' => 'input', 'id' => 'Evidenza']) }}
     </div>
 
     <div class="input-box">

@@ -117,19 +117,27 @@ class DatabaseSeeder extends Seeder {
 
     DB::table('Offerte')->insert([
         ['Categoria'=>'Animali',
-        'DescrizioneOfferta'=> '...',
-        'Scadenza'=>'2023/05/30',
-        'Oggetto'=>'Tiragraffi per gatto',
-        'NomeAzienda'=>'Amazon',
-        'Prezzo'=>160,
-        'PercentualeSconto'=>'10',
-        'Luogo'=>'Negozio fisico',
-        'Modalità'=>'Utilizzo online',
-        'Evidenza'=>'no',
-        'image' => 'Tiragraffi.png'],
+            'DescrizioneOfferta'=> "Il tiragraffi per gatto è un prodotto essenziale per tutti i proprietari di gatti. 
+             Questi tiragraffi sono progettati per offrire al tuo felino un'alternativa sicura e divertente per graffiare, mantenendo al contempo le unghie del tuo gatto in buone condizioni. 
+             Realizzati con materiali resistenti e durevoli, i tiragraffi per gatti offrono diverse superfici e altezze su cui il tuo amico a quattro zampe può arrampicarsi e affilare le unghie. 
+             Con l'uso di un coupon, puoi ottenere un ottimo affare su un tiragraffi per gatto di alta qualità, offrendo al tuo animale domestico una superficie apposita e risparmiando allo stesso tempo.",
+            'Scadenza'=>'2023/05/30',
+            'Oggetto'=>'Tiragraffi per gatto',
+            'NomeAzienda'=>'Amazon',
+            'Prezzo'=>160,
+            'PercentualeSconto'=>'10',
+            'Luogo'=>'Negozio fisico',
+            'Modalità'=>'Utilizzo online',
+            'Evidenza'=>'no',
+            'image' => 'Tiragraffi.png'],
 
         ['Categoria'=>'Elettronica',
-         'DescrizioneOfferta'=> '...',
+         'DescrizioneOfferta'=> "L'iPad 5 è una delle ultime generazioni di tablet di Apple. Dotato di un display ad
+          alta risoluzione e di prestazioni potenti, l'iPad 5 offre una vasta gamma di funzionalità che lo rendono ideale
+          per l'intrattenimento, la produttività e molto altro ancora. Puoi utilizzare l'iPad 5 per navigare su Internet,
+          guardare film, leggere libri, giocare a giochi e persino lavorare su documenti o progetti creativi.
+          Con un coupon, puoi ottenere uno sconto su questo dispositivo di fascia alta, consentendoti di godere di tutte
+          le sue caratteristiche senza dover spendere il prezzo pieno.",
          'Scadenza'=>'2025/10/20',
          'Oggetto'=>'Ipad 5',
          'NomeAzienda'=>'Apple',
@@ -141,7 +149,7 @@ class DatabaseSeeder extends Seeder {
          'image' => 'ipad2022.png'],
 
         ['Categoria'=>'Elettronica',
-         'DescrizioneOfferta'=> '...',
+         'DescrizioneOfferta'=> "L'iPhone 13 è l'ultimo modello di smartphone di Apple, noto per le sue avanzate funzionalità e il design elegante. Questo telefono offre prestazioni di alta qualità, una fotocamera eccezionale, una durata della batteria migliorata e una serie di altre caratteristiche innovative. Con l'iPhone 13, puoi scattare foto straordinarie, registrare video di alta qualità, accedere a una vasta gamma di app e goderti un'esperienza di navigazione fluida. Applicando un coupon, puoi ottenere uno sconto sull'iPhone 13, permettendoti di possedere uno dei migliori smartphone disponibili sul mercato a un prezzo più conveniente.",
          'Scadenza'=>'2023/05/28',
          'Oggetto'=>'Iphone 13',
          'NomeAzienda'=>'Apple',
