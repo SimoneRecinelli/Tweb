@@ -31,7 +31,7 @@ public function showCatalog($Categoria = null): View {
         $catselezionata = null;
     }
 
-    $query->where('Scadenza', '>=', Carbon::now())->get();
+    //$query->where('Scadenza', '>=', Carbon::now())->get();
 
     $offerte = $query->paginate(10);
 
@@ -73,11 +73,14 @@ public function showSingleAzienda($idAzienda): View
     /**
      * Show coupon page for a public user.
      */
+
+     /*
     public function showCoupon($idOfferta): View {
         $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
         
         return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta);
     }
+    */
     
     public function search(Request $request)
     {
@@ -95,7 +98,7 @@ public function showSingleAzienda($idAzienda): View
                 ->where('DescrizioneOfferta', 'like', '%' . $descrizione . '%');
         }
 
-        $query->where('Scadenza', '>=', Carbon::now())->get();
+        //$query->where('Scadenza', '>=', Carbon::now())->get();
     
         $results = $query->paginate(10);
         $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]);
@@ -128,6 +131,17 @@ public function homeScadenza() : View
         ->get();
 
     return view('UnregisteredUserViews.home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
+}
+
+
+public function expiredCoupon($idOfferta){
+    $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
+    if ($selOfferta->Scadenza >= Carbon::now()) {
+        return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta);;
+    }
+    else {
+        return view('UnregisteredUserViews.expiredcoupon')->with('selOfferta',$selOfferta);
+    }
 }
 
 
