@@ -6,6 +6,11 @@
     margin: 50px;
     color: #fff;
   }
+
+  #expired-error {
+    text-align: center;
+    color:yellow;
+  }
   
   .product-image {
     margin-right: 50px;
