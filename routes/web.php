@@ -102,7 +102,7 @@ Route::get('/modificaofferta', [StaffController::class, 'modificaofferta'])->nam
 Route::get('/updateofferta/{idOfferta}', [StaffController::class, 'updateofferta'])->name('updateofferta')
     ->middleware('can:isStaff');
 
-Route::put('/modifyofferta/{idOfferta}', [StaffController::class, 'modifyofferta'])->name('modifyofferta')
+Route::post('/modifyofferta/{idOfferta}', [StaffController::class, 'modifyofferta'])->name('modifyofferta')
     ->middleware('can:isStaff');
 
 /* ------------------------------------------------------------------ */

@@ -3,7 +3,7 @@
 @section('scripts')
 
     @parent
-    <script src="{{ asset('js/functionsPUT.js') }}" ></script>
+    <script src="{{ asset('js/functions.js') }}" ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
 <div class="signup-container">
-{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'PUT', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
+{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'POST', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
     @csrf
     {{ Form::token() }}
 
