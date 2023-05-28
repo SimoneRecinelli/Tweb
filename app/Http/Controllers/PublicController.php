@@ -113,7 +113,7 @@ public function showSingleAzienda($idAzienda): View
     
 
 
-/*public function homeScadenza() : View
+public function homeScadenza() : View
 {
     $offerte=Offerta::all();
     $prossimeOfferte = Offerta::where('Scadenza', '>=', Carbon::now())
@@ -123,7 +123,7 @@ public function showSingleAzienda($idAzienda): View
         ->get();
 
     return view('UnregisteredUserViews.home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
-}*/
+}
 
 
 }
