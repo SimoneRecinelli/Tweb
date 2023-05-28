@@ -93,6 +93,8 @@ public function showSingleAzienda($idAzienda): View
             $query->where('NomeAzienda', 'like', '%' . $azienda . '%')
                 ->where('DescrizioneOfferta', 'like', '%' . $descrizione . '%');
         }
+
+        $query->where('Scadenza', '>=', Carbon::now())->get();
     
         $results = $query->paginate(2);
         $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]);
