@@ -71,7 +71,7 @@
 
 
     <div class="input-box">
-    {{Form::label('PercentualeSconto', 'PercentualeSconto', ['class' => 'label-input']) }}
+    {{Form::label('PercentualeSconto', 'Percentuale sconto', ['class' => 'label-input']) }}
     {{ Form::number('PercentualeSconto', $offerta->PercentualeSconto, ['class' => 'input', 'id' => 'PercentualeSconto']) }}
     </div>
 

@@ -19,17 +19,19 @@ class PublicController extends Controller
 {
     return view('UnregisteredUserViews.home');
 }
-  
+
 public function showCatalog($Categoria = null): View {
     $categorie = Offerta::all()->pluck('Categoria')->unique();
-    $query=Offerta::query();
+    $query = Offerta::query();
 
-    if(isset($Categoria)){
+    if (isset($Categoria)) {
         $query->where('Categoria', $Categoria);
         $catselezionata = $Categoria;
     } else {
         $catselezionata = null;
     }
+
+    $query->where('Scadenza', '>=', Carbon::now())->get();
 
     $offerte = $query->paginate(2);
 
@@ -38,6 +40,7 @@ public function showCatalog($Categoria = null): View {
         ->with('categorie', $categorie)
         ->with('catselezionata', $catselezionata);
 }
+
 
 
 public function showAziende() { 
@@ -92,7 +95,7 @@ public function showSingleAzienda($idAzienda): View
         }
     
         $results = $query->paginate(2);
-        $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]); // Aggiungi i parametri di ricerca all'URL dei link del paginator
+        $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]);
     
         $categorie = Offerta::pluck('Categoria')->unique();  
     
