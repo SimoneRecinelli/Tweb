@@ -8,7 +8,7 @@
 
     <script>
         $(function () {
-            var idOfferta = {{ $offerta->idOfferta }};
+            var idOfferta = {{ $offerte->idOfferta }};
             var actionUrl = "{{ route('modifyofferta', ['idOfferta' => ':idOfferta']) }}";
             actionUrl = actionUrl.replace(':idOfferta', idOfferta);
             var formId = 'modifyofferta';
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
 <div class="signup-container">
-{{ Form::open(array('route' => ['modifyofferta', $offerta->idOfferta], 'method' => 'POST', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
+{{ Form::open(array('route' => ['modifyofferta', $offerte->idOfferta], 'method' => 'POST', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
     @csrf
     {{ Form::token() }}
 
@@ -38,59 +38,59 @@
 
     <div class="input-box">
     {{ Form::label('DescrizioneOfferta', 'Descrizione offerta', ['class' => 'label-input']) }}
-    {{ Form::text('DescrizioneOfferta', $offerta->DescrizioneOfferta, ['class' => 'input', 'id' => 'DescrizioneOfferta']) }}
+    {{ Form::text('DescrizioneOfferta', $offerte->DescrizioneOfferta, ['class' => 'input', 'id' => 'DescrizioneOfferta']) }}
     </div>
 
     <div class="input-box">
     {{Form::label('Categoria', 'Categoria', ['class' => 'label-input']) }}
-    {{ Form::text('Categoria', $offerta->Categoria, ['class' => 'input', 'id' => 'Categoria']) }}
+    {{ Form::text('Categoria', $offerte->Categoria, ['class' => 'input', 'id' => 'Categoria']) }}
     </div>
 
     <div class="input-box">
     {{Form::label('Scadenza', 'Scadenza', ['class' => 'label-input']) }}
-    {{ Form::date('Scadenza', $offerta->Scadenza, ['class' => 'input', 'id' => 'Scadenza', 'value' => $offerta->Scadenza]) }}
+    {{ Form::date('Scadenza', $offerte->Scadenza, ['class' => 'input', 'id' => 'Scadenza', 'value' => $offerte->Scadenza]) }}
     </div>
 
 
     <div class="input-box">
     {{Form::label('Oggetto', 'Oggetto', ['class' => 'label-input']) }}
-    {{ Form::text('Oggetto', $offerta->Oggetto, ['class' => 'input', 'id' => 'Oggetto']) }}
+    {{ Form::text('Oggetto', $offerte->Oggetto, ['class' => 'input', 'id' => 'Oggetto']) }}
     </div>
 
 
     <div class="input-box">
     {{Form::label('NomeAzienda', 'Nome Azienda', ['class' => 'label-input']) }}
-    {{ Form::select('NomeAzienda', $aziende, $offerta->NomeAzienda, ['class' => 'input', 'id' => 'NomeAzienda']) }}
+    {{ Form::select('NomeAzienda', $aziende, $offerte->NomeAzienda, ['class' => 'input', 'id' => 'NomeAzienda']) }}
     </div>
 
 
 
     <div class="input-box">
     {{Form::label('Prezzo', 'Prezzo', ['class' => 'label-input']) }}
-    {{ Form::number('Prezzo', $offerta->Prezzo, ['class' => 'input', 'id' => 'Prezzo']) }}
+    {{ Form::number('Prezzo', $offerte->Prezzo, ['class' => 'input', 'id' => 'Prezzo']) }}
     </div>
 
 
     <div class="input-box">
     {{Form::label('PercentualeSconto', 'Percentuale sconto', ['class' => 'label-input']) }}
-    {{ Form::number('PercentualeSconto', $offerta->PercentualeSconto, ['class' => 'input', 'id' => 'PercentualeSconto']) }}
+    {{ Form::number('PercentualeSconto', $offerte->PercentualeSconto, ['class' => 'input', 'id' => 'PercentualeSconto']) }}
     </div>
 
 
     <div class="input-box">
     {{Form::label('Luogo', 'Luogo di fruizione', ['class' => 'label-input']) }}
-    {{ Form::text('Luogo', $offerta->Luogo, ['class' => 'input', 'id' => 'Luogo']) }}
+    {{ Form::text('Luogo', $offerte->Luogo, ['class' => 'input', 'id' => 'Luogo']) }}
     </div>
 
 
     <div class="input-box">
     {{Form::label('Modalità', 'Modalità di fruizione', ['class' => 'label-input']) }}
-    {{ Form::text('Modalità', $offerta->Modalità, ['class' => 'input', 'id' => 'Modalità']) }}
+    {{ Form::text('Modalità', $offerte->Modalità, ['class' => 'input', 'id' => 'Modalità']) }}
     </div>
 
     <div class="input-box">
         {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
-        {{ Form::select('Evidenza', ['si' => 'si', 'no' => 'no'], ($offerta->Evidenza == 'si') ? 'si' : 'no', ['class' => 'input', 'id' => 'Evidenza']) }}
+        {{ Form::select('Evidenza', ['si' => 'si', 'no' => 'no'], ($offerte->Evidenza == 'si') ? 'si' : 'no', ['class' => 'input', 'id' => 'Evidenza']) }}
 
     </div>
 

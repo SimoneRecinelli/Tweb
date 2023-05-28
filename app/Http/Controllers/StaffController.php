@@ -78,10 +78,11 @@ class StaffController extends Controller {
     
     
     public function updateofferta($idOfferta){
-        $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();
+        $offerta = new Offerta;
+        $offerte = $offerta->getOffertabyId($idOfferta);
         $azienda = new Azienda;
         $aziende = $azienda->getAziende();
-        return view('StaffViews.modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
+        return view('StaffViews.modifyofferta')->with('offerte',$offerte)->with('aziende',$aziende);
     }
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)
@@ -94,10 +95,10 @@ class StaffController extends Controller {
             $imageName = NULL;
         }
 
-        $model = new Azienda;
-        $aziende = $model->getNome(($request->input('NomeAzienda')));
+        $azienda = new Azienda;
+        $aziende = $azienda->getNome(($request->input('NomeAzienda')));
     
-       Offerta::where('idOfferta',$idOfferta)->update([
+        Offerta::where('idOfferta',$idOfferta)->update([
       
         'DescrizioneOfferta' =>$request->input('DescrizioneOfferta'),
         'Categoria'=>$request->input('Categoria'),

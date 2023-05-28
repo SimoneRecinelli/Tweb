@@ -53,8 +53,7 @@ public function showAziende() {
 public function showSingleAzienda($idAzienda): View
 {
     $selAzienda = Azienda::all()->where('idAzienda', $idAzienda)->first();
-    $offerte = new Offerta;
-    $offerte = $offerte->getbyazienda($selAzienda->NomeAzienda);
+    $offerte = Offerta::getByAzienda($selAzienda->NomeAzienda);
     return view('UnregisteredUserViews.paginaazienda')->with('selAzienda',$selAzienda)->with('offerte',$offerte);
 }
 
@@ -123,19 +122,15 @@ public function showSingleAzienda($idAzienda): View
 
 public function homeScadenza() : View
 {
-    $offerte=Offerta::all();
-    $prossimeOfferte = Offerta::where('Scadenza', '>=', Carbon::now())
-        ->where('Scadenza', '<=', '2023/09/01')
-        ->orderBy('Scadenza')
-        //->take(1) // Puoi personalizzare il numero di offerte
-        ->get();
+    $offerte=Offerta::getOfferte();
+    $prossimeOfferte = Offerta::getOfferteABreve();
 
     return view('UnregisteredUserViews.home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
 }
 
 
 public function expiredCoupon($idOfferta){
-    $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
+    $selOfferta = Offerta::getOffertaById($idOfferta);
     if ($selOfferta->Scadenza >= Carbon::now()) {
         return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta);;
     }

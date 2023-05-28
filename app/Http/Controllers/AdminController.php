@@ -164,7 +164,7 @@ class AdminController extends Controller
 
     public function deletefaq()
     {
-        $faqs = Faq::all();
+        $faqs = Faq::getFaqs();
         return view('AdminViews.deletefaq')->with('faqs', $faqs);
     }
 
@@ -183,7 +183,8 @@ class AdminController extends Controller
 
     public function updatefaq($id)
     {
-        $faq = Faq::all()->where('id', $id)->first();
+        $faqs = new Faq;
+        $faq = $faqs->getFaqById($id)->first();
         return view('AdminViews.modifyfaq')->with('faq', $faq);
     }
 
