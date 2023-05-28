@@ -16,7 +16,9 @@
                     <th>Elimina</th>
 
                 </tr>
-            <tbody>
+                <tbody>
+
+                @isset($aziende)
                 @foreach($aziende as $azienda)
                     <tr>
                         <td>{{ $azienda->NomeAzienda }}</td>
@@ -43,8 +45,12 @@
                         
                     </tr>
                 @endforeach
-            </tbody>
+                </tbody>
         </table>
+
+        @include('pagination.paginator', ['paginator' => $aziende])
+
+@endisset()
     </div>
 
 @endsection

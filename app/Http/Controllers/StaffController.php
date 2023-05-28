@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NewOffertaRequest;
 use App\Models\Offerta;
 use App\Models\Azienda;
+use Illuminate\Pagination\Paginator;
+
 
 class StaffController extends Controller {
 
@@ -70,10 +72,11 @@ class StaffController extends Controller {
         return redirect('StaffViews.homestaff');
     }
     
-    public function modificaofferta(){
-        $offerte=Offerta::getOfferte();
-        return view('StaffViews.modificaofferta')->with('offerte',$offerte);
+    public function modificaofferta() {
+        $offerte = Offerta::paginate(2);
+        return view('StaffViews.modificaofferta')->with('offerte', $offerte);
     }
+    
     
     public function updateofferta($idOfferta){
         $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();

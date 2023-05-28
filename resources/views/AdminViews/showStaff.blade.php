@@ -23,6 +23,8 @@
             </tr>
         
         <tbody>
+        @isset($staff)
+
             @foreach($staff as $member)
                 <tr>
                     <td>{{$member->nome}}</td>
@@ -53,4 +55,6 @@
             @endforeach
         </tbody>
     </table>
+    @include('pagination.paginator', ['paginator' => $staff])
+@endisset()
 @endsection
