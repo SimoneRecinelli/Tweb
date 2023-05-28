@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <title>Cheapest Coupons</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/Public.css')}}">
-    <script src="js/hometest.js" async></script>
-
-    @show
-    @section('scripts')
-    @show
 </head>
 
 <body>

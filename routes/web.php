@@ -21,10 +21,13 @@ use App\Http\Controllers\StaffController;
 /* ROTTE UTENTE NON REGISTRATO--------------------------------------------------------------------------------------- */
 
 /* Rotta per la vista 'home' */
-Route::get('/', [PublicController::class, 'homeScadenza', 'showHome']) ->name('home');
+Route::get('/', [PublicController::class, 'showHome']) ->name('home');
 
 /* Rotta per la vista 'catalogo' */
 Route::get('/catalogo/{Categoria?}', [PublicController::class, 'showCatalog'])->name('catalogo');
+
+/* Rotta per la barra di ricerca */
+Route::get('/search', [PublicController::class, 'search'])->name('search');
 
 /* Rotta per la vista 'faq' */
 Route::get('/faq', [PublicController::class, 'showFaq']) ->name('faq');

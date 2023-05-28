@@ -9,8 +9,8 @@
 
         <div class="search_container">
             <form action="{{ route('search')}}" method="GET">
-                <label for="oggetto">Oggetto:</label><input id="obj" type="text" name="oggetto"
-                                                            placeholder="Inserisci l'oggetto dell'offerta">
+                <label for="oggetto">Oggetto:</label><input id="obj" type="text" name="descrizione"
+                                                            placeholder="Inserisci descrizione dell'offerta">
                 <label for="azienda">Azienda:</label><input id="azienda" type="text" name="azienda"
                                                             placeholder="Inserisci l'azienda dell'offerta">
                 <button id="button" type="submit">Cerca</button>

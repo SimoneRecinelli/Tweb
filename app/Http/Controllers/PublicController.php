@@ -42,7 +42,7 @@ public function showCatalog($Categoria = null): View {
 
 
 public function showAziende() { 
-    $aziende = Azienda::paginate(3);
+    $aziende = Azienda::getAziende()->paginate(3);
     return view('UnregisteredUserViews.aziende', compact('aziende'));
 }
 
@@ -75,37 +75,32 @@ public function showSingleAzienda($idAzienda): View
         
         return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta);
     }
-
+    
     public function search(Request $request)
     {
-        $oggetto = $request->input('oggetto');
+        $descrizione = $request->input('descrizione');
         $azienda = $request->input('azienda');
-
+    
         $query = Offerta::query();
-        
-        if(isset($oggetto)&&($azienda==null))
-        {
-            $query->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
+    
+        if (!empty($descrizione) && empty($azienda)) {
+            $query->where('DescrizioneOfferta', 'like', '%' . $descrizione . '%');
+        } else if (empty($descrizione) && !empty($azienda)) {
+            $query->where('NomeAzienda', 'like', '%' . $azienda . '%');
+        } else if (!empty($descrizione) && !empty($azienda)) {
+            $query->where('NomeAzienda', 'like', '%' . $azienda . '%')
+                ->where('DescrizioneOfferta', 'like', '%' . $descrizione . '%');
         }
-        else if(isset($azienda)&&($oggetto==null))
-        {
-            $query->where('NomeAzienda', 'like', '%' . $azienda . '%')->get();
-        }
-
-        else if(isset($oggetto)&&(isset($azienda))) {
-            $query->where('NomeAzienda', 'like', '%' . $azienda . '%')->where('Oggetto', 'like', '%' . $oggetto . '%')->get();
-        }
-        else{
-            $results = Offerta::getOfferte();
-        }
-
+    
         $results = $query->paginate(2);
-
-        $categorie = Offerta::getOfferte()->pluck('Categoria')->unique();  
-        
-        return view('UnregisteredUserViews.catalogo')->with('offerte' , $results)->with('categorie',$categorie);
-        
+        $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]); // Aggiungi i parametri di ricerca all'URL dei link del paginator
+    
+        $categorie = Offerta::pluck('Categoria')->unique();  
+    
+        return view('UnregisteredUserViews.catalogo')->with('offerte', $results)->with('categorie', $categorie)->with('descrizione', $descrizione)->with('azienda', $azienda);
     }
+    
+    
 
 
     public function paginate_index()
@@ -118,7 +113,7 @@ public function showSingleAzienda($idAzienda): View
     
 
 
-public function homeScadenza() : View
+/*public function homeScadenza() : View
 {
     $offerte=Offerta::all();
     $prossimeOfferte = Offerta::where('Scadenza', '>=', Carbon::now())
@@ -128,7 +123,7 @@ public function homeScadenza() : View
         ->get();
 
     return view('UnregisteredUserViews.home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
-}
+}*/
 
 
 }

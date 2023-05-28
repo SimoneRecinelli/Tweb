@@ -11,7 +11,7 @@ class Offerta extends Model
     protected $primaryKey = 'idOfferta';
 
     public $timestamps = false;
-
+    
     public static function getOfferte() {
         return Offerta::all();
     }

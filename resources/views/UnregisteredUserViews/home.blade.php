@@ -3,6 +3,8 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/Home.css')}}">
+    <script src="js/hometest.js" async></script>
+
 
     <div class="catalogo">
         <h3 class="card_title"> Le nostre aziende </h3>
@@ -50,37 +52,12 @@
         </div>
     </div>
 
-    <br>
-    <hr>
-    <br>
 
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
-
-    <div id="catalogo">
-
-        <h3 class="card_title">Offerte in scadenza, non fartele sfuggire!</h3>
-
-        <div class="container-card">
-            @foreach($prossimeOfferte as $offerta)
-                <a class="card" href="{{route('coupon', [$offerta->idOfferta])}}">
-                    <h3>{{$offerta->Azienda}}</h3>
-                    <div class="image">
-                        @include('helpers.productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
-                    </div>
-                    <div class="container_card">
-                        <p>{{$offerta->Oggetto}}</p>
-                        <p style="font-size:30px;">-{{$offerta->PercentualeSconto}}%</p>
-                    </div>
-                </a>
-            @endforeach
-        </div>
-    </div>
-
-
 
     </div>
 @endsection
