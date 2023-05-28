@@ -29,7 +29,8 @@ class AdminController extends Controller
 
     public function homeadmin()
     {
-        $aziende = Azienda::all();
+        $az = new Azienda();
+        $aziende = $az->getAllAziende();
         $ncoupon = new Coupon;
         $num = $ncoupon->ncoupons();
         return view('AdminViews.homeadmin')->with('aziende', $aziende)->with('num', $num);
@@ -285,7 +286,7 @@ class AdminController extends Controller
             $c->attivo='no';
         }
         User::destroy($id);
-        return redirect()->route('AdminViews.showUtenti');
+        return redirect()->route('showUtenti');
     }
 
 /* --------------------------------------------------------------------------------  */
