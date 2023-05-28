@@ -69,7 +69,7 @@ class userController extends Controller {
 
         $user->update();
 
-        return redirect()->route('RegisteredUserViews.profile');
+        return redirect()->route('profile');
 
     }
 
@@ -92,7 +92,7 @@ class userController extends Controller {
 
         $user->update();
 
-        return redirect()->route('RegisteredUserViews.profile');
+        return redirect()->route('profile');
 
     }
 
@@ -106,7 +106,7 @@ class userController extends Controller {
         if ($user) {
             // Eliminazione del profilo
             $user->delete();
-            return redirect()->route('auth.login');
+            return redirect()->route('login');
         }
     }
 
@@ -130,11 +130,11 @@ class userController extends Controller {
          $coupon->idOfferta=$selOfferta->idOfferta;
          $coupon->codice = Str::random(10);
         $coupon->save();
-        return view('newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
+        return view('RegisteredUserViews.newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
         }
         else{
             
-            $errore='puoi acquistare al massimo un coupon per ogni offerta';
+            $errore='Puoi acquistare al massimo un coupon per ogni offerta';
             return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
         }
     }
