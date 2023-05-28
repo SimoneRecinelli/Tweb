@@ -13,8 +13,10 @@
             <br>
         </div>
         <div class="chisiamo_content">
-            <h1>Come è organizzato il sito?</h1>
-            <p>Nella sezione <a href="{{route('home')}}">Home</a> puoi trovare le offerte in evidenza e altro.<br>Nella sezione<a href="{{route('catalogo')}}">Catalogo</a> puoi trovare tutte le offerte che puoi filtrare per categoria o ricercare in base all'oggetto e\o all'azienda.
+            <h1>Com'è organizzato il sito?</h1>
+            <p>Nella sezione <a href="{{route('home')}}">Home</a> puoi trovare le offerte in evidenza e altro.
+                <br>
+                Nella sezione <a href="{{route('catalogo')}}">Catalogo</a> puoi trovare tutte le offerte che puoi filtrare per categoria o ricercare in base all'oggetto e\o all'azienda.
             <br> Nella sezione <a href="{{route('aziende')}}">Aziende</a> puoi trovare tutte le nostre aziende e le offerte ad esse relativi. </p>
             
             <br>

@@ -117,12 +117,12 @@ class DatabaseSeeder extends Seeder {
             e alla moda.",
 
         ],
-        [   'NomeAzienda' => 'Beauty Cosmetics',
+        [   'NomeAzienda' => 'Douglas',
             'Sede' => 'Ancona, Italia',
             'Tipologia' => 'E-commerce',
             'RagioneSociale' => 'Beauty Cosmetics Srl',
-            'image' => 'beauty_cosmetics.png',
-            'Descrizione' => "Beauty Cosmetics è un'azienda specializzata in prodotti cosmetici e di bellezza. Offre 
+            'image' => 'douglas.png',
+            'Descrizione' => "Douglas è un'azienda specializzata in prodotti cosmetici e di bellezza. Offre 
             una vasta gamma di marchi e prodotti per la cura della pelle, il trucco, i capelli e il benessere personale.
              Beauty Cosmetics si impegna a offrire prodotti di alta qualità e a soddisfare le esigenze dei clienti per 
              migliorare la loro bellezza e il loro benessere.",
@@ -230,7 +230,7 @@ class DatabaseSeeder extends Seeder {
             'DescrizioneOfferta'=> 'Crea look di trucco impeccabili con questo set di pennelli professionali. Realizzati con setole morbide e di alta qualità, questi pennelli sono ideali per applicare fondotinta, ombretto, blush e altri prodotti per il trucco. Grazie al coupon speciale, puoi ottenere questo set di pennelli a un prezzo scontato. Aggiungi questi pennelli alla tua routine di trucco e ottieni risultati sorprendenti ogni volta.',
             'Scadenza'=>'2023/08/10',
             'Oggetto'=>'Set di Pennelli per il Trucco',
-            'NomeAzienda'=>'Beauty Cosmetics',
+            'NomeAzienda'=>'Douglas',
             'Prezzo'=>80,
             'PercentualeSconto'=>'20',
             'Luogo'=>'Acquisto online',
@@ -248,7 +248,7 @@ class DatabaseSeeder extends Seeder {
             'Luogo'=>'Punto di partenza specifico',
             'Modalità'=>'Acquisto online e prenotazione',
             'Evidenza'=>'no',
-            'image' => 'tour_città.png']
+            'image' => 'tour_citta.png']
 
     ]);
 
