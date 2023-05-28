@@ -43,8 +43,9 @@ public function showCatalog($Categoria = null): View {
 
 
 
-public function showAziende() { 
-    $aziende = Azienda::getAziende()->paginate(10);
+public function showAziende() {
+    $azienda = new Azienda();
+    $aziende = $azienda->getAziende()->paginate(10);
     return view('UnregisteredUserViews.aziende', compact('aziende'));
 }
 
