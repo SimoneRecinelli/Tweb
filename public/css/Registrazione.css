@@ -102,3 +102,22 @@ form .button input:hover{
   font-size:14px;
   padding-left:15px
 }
+
+.signup-container .bottone-modifica {
+  width: fit-content;
+  margin: 35px auto; /* Centra il bottone orizzontalmente */
+  background-color: #58b99d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+.signup-container .bottone-modifica:hover {
+  background-color: #469680;
+}
+
