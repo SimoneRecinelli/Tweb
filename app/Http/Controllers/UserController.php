@@ -50,7 +50,7 @@ class userController extends Controller {
             'email' => ['required', 'string', 'max:255','email'],
             'username' => ['required', 'string', 'min:8'],
             'telefono' => ['required', 'numeric', 'min:10','regex:/^[0-9]+$/'],
-            'genere' => ['required','string'],
+            'genere' => ['required'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
             'residenza' => ['required','string'],
         ]);
@@ -64,7 +64,7 @@ class userController extends Controller {
         $user->telefono = $validatedData['telefono'];
         $user->eta = $validatedData['eta'];
         $user->residenza = $validatedData['residenza'];
-        $user->genere =($validatedData['genere']==0)?'Uomo':'Donna';
+        $user->genere =$validatedData['genere'];
 
 
         $user->update();
