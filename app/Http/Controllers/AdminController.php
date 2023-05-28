@@ -35,8 +35,7 @@ class AdminController extends Controller
 
     public function homeadmin()
     {
-        $az = new Azienda();
-        $aziende = $az->getAllAziende();
+        $aziende = Azienda::getAllAziende();
         $ncoupon = new Coupon;
         $num = $ncoupon->ncoupons();
         return view('AdminViews.homeadmin')->with('aziende', $aziende)->with('num', $num);
@@ -80,20 +79,16 @@ class AdminController extends Controller
 
     public function deleteazienda()
     {
-        $aziende = Azienda::all();
+        $aziende = Azienda::getAllAziende();
         return view('AdminViews.deleteazienda')->with('aziende', $aziende);
     }
 
     public function destroyazienda($idAzienda)
     {
-        
-        $azienda = new Azienda;
-        $azienda = $azienda->getAzienda($idAzienda);
-        
 
-            $azienda->delete();
-        
-        
+        $azienda = Azienda::getAziendaById($idAzienda);
+        $azienda->delete();
+   
         return redirect('amministratore');
     }
 
@@ -106,7 +101,7 @@ class AdminController extends Controller
 
     public function updateazienda($idAzienda)
     {
-        $azienda = Azienda::all()->where('idAzienda', $idAzienda)->first();
+        $azienda = Azienda::getAziendaById($idAzienda);
         return view('AdminViews.modifyazienda')->with('azienda', $azienda);
     }
 
@@ -183,14 +178,14 @@ class AdminController extends Controller
 
     public function updatefaq($id)
     {
-        $faqs = new Faq;
-        $faq = $faqs->getFaqById($id)->first();
+
+        $faq = Faq::getFaqById($id);
         return view('AdminViews.modifyfaq')->with('faq', $faq);
     }
 
     public function modifyfaq(NewFaqRequest $request, $id)
     {
-        $faq = $faq = Faq::all()->where('id', $id)->first();
+        $faq = Faq::getFaqById($id);
         $faq->Domanda = $request->input('Domanda');
         $faq->Risposta = $request->input('Risposta');
         $faq->save();
@@ -215,7 +210,7 @@ class AdminController extends Controller
         $staff->residenza = $request->input('residenza');
         $staff->username = $request->input('username');
         $staff->password = Hash::make($request->input('password'));
-        $staff->genere = ($request->input('genere') == 0) ? 'Uomo' : 'Donna';
+        $staff->genere = $request->input('genere');
 
         // Imposta il ruolo come "staff"
         $staff->role = 'staff';
@@ -228,14 +223,13 @@ class AdminController extends Controller
 
     public function showStaff()
     {
-        $staff = new Staff();
-        $staffMembers = $staff->getStaff();
+        $staffMembers = Staff::getStaff();
 
         return view('AdminViews.showStaff')->with('staff', $staffMembers);
     }
 
     public function updateStaff($id){
-        $staff=Staff::all()->where('id',$id)->first();
+        $staff=Staff::getStaffById($id);
         return view('AdminViews.modifyStaff')->with('staff',$staff);
     }
     public function modifyStaff(Request $request, $id) {
@@ -263,8 +257,8 @@ class AdminController extends Controller
             return redirect()->route('amministratore');
         }
     public function modificaPassStaff($id){
-        $staffs = new Staff();
-        $staff= $staffs ->getProfileStaff($id);
+
+        $staff= Staff::getProfileStaff($id);
         return view('AdminViews.modificaPassStaff')->with('staff',$staff);
     }
 
@@ -288,8 +282,7 @@ class AdminController extends Controller
     }
     public function deleteStaff()
     {
-        $staff = new Staff();
-        $staffMembers = $staff->getStaff();
+        $staffMembers = Staff::getStaff();
 
         return view('AdminViews.deleteStaff')->with('staff', $staffMembers);
     }
@@ -329,8 +322,7 @@ public function showStatistiche() {
     $num = $coupon->ncoupons();
     $user = new User;
     $users=$user->getusers();
-    $offerta = new Offerta;
-    $offerte=$offerta->getOfferte();
+    $offerte=Offerta::getOfferte();
     return view('AdminViews.showStatistiche')
         ->with('num', $num)
         ->with('users',$users)
@@ -343,8 +335,7 @@ public function statsutente($id){
     $num = $coupon->ncoupons();
     $user = new User;
     $users=$user->getusers();
-    $offerta = new Offerta;
-    $offerte=$offerta->getOfferte();
+    $offerte=Offerta::getOfferte();
     
     $numutente = $coupon->couponutente($id);
     return view('AdminViews.showStatistiche')
@@ -362,8 +353,7 @@ public function statsofferta($idOfferta)
     $num = $coupon->ncoupons();
     $user = new User;
     $users=$user->getusers();
-    $offerta = new Offerta;
-    $offerte=$offerta->getOfferte();
+    $offerte=Offerta::getOfferte();
     $numofferte = $coupon->couponofferta($idOfferta);
     
     return view('AdminViews.showStatistiche')
@@ -373,11 +363,5 @@ public function statsofferta($idOfferta)
         ->with('idOfferta',$idOfferta);
 }
 //---------------------------------------------------------------------------------------------------------------------------//
-
-
-
-
-
-
 
 }

@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder {
 
         [   'NomeAzienda' => 'Amazon',
             'Sede' => 'Seattle, Washington',
-            'Tipologia' => 'E-commerce',
+            'Tipologia' => 'E commerce',
             'RagioneSociale' => 'Amazon.com, Inc.',
             'image' => 'amazon.png',
             'Descrizione' => "Amazon è un'azienda leader nel settore dell'e-commerce e dei servizi online.
@@ -108,7 +108,7 @@ class DatabaseSeeder extends Seeder {
 
         [   'NomeAzienda' => 'Fashion Trend',
             'Sede' => 'Ancona, Italia',
-            'Tipologia' => 'E-commerce',
+            'Tipologia' => 'E commerce',
             'RagioneSociale' => 'Fashion Trend Srl',
             'image' => 'fashion_trend.png',
             'Descrizione' => "Fashion Trend è un'azienda di moda online specializzata nell'offrire le ultime tendenze
@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder {
         ],
         [   'NomeAzienda' => 'Douglas',
             'Sede' => 'Ancona, Italia',
-            'Tipologia' => 'E-commerce',
+            'Tipologia' => 'E commerce',
             'RagioneSociale' => 'Beauty Cosmetics Srl',
             'image' => 'douglas.png',
             'Descrizione' => "Douglas è un'azienda specializzata in prodotti cosmetici e di bellezza. Offre 
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder {
 
         [   'NomeAzienda' => 'City Explorers',
             'Sede' => 'Ancona, Italia',
-            'Tipologia' => 'E-commerce',
+            'Tipologia' => 'E commerce',
             'RagioneSociale' => 'City Explorers Srl',
             'image' => 'city_explorers.png',
             'Descrizione' => "City Explorers è un'azienda che si occupa di turismo e viaggi. Offre esperienze e servizi 

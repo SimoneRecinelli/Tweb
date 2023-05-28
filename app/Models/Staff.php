@@ -36,15 +36,21 @@ class Staff extends Model {
     ];
 
 
-   public function getStaff() {
+   public static function getStaff() {
         $staff = User::where('role','staff')->paginate(1);
         return $staff;
     }
 
-    public function getProfileStaff($id)
+    public static function getProfileStaff($id)
     {
         $staff = Staff::where('id', $id)->first();
         return $staff;
+    }
+
+    public static function getStaffById($id){
+
+        return Staff::where('id',$id)->first();
+        
     }
 
 

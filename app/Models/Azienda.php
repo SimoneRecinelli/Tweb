@@ -10,11 +10,11 @@ class Azienda extends Model
     protected $primaryKey = 'idAzienda';
     public $timestamps = false;
 
-    public function getAziende(){
+    public static function getAziende(){
         return Azienda::all()->pluck('NomeAzienda');
     }
 
-    public function getAllAziende() {
+    public static function getAllAziende() {
         return Azienda::all();
     }
 
@@ -32,8 +32,10 @@ class Azienda extends Model
         }
     }
 
-    public function getAzienda($idAzienda){
+    public static function getAziendaById($idAzienda){
+
         return Azienda::where('idAzienda',$idAzienda)->first();
+        
     }
 
 }
