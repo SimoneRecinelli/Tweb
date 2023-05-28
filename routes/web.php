@@ -134,6 +134,12 @@ Route::get('/updateStaff/{id}', [AdminController::class, 'updateStaff'])->name('
 Route::put('/modifyStaff/{id}', [AdminController::class, 'modifyStaff'])->name('modifyStaff')
     ->middleware('can:isAdmin');
 
+Route::get('/modificaPassStaff/{id}', [AdminController::class, 'modificaPassStaff'])->name('modificaPassStaff')
+    ->middleware('can:isAdmin');
+
+Route::put('/putPassStaff/{id}', [AdminController::class, 'putPassStaff'])->name('putPassStaff')
+    ->middleware('can:isAdmin');
+
 Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('deleteStaff')
     ->middleware('can:isAdmin');
 

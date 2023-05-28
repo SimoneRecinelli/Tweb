@@ -14,7 +14,11 @@ use App\Http\Requests\NewAziendaRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Pagination\Paginator;
+use App\Rules\Password;
+use Illuminate\Support\Facades\Form;
+use Illuminate\Validation\Rules;
+
+
 
 
 
@@ -249,7 +253,6 @@ class AdminController extends Controller
             $staff->telefono = $request->input('telefono');
             $staff->residenza = $request->input('residenza');
             $staff->username = $request->input('username');
-            $staff->password = $request->input('password');
             $staff->genere = $request->input('genere');
 
 
@@ -258,7 +261,30 @@ class AdminController extends Controller
 
             return redirect()->route('amministratore');
         }
+    public function modificaPassStaff($id){
+        $staffs = new Staff();
+        $staff= $staffs ->getProfileStaff($id);
+        return view('AdminViews.modificaPassStaff')->with('staff',$staff);
+    }
 
+    public function putPassStaff(Request $request, $id){
+
+        $staff = Staff::find($id);
+
+        // Validazione dei dati
+        $validatedData = $request->validate([
+            'password' => ['required',  Rules\Password::defaults()],
+        ]);
+
+        // Aggiorna la password dell'utente con i nuovi valori
+        $staff->password = Hash::make($validatedData['password']);
+
+        // Salva le modifiche
+        $staff->update();
+
+        return redirect()->route('amministratore');
+
+    }
     public function deleteStaff()
     {
         $staff = new Staff();
