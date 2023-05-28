@@ -95,7 +95,7 @@ class AdminController extends Controller
 
     public function modificaazienda()
 {
-    $aziende = Azienda::paginate(3);
+    $aziende = Azienda::paginate(10);
     return view('AdminViews.modificaazienda')->with('aziende', $aziende);
 }
 
@@ -172,7 +172,7 @@ class AdminController extends Controller
 
     public function gestionefaq()
     {
-        $faqs = Faq::paginate(5); 
+        $faqs = Faq::paginate(10); 
         return view('AdminViews.gestionefaq')->with('faqs', $faqs);
     }
     
