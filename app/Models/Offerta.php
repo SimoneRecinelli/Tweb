@@ -16,6 +16,11 @@ class Offerta extends Model
         return Offerta::all();
     }
 
+    public static function getOffertaById($idOfferta) {
+        return Offerta::where('idOfferta', $idOfferta)->first();
+    }
+    
+
     public function getbyazienda($NomeAzienda){
 
         $offerte = Offerta::where('NomeAzienda',$NomeAzienda)->get();
