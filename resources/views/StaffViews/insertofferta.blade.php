@@ -82,7 +82,7 @@
 
             <div class="input-box">
             {{ Form::label('Evidenza', 'Evidenza', ['class' => 'label-input']) }}
-            {{ Form::select('Evidenza', ['1' => 'si', '0' => 'no'], 1, ['class' => 'input', 'id' => 'Evidenza']) }}
+            {{ Form::select('Evidenza', ['1' => 'si', '0' => 'no'], ['class' => 'input', 'id' => 'Evidenza']) }}
             </div>
 
             <div class="input-box">

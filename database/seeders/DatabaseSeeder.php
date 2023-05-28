@@ -71,45 +71,62 @@ class DatabaseSeeder extends Seeder {
 
 
     DB::table('Aziende')->insert([
-        [
-            'NomeAzienda' => 'Nike',
-            'Sede' => 'Polverigi',
-            'Tipologia' => 'e-commerce',
-            'RagioneSociale' => 'jhwfhewg743',
+
+        [   'NomeAzienda' => 'Nike',
+            'Sede' => 'Beaverton, Oregon',
+            'Tipologia' => 'Moda',
+            'RagioneSociale' => 'Nike Inc.',
             'image' => 'nike.png',
-            'Descrizione' => 'prova',
-
+            'Descrizione' => "Nike è un'azienda leader nel settore della moda e degli articoli sportivi. Offre una vasta
+             gamma di prodotti, tra cui abbigliamento, calzature e accessori, che uniscono stile e funzionalità.
+             Con un'impronta globale, Nike è riconosciuta per la sua qualità e innovazione nel mondo dello sport e della
+             moda.",
         ],
-        [
-            'NomeAzienda' => 'Apple',
-            'Sede' => 'Polverigi',
-            'Tipologia' => 'sport',
-            'RagioneSociale' => 'vrt73',
+
+        [   'NomeAzienda' => 'Apple',
+            'Sede' => 'Cupertino, California',
+            'Tipologia' => 'Tecnologia',
+            'RagioneSociale' => 'Apple Inc.',
             'image' => 'apple.png',
-            'Descrizione' => 'prova',
+            'Descrizione' => "Apple è un'azienda di fama mondiale che opera nel settore tecnologico. È nota per la 
+             progettazione e la produzione di dispositivi elettronici innovativi, come iPhone, iPad, Mac e Apple Watch, 
+             oltre a fornire servizi come App Store, iCloud e Apple Music. Apple si distingue per il suo design elegante,
+             l'interfaccia utente intuitiva e l'ecosistema integrato.",
 
         ],
 
-        [
-            'NomeAzienda' => 'Amazon',
-            'Sede' => 'Martinsicuro',
-            'Tipologia' => 'sport',
+        [   'NomeAzienda' => 'Amazon',
+            'Sede' => 'Seattle, Washington',
+            'Tipologia' => 'E-commerce',
             'RagioneSociale' => 'jhwfhewg7453',
             'image' => 'amazon.png',
             'Descrizione' => 'prova',
-
         ],
 
-        /*[
-            'NomeAzienda' => 'Ebay',
+        [   'NomeAzienda' => 'Fashion Trend',
             'Sede' => 'Ancona',
             'Tipologia' => 'e-commerce',
             'RagioneSociale' => 'jhwfhewg7487983',
             'image' => '',
             'Descrizione' => 'prova',
 
+        ],
+        [   'NomeAzienda' => 'Beauty Cosmetics',
+            'Sede' => 'Ancona',
+            'Tipologia' => 'e-commerce',
+            'RagioneSociale' => 'jhwfhewg7487983',
+            'image' => '',
+            'Descrizione' => 'prova',
+        ],
 
-        ] */
+        [   'NomeAzienda' => 'City Explorers',
+            'Sede' => 'Ancona',
+            'Tipologia' => 'e-commerce',
+            'RagioneSociale' => 'jhwfhewg7487983',
+            'image' => '',
+            'Descrizione' => 'prova',
+        ]
+
 
     ]);
 
@@ -149,7 +166,12 @@ class DatabaseSeeder extends Seeder {
          'image' => 'ipad2022.png'],
 
         ['Categoria'=>'Elettronica',
-         'DescrizioneOfferta'=> "L'iPhone 13 è l'ultimo modello di smartphone di Apple, noto per le sue avanzate funzionalità e il design elegante. Questo telefono offre prestazioni di alta qualità, una fotocamera eccezionale, una durata della batteria migliorata e una serie di altre caratteristiche innovative. Con l'iPhone 13, puoi scattare foto straordinarie, registrare video di alta qualità, accedere a una vasta gamma di app e goderti un'esperienza di navigazione fluida. Applicando un coupon, puoi ottenere uno sconto sull'iPhone 13, permettendoti di possedere uno dei migliori smartphone disponibili sul mercato a un prezzo più conveniente.",
+         'DescrizioneOfferta'=> "L'iPhone 13 è l'ultimo modello di smartphone di Apple, noto per le sue avanzate funzionalità 
+         e il design elegante. Questo telefono offre prestazioni di alta qualità, una fotocamera eccezionale, una durata
+          della batteria migliorata e una serie di altre caratteristiche innovative. Con l'iPhone 13, puoi scattare foto
+           straordinarie, registrare video di alta qualità, accedere a una vasta gamma di app e goderti un'esperienza di
+            navigazione fluida. Applicando un coupon, puoi ottenere uno sconto sull'iPhone 13, permettendoti di possedere
+             uno dei migliori smartphone disponibili sul mercato a un prezzo più conveniente.",
          'Scadenza'=>'2023/05/28',
          'Oggetto'=>'Iphone 13',
          'NomeAzienda'=>'Apple',
@@ -161,7 +183,11 @@ class DatabaseSeeder extends Seeder {
          'image' =>'iphone13.png'],
 
         ['Categoria'=>'Abbigliamento',
-         'DescrizioneOfferta'=> '...',
+         'DescrizioneOfferta'=> "Le Air Force 1 sono famose scarpe da ginnastica prodotte da Nike. Questi iconici modelli
+          offrono un design classico e senza tempo, che si è guadagnato un posto speciale nella cultura sneaker. Le Air 
+          Force 1 presentano un'ammortizzazione eccellente, una tomaia resistente e una suola antiscivolo, che le rendono
+           perfette per l'uso quotidiano o per l'attività sportiva. Con l'applicazione di un coupon, puoi ottenere uno 
+           sconto sulle Air Force 1, consentendoti di sfoggiare un paio di scarpe di alta qualità a un prezzo più conveniente.",
          'Scadenza'=>'2023/06/25',
          'Oggetto'=>'Air Force 1',
          'NomeAzienda'=>'Nike',
@@ -173,30 +199,45 @@ class DatabaseSeeder extends Seeder {
         'image' => 'AirForce.png'],
 
         ['Categoria'=>'Abbigliamento',
-         'DescrizioneOfferta'=> '...',
-         'Scadenza'=>'2023/06/25',
-         'Oggetto'=>'Air Force 1',
-         'NomeAzienda'=>'Nike',
-         'Prezzo'=>1230,
-         'PercentualeSconto'=>'60',
-         'Luogo'=>'Evento',
-         'Modalità'=>'Utilizzo online',
-        'Evidenza'=>'si',
-        'image' => 'AirForce.png'],
+            'DescrizioneOfferta'=> 'Aggiungi un tocco di stile retrò al tuo guardaroba con questa t-shirt stile vintage.
+             Realizzata con tessuto di alta qualità e stampa vintage ispirata agli anni \'80, questa t-shirt è perfetta 
+             per un look casual ma alla moda. Con uno sconto del 30%, puoi portare a casa questa t-shirt unica e distintiva
+              a un prezzo conveniente. Non perdere l\'opportunità di esprimere il tuo stile personale con questa offerta
+               limitata nel tempo.',
+            'Scadenza'=>'2023/07/15',
+            'Oggetto'=>'T-Shirt Stile Vintage',
+            'NomeAzienda'=>'Fashion Trend',
+            'Prezzo'=>50,
+            'PercentualeSconto'=>'30',
+            'Luogo'=>'Negozio fisico',
+            'Modalità'=>'Acquisto in negozio o online',
+            'Evidenza'=>'no',
+            'image' => 'tshirt_vintage.png'],
 
-        ['Categoria'=>'Abbigliamento',
-         'DescrizioneOfferta'=> '...',
-         'Scadenza'=>'2023/06/25',
-         'Oggetto'=>'Air Force 1',
-         'NomeAzienda'=>'Nike',
-         'Prezzo'=>1230,
-         'PercentualeSconto'=>'60',
-         'Luogo'=>'Evento',
-         'Modalità'=>'Utilizzo online',
-        'Evidenza'=>'si',
-        'image' => 'AirForce.png'],
+        ['Categoria'=>'Bellezza',
+            'DescrizioneOfferta'=> 'Crea look di trucco impeccabili con questo set di pennelli professionali. Realizzati con setole morbide e di alta qualità, questi pennelli sono ideali per applicare fondotinta, ombretto, blush e altri prodotti per il trucco. Grazie al coupon speciale, puoi ottenere questo set di pennelli a un prezzo scontato. Aggiungi questi pennelli alla tua routine di trucco e ottieni risultati sorprendenti ogni volta.',
+            'Scadenza'=>'2023/08/10',
+            'Oggetto'=>'Set di Pennelli per il Trucco',
+            'NomeAzienda'=>'Beauty Cosmetics',
+            'Prezzo'=>80,
+            'PercentualeSconto'=>'20',
+            'Luogo'=>'Acquisto online',
+            'Modalità'=>'Utilizzo online',
+            'Evidenza'=>'si',
+            'image' => 'pennelli_trucco.png'],
 
-        
+        ['Categoria'=>'Esperienze',
+            'DescrizioneOfferta'=> 'Esplora la tua città in modo unico con un tour guidato appassionante. Scopri i luoghi storici, le attrazioni principali e le storie nascoste che rendono questa città così affascinante. Con questa offerta speciale, puoi partecipare a un tour guidato a un prezzo scontato. Prenota ora e vivi un\'esperienza indimenticabile mentre scopri i segreti della tua città.',
+            'Scadenza'=>'2023/09/05',
+            'Oggetto'=>'Tour Guidato della Città',
+            'NomeAzienda'=>'City Explorers',
+            'Prezzo'=>120,
+            'PercentualeSconto'=>'15',
+            'Luogo'=>'Punto di partenza specifico',
+            'Modalità'=>'Acquisto online e prenotazione',
+            'Evidenza'=>'no',
+            'image' => 'tour_città.png']
+
     ]);
 
     DB::table('users')->insert([
