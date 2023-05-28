@@ -1,0 +1,29 @@
+.container-coupon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container-coupon .content {
+    text-align: center;
+}
+
+.container-coupon .bottone-return {
+    width: fit-content;
+    margin: 35px auto; /* Centra il bottone orizzontalmente */
+    background-color: #58b99d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+.container-coupon .bottone-return:hover {
+    background-color: #469680;
+}
