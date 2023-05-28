@@ -64,6 +64,7 @@
     </div>
 
 
+
     <div class="input-box">
     {{Form::label('Prezzo', 'Prezzo', ['class' => 'label-input']) }}
     {{ Form::number('Prezzo', $offerta->Prezzo, ['class' => 'input', 'id' => 'Prezzo']) }}
