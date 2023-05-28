@@ -18,7 +18,6 @@ class StaffController extends Controller {
     public function insertofferta(){
         $model = new Azienda;
         $aziende = $model->getAziende();
-
         return view('StaffViews.insertofferta')->with('aziende',$aziende);
     }
 
@@ -58,7 +57,7 @@ class StaffController extends Controller {
             $destinationPath = public_path() . '/img/products';
             $image->move($destinationPath, $imageName);
         }
-        return response()->json(['redirect' => route('StaffViews.homestaff')]);
+        return response()->json(['redirect' => route('homestaff')]);
 
     }
     
@@ -69,7 +68,7 @@ class StaffController extends Controller {
     
     public function destroyofferta($idOfferta){
         Offerta::destroy($idOfferta);
-        return redirect('StaffViews.homestaff');
+        return redirect('homestaff');
     }
     
     public function modificaofferta() {

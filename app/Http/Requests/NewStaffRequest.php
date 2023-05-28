@@ -27,12 +27,12 @@ class NewStaffRequest extends FormRequest {
         return [
             'nome' => 'required|string|min:3|regex:/^[a-zA-Z\s]+$/',
             'cognome' => 'required|string|min:3|regex:/^[a-zA-Z\s]+$/',
-            'email' => 'required|max:255',
+            'email' => 'required|email|max:255',
             'eta' => 'required|integer|min:1|max:100',
-            'telefono' => 'required|string|min:10|max:10|regex:/^[0-9]+$/',
-            'residenza' => 'required|max:25',
+            'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
+            'residenza' => 'required|min:3',
             'username' => 'required|string|min:8',
-            'password' => 'required|max:25',
+            'password' => 'required|min:8',
             'genere' => 'required|string',
         ];
     }
