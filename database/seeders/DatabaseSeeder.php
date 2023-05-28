@@ -98,33 +98,45 @@ class DatabaseSeeder extends Seeder {
         [   'NomeAzienda' => 'Amazon',
             'Sede' => 'Seattle, Washington',
             'Tipologia' => 'E-commerce',
-            'RagioneSociale' => 'jhwfhewg7453',
+            'RagioneSociale' => 'Amazon.com, Inc.',
             'image' => 'amazon.png',
-            'Descrizione' => 'prova',
+            'Descrizione' => "Amazon è un'azienda leader nel settore dell'e-commerce e dei servizi online.
+            Offre una vasta gamma di prodotti, tra cui libri, elettronica, abbigliamento, articoli per la casa e molto
+            altro. Amazon è conosciuta per la sua piattaforma di vendita online, la consegna veloce e affidabile e una 
+            vasta selezione di prodotti provenienti da tutto il mondo.",
         ],
 
         [   'NomeAzienda' => 'Fashion Trend',
-            'Sede' => 'Ancona',
-            'Tipologia' => 'e-commerce',
-            'RagioneSociale' => 'jhwfhewg7487983',
-            'image' => '',
-            'Descrizione' => 'prova',
+            'Sede' => 'Ancona, Italia',
+            'Tipologia' => 'E-commerce',
+            'RagioneSociale' => 'Fashion Trend Srl',
+            'image' => 'fashion_trend.png',
+            'Descrizione' => "Fashion Trend è un'azienda di moda online specializzata nell'offrire le ultime tendenze
+            di abbigliamento, calzature e accessori per uomo e donna. Con una curata selezione di marchi e prodotti 
+            di alta qualità, Fashion Trend si impegna a offrire ai suoi clienti un'esperienza di shopping conveniente 
+            e alla moda.",
 
         ],
         [   'NomeAzienda' => 'Beauty Cosmetics',
-            'Sede' => 'Ancona',
-            'Tipologia' => 'e-commerce',
-            'RagioneSociale' => 'jhwfhewg7487983',
-            'image' => '',
-            'Descrizione' => 'prova',
+            'Sede' => 'Ancona, Italia',
+            'Tipologia' => 'E-commerce',
+            'RagioneSociale' => 'Beauty Cosmetics Srl',
+            'image' => 'beauty_cosmetics.png',
+            'Descrizione' => "Beauty Cosmetics è un'azienda specializzata in prodotti cosmetici e di bellezza. Offre 
+            una vasta gamma di marchi e prodotti per la cura della pelle, il trucco, i capelli e il benessere personale.
+             Beauty Cosmetics si impegna a offrire prodotti di alta qualità e a soddisfare le esigenze dei clienti per 
+             migliorare la loro bellezza e il loro benessere.",
         ],
 
         [   'NomeAzienda' => 'City Explorers',
-            'Sede' => 'Ancona',
-            'Tipologia' => 'e-commerce',
-            'RagioneSociale' => 'jhwfhewg7487983',
-            'image' => '',
-            'Descrizione' => 'prova',
+            'Sede' => 'Ancona, Italia',
+            'Tipologia' => 'E-commerce',
+            'RagioneSociale' => 'City Explorers Srl',
+            'image' => 'city_explorers.png',
+            'Descrizione' => "City Explorers è un'azienda che si occupa di turismo e viaggi. Offre esperienze e servizi 
+            di viaggio unici, come tour guidati, attività emozionanti e pacchetti vacanza personalizzati per scoprire le
+             città e le destinazioni più affascinanti in tutto il mondo. City Explorers si impegna a offrire esperienze 
+             indimenticabili ai suoi clienti, permettendo loro di esplorare nuovi luoghi e scoprire culture diverse.",
         ]
 
 
