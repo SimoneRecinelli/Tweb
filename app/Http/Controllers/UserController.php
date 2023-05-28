@@ -118,7 +118,7 @@ class userController extends Controller {
 
     public function newcoupon($idOfferta){
         $user = Auth::user();
-        $selOfferta=Offerta::where('idOfferta',$idOfferta)->first();
+        $selOfferta=Offerta::getOffertaById($idOfferta);
         $num=Coupon::where('id',$user->id)->where('idOfferta',$idOfferta)->count();
         
         
