@@ -16,7 +16,7 @@
                 @foreach($aziende as $azienda)
                     <div class="slide fade">
                         <img src="{{'img/products/'.$azienda->image}}">
-                        <p> {{$azienda->NomeAzienda}} </p>
+                        <h2> {{$azienda->NomeAzienda}} </h2>
                     </div>
                 @endforeach
             </div>
