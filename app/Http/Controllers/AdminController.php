@@ -26,13 +26,6 @@ use Illuminate\Validation\Rules;
 class AdminController extends Controller
 {
 
-    protected $_adminModel;
-
-      public function __construct() {
-          $this->_adminModel = new Admin;
-          $this->middleware('can:isAdmin');
-      }
-
     public function homeadmin()
     {
         $aziende = Azienda::getAllAziende();

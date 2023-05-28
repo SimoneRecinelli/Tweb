@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('role',10)->default('user');
             $table->string('telefono',25);
-            $table->tinyInteger('possibilità_abbinamento', false, true)->default(false);
             $table->string('genere',25);
             $table->integer('eta')->unsigned();
             $table->string('residenza',25);
