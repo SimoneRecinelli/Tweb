@@ -33,7 +33,7 @@ public function showCatalog($Categoria = null): View {
 
     $query->where('Scadenza', '>=', Carbon::now())->get();
 
-    $offerte = $query->paginate(2);
+    $offerte = $query->paginate(10);
 
     return view('UnregisteredUserViews.catalogo')
         ->with('offerte', $offerte)
@@ -44,7 +44,7 @@ public function showCatalog($Categoria = null): View {
 
 
 public function showAziende() { 
-    $aziende = Azienda::getAziende()->paginate(3);
+    $aziende = Azienda::getAziende()->paginate(10);
     return view('UnregisteredUserViews.aziende', compact('aziende'));
 }
 
@@ -58,7 +58,7 @@ public function showSingleAzienda($idAzienda): View
 }
 
      public function showFaq(): View {
-        $faqs = Faq::paginate(4);
+        $faqs = Faq::paginate(10);
         return view('UnregisteredUserViews.faq', compact('faqs'));
     }
 
@@ -96,7 +96,7 @@ public function showSingleAzienda($idAzienda): View
 
         $query->where('Scadenza', '>=', Carbon::now())->get();
     
-        $results = $query->paginate(2);
+        $results = $query->paginate(10);
         $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]);
     
         $categorie = Offerta::pluck('Categoria')->unique();  
