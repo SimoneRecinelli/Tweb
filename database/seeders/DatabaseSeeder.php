@@ -149,7 +149,7 @@ class DatabaseSeeder extends Seeder {
          'PercentualeSconto'=>'50',
          'Luogo'=>'Telefono o chiamata',
          'Modalità'=>'Utilizzo limitato nel tempo',
-         'Evidenza'=>'sì',
+         'Evidenza'=>'si',
          'image' =>'iphone13.png'],
 
         ['Categoria'=>'Abbigliamento',
@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder {
          'PercentualeSconto'=>'60',
          'Luogo'=>'Evento',
          'Modalità'=>'Utilizzo online',
-        'Evidenza'=>'sì',
+        'Evidenza'=>'si',
         'image' => 'AirForce.png'],
 
         ['Categoria'=>'Abbigliamento',
@@ -173,7 +173,7 @@ class DatabaseSeeder extends Seeder {
          'PercentualeSconto'=>'60',
          'Luogo'=>'Evento',
          'Modalità'=>'Utilizzo online',
-        'Evidenza'=>'sì',
+        'Evidenza'=>'si',
         'image' => 'AirForce.png'],
 
         ['Categoria'=>'Abbigliamento',
@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder {
          'PercentualeSconto'=>'60',
          'Luogo'=>'Evento',
          'Modalità'=>'Utilizzo online',
-        'Evidenza'=>'sì',
+        'Evidenza'=>'si',
         'image' => 'AirForce.png'],
 
         
