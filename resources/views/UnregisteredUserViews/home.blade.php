@@ -42,6 +42,7 @@
                 </a>
                 @endif
             @endforeach
+            
 
             <a class="card" href="{{route('catalogo')}}">
 
@@ -67,19 +68,27 @@
 <h3 class="card_title">Offerte in scadenza, non fartele sfuggire!</h3>
 
 <div class="container-card">
-    @foreach($prossimeOfferte as $offerta)
-        <a class="card" href="{{route('coupon', [$offerta->idOfferta])}}">
-            <h3>{{$offerta->Azienda}}</h3>
-            <div class="image">
-                @include('helpers.productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
-            </div>
-            <div class="container_card">
-                <p>{{$offerta->Oggetto}}</p>
-                <p style="font-size:30px;">-{{$offerta->PercentualeSconto}}%</p>
-            </div>
-        </a>
-    @endforeach
+
+    @if($prossimeOfferte->count() === 0)
+        <p>Non ci sono offerte in scadenza</p>
+       
+
+    @else
+        @foreach($prossimeOfferte as $offerta)
+            <a class="card" href="{{route('coupon', [$offerta->idOfferta])}}">
+                <h3>{{$offerta->Azienda}}</h3>
+                <div class="image">
+                    @include('helpers.productImg', ['attrs' => 'imagefrm', 'imgFile' => $offerta->image])
+                </div>
+                <div class="container_card">
+                    <p>{{$offerta->Oggetto}}</p>
+                    <p style="font-size:30px;">-{{$offerta->PercentualeSconto}}%</p>
+                </div>
+            </a>
+        @endforeach
+    @endif
 </div>
+
 </div>
 
     </div>

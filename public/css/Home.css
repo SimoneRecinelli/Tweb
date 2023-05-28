@@ -20,8 +20,11 @@ CSS SLIDESHOW
 .slide img{
 
   width: auto;
-  max-width: 99%;
-  height: 30rem;
+  max-width: 300px;
+  height: 300px;
+}
+.slide  h2{
+  color:#fff;
 }
 
 .carousel{

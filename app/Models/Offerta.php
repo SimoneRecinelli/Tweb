@@ -29,11 +29,12 @@ class Offerta extends Model
     }
 
     public static function getOfferteABreve(){
+        $giorniPredefiniti = 135; 
+    
         $offerte = Offerta::where('Scadenza', '>=', Carbon::now())
-                            ->where('Scadenza', '<=', '2023/09/01')
-                            ->orderBy('Scadenza')
-                            //->take(1) // Puoi personalizzare il numero di offerte
-                            ->get();
+                          ->where('Scadenza', '<=', Carbon::now()->addDays($giorniPredefiniti))
+                          ->orderBy('Scadenza')
+                          ->get();
         return $offerte;
     }
 }
