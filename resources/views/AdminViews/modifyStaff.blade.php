@@ -113,11 +113,12 @@
         </div>
 
         <div class="button">
-        {{ Form::submit('Modifica profilo', ['class' => 'form-btn1']) }}   
+        {{ Form::submit('Modifica profilo', ['class' => 'form-btn1']) }}
         </div>
-
             {{ Form::close() }}
-    <a class="button" href="{{ route('modificaPassStaff', ['id' => $staff->id]) }}">Modifica password</a>
+
+    <a class="bottone-modifica" href="{{ route('modificaPassStaff', ['id' => $staff->id]) }}">Modifica password</a>
+
 
 </div>
 
