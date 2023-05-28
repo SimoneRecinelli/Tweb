@@ -1,42 +1,31 @@
-<style>
-.pag{
-        border:1px solid white;
-        width:fit-content;
-        padding:10px;
-        margin-top:50px;
-        margin-left:100px;
-        border-radius:40px;
-        background-color:red;
-        width:fit-content;
-        min-width:50%;
-        height:fit-content;
-    }
-.content{
-    padding:10px;
-    display:
-}
-#codice{
-    font-size:35px;
-    text-align:center;
-    
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-}
+<head>
+    <meta charset="UTF-8">
+    <title>Cheapest Coupons</title>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/NewCoupon.css')}}">
+</head>
 
+<body>
 
+<div class="container-coupon">
 
-</style>
+    <h2>PAGINA DA STAMPARE</h2>
 
-
-
-<h2>Pagina da stampare</h2>
-<div class="pag">
     <div class="content">
-    <h2 style="text-align:center">COUPON</h2><hr>
-<h3>Descrizione del prodotto: {{$selOfferta->Oggetto}}</h3>
-<h3>Nome: {{$user->nome}}</h3>
-<h3>Cognome:   {{$user->cognome}}</h3>
-<h3>Modalità di fruizione: {{$selOfferta->Modalità}}</h3><hr>
-<h3 id="codice">Codice:<u>{{$coupon->codice}}<u></h3>
+        <h2>COUPON</h2>
+        <p><h3>Descrizione del prodotto offerto:</h3> {{$selOfferta->DescrizioneOfferta}}</p>
+        <p><h3>Nome:</h3> {{$user->nome}}</p>
+        <p><h3>Cognome:</h3> {{$user->cognome}}</p>
+        <p><h3>Modalità di fruizione:</h3> {{$selOfferta->Modalità}}</p>
+        <p><h3>Codice Coupon:</h3> {{$coupon->codice}}</p>
+    </div>
+
+    <a class="bottone-return" href="{{route('catalogo')}}">Torna al catalogo</a>
+
 </div>
-</div><br><br>
-<br><a href="{{route('catalogo')}}"><u>Torna al catalogo<u></a>
+
+</body>
+
+</html>
