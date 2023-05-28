@@ -150,7 +150,7 @@ class DatabaseSeeder extends Seeder {
              Questi tiragraffi sono progettati per offrire al tuo felino un'alternativa sicura e divertente per graffiare, mantenendo al contempo le unghie del tuo gatto in buone condizioni. 
              Realizzati con materiali resistenti e durevoli, i tiragraffi per gatti offrono diverse superfici e altezze su cui il tuo amico a quattro zampe può arrampicarsi e affilare le unghie. 
              Con l'uso di un coupon, puoi ottenere un ottimo affare su un tiragraffi per gatto di alta qualità, offrendo al tuo animale domestico una superficie apposita e risparmiando allo stesso tempo.",
-            'Scadenza'=>'2023/05/30',
+            'Scadenza'=>'2023/05/20',
             'Oggetto'=>'Tiragraffi per gatto',
             'NomeAzienda'=>'Amazon',
             'Prezzo'=>160,
