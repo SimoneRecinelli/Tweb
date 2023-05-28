@@ -8,25 +8,29 @@
 
             <h1>Area di gestione admin</h1>
             <h2>Benvenuto {{ Auth::user()->nome }} {{ Auth::user()->cognome }}</h2>
-            <h3>Gestisci le aziende o i membri dello staff:</h3>
+    
         </div>
 
         <div class="container2">
             <h2> Gestione aziende</h2>
             <a class="bottone" href="{{route('insertazienda')}}">Inserisci Azienda</a>
-            <a class="bottone" href="{{route('modificaazienda')}}">Modifica Azienda</a>
-            <a class="bottone-elimina" href="{{route('deleteazienda')}}">Elimina Azienda</a>
+            <a class="bottone" href="{{route('modificaazienda')}}">Modifica/elimina Azienda</a>
         </div>
 
-        <div class="container3">
+        <div class="container2">
+            <h2> Gestione Faq </h2>
+            <a class="bottone" href="{{ route('insertfaq') }}">Inserisci Faq</a>
+            <a class="bottone" href="{{ route('gestionefaq') }}">Modifica/elimina Faq</a>
+        </div>
+
+        <div class="container2">
             <h2> Gestione Membri Dello Staff </h2>
             <a class="bottone" href="{{route('insertStaff')}}">Inserisci Membro Staff</a>
-            <a class="bottone" href="{{route('showStaff')}}">Modifica Membro Staff</a>
-            <a class="bottone-elimina" href="{{route('deleteStaff')}}">Elimina Azienda</a>
-            </div>
+            <a class="bottone" href="{{route('showStaff')}}">Modifica/elimina Membro Staff</a>
+        </div>
 
-        <div class="container4">
-            <h2> Gestione utente</h2>
+        <div class="container2">
+            <h2> Gestione utenti</h2>
             <a class="bottone-elimina" href="{{route('showUtenti')}}">Elimina Utente</a>
         </div>
 

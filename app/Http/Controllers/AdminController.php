@@ -14,6 +14,8 @@ use App\Http\Requests\NewAziendaRequest;
 use App\Http\Requests\NewStaffRequest;
 use App\Http\Requests\NewFaqRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Pagination\Paginator;
+
 
 
 
@@ -92,10 +94,11 @@ class AdminController extends Controller
     }
 
     public function modificaazienda()
-    {
-        $aziende = Azienda::all();
-        return view('AdminViews.modificaazienda')->with('aziende', $aziende);
-    }
+{
+    $aziende = Azienda::paginate(3);
+    return view('AdminViews.modificaazienda')->with('aziende', $aziende);
+}
+
 
     public function updateazienda($idAzienda)
     {

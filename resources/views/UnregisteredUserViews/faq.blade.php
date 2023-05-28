@@ -4,12 +4,6 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/Faq.css')}}">
 <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
 
-@can('isAdmin')
-<div class="gestione-faq">
-  <a href="{{ route('insertfaq') }}">Inserisci Faq</a>
-  <a href="{{ route('gestionefaq') }}">Modifica Faq</a>
-</div>
-@endcan
 
 <div class="container-faq">
 

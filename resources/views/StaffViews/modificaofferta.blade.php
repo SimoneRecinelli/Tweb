@@ -23,6 +23,7 @@
                 <th>Elimina</th>
             </tr>
         <tbody>
+            @isset($offerte)
             @foreach($offerte as $offerta)
                 <tr>
                     <td>{{$offerta->Oggetto}}</td>
@@ -55,4 +56,7 @@
             @endforeach
         </tbody>
     </table>
+    @include('pagination.paginator', ['paginator' => $offerte])
+@endisset()
+
 @endsection

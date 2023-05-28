@@ -1,5 +1,7 @@
 .pagination {
     margin: 10px 0;
+    text-align: center;
+    color:#fff;
 }
 .pagination a{
     color: #fff;

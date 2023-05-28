@@ -17,6 +17,7 @@
 
         </tr>
 
+        <tbody>
         @isset($faqs)
         @foreach($faqs as $faq)
         <tr>
@@ -36,7 +37,7 @@
 
         </tr>
         @endforeach
-        
+        </tbody>
     </table>
 
     @include('pagination.paginator', ['paginator' => $faqs])
