@@ -112,7 +112,6 @@ class userController extends Controller {
 
     public function showUser() {
         $user = Auth::user();
-        
         return view('RegisteredUserViews.modifyProfilo')->with('user',$user);
     }
 
@@ -126,8 +125,8 @@ class userController extends Controller {
         if($num==0){
            $coupon = new Coupon;
         $coupon->Combinazione = 'prova';
-        $coupon->id=Auth::user()->id;
-         $coupon->idOfferta=$selOfferta->idOfferta;
+        $coupon->id = Auth::user()->id;
+         $coupon->idOfferta = $selOfferta->idOfferta;
          $coupon->codice = Str::random(10);
         $coupon->save();
         return view('RegisteredUserViews.newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
