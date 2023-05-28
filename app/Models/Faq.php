@@ -9,7 +9,7 @@ class Faq extends Model
     protected $table= 'Faqs';
     public $timestamps = false;
 
-    public function getFaqs(){
+    public static function getFaqs(){
         return Faq::all();
     }
 
