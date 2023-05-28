@@ -104,7 +104,7 @@
 
     <div class="input-box">
     {{Form::label('genere', 'Genere:', ['class' => 'label-input']) }}
-    {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'input']) }}<br>
+    {{ Form::select('genere', $opzioni = ['Uomo' => 'Uomo','Donna' => 'Donna'], ($user->genere == 'Uomo') ? 'Uomo' : 'Donna',  ['class' => 'input']) }}<br>
     @if ($errors->first('genere'))
         <ul class="errors">
             @foreach ($errors->get('genere') as $message)

@@ -41,11 +41,11 @@ class Staff extends Model {
         return $staff;
     }
 
-    public function getProfile($id){
-        $staff = User::where('id',$di)->get();
+    public function getProfileStaff($id)
+    {
+        $staff = Staff::where('id', $id)->first();
         return $staff;
     }
 
-    
 
 }

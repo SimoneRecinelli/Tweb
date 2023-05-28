@@ -99,18 +99,6 @@
         </div>
 
         <div class="input-box">
-        {{Form::label('password', 'Password:', ['class' => 'label-input']) }}
-        {{ Form::text('password', $staff->password, ['class' => 'input']) }}
-        @if ($errors->first('password'))
-            <ul class="errors">
-                @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-        </div>
-        
-        <div class="input-box">
         {{Form::label('genere', 'Genere:', ['class' => 'label-input']) }}
         {{ Form::select('genere', $opzioni = ['0' => 'uomo','1' => 'donna',],   ['class' => 'input']) }}
         @if ($errors->first('genere'))
@@ -125,11 +113,14 @@
         </div>
 
         <div class="button">
-        {{ Form::submit('Modifica profilo', ['class' => 'form-btn1']) }}   
+        {{ Form::submit('Modifica profilo', ['class' => 'form-btn1']) }}
         </div>
-
             {{ Form::close() }}
-    </div>
+
+    <a class="bottone-modifica" href="{{ route('modificaPassStaff', ['id' => $staff->id]) }}">Modifica password</a>
+
+
+</div>
 
 
 @endsection

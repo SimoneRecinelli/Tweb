@@ -42,7 +42,10 @@ Route::get('/aziende', [PublicController::class, 'showAziende'])->name('aziende'
 Route::get('/azienda/{idAzienda}', [PublicController::class, 'showSingleAzienda'])->name('paginaazienda');
 
 /* Rotta per la vista 'coupon' */
-Route::get('/coupon/{idOfferta}', [PublicController::class, 'showCoupon']) ->name('coupon');
+
+
+//Rotta per il coupon scaduto
+Route::get('/coupon/{idOfferta}', [PublicController::class, 'expiredCoupon' ])->name('coupon');
 
 /* Rotta per la barra di ricerca */
 Route::get('/search', [PublicController::class, 'search'])->name('search');
@@ -132,6 +135,12 @@ Route::get('/updateStaff/{id}', [AdminController::class, 'updateStaff'])->name('
     ->middleware('can:isAdmin');
 
 Route::put('/modifyStaff/{id}', [AdminController::class, 'modifyStaff'])->name('modifyStaff')
+    ->middleware('can:isAdmin');
+
+Route::get('/modificaPassStaff/{id}', [AdminController::class, 'modificaPassStaff'])->name('modificaPassStaff')
+    ->middleware('can:isAdmin');
+
+Route::put('/putPassStaff/{id}', [AdminController::class, 'putPassStaff'])->name('putPassStaff')
     ->middleware('can:isAdmin');
 
 Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('deleteStaff')

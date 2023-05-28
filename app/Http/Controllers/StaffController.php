@@ -16,8 +16,8 @@ class StaffController extends Controller {
 
 
     public function insertofferta(){
-        $model = new Azienda;
-        $aziende = $model->getAziende();
+        $azienda = new Azienda;
+        $aziende = $azienda->getAziende();
         return view('StaffViews.insertofferta')->with('aziende',$aziende);
     }
 
@@ -79,8 +79,8 @@ class StaffController extends Controller {
     
     public function updateofferta($idOfferta){
         $offerta=Offerta::getOfferte()->where('idOfferta',$idOfferta)->first();
-        $model = new Azienda;
-        $aziende = $model->getAziende();
+        $azienda = new Azienda;
+        $aziende = $azienda->getAziende();
         return view('StaffViews.modifyofferta')->with('offerta',$offerta)->with('aziende',$aziende);
     }
     
