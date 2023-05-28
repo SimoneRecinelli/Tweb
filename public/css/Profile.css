@@ -46,6 +46,7 @@
     text-decoration: none;
     background-color: rgb(88,185,157);
     font-size: large;
+    cursor: pointer;
 }
 
 .bottone-modificaPass:hover{
