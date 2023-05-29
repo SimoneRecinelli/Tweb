@@ -14,7 +14,7 @@
             {{ Form::token() }}
 
             {{ Form::label('NomeAzienda', 'Nome azienda') }}
-            {{ Form::textArea('NomeAzienda', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il nome dell\'azienda']) }}
+            {{ Form::text('NomeAzienda', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il nome dell\'azienda']) }}
             @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
                     @foreach ($errors->get('Nome') as $message)
@@ -24,7 +24,7 @@
             @endif
 
             {{Form::label('Sede', 'Sede') }}
-            {{ Form::textArea('Sede', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la sede dell\'azienda']) }}
+            {{ Form::text('Sede', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la sede dell\'azienda']) }}
             @if ($errors->first('Sede'))
                 <ul class="errors">
                     @foreach ($errors->get('Sede') as $message)
@@ -35,7 +35,7 @@
 
 
             {{Form::label('Tipologia', 'Tipologia') }}
-            {{ Form::textArea('Tipologia', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la tipologia dell\'azienda']) }}
+            {{ Form::text('Tipologia', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la tipologia dell\'azienda']) }}
             @if ($errors->first('Tipologia'))
                 <ul class="errors">
                     @foreach ($errors->get('Tipologia') as $message)
@@ -47,7 +47,7 @@
 
 
             {{Form::label('RagioneSociale', 'Ragione sociale') }}
-            {{ Form::textArea('RagioneSociale', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la ragione sociale dell\'azienda']) }}
+            {{ Form::text('RagioneSociale', null, ['class' => 'form-control', 'placeholder' => 'Inserisci la ragione sociale dell\'azienda']) }}
             @if ($errors->first('RagioneSociale'))
                 <ul class="errors">
                     @foreach ($errors->get('RagioneSociale') as $message)
@@ -67,8 +67,8 @@
             @endif
 
 
-            {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
-            {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+            {{ Form::label('image', 'Immagine') }}
+            {{ Form::file('image', ['class' => 'form-control-img', 'id' => 'image']) }}
             @if ($errors->first('image'))
                 <ul class="errors">
                     @foreach ($errors->get('image') as $message)

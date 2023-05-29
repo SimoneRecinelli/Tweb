@@ -19,7 +19,7 @@
   margin:20px 0 12px 0
 }
 
-form .user-details .input-box,form .user-details .input-radio-button{
+form .user-details .input-box,form .user-details .input-box-img{
   margin-bottom:15px;
   width:calc(100% / 2 - 20px)
 }
@@ -44,13 +44,30 @@ form .user-details .input-radio-button input{
   font-weight:700
 }
 
-.user-details .input-box input, .user-details .input-box select{
+.user-details .input-box input, 
+.user-details .input-box select, 
+.user-details .input-box textArea{
   height:45px;
   width:100%;
   outline:0;
   border-radius:2rem;
   padding-left:15px;
   border:1px solid #ccc;
+  transition:all 0.3s ease; 
+}
+
+.user-details .input-box textArea{
+  box-sizing: border-box;
+  resize: vertical; /* Consente all'utente di ridimensionare verticalmente la textarea se necessario */
+  overflow: hidden; /* Nasconde completamente la scrollbar */
+  padding: 15px;}
+
+.user-details .input-box-img{
+  height:45px;
+  width:100%;
+  outline:0;
+  border-radius:2rem;
+  padding-left:15px;
   transition:all 0.3s ease; 
 }
 

@@ -37,14 +37,25 @@
   font-size: 0.9rem;
   color: #24262b;
   outline: none;
-
   margin: 15px 0;
   box-sizing: border-box;
   resize: vertical; /* Consente all'utente di ridimensionare verticalmente la textarea se necessario */
   overflow: hidden; /* Nasconde completamente la scrollbar */
-
-  text-align: center; /* Centra il testo all'interno del campo */
+  text-align: center; 
   padding: 8px;
+
+}
+
+
+.form-control-img {
+  width: 50vh;
+  background: white;
+  height: 40px;
+  font-size: 0.9rem;
+  color: #24262b;
+  outline: none;
+  margin: 15px 0;
+  box-sizing: border-box;
 
 }
 

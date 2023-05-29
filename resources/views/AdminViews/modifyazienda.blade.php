@@ -16,7 +16,7 @@
     @method('PUT')
 {{ Form::token() }}
 {{ Form::label('NomeAzienda', 'Nome Azienda') }}
-    {{ Form::textArea('NomeAzienda', $azienda->NomeAzienda, ['class' => 'form-control']) }}
+    {{ Form::text('NomeAzienda', $azienda->NomeAzienda, ['class' => 'form-control']) }}
     @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
                     @foreach ($errors->get('NomeAzienda') as $message)
@@ -26,7 +26,7 @@
                 @endif
 
     {{Form::label('Sede', 'Sede') }}
-    {{ Form::textArea('Sede', $azienda->Sede, ['class' => 'form-control']) }}
+    {{ Form::text('Sede', $azienda->Sede, ['class' => 'form-control']) }}
     @if ($errors->first('Sede'))
                 <ul class="errors">
                     @foreach ($errors->get('Sede') as $message)
@@ -36,7 +36,7 @@
                 @endif
 
     {{Form::label('Tipologia', 'Tipologia') }}
-    {{ Form::textArea('Tipologia', $azienda->Tipologia, ['class' => 'form-control']) }}
+    {{ Form::text('Tipologia', $azienda->Tipologia, ['class' => 'form-control']) }}
     @if ($errors->first('Tipologia'))
                 <ul class="errors">
                     @foreach ($errors->get('Tipologia') as $message)
@@ -46,7 +46,7 @@
                 @endif
 
     {{Form::label('RagioneSociale', 'RagioneSociale') }}
-    {{ Form::textArea('RagioneSociale', $azienda->RagioneSociale, ['class' => 'form-control']) }}
+    {{ Form::text('RagioneSociale', $azienda->RagioneSociale, ['class' => 'form-control']) }}
     @if ($errors->first('RagioneSociale'))
                 <ul class="errors">
                     @foreach ($errors->get('RagioneSociale') as $message)
@@ -66,8 +66,8 @@
             @endif
 
 
-    {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
-    {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+    {{ Form::label('image', 'Immagine') }}
+    {{ Form::file('image', ['class' => 'form-control-img', 'id' => 'image']) }}
     @if ($errors->first('image'))
                 <ul class="errors">
                     @foreach ($errors->get('image') as $message)

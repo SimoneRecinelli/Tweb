@@ -85,9 +85,9 @@
             {{ Form::select('Evidenza', ['si' => 'si', 'no' => 'no'], ['class' => 'input', 'id' => 'Evidenza']) }}
             </div>
 
-            <div class="input-box">
+            <div class="input-box-img">
             {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
-            {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+            {{ Form::file('image', ['class' => 'input-img', 'id' => 'image']) }}
             </div>
 
             <div class="input-box">

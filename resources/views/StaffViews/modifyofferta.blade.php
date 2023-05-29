@@ -3,6 +3,7 @@
 @section('scripts')
 
     @parent
+    
     <script src="{{ asset('js/functions.js') }}" ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -38,7 +39,7 @@
 
     <div class="input-box">
     {{ Form::label('DescrizioneOfferta', 'Descrizione offerta', ['class' => 'label-input']) }}
-    {{ Form::text('DescrizioneOfferta', $offerte->DescrizioneOfferta, ['class' => 'input', 'id' => 'DescrizioneOfferta']) }}
+    {{ Form::textArea('DescrizioneOfferta', $offerte->DescrizioneOfferta, ['class' => 'input', 'id' => 'DescrizioneOfferta']) }}
     </div>
 
     <div class="input-box">
@@ -94,7 +95,7 @@
 
     </div>
 
-    <div class="input-box">
+    <div class="input-box-img">
     {{ Form::label('image', 'Immagine', ['class' => 'label-input']) }}
     {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
     </div>
