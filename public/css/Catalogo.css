@@ -26,12 +26,12 @@ label {
   
 }
 
-#button {
+#button, #button-reset{
   align-items: center;
   width: 10vh;
   cursor: pointer;
   border-radius: 2rem;
-  background: grey;
+  background-color: #58b99d;
   border: 1px solid black;
   height: 25px;
   font-size: 0.9rem;
@@ -48,6 +48,13 @@ label {
   color: rgb(88,185,157);
 }
 
+#button-reset:hover{
+  border: 1px solid white;
+  background-color: red;
+  border-radius: 45px;
+  color:#fff;
+}
+
 .search_container {
   margin-top: 20px;
 }
@@ -62,38 +69,40 @@ h2 {
   color: white;
 }
 
-#search_button {
-  border: 1px solid #bbbbbb;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.6s;
-}
-
-#search_button:hover {
-  border: 1px solid black;
-  border-radius: 45px;
-  color: black;
-}
-
 #container{
   margin-left: 15em;
   padding-bottom: 5px;
 }
 
 #categorie{
-  display: grid;
-  background-color: #24262b;
+  position:static;
+  background-color: #30333a;
   width: 14em;
   float: left;
-  border-top: 1px solid white;
   border-right: 1px solid white;
-  border-bottom: 1px solid white;
-  padding: 3em 0.5em;
+  padding: 3em 0.5em 4em 0.5em;
   margin-left:-15em;
-  min-height: 700px;
-  max-height: 900px;
+  height: 760px;
   color: white;
-  margin-top: -77px;
+  margin-top: -80px;
+  overflow-y: auto;
+}
+
+#categorie::-webkit-scrollbar {
+  width: 6px; /* Imposta la larghezza della scrollbar */
+}
+
+#categorie::-webkit-scrollbar-track {
+  background: #30333a; /* Imposta il colore dello sfondo della traccia */
+}
+
+#categorie::-webkit-scrollbar-thumb {
+  background: #888; /* Imposta il colore della thumb della scrollbar */
+  border-radius: 3px; /* Imposta il bordo arrotondato della thumb */
+}
+
+#categorie input{
+  margin-bottom: 20px;
 }
 
 #opt{

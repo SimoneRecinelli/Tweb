@@ -69,15 +69,13 @@
 }
 
 .container-info .chisiamo_content a,
-.container-info .dovesiamo_content a,
-.container-info .accesso_content a {
+.container-info .dovesiamo_content a{
   color:#58b99d;
   text-decoration: none;
 }
 
 .container-info .chisiamo_content a:hover,
-.container-info .dovesiamo_content a:hover,
-.container-info .accesso_content a:hover {
+.container-info .dovesiamo_content a:hover {
   color:#469680;
   text-decoration: underline;
 }

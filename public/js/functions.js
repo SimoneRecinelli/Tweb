@@ -81,12 +81,6 @@ function doFormValidation(actionUrl, formId) {
 }
 
 
-function reset() {
-    window.location.href = "{{route('catalogo')}}";
-  }
-
-
-
 
 
 

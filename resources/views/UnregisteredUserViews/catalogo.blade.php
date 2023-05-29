@@ -3,27 +3,30 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/Catalogo.css')}}">
-    <script src="functions.js"></script>
 
+    <script>
+    function reset() {
+        document.getElementById("searchForm").reset();
+    }
+    </script>
 
     <div id="container">
 
         <div class="search_container">
             <form action="{{ route('search')}}" method="GET">
-                <label for="oggetto">Oggetto:</label><input id="obj" type="text" name="descrizione"
+                <label for="oggetto">Dsescrizione:</label><input id="obj" type="text" name="descrizione"
                                                             placeholder="Inserisci descrizione dell'offerta">
                 <label for="azienda">Azienda:</label><input id="azienda" type="text" name="azienda"
                                                             placeholder="Inserisci l'azienda dell'offerta">
                 <button id="button" type="submit">Cerca</button>
                 
-                <button  onclick="reset()">Reset</button>
+                <button  id="button-reset" onclick="reset()">Reset</button>
 
 
 
             </form>
         </div>
         
-
         <div id="categorie">
             <h3>Scegli una categoria</h3>
             <br>
