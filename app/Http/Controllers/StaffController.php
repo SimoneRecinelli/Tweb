@@ -72,7 +72,7 @@ class StaffController extends Controller {
     }
     
     public function modificaofferta() {
-        $offerte = Offerta::paginate(10);
+        $offerte = Offerta::getOfferte();
         return view('StaffViews.modificaofferta')->with('offerte', $offerte);
     }
     

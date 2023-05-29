@@ -2,7 +2,8 @@
 
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="css/Registrazione.css">
+<link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
+
 
 <div class="signup-container">
 

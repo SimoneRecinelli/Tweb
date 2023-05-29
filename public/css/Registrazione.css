@@ -44,18 +44,18 @@ form .user-details .input-radio-button input{
   font-weight:700
 }
 
-.user-details .input-box input{
+.user-details .input-box input, .user-details .input-box select{
   height:45px;
   width:100%;
   outline:0;
   border-radius:2rem;
   padding-left:15px;
   border:1px solid #ccc;
-  transition:all .3s ease
+  transition:all 0.3s ease; 
 }
 
 .user-details .input-box input:focus{
-  border:2px solid #58b99d
+  border:2px solid #58b99d;
 }
 
 form .button{

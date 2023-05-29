@@ -10,7 +10,7 @@ class Faq extends Model
     public $timestamps = false;
 
     public static function getFaqs(){
-        return Faq::all();
+        return Faq::paginate(10);
     }
 
     public static function getFaqById($id) {
