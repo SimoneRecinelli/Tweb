@@ -281,14 +281,14 @@ class DatabaseSeeder extends Seeder {
               specifico per ulteriori assistenza."],
     ]);
 
-    
+    /*
     DB::table('Coupons')->insert([
         [
             'id' => '1',
             'idOfferta' => '4',
             'codice' => '1234567890',
         ]
-        ]);
+        ]);*/
 
 }
 }
