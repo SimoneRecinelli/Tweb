@@ -9,7 +9,6 @@
 
     <table class="table">
         <tr>
-            <th>Numero</th>
             <th>Domanda</th>
             <th>Risposta</th>
             <th>Modifica</th>
@@ -21,7 +20,6 @@
         @isset($faqs)
         @foreach($faqs as $faq)
         <tr>
-            <td>{{$faq->id}}</td>
             <td>{{$faq->Domanda}}</td>
             <td>{{$faq->Risposta}}</td>
             <td><a href="{{ route('updatefaq', $faq->id) }}" class="btn-modify">Modifica faq</a></td>
