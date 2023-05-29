@@ -23,10 +23,15 @@ CSS SLIDESHOW
   max-width: 300px;
   height: 300px;
 }
-.slide  h2{
+.slide h2{
   color:#fff;
 }
 
+a {
+  text-decoration: none;
+}
+
+ 
 .carousel{
   display: none;
 }

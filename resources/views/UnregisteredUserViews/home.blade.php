@@ -14,10 +14,10 @@
                 $aziende = (new \App\Models\Azienda())->getAllAziende();
                 ?>
                 @foreach($aziende as $azienda)
-                    <div class="slide fade">
+                    <a class="slide fade" href="{{route('paginaazienda', [$azienda->idAzienda])}}">
                         <img src="{{'img/products/'.$azienda->image}}">
                         <h2> {{$azienda->NomeAzienda}} </h2>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>
