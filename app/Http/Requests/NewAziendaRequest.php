@@ -25,7 +25,7 @@ class NewAziendaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'NomeAzienda' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
+            'NomeAzienda' => 'required|string|min:3|unique:Aziende|regex:/^[\p{L}\s]+$/u',
             'Sede' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
             'Tipologia' => 'required|min:3|regex:/^[a-zA-Z\s]+$/',
             'RagioneSociale' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
