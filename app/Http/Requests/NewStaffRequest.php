@@ -30,7 +30,7 @@ class NewStaffRequest extends FormRequest {
             'email' => 'required|email|max:255',
             'eta' => 'required|integer|min:1|max:100',
             'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
-            'residenza' => 'required|min:3|regex:/regex:/^[\p{L}0-9\s.,\-]+$/u',
+            'residenza' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
             'username' => 'required|string|min:8',
             'genere' => 'required|string',
         ];
