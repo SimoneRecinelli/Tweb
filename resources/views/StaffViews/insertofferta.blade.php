@@ -60,7 +60,7 @@
 
             <div class="input-box">
             {{ Form::label('Prezzo', 'Prezzo', ['class' => 'label-input']) }}
-            {{ Form::number('Prezzo', null, ['class' => 'input', 'placeholder' => 'Inserisci il prezzo dell\'offerta', 'id' => 'Prezzo']) }}
+            {{ Form::number('Prezzo', null, ['class' => 'input', 'placeholder' => 'Inserisci il prezzo dell\'offerta', 'id' => 'Prezzo', 'step' => '0.01']) }}
 
             </div>
 

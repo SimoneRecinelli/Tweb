@@ -45,14 +45,14 @@ class userController extends Controller {
         //Validazione dei dati
          $validatedData = $request->validate([
 
-            'nome' => ['required', 'string', 'min:3', 'regex:/^[a-zA-Z\s]+$/'],
-            'cognome' => ['required','min:3', 'string', 'regex:/^[a-zA-Z\s]+$/'],
+            'nome' => ['required', 'string', 'min:3', 'regex:/^[\p{L}\s]+$/u'],
+            'cognome' => ['required','min:3', 'string', 'regex:/^[\p{L}\s]+$/u'],
             'email' => ['required', 'string', 'max:255','email'],
             'username' => ['required', 'string', 'min:8'],
             'telefono' => ['required', 'numeric', 'min:10','regex:/^[0-9]+$/'],
             'genere' => ['required'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
-            'residenza' => ['required','string'],
+            'residenza' => ['required','string', 'regex:/^[\p{L}\s]+$/u'],
         ]);
 
         // Aggiorna i dati del profilo dell'utente con i nuovi valori

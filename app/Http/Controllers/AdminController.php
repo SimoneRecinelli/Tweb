@@ -192,8 +192,20 @@ class AdminController extends Controller
         return view('AdminViews.insertStaff');
     }
 
-    public function storeStaff(NewStaffRequest $request)
+    public function storeStaff(Request $request)
     {
+
+        $request->validate([
+            'nome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
+            'cognome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
+            'email' => 'required|email|max:255',
+            'eta' => 'required|integer|min:1|max:100',
+            'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
+            'residenza' => 'required|min:3|regex:/^[\p{L}\s]+$/u',
+            'username' => 'required|string|min:8',
+            'password' => 'required|min:8',
+            'genere' => 'required|string',
+        ]);
 
         $staff = new Staff();
         $staff->nome = $request->input('nome');
@@ -226,7 +238,7 @@ class AdminController extends Controller
         $staff=Staff::getStaffById($id);
         return view('AdminViews.modifyStaff')->with('staff',$staff);
     }
-    public function modifyStaff(Request $request, $id) {
+    public function modifyStaff(NewStaffRequest $request, $id) {
             $staff = Staff::find($id);
 
             if (!$staff) {

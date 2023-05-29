@@ -30,6 +30,9 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
+<h1>Modifica Offerta</h1>
+
+
 <div class="signup-container">
 {{ Form::open(array('route' => ['modifyofferta', $offerte->idOfferta], 'method' => 'POST', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
     @csrf
@@ -68,7 +71,7 @@
 
     <div class="input-box">
     {{Form::label('Prezzo', 'Prezzo', ['class' => 'label-input']) }}
-    {{ Form::number('Prezzo', $offerte->Prezzo, ['class' => 'input', 'id' => 'Prezzo']) }}
+    {{ Form::number('Prezzo', $offerte->Prezzo, ['class' => 'input', 'id' => 'Prezzo', 'step' => '0.01']) }}
     </div>
 
 

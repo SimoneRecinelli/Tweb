@@ -25,7 +25,7 @@
         @csrf
     {{ Form::token() }}
     <p><strong>{{Form::label('password', 'Password:') }}</strong>
-    {{ Form::text('password', null, ['class' => 'form-control', 'id' => 'pass', 'placeholder' => 'Inserisci nuova password']) }} </p>
+    {{ Form::password('password', ['class' => 'form-control', 'id' => 'pass', 'placeholder' => 'Inserisci nuova password']) }} </p>
 
         @if ($errors->first('password')  )
         

@@ -31,15 +31,15 @@ class NewOffertaRequest extends FormRequest {
         (sia maiuscole che minuscole) e spazi nei campi specificati. */
 
         return [
-            'DescrizioneOfferta' => 'required|min:10|max:2500',
-            'Categoria' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
+            'DescrizioneOfferta' => 'required|min:10',
+            'Categoria' => 'required|max:30|regex:/^[\p{L}\s]+$/u',
             'Scadenza' => 'required',
-            'Oggetto' => 'required|min:2|max:30|',
+            'Oggetto' => 'required|min:2|max:30',
             'NomeAzienda' => 'required|max:30',
-            'Prezzo' => 'required|numeric|min:0',
+            'Prezzo' => 'required|numeric|min:0.01',
             'PercentualeSconto' => 'required|numeric|min:0|max:100',
-            'Luogo' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
-            'Modalità' => 'required|max:30|regex:/^[a-zA-Z\s]+$/',
+            'Luogo' => 'required|max:30|regex:/^[\p{L}\s]+$/u',
+            'Modalità' => 'required|max:30|regex:/^[\p{L}\s]+$/u',
             'Evidenza' => 'required',
             'image' => 'file|mimes:jpeg,png,jpg|max:1024'
         ];

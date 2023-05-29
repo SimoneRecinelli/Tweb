@@ -17,7 +17,7 @@
             {{ Form::text('NomeAzienda', null, ['class' => 'form-control', 'placeholder' => 'Inserisci il nome dell\'azienda']) }}
             @if ($errors->first('NomeAzienda'))
                 <ul class="errors">
-                    @foreach ($errors->get('Nome') as $message)
+                    @foreach ($errors->get('NomeAzienda') as $message)
                         <li>{{ $message }}</li>
                     @endforeach
                 </ul>

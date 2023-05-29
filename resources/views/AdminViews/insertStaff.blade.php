@@ -100,7 +100,7 @@
 
         <div class="input-box">
             {{Form::label('password', 'Password:', ['class' => 'label-input']) }}
-            {{ Form::text('password', null, ['class' => 'input', 'placeholder' => 'Inserisci la password']) }}
+            {{ Form::password('password', null, ['class' => 'input', 'placeholder' => 'Inserisci la password']) }}
             @if ($errors->first('password'))
                 <ul class="errors">
                     @foreach ($errors->get('password') as $message)
