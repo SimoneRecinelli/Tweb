@@ -274,11 +274,6 @@ class DatabaseSeeder extends Seeder {
               ottenere il miglior affare, ti consigliamo di utilizzare l'offerta o il coupon il prima possibile dopo 
               averlo trovato."],
 
-        ['Domanda'=>'Posso condividere i coupons con i miei amici?',
-            'Risposta'=>"Certamente! Puoi condividere i coupons con i tuoi amici e familiari. Alcuni coupons potrebbero
-             anche avere opzioni di condivisione integrate per facilitare la condivisione tramite e-mail o sui social 
-             media."],
-
         ['Domanda'=>'Cosa devo fare se un coupon non funziona?',
             'Risposta'=>"Se riscontri problemi con un coupon, controlla attentamente i dettagli e i requisiti dell'offerta.
              Assicurati di inserire correttamente il codice promozionale e verifica che l'offerta non sia scaduta. 
