@@ -33,7 +33,7 @@ public function showCatalog($Categoria = null): View {
 
     //$query->where('Scadenza', '>=', Carbon::now())->get();
 
-    $offerte = $query->paginate(10);
+    $offerte = $query->paginate(8);
 
     return view('UnregisteredUserViews.catalogo')
         ->with('offerte', $offerte)
@@ -45,7 +45,7 @@ public function showCatalog($Categoria = null): View {
 
 public function showAziende() {
     $azienda = new Azienda();
-    $aziende = $azienda::paginate(10);
+    $aziende = $azienda::GetAziendePaginate();
     return view('UnregisteredUserViews.aziende', compact('aziende'));
 }
 

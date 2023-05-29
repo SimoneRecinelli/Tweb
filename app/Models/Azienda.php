@@ -18,6 +18,10 @@ class Azienda extends Model
         return Azienda::all();
     }
 
+    public static function getAziendePaginate() {
+        return Azienda::paginate(9);
+    }
+
     //va messa nella select di iserimento offerta per estrarre il nome 
     public function getNome($num){
         $i=0;
