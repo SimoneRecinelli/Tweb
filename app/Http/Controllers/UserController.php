@@ -124,7 +124,7 @@ class userController extends Controller {
         
         if($num==0){
            $coupon = new Coupon;
-        $coupon->Combinazione = 'prova';
+        
         $coupon->id = Auth::user()->id;
          $coupon->idOfferta = $selOfferta->idOfferta;
          $coupon->codice = Str::random(10);
