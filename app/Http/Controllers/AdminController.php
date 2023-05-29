@@ -164,7 +164,7 @@ class AdminController extends Controller
 
     public function gestionefaq()
     {
-        $faqs = Faq::getFaqs(); 
+        $faqs = Faq::getFaqsPaginate(); 
         return view('AdminViews.gestionefaq')->with('faqs', $faqs);
     }
     
