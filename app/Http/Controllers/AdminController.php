@@ -202,7 +202,7 @@ class AdminController extends Controller
             'eta' => 'required|integer|min:1|max:100',
             'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
             'residenza' => 'required|min:3|regex:/^[\p{L}\s]+$/u',
-            'username' => 'required|string|min:8',
+            'username' => 'required|string|min:8|unique:users',
             'password' => 'required|min:8',
             'genere' => 'required|string',
         ]);
