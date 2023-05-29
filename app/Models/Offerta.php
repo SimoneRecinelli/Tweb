@@ -14,7 +14,7 @@ class Offerta extends Model
     public $timestamps = false;
     
     public static function getOfferte() {
-        return Offerta::all();
+        return Offerta::paginate(10);
     }
 
     public static function getOffertaById($idOfferta) {

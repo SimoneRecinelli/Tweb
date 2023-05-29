@@ -37,7 +37,7 @@ class Staff extends Model {
 
 
    public static function getStaff() {
-        $staff = User::where('role','staff')->paginate(1);
+        $staff = User::where('role','staff')->paginate(10);
         return $staff;
     }
 

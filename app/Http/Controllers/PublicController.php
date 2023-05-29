@@ -58,7 +58,7 @@ public function showSingleAzienda($idAzienda): View
 }
 
      public function showFaq(): View {
-        $faqs = Faq::paginate(10);
+        $faqs = Faq::getFaqs();
         return view('UnregisteredUserViews.faq', compact('faqs'));
     }
 
