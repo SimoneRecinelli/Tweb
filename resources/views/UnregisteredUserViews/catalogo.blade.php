@@ -3,6 +3,7 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/Catalogo.css')}}">
+    <script src="functions.js"></script>
 
 
     <div id="container">
@@ -14,9 +15,14 @@
                 <label for="azienda">Azienda:</label><input id="azienda" type="text" name="azienda"
                                                             placeholder="Inserisci l'azienda dell'offerta">
                 <button id="button" type="submit">Cerca</button>
+                
+                <button  onclick="reset()">Reset</button>
+
+
+
             </form>
         </div>
-
+        
 
         <div id="categorie">
             <h3>Scegli una categoria</h3>
