@@ -12,6 +12,8 @@ use App\Models\Coupon;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+
 
 
 
@@ -121,20 +123,27 @@ class userController extends Controller {
         $selOfferta=Offerta::getOffertaById($idOfferta);
         $num=Coupon::where('id',$user->id)->where('idOfferta',$idOfferta)->count();
         
-        
-        if($num==0){
-           $coupon = new Coupon;
-        
-        $coupon->id = Auth::user()->id;
-         $coupon->idOfferta = $selOfferta->idOfferta;
-         $coupon->codice = Str::random(10);
-        $coupon->save();
-        return view('RegisteredUserViews.newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
-        }
-        else{
+        if ($selOfferta != null && $selOfferta->Scadenza >= Carbon::now()){
+            if($num==0){
+            $coupon = new Coupon;
             
-            $errore='Puoi acquistare al massimo un coupon per ogni offerta';
-            return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
+            $coupon->id = Auth::user()->id;
+            $coupon->idOfferta = $selOfferta->idOfferta;
+            $coupon->codice = Str::random(10);
+            $coupon->save();
+            return view('RegisteredUserViews.newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
+            }
+            else{
+                
+                $errore='Puoi acquistare al massimo un coupon per ogni offerta';
+                return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
+            }
+        }
+        elseif ($selOfferta != null && $selOfferta->Scadenza < Carbon::now()) {
+            return view('UnregisteredUserViews.expiredcoupon')->with('selOfferta',$selOfferta);
+        }
+        else {
+            return view('error');
         }
     }
 

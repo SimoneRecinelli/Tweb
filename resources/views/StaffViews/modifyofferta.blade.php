@@ -30,10 +30,11 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/Registrazione.css')}}">
 
-<h1>Modifica Offerta</h1>
+
 
 
 <div class="signup-container">
+<h1>Modifica Offerta</h1>
 {{ Form::open(array('route' => ['modifyofferta', $offerte->idOfferta], 'method' => 'POST', 'class' => 'contact-form', 'enctype' => 'multipart/form-data', 'id' =>'modifyofferta')) }}
     @csrf
     {{ Form::token() }}
