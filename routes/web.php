@@ -38,17 +38,11 @@ Route::get('/info', [PublicController::class, 'showInfo']) ->name('info');
 /* Rotta per la vista 'aziende' */
 Route::get('/aziende', [PublicController::class, 'showAziende'])->name('aziende');
 
-/*Rotta per la singola azienda*/
+/* Rotta per la singola azienda */
 Route::get('/azienda/{idAzienda}', [PublicController::class, 'showSingleAzienda'])->name('paginaazienda');
 
-/* Rotta per la vista 'coupon' */
-
-
-//Rotta per il coupon scaduto
+/* Rotta per il coupon */
 Route::get('/coupon/{idOfferta}', [PublicController::class, 'expiredCoupon' ])->name('coupon');
-
-/* Rotta per la barra di ricerca */
-Route::get('/search', [PublicController::class, 'search'])->name('search');
 
 /* -------------------------------------------------------------------------------------------------------------------*/
 
@@ -73,8 +67,6 @@ Route::get('/modificapassword', [UserController::class, 'modificapassword'])->na
     ->middleware('auth');
 Route::put('/putpassword', [UserController::class, 'putpassword'])->name('putpassword')
     ->middleware('auth');
-Route::get('/deleteProfile', [UserController::class, 'deleteProfile'])->name('deleteProfile')
-    ->middleware('auth');
 /* ------------------------------------------------------------------------------------------------------ */
 Route::get('/newcoupon/{idOfferta}', [UserController::class, 'newcoupon'])->name('newcoupon')
     ->middleware('can:isUser');
@@ -93,8 +85,6 @@ Route::get('/insertofferta', [StaffController::class, 'insertofferta'])->name('i
 Route::post('/storeofferta', [StaffController::class, 'storeofferta'])->name('storeofferta')
     ->middleware('can:isStaff');
 
-Route::get('/deleteofferta', [StaffController::class, 'deleteofferta'])->name('deleteofferta')
-    ->middleware('can:isStaff');
 
 Route::delete('/destroyofferta/{idOfferta}', [StaffController::class, 'destroyofferta'])->name('destroyofferta')
     ->middleware('can:isStaff');
