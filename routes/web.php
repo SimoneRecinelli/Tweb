@@ -133,9 +133,6 @@ Route::get('/modificaPassStaff/{id}', [AdminController::class, 'modificaPassStaf
 Route::put('/putPassStaff/{id}', [AdminController::class, 'putPassStaff'])->name('putPassStaff')
     ->middleware('can:isAdmin');
 
-Route::get('/deleteStaff', [AdminController::class, 'deleteStaff'])->name('deleteStaff')
-    ->middleware('can:isAdmin');
-
 Route::delete('/destroyStaff/{id}', [AdminController::class, 'destroyStaff'])->name('destroyStaff')
     ->middleware('can:isAdmin');
 /* ----------------------------------------------------------------------- */
@@ -155,9 +152,6 @@ Route::get('/insertfaq', [AdminController::class, 'insertfaq'])->name('insertfaq
 Route::post('/storefaq', [AdminController::class, 'storefaq'])->name('storefaq')
     ->middleware('can:isAdmin');
 
-Route::get('/deletefaq', [AdminController::class, 'deletefaq'])->name('deletefaq')
-    ->middleware('can:isAdmin');
-
 Route::delete('/destroyfaq/{id}', [AdminController::class, 'destroyfaq'])->name('destroyfaq')
     ->middleware('can:isAdmin');
 
@@ -175,9 +169,6 @@ Route::get('/insertazienda', [AdminController::class, 'insertazienda'])->name('i
     ->middleware('can:isAdmin');
 
 Route::post('/storeazienda', [AdminController::class, 'storeazienda'])->name('storeazienda')
-    ->middleware('can:isAdmin');
-
-Route::get('/deleteazienda', [AdminController::class, 'deleteazienda'])->name('deleteazienda')
     ->middleware('can:isAdmin');
 
 Route::delete('/destroyazienda/{idAzienda}', [AdminController::class, 'destroyazienda'])->name('destroyazienda')
