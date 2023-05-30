@@ -142,9 +142,7 @@ class userController extends Controller {
         elseif ($selOfferta != null && $selOfferta->Scadenza < Carbon::now()) {
             return view('UnregisteredUserViews.expiredcoupon')->with('selOfferta',$selOfferta);
         }
-        else {
-            return view('error');
-        }
+        else return view('error');
     }
 
 }

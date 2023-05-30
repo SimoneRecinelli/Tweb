@@ -76,14 +76,17 @@ class StaffController extends Controller {
     public function updateofferta($idOfferta){
         $offerta = new Offerta;
         $offerte = $offerta->getOffertabyId($idOfferta);
-        $azienda = new Azienda;
-        $aziende = $azienda->getAziende();
-        return view('StaffViews.modifyofferta')->with('offerte',$offerte)->with('aziende',$aziende);
+        if ($offerte != null) {
+            $azienda = new Azienda;
+            $aziende = $azienda->getAziende();
+            return view('StaffViews.modifyofferta')->with('offerte',$offerte)->with('aziende',$aziende);
+        }
+        else return view('error');
     }
+
     
     public function modifyofferta(NewOffertaRequest $request,$idOfferta)
     {
-
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
@@ -109,13 +112,12 @@ class StaffController extends Controller {
         'image'=>$imageName,
        ]);
 
-
        if (!is_null($imageName)) {
         $destinationPath = public_path() . '/img/products';
         $image->move($destinationPath, $imageName);
         };
 
-        return response()->json(['redirect' => route('homestaff')]);
+        return response()->json(['redirect' => route('modificaofferta')]);
     }
 
 }

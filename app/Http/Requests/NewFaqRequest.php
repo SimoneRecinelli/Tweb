@@ -24,7 +24,7 @@ class NewFaqRequest extends FormRequest
     public function rules()
     {
         return [
-            'Domanda' => 'required|string',
+            'Domanda' => 'required|string|unique:faqs',
             'Risposta' => 'required|string'
         ];
     }

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
 <div class="section">
-<h2 class="titolo">Gestisci i seguenti prodotti:</h2>
+<h2 class="titolo">Gestisci i membri dello Staff:</h2>
 <br>
     <table class=table>
      

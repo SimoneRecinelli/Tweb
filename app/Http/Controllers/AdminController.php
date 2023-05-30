@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Rules\Password;
 use Illuminate\Support\Facades\Form;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rule;
+
 
 
 
@@ -42,6 +44,7 @@ class AdminController extends Controller
 
     public function storeazienda(NewAziendaRequest $request)
     {
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
@@ -70,36 +73,42 @@ class AdminController extends Controller
 
     }
 
-    public function deleteazienda()
-    {
-        $aziende = Azienda::getAllAziende();
-        return view('AdminViews.deleteazienda')->with('aziende', $aziende);
-    }
-
     public function destroyazienda($idAzienda)
     {
-
         $azienda = Azienda::getAziendaById($idAzienda);
         $azienda->delete();
-   
-        return redirect('amministratore');
+        return redirect('modificaazienda');
     }
 
     public function modificaazienda()
-{
+    {
     $aziende = Azienda::paginate(10);
     return view('AdminViews.modificaazienda')->with('aziende', $aziende);
-}
+    }
 
 
     public function updateazienda($idAzienda)
     {
         $azienda = Azienda::getAziendaById($idAzienda);
-        return view('AdminViews.modifyazienda')->with('azienda', $azienda);
+        if ($azienda != null) {
+            return view('AdminViews.modifyazienda')->with('azienda', $azienda);
+        }
+        else return view('error');
+    
     }
 
-    public function modifyazienda(NewAziendaRequest $request, $idAzienda)
+    public function modifyazienda(Request $request, $idAzienda)
     {
+        $azienda = Azienda::find($idAzienda);
+
+        $request->validate([
+            'NomeAzienda' => ['required','string','min:3','regex:/^[\p{L}\s]+$/u', Rule::unique('Aziende', 'idAzienda')->ignore($azienda->idAzienda, 'idAzienda')],
+            'Sede' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
+            'Tipologia' => 'required|min:3|regex:/^[a-zA-Z\s]+$/',
+            'RagioneSociale' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
+            'image' => 'image|max:1024|mimes:jpeg,png,jpg',
+            'Descrizione' => 'required|min:10',
+        ]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -108,8 +117,6 @@ class AdminController extends Controller
             $imageName = NULL;
         }
 
-
-        $azienda = Azienda::find($idAzienda);
         $azienda->NomeAzienda = $request->input('NomeAzienda');
         $azienda->Sede = $request->input('Sede');
         $azienda->Tipologia = $request->input('Tipologia');
@@ -124,7 +131,7 @@ class AdminController extends Controller
         };
 
 
-        return redirect('amministratore');
+        return redirect('modificaazienda');
     }
     /* ------------------------------------------------------------------------------------------------------*/
 
@@ -138,7 +145,6 @@ class AdminController extends Controller
 
     public function storefaq(NewFaqRequest $request)
     {
-
         $faq = new Faq;
         if (isset($request->Domanda) && isset($request->Risposta)) {
             $faq->Domanda = $request->input('Domanda');
@@ -168,22 +174,30 @@ class AdminController extends Controller
         return view('AdminViews.gestionefaq')->with('faqs', $faqs);
     }
     
-    
-
     public function updatefaq($id)
     {
-
         $faq = Faq::getFaqById($id);
-        return view('AdminViews.modifyfaq')->with('faq', $faq);
+
+        if ($faq!=null){
+            return view('AdminViews.modifyfaq')->with('faq', $faq);
+        }
+        else return view('error');
+
     }
 
-    public function modifyfaq(NewFaqRequest $request, $id)
+    public function modifyfaq(Request $request, $id)
     {
         $faq = Faq::getFaqById($id);
+
+        $request->validate([
+            'Domanda' => ['required','string', Rule::unique('faqs')->ignore($faq->id)],
+            'Risposta' => 'required|string',
+        ]);
+
         $faq->Domanda = $request->input('Domanda');
         $faq->Risposta = $request->input('Risposta');
         $faq->save();
-        return redirect('faq');
+        return redirect('gestionefaq');
     }
 
     /* GESTIONE MEMBRI STAFF--------------------------------------------------------------------------------------------------- */
@@ -192,21 +206,8 @@ class AdminController extends Controller
         return view('AdminViews.insertStaff');
     }
 
-    public function storeStaff(Request $request)
+    public function storeStaff(NewStaffRequest $request)
     {
-
-        $request->validate([
-            'nome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
-            'cognome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
-            'email' => 'required|email|max:255',
-            'eta' => 'required|integer|min:1|max:100',
-            'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
-            'residenza' => 'required|min:3|regex:/^[\p{L}\s]+$/u',
-            'username' => 'required|string|min:8|unique:users',
-            'password' => 'required|min:8',
-            'genere' => 'required|string',
-        ]);
-
         $staff = new Staff();
         $staff->nome = $request->input('nome');
         $staff->cognome = $request->input('cognome');
@@ -230,21 +231,37 @@ class AdminController extends Controller
     public function showStaff()
     {
         $staffMembers = Staff::getStaff();
-
         return view('AdminViews.showStaff')->with('staff', $staffMembers);
     }
 
     public function updateStaff($id){
         $staff=Staff::getStaffById($id);
-        return view('AdminViews.modifyStaff')->with('staff',$staff);
+
+        if ($staff!=null){
+            return view('AdminViews.modifyStaff')->with('staff',$staff);
+        }
+        else return view('error');
     }
-    public function modifyStaff(NewStaffRequest $request, $id) {
+    
+    public function modifyStaff(Request $request, $id) {
             $staff = Staff::find($id);
 
             if (!$staff) {
                 // Il membro dello staff non esiste, puoi gestire l'errore come preferisci
                 return redirect()->back()->with('error', 'Membro dello staff non trovato');
             }
+
+            $request->validate([
+                'nome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
+                'cognome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
+                'email' => 'required|email|max:255',
+                'eta' => 'required|integer|min:1|max:100',
+                'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
+                'residenza' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
+                'username' => ['required', 'string', 'min:8',Rule::unique('users')->ignore($staff->id)],
+                'genere' => 'required|string',
+
+            ]);
 
             // Aggiorna i dati del profilo dello staff
             $staff->nome = $request->input('nome');
@@ -260,12 +277,17 @@ class AdminController extends Controller
             // Salva le modifiche
             $staff->save();
 
-            return redirect()->route('amministratore');
+            return redirect()->route('showStaff');
         }
+
+
     public function modificaPassStaff($id){
 
         $staff= Staff::getProfileStaff($id);
-        return view('AdminViews.modificaPassStaff')->with('staff',$staff);
+        if($staff != null){
+            return view('AdminViews.modificaPassStaff')->with('staff',$staff);
+        }
+        else return view('error');
     }
 
     public function putPassStaff(Request $request, $id){
@@ -283,9 +305,10 @@ class AdminController extends Controller
         // Salva le modifiche
         $staff->update();
 
-        return redirect()->route('amministratore');
+        return redirect()->route('showStaff');
 
     }
+    
     public function deleteStaff()
     {
         $staffMembers = Staff::getStaff();
@@ -295,7 +318,7 @@ class AdminController extends Controller
 
     public function destroyStaff($id) {
         Staff::destroy($id);
-        return redirect()->route('amministratore');
+        return redirect()->route('showStaff');
     }
 
 /* ELIMINAZIONE UTENTI --------------------------------------------------------------------------------  */
