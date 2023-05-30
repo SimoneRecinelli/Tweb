@@ -60,15 +60,11 @@ class StaffController extends Controller {
         return response()->json(['redirect' => route('homestaff')]);
 
     }
-    
-    public function deleteofferta(){
-        $offerte=Offerta::getOfferte();
-        return view('StaffViews.deleteofferta')->with('offerte',$offerte);
-    }
-    
+
     public function destroyofferta($idOfferta){
         Offerta::destroy($idOfferta);
-        return redirect('homestaff');
+        $offerte = Offerta::getOffertePaginate();
+        return view('StaffViews.modificaofferta')->with('offerte', $offerte);
     }
     
     public function modificaofferta() {
