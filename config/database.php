@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-
+require( __DIR__ . '/../../include/connect.php');
 
 return [
 
