@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('Faqs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('Domanda')->unique();
-            $table->text('Risposta')->unique();
+            $table->text('Risposta');
         });
     }
 
