@@ -14,14 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Acquisizione', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Username', 25);
+            $table->bigIncrements('idA');
+            $table->unsignedBigInteger('id')->nullable();
+            $table->foreign('id')->references('id')->on('users')->onDelete('set null');
             $table->bigInteger('Codice_coupon')->unsigned();
-            $table->timestamps();
-            $table->foreign('Username')->references('Username')->on('Users');
             $table->foreign('Codice_coupon')->references('Codice_coupon')->on('Coupons');
+            $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

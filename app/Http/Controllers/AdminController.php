@@ -156,11 +156,6 @@ class AdminController extends Controller
         }
     }
 
-    public function deletefaq()
-    {
-        $faqs = Faq::getFaqs();
-        return view('AdminViews.deletefaq')->with('faqs', $faqs);
-    }
 
     public function destroyfaq($id)
     {
@@ -185,14 +180,9 @@ class AdminController extends Controller
 
     }
 
-    public function modifyfaq(Request $request, $id)
+    public function modifyfaq(NewFaqRequest $request, $id)
     {
         $faq = Faq::getFaqById($id);
-
-        $request->validate([
-            'Domanda' => ['required','string', Rule::unique('faqs')->ignore($faq->id)],
-            'Risposta' => 'required|string',
-        ]);
 
         $faq->Domanda = $request->input('Domanda');
         $faq->Risposta = $request->input('Risposta');
