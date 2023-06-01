@@ -57,4 +57,6 @@
     </table>
     @include('pagination.paginator', ['paginator' => $staff])
 @endisset()
+<p class=ancora-back> <a href="{{route('amministratore')}}">Torna Indietro</a> </p>
+
 @endsection

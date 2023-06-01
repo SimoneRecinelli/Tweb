@@ -42,4 +42,7 @@
             @endforeach
             </tbody>
         </table>
+
+        <p class=ancora-back> <a href="{{route('amministratore')}}">Torna Indietro</a> </p>
+
 @endsection

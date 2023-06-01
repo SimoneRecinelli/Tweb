@@ -114,12 +114,15 @@
         @endif
         </div>
 
+       
+        </div>
         <div class="button">
         {{ Form::submit('Modifica profilo', ['class' => 'form-btn1']) }}
         </div>
         {{ Form::close() }}
-        </div>
-
 
   </div>
+
+  <p class=ancora-back> <a href="{{route('profile')}}">Torna Indietro</a> </p>
+
         @endsection

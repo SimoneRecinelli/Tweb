@@ -37,6 +37,8 @@
                 {{ Form::submit('Modifica faq', ['class' => 'btn-modify']) }}
             {{ Form::close() }}  
         
+            <p class=ancora-back> <a href="{{route('gestionefaq')}}">Torna Indietro</a> </p>
+
     </div>
 </section>
 @endsection

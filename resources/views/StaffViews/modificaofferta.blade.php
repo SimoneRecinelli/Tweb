@@ -59,4 +59,7 @@
     @include('pagination.paginator', ['paginator' => $offerte])
 @endisset()
 
+<p class=ancora-back> <a href="{{route('homestaff')}}">Torna Indietro</a> </p>
+
+
 @endsection

@@ -111,7 +111,9 @@
 
             {{ Form::close() }}  
         
-            </div>
+<p class=ancora-back> <a href="{{route('modificaofferta')}}">Torna Indietro</a> </p>
+
+</div>
 
 
 </div>

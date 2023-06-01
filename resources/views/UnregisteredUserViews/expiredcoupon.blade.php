@@ -54,5 +54,8 @@
 
         </div>
     </section>
+    
+    <p class=ancora-back> <a href="{{route('catalogo')}}">Torna Indietro</a> </p>
+
 
 @endsection

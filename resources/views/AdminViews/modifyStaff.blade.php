@@ -120,6 +120,9 @@
     <a class="bottone-modifica" href="{{ route('modificaPassStaff', ['id' => $staff->id]) }}">Modifica password</a>
 
 
+    <p class=ancora-back> <a href="{{route('showStaff')}}">Torna Indietro</a> </p>
+
+
 </div>
 
 
