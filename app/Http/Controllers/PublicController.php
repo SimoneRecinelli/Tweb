@@ -6,7 +6,6 @@ use Illuminate\View\View;
 use App\Models\Azienda;
 use App\Models\Offerta;
 use App\Models\Faq;
-use App\Models\Catalog;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

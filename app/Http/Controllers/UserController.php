@@ -99,19 +99,6 @@ class userController extends Controller {
     }
 
 
-    public function deleteProfile()
-    {
-        // Recupera l'utente autenticato
-        $user = Auth::user();
-
-        // Verifica se l'utente è autenticato
-        if ($user) {
-            // Eliminazione del profilo
-            $user->delete();
-            return redirect()->route('login');
-        }
-    }
-
     public function showUser() {
         $user = Auth::user();
         return view('RegisteredUserViews.modifyProfilo')->with('user',$user);

@@ -298,13 +298,7 @@ class AdminController extends Controller
         return redirect()->route('showStaff');
 
     }
-    
-    public function deleteStaff()
-    {
-        $staffMembers = Staff::getStaff();
 
-        return view('AdminViews.deleteStaff')->with('staff', $staffMembers);
-    }
 
     public function destroyStaff($id) {
         Staff::destroy($id);
