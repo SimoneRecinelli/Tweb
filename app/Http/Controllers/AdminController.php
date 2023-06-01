@@ -273,7 +273,7 @@ class AdminController extends Controller
 
     public function modificaPassStaff($id){
 
-        $staff= Staff::getProfileStaff($id);
+        $staff=Staff::getStaffById($id);
         if($staff != null){
             return view('AdminViews.modificaPassStaff')->with('staff',$staff);
         }
