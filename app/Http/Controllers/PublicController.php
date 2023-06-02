@@ -112,7 +112,7 @@ public function showFaq(): View {
     
 public function homeScadenza() : View
 {
-    $offerte=Offerta::getOfferte();
+    $offerte=Offerta::getOfferteEvidenzaUnexpired();
     $prossimeOfferte = Offerta::getOfferteABreve();
 
     return view('UnregisteredUserViews.home', ['prossimeOfferte' => $prossimeOfferte], ['offerte' => $offerte]);
