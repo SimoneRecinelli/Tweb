@@ -4,12 +4,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/Catalogo.css')}}">
 
-    <script>
-    function reset() {
-        document.getElementById("searchForm").reset();
-    }
-    </script>
-
     <div id="container">
 
         <div class="search_container">
@@ -20,7 +14,7 @@
                                                             placeholder="Inserisci l'azienda dell'offerta">
                 <button id="button" type="submit">Cerca</button>
                 
-                <button  id="button-reset" onclick="reset()">Reset</button>
+                <button  id="button-reset"  href="={{ route('catalogo')}}">Reset</button>
 
 
 

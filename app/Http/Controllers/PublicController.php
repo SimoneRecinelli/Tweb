@@ -87,26 +87,28 @@ public function showFaq(): View {
     {
         $descrizione = $request->input('descrizione');
         $azienda = $request->input('azienda');
-    
+        $offerte= new Offerta;
         $query = Offerta::query();
     
-        if (!empty($descrizione) && empty($azienda)) {
-            $query->where('DescrizioneOfferta', 'like', '%' . $descrizione . '%');
-        } else if (empty($descrizione) && !empty($azienda)) {
-            $query->where('NomeAzienda', 'like', '%' . $azienda . '%');
-        } else if (!empty($descrizione) && !empty($azienda)) {
-            $query->where('NomeAzienda', 'like', '%' . $azienda . '%')
-                ->where('DescrizioneOfferta', 'like', '%' . $descrizione . '%');
+        if (!empty($descrizione) && empty($azienda)) {                                                                      //nel caso si ricerchi solo la descrizione
+            $offerte=$offerte->getOffertaByDesc($descrizione);
+        } 
+        else if (empty($descrizione) && !empty($azienda)) {         //nel caso si ricerchi solo l'azienda
+            $offerte =$offerte->getOffertaByAz($azienda);
+        } else if (!empty($descrizione) && !empty($azienda)) {         //nel caso si cerchi azienda e decsrizione
+            $offerte =$offerte->getOffertaByDescEAZ($descrizione,$azienda);
         }
 
         //$query->where('Scadenza', '>=', Carbon::now())->get();
-        $results = $query->paginate(10);
-        $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]);
-    
-        $categorie = Offerta::pluck('Categoria')->unique();  
+        $results = $offerte->paginate(8);
+        $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]);  //il metodo appends serve a mantenere i parametri della query, cioè i filtri della ricerca
+                                                                              //alla navigazione tra le pagine
+        $categorie = new Offerta;
+        $categorie = $categorie->getCat(); 
     
         return view('UnregisteredUserViews.catalogo')->with('offerte', $results)->with('categorie', $categorie)->with('descrizione', $descrizione)->with('azienda', $azienda);
     }
+    
     
 public function homeScadenza() : View
 {
