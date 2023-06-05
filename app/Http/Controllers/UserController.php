@@ -50,7 +50,7 @@ class userController extends Controller {
             'nome' => ['required', 'string', 'min:3', 'regex:/^[\p{L}\s]+$/u'],
             'cognome' => ['required','min:3', 'string', 'regex:/^[\p{L}\s]+$/u'],
             'email' => ['required', 'string', 'max:255','email'],
-            'telefono' => ['required', 'numeric', 'min:10','regex:/^[0-9]+$/'],
+            'telefono' => ['required', 'string', 'min:10','regex:/^[+\s0-9]+$/i'],
             'genere' => ['required'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
             'residenza' => ['required','string', 'regex:/^[\p{L}\s]+$/u'],
