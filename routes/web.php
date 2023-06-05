@@ -21,7 +21,7 @@ use App\Http\Controllers\StaffController;
 /* ROTTE UTENTE NON REGISTRATO--------------------------------------------------------------------------------------- */
 
 /* Rotta per la vista 'home' */
-Route::get('/', [PublicController::class, 'homeScadenza', 'showHome']) ->name('home');
+Route::get('/', [PublicController::class, 'homeScadenza']) ->name('home');
 
 /* Rotta per la vista 'catalogo' */
 Route::get('/catalogo/{Categoria?}', [PublicController::class, 'showCatalog'])->name('catalogo');
