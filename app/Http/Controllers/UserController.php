@@ -50,7 +50,6 @@ class userController extends Controller {
             'nome' => ['required', 'string', 'min:3', 'regex:/^[\p{L}\s]+$/u'],
             'cognome' => ['required','min:3', 'string', 'regex:/^[\p{L}\s]+$/u'],
             'email' => ['required', 'string', 'max:255','email'],
-            'username' => ['required', 'string', 'min:8', 'unique:users'],
             'telefono' => ['required', 'numeric', 'min:10','regex:/^[0-9]+$/'],
             'genere' => ['required'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
@@ -61,8 +60,6 @@ class userController extends Controller {
         $user->nome =$validatedData['nome'];
         $user->cognome = $validatedData['cognome'];
         $user->email = $validatedData['email'];
-        $user->username = $validatedData['username'];
-        //$user->password = Hash::make($validatedData['password']);
         $user->telefono = $validatedData['telefono'];
         $user->eta = $validatedData['eta'];
         $user->residenza = $validatedData['residenza'];

@@ -86,17 +86,10 @@
         @endif
         </div>
 
-        <div class="input-box">
-        {{Form::label('username', 'Username:', ['class' => 'label-input']) }}
-        {{ Form::text('username', $staff->username, ['class' => 'input']) }}
-        @if ($errors->first('username'))
-            <ul class="errors">
-                @foreach ($errors->get('username') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-        </div>
+            <div class="input-box">
+                {{Form::label('username', 'Username:', ['class' => 'label-input']) }}
+                {{ Form::text('username', $staff->username, ['class' => 'input', 'readonly' => 'readonly']) }}
+            </div>
 
         <div class="input-box">
         {{Form::label('genere', 'Genere:', ['class' => 'label-input']) }}

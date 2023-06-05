@@ -223,7 +223,7 @@ class DatabaseSeeder extends Seeder {
             'nome' => 'userNome',
             'password' => Hash::make('mqtSVfs3'),
             'residenza' => 'Ancona',
-            'telefono' => '012345678',
+            'telefono' => '0123456789',
             'username' => 'useruser',
         ],
         [
@@ -235,7 +235,7 @@ class DatabaseSeeder extends Seeder {
             'nome' => 'StaffNome',
             'password' => Hash::make('mqtSVfs3'),
             'residenza' => 'Martinsicuro',
-            'telefono' => '012345678',
+            'telefono' => '0123456789',
             'username' => 'staffstaff',
         ],
         [
@@ -247,7 +247,7 @@ class DatabaseSeeder extends Seeder {
             'nome' => 'AdminNome',
             'password' => Hash::make('mqtSVfs3'),
             'residenza' => 'Ancona',
-            'telefono' => '012345678',
+            'telefono' => '0123456789',
             'username' => 'adminadmin',
         ],
         

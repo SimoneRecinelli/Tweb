@@ -248,7 +248,6 @@ class AdminController extends Controller
                 'eta' => 'required|integer|min:1|max:100',
                 'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
                 'residenza' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
-                'username' => ['required', 'string', 'min:8',Rule::unique('users')->ignore($staff->id)],
                 'genere' => 'required|string',
 
             ]);
@@ -260,7 +259,6 @@ class AdminController extends Controller
             $staff->eta = $request->input('eta');
             $staff->telefono = $request->input('telefono');
             $staff->residenza = $request->input('residenza');
-            $staff->username = $request->input('username');
             $staff->genere = $request->input('genere');
 
 
