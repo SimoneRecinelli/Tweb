@@ -52,7 +52,6 @@ class AdminController extends Controller
             $imageName = NULL;
         }
 
-
         $azienda = new Azienda;
         //bisogna controllare tramite form che tutti i campi siano inseriti
 
@@ -106,7 +105,7 @@ class AdminController extends Controller
             'Sede' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
             'Tipologia' => 'required|min:3|regex:/^[a-zA-Z\s]+$/',
             'RagioneSociale' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
-            'image' => 'image|max:1024|mimes:jpeg,png,jpg',
+            'image' => 'image|mimes:jpeg,png,jpg',
             'Descrizione' => 'required|min:10',
         ]);
 
@@ -131,18 +130,20 @@ class AdminController extends Controller
         $azienda->Tipologia = $request->input('Tipologia');
         $azienda->RagioneSociale = $request->input('RagioneSociale');
         $azienda->Descrizione = $request->input('Descrizione');
-        $azienda->image = $imageName;
+        if (!is_null($imageName)) {
+            // Dopo aver caricato la nuova immagine, aggiorna il nome dell'immagine nell'oggetto $azienda
+            $azienda->image = $imageName;
+        } else {
+            // Se nessuna nuova immagine è stata caricata, mantieni il nome dell'immagine corrente
+            $azienda->image = $azienda->image;
+        }
         $azienda->save();
-        
-
-
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         if (!is_null($imageName)) {
             $destinationPath = public_path() . '/img/products';
             $image->move($destinationPath, $imageName);
         };
-
 
         return redirect('modificaazienda');
     }

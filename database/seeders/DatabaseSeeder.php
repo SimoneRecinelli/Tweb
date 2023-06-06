@@ -40,10 +40,10 @@ class DatabaseSeeder extends Seeder {
 
         [   'NomeAzienda' => 'Amazon',
             'Sede' => 'Seattle, Washington',
-            'Tipologia' => 'E-commerce',
+            'Tipologia' => 'Ecommerce',
             'RagioneSociale' => 'Amazon.com, Inc.',
             'image' => 'amazon.png',
-            'Descrizione' => "Amazon è un'azienda leader nel settore dell'e-commerce e dei servizi online.
+            'Descrizione' => "Amazon è un'azienda leader nel settore dell'Ecommerce e dei servizi online.
              Offre una vasta gamma di prodotti, tra cui libri, elettronica, abbigliamento, articoli per la casa e molto
              altro. Amazon è conosciuta per la sua piattaforma di vendita online, la consegna veloce e affidabile e una 
              vasta selezione di prodotti provenienti da tutto il mondo.",
@@ -51,10 +51,10 @@ class DatabaseSeeder extends Seeder {
 
         [   'NomeAzienda' => 'Zalando',
             'Sede' => 'Ancona, Italia',
-            'Tipologia' => 'E-commerce',
+            'Tipologia' => 'Ecommerce',
             'RagioneSociale' => 'Zalando Srl',
             'image' => 'zalando.png',
-            'Descrizione' => "Zalando è una nota piattaforma di e-commerce specializzata nella vendita di abbigliamento, calzature, accessori 
+            'Descrizione' => "Zalando è una nota piattaforma di Ecommerce specializzata nella vendita di abbigliamento, calzature, accessori 
             e prodotti di moda per uomo, donna e bambino. Fondata nel 2008 in Germania, Zalando è diventata uno dei principali rivenditori online di moda in Europa.",
 
         ],
@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder {
 
         [   'NomeAzienda' => 'City Explorers',
             'Sede' => 'Ancona, Italia',
-            'Tipologia' => 'E commerce',
+            'Tipologia' => 'Ecommerce',
             'RagioneSociale' => 'City Explorers Srl',
             'image' => 'city_explorers.png',
             'Descrizione' => "City Explorers è un'azienda che si occupa di turismo e viaggi. Offre esperienze e servizi 

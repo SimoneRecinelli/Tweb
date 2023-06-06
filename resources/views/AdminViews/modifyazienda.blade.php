@@ -55,19 +55,19 @@
                 </ul>
                 @endif
     
-                {{Form::label('Descrizione', 'Descrizione') }}
-            {{ Form::textArea('Descrizione', $azienda->Descrizione, ['class' => 'form-control', 'placeholder' => 'Inserisci una descrizione dell\'azienda']) }}
-            @if ($errors->first('Descrizione'))
+    {{Form::label('Descrizione', 'Descrizione') }}
+    {{ Form::textArea('Descrizione', $azienda->Descrizione, ['class' => 'form-control', 'placeholder' => 'Inserisci una descrizione dell\'azienda']) }}
+    @if ($errors->first('Descrizione'))
                 <ul class="errors">
                     @foreach ($errors->get('Descrizione') as $message)
-                        <li>{{ $message }}</li>
+                    <li>{{ $message }}</li>
                     @endforeach
                 </ul>
-            @endif
+                @endif
 
 
     {{ Form::label('image', 'Immagine') }}
-    {{ Form::file('image', ['class' => 'form-control-img', 'id' => 'image']) }}
+    {{ Form::file('image', ['class' => 'form-control-img', 'id' => 'image']) }} 
     @if ($errors->first('image'))
                 <ul class="errors">
                     @foreach ($errors->get('image') as $message)
