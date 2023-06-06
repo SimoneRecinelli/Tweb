@@ -246,9 +246,8 @@ class AdminController extends Controller
                 'cognome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
                 'email' => 'required|email|max:255',
                 'eta' => 'required|integer|min:1|max:100',
-                'telefono' => 'required|string|min:10|regex:/^[0-9]+$/',
+                'telefono' => 'required|string|min:10|regex:/^[+\s0-9]+$/i',
                 'residenza' => 'required|min:3|regex:/^[\p{L}0-9\s.,\-]+$/u',
-                'username' => ['required', 'string', 'min:8',Rule::unique('users')->ignore($staff->id)],
                 'genere' => 'required|string',
 
             ]);
@@ -260,7 +259,6 @@ class AdminController extends Controller
             $staff->eta = $request->input('eta');
             $staff->telefono = $request->input('telefono');
             $staff->residenza = $request->input('residenza');
-            $staff->username = $request->input('username');
             $staff->genere = $request->input('genere');
 
 
@@ -273,7 +271,7 @@ class AdminController extends Controller
 
     public function modificaPassStaff($id){
 
-        $staff= Staff::getProfileStaff($id);
+        $staff=Staff::getStaffById($id);
         if($staff != null){
             return view('AdminViews.modificaPassStaff')->with('staff',$staff);
         }
@@ -298,13 +296,7 @@ class AdminController extends Controller
         return redirect()->route('showStaff');
 
     }
-    
-    public function deleteStaff()
-    {
-        $staffMembers = Staff::getStaff();
 
-        return view('AdminViews.deleteStaff')->with('staff', $staffMembers);
-    }
 
     public function destroyStaff($id) {
         Staff::destroy($id);

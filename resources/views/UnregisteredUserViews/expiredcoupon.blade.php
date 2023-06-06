@@ -2,20 +2,7 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/PaginaOfferta.css')}}">
-    <style>
-
-        #errore {
-            font-size: 30px;
-            text-align: center;
-            color: red;
-        }
-    </style>
-
-
-    @isset($errore)
-        <p id="errore"><u>{{$errore}}</u></p>
-
-    @endisset
+    
 
     <h1 id='expired-error'>Purtroppo l'offerta che stai cercando è scaduta!</h1>
     
@@ -54,5 +41,8 @@
 
         </div>
     </section>
+    
+    <p class=ancora-back> <a href="{{route('catalogo')}}">Torna Indietro</a> </p>
+
 
 @endsection

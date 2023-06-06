@@ -92,14 +92,7 @@
 
     <div class="input-box">
     {{Form::label('username', 'Username:', ['class' => 'label-input']) }}
-    {{ Form::text('username', $user->username, ['class' => 'input']) }}
-    @if ($errors->first('username'))
-        <ul class="errors">
-            @foreach ($errors->get('username') as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif    
+    {{ Form::text('username', $user->username, ['class' => 'input', 'readonly' => 'readonly']) }}
     </div>
 
     <div class="input-box">
@@ -114,12 +107,15 @@
         @endif
         </div>
 
+       
+        </div>
         <div class="button">
         {{ Form::submit('Modifica profilo', ['class' => 'form-btn1']) }}
         </div>
         {{ Form::close() }}
-        </div>
-
 
   </div>
+
+  <p class=ancora-back> <a href="{{route('profile')}}">Torna Indietro</a> </p>
+
         @endsection

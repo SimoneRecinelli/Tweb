@@ -35,6 +35,9 @@
             {{ Form::submit('Crea faq', ['class' => 'btn-modify']) }}
             {{ Form::close() }}
             
+            <p class=ancora-back> <a href="{{route('amministratore')}}">Torna Indietro</a> </p>
+
         </div>
+
     </section>
 @endsection

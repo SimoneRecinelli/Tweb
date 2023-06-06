@@ -27,6 +27,9 @@
 
 
     </section>
+
+    <p class=ancora-back> <a href="{{route('aziende')}}">Torna Indietro</a> </p>
+
     <hr>
 
     <div id="catalogo">
@@ -56,5 +59,8 @@
 
 
     </div>
+
+
+
 
 @endsection

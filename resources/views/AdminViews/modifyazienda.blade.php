@@ -81,8 +81,10 @@
             {{ Form::submit('Modifica azienda', ['class' => 'btn-modify']) }}
             {{ Form::close() }}  
 
+            <p class=ancora-back> <a href="{{route('modificaazienda')}}">Torna Indietro</a> </p>
 
             </div>
+
 </section>
 
 @endsection

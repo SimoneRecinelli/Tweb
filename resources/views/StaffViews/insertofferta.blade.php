@@ -104,6 +104,9 @@
     {{ Form::close() }}
    
    </div>
+
+   <p class=ancora-back> <a href="{{route('homestaff')}}">Torna Indietro</a> </p>
+
 </div>
 
 @endsection

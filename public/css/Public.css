@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
 
 }
 
@@ -189,16 +189,18 @@ ul{
 	background-color: #ffffff;
 }
 
-/*responsive
-@media(max-width: 805px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
-  }
+.ancora-back{
+  text-align: center;
+  margin: 20px 0px;
 }
-@media(max-width: 574px){
-  .footer-col{
-    width: 100%;
-  }
-}*/
 
+.ancora-back a{
+  font-weight: 700;
+  color: #58b99d;
+  text-decoration: none;
+}
+
+.ancora-back a:hover{
+  color: #469680;
+  text-decoration: underline;
+}

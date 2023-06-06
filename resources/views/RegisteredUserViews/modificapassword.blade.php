@@ -40,6 +40,9 @@
         {{ Form::submit('Modifica password', ['class' => 'bottone-modificaPass']) }}
         {{ Form::close() }}
 </div>
+
+<p class=ancora-back> <a href="{{route('profile')}}">Torna Indietro</a> </p>
+
     </div>
 
 

@@ -18,6 +18,7 @@
     @endisset
 
 
+   
 
     <section class="product">
         <div class="image">
@@ -71,7 +72,14 @@
                 </div>
             @endcan
 
+
+
         </div>
+
     </section>
+
+    <p class=ancora-back> <a href="{{route('catalogo')}}">Torna Indietro</a> </p>
+
+
 
 @endsection

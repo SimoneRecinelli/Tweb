@@ -18,7 +18,7 @@
 
     <div class="left">
 
-        <a href="{{route('home')}}" text-deco>
+        <a href="{{route('home')}}">
         <h1 id="tit_nav">Cheapest Coupons</h1>
         </a>
     </div>
@@ -33,10 +33,6 @@
             <li class="center"><a href="{{route('aziende')}}">Aziende</a></li>
             <li class="center"><a href="{{route('faq')}}">FAQs</a></li>
             <li class="center"><a href="{{route('info')}}">Info</a></li>
-
-            <!-- <li><input type="search" placeholder="Cerca su Cheapest Coupons" > <i class="fa fa-times search-clear"></i> </li> -->
-            <!--<li> <form action="{{ route('search')}}" method="GET"><input type="search" placeholder="Cerca su Cheapest Coupons" > <i class="fa fa-times search-clear"></i> <button type="submit">Cerca</button> </form> -->
-
 
             @guest
             <li><a href="{{route('login')}}" class="accedi">Accedi</a></li>
@@ -101,7 +97,7 @@
                 <ul class="info_section">
                     <li><a>Via Brecce Bianche, 12</a></li>
                     <li><a>60131 Ancona AN</a></li>
-                    <li><a>+39 0000000000</a></li>
+                    <li><a>+39 3334918832</a></li>
                     <li><a href="mailto:helpdesk@cheapestcoupons.com" class="mail">helpdesk@cheapestcoupons.com</a></li>
                 </ul>
             </div>

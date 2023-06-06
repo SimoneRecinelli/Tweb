@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
 <div class="section">
-    <h2 class="titolo">DOMANDE FREQUENTI</h2>
+<h1 class="titolo"> Gestisci le seguenti FAQ:</h1>
     <br>
 
     <table class="table">
@@ -40,6 +40,8 @@
 
     @include('pagination.paginator', ['paginator' => $faqs])
 @endisset()
+
+<p class=ancora-back> <a href="{{route('amministratore')}}">Torna Indietro</a> </p>
 
 </div>
 @endsection

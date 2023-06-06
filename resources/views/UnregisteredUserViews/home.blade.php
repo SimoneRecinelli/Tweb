@@ -29,7 +29,6 @@
 
         <div class="container-card">
             @foreach($offerte as $offerta)
-                @if($offerta->Evidenza == 'si')
                 <a class="card" href="{{route('coupon', [$offerta->idOfferta])}}">
                     <h3>{{$offerta->Azienda}}</h3>
                     <div class="image">
@@ -40,7 +39,6 @@
                         <p style="font-size:30px;">-{{$offerta->PercentualeSconto}}%</p>
                     </div>
                 </a>
-                @endif
             @endforeach
             
 

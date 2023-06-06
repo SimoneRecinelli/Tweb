@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/GestioneFaq.css')}}">
 
 <div class="section">
-<h2 class="titolo">Gestisci i membri dello Staff:</h2>
+<h1 class="titolo"> Gestisci i seguenti membri dello Staff:</h1>
 <br>
     <table class=table>
      
@@ -57,4 +57,6 @@
     </table>
     @include('pagination.paginator', ['paginator' => $staff])
 @endisset()
+<p class=ancora-back> <a href="{{route('amministratore')}}">Torna Indietro</a> </p>
+
 @endsection

@@ -21,7 +21,7 @@ use Carbon\Carbon;
 class userController extends Controller {
 
     public function showHomeUser(){
-        return view('RegisteredUserViews.homeuser'); //alternativa di can:isUser come definito nell'AdminController
+        return view('RegisteredUserViews.homeuser');
     }
 
     public function showProfile()
@@ -50,8 +50,7 @@ class userController extends Controller {
             'nome' => ['required', 'string', 'min:3', 'regex:/^[\p{L}\s]+$/u'],
             'cognome' => ['required','min:3', 'string', 'regex:/^[\p{L}\s]+$/u'],
             'email' => ['required', 'string', 'max:255','email'],
-            'username' => ['required', 'string', 'min:8', 'unique:users'],
-            'telefono' => ['required', 'numeric', 'min:10','regex:/^[0-9]+$/'],
+            'telefono' => ['required', 'string', 'min:10','regex:/^[+\s0-9]+$/i'],
             'genere' => ['required'],
             'eta' => ['required', 'integer', 'min:1', 'max:100'],
             'residenza' => ['required','string', 'regex:/^[\p{L}\s]+$/u'],
@@ -61,8 +60,6 @@ class userController extends Controller {
         $user->nome =$validatedData['nome'];
         $user->cognome = $validatedData['cognome'];
         $user->email = $validatedData['email'];
-        $user->username = $validatedData['username'];
-        //$user->password = Hash::make($validatedData['password']);
         $user->telefono = $validatedData['telefono'];
         $user->eta = $validatedData['eta'];
         $user->residenza = $validatedData['residenza'];
@@ -99,19 +96,6 @@ class userController extends Controller {
     }
 
 
-    public function deleteProfile()
-    {
-        // Recupera l'utente autenticato
-        $user = Auth::user();
-
-        // Verifica se l'utente è autenticato
-        if ($user) {
-            // Eliminazione del profilo
-            $user->delete();
-            return redirect()->route('login');
-        }
-    }
-
     public function showUser() {
         $user = Auth::user();
         return view('RegisteredUserViews.modifyProfilo')->with('user',$user);
@@ -134,8 +118,7 @@ class userController extends Controller {
             return view('RegisteredUserViews.newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
             }
             else{
-                
-                $errore='Puoi acquistare al massimo un coupon per ogni offerta';
+                $errore='Puoi acquistare al massimo un coupon per ogni offerta!';
                 return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
             }
         }
