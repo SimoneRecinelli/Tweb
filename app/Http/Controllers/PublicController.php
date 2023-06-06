@@ -72,18 +72,7 @@ public function showFaq(): View {
         return view('UnregisteredUserViews.info');
     }
 
-    /**
-     * Show coupon page for a public user.
-     */
 
-     /*
-    public function showCoupon($idOfferta): View {
-        $selOfferta = Offerta::all()->where('idOfferta', $idOfferta)->first();
-        
-        return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta);
-    }
-    */
-    
     public function search(Request $request)
     {
         $descrizione = $request->input('descrizione');
@@ -91,12 +80,12 @@ public function showFaq(): View {
         $offerte= new Offerta;
         $query = Offerta::query();
     
-        if (!empty($descrizione) && empty($azienda)) {                                                                      //nel caso si ricerchi solo la descrizione
+        if (!empty($descrizione) && empty($azienda)) {               //nel caso si ricerchi solo la descrizione
             $offerte=$offerte->getOffertaByDesc($descrizione);
         } 
         else if (empty($descrizione) && !empty($azienda)) {         //nel caso si ricerchi solo l'azienda
             $offerte =$offerte->getOffertaByAz($azienda);
-        } else if (!empty($descrizione) && !empty($azienda)) {         //nel caso si cerchi azienda e decsrizione
+        } else if (!empty($descrizione) && !empty($azienda)) {         //nel caso si cerchi azienda e descrizione
             $offerte =$offerte->getOffertaByDescEAZ($descrizione,$azienda);
         }
 
