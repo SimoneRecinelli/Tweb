@@ -21,7 +21,7 @@ use Carbon\Carbon;
 class userController extends Controller {
 
     public function showHomeUser(){
-        return view('RegisteredUserViews.homeuser'); //alternativa di can:isUser come definito nell'AdminController
+        return view('RegisteredUserViews.homeuser');
     }
 
     public function showProfile()
@@ -118,8 +118,7 @@ class userController extends Controller {
             return view('RegisteredUserViews.newcoupon')->with('coupon',$coupon)->with('selOfferta',$selOfferta)->with('user',$user);
             }
             else{
-                
-                $errore='Puoi acquistare al massimo un coupon per ogni offerta';
+                $errore='Puoi acquistare al massimo un coupon per ogni offerta!';
                 return view('UnregisteredUserViews.coupon')->with('selOfferta',$selOfferta)->with('errore',$errore);
             }
         }
