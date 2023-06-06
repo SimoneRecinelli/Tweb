@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder {
             'image' => 'douglaslogo.png',
             'Descrizione' => "Douglas è un'azienda specializzata in prodotti cosmetici e di bellezza. Offre 
              una vasta gamma di marchi e prodotti per la cura della pelle, il trucco, i capelli e il benessere personale.
-             Beauty Cosmetics si impegna a offrire prodotti di alta qualità e a soddisfare le esigenze dei clienti per 
+             Douglas si impegna a offrire prodotti di alta qualità e a soddisfare le esigenze dei clienti per 
              migliorare la loro bellezza e il loro benessere.",
         ],
 
@@ -80,18 +80,8 @@ class DatabaseSeeder extends Seeder {
              indimenticabili ai suoi clienti, permettendo loro di esplorare nuovi luoghi e scoprire culture diverse.",
         ],
 
-        [   'NomeAzienda' => 'Microsoft',
-            'Sede' => 'Redmond, Usa',
-            'Tipologia' => 'Tecnologia',
-            'RagioneSociale' => 'Microsoft corp.',
-            'image' => 'microsoft.png',
-            'Descrizione' => "Microsoft è un'azienda multinazionale statunitense che si occupa principalmente dello sviluppo,
-             della produzione e della vendita di software, hardware e servizi informatici. 
-             Fondata da Bill Gates e Paul Allen nel 1975, Microsoft è diventata una delle aziende tecnologiche più grandi e influenti al mondo.",
-        ],
 
-
-        [   'NomeAzienda' => 'BurgerKing',
+        [   'NomeAzienda' => 'Burger King',
             'Sede' => 'Ancona, Italia',
             'Tipologia' => 'Ristorazione',
             'RagioneSociale' => 'BurgerKing spa.',
@@ -246,6 +236,44 @@ class DatabaseSeeder extends Seeder {
             'Modalità'=>'Utilizzo limitato nel tempo',
             'Evidenza'=>'si',
             'image' =>'mac-mini.png'],
+
+            
+            ['Categoria'=>'Alimentare',
+            'DescrizioneOfferta'=> "Triplo hamburger di carne, formaggio fuso, bacon, senape e ketchup.",
+            'Scadenza'=>'2023/07/05',
+            'Oggetto'=>'Menu Double Cheese',
+            'NomeAzienda'=>'Burger King',
+            'Prezzo'=>7,
+            'PercentualeSconto'=>'15',
+            'Luogo'=>'Fisico',
+            'Modalità'=>'Una volta sola',
+            'Evidenza'=>'no',
+            'image' =>'menuburgerCheese.png'],
+
+            ['Categoria'=>'Alimentare',
+            'DescrizioneOfferta'=> "hamburger di carne vegana, formaggio fuso, bacon, cetriolini, senape e ketchup.",
+            'Scadenza'=>'2023/11/30',
+            'Oggetto'=>'Burger Veggie',
+            'NomeAzienda'=>'Burger King',
+            'Prezzo'=>8,
+            'PercentualeSconto'=>'15',
+            'Luogo'=>'Fisico',
+            'Modalità'=>'Una volta sola',
+            'Evidenza'=>'no',
+            'image' =>'menuburgerVeggie.png'],
+
+            ['Categoria'=>'Elettronica',
+            'DescrizioneOfferta'=> "Notebook MSI Raider GE78HX 13VH-068IT 17″ QHD+, i9-13950HX, DDR5 32GB*2, RTX 4080, 2TB SSD, Windows11 Pro",
+            'Scadenza'=>'2023/10/28',
+            'Oggetto'=>'MSI Raider',
+            'NomeAzienda'=>'MSI',
+            'Prezzo'=>1750,
+            'PercentualeSconto'=>'25',
+            'Luogo'=>'Fisico',
+            'Modalità'=>'Una volta sola',
+            'Evidenza'=>'si',
+            'image' =>'MSI-Raider.png'],
+
 
 
 
