@@ -7,9 +7,16 @@
     color: #fff;
   }
 
-  #expired-error {
+  #errore, #expired-error {
+    font-size: 30px;
     text-align: center;
-    color:yellow;
+    text-decoration: underline;
+    color: red;
+    border: 3px solid red;
+    margin-left: 370px;
+    margin-right: 370px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   
   .product-image {
