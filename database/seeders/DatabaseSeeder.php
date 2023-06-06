@@ -61,8 +61,8 @@ class DatabaseSeeder extends Seeder {
         [   'NomeAzienda' => 'Douglas',
             'Sede' => 'Ancona, Italia',
             'Tipologia' => 'Cosmetica',
-            'RagioneSociale' => 'Beauty Cosmetics Srl',
-            'image' => 'douglas.png',
+            'RagioneSociale' => 'Douglas Srl',
+            'image' => 'douglaslogo.png',
             'Descrizione' => "Douglas è un'azienda specializzata in prodotti cosmetici e di bellezza. Offre 
              una vasta gamma di marchi e prodotti per la cura della pelle, il trucco, i capelli e il benessere personale.
              Beauty Cosmetics si impegna a offrire prodotti di alta qualità e a soddisfare le esigenze dei clienti per 
