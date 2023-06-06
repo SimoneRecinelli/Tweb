@@ -14,10 +14,7 @@ use Carbon\Carbon;
 class PublicController extends Controller
 {
 
-    public function showHome(): View
-{
-    return view('UnregisteredUserViews.home');
-}
+
 
 public function showCatalog($Categoria = null): View {
     $categorie = new Offerta;
@@ -30,8 +27,6 @@ public function showCatalog($Categoria = null): View {
     } else {
         $catselezionata = null;
     }
-
-    //$query->where('Scadenza', '>=', Carbon::now())->get();
 
     $offerte = $query->paginate(8);
 
