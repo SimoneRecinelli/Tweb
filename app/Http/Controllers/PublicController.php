@@ -28,7 +28,7 @@ public function showCatalog($Categoria = null): View {
         $catselezionata = null;
     }
 
-    $offerte = $query->paginate(8);
+    $offerte = $query->orderBy('nomeAzienda', 'asc')->paginate(8);
 
     return view('UnregisteredUserViews.catalogo')
         ->with('offerte', $offerte)
