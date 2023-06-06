@@ -13,25 +13,6 @@ class DatabaseSeeder extends Seeder {
 
     public function run() {
 
-
-
-
- /*
-        DB::table('users')->insert([
-            ['name' => 'Alex', 'surname' => 'Verdi', 'email' => 'alex@verdi.it', 'username' => 'alexalex',
-                'password' => Hash::make('alexalex'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
-            ['name' => 'Marco', 'surname' => 'Bianchi', 'email' => 'marco@bianchi.it', 'username' => 'useruser',
-                'password' => Hash::make('useruser'), 'role' => 'user', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
-            ['name' => 'Mario', 'surname' => 'Rossi', 'email' => 'mario@rossi.it', 'username' => 'adminadmin',
-                'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")]
-        ]);
-    }*/
-    
-
-
     DB::table('Aziende')->insert([
 
         [   'NomeAzienda' => 'Nike',
@@ -59,33 +40,31 @@ class DatabaseSeeder extends Seeder {
 
         [   'NomeAzienda' => 'Amazon',
             'Sede' => 'Seattle, Washington',
-            'Tipologia' => 'E commerce',
+            'Tipologia' => 'E-commerce',
             'RagioneSociale' => 'Amazon.com, Inc.',
             'image' => 'amazon.png',
             'Descrizione' => "Amazon è un'azienda leader nel settore dell'e-commerce e dei servizi online.
-            Offre una vasta gamma di prodotti, tra cui libri, elettronica, abbigliamento, articoli per la casa e molto
-            altro. Amazon è conosciuta per la sua piattaforma di vendita online, la consegna veloce e affidabile e una 
-            vasta selezione di prodotti provenienti da tutto il mondo.",
+             Offre una vasta gamma di prodotti, tra cui libri, elettronica, abbigliamento, articoli per la casa e molto
+             altro. Amazon è conosciuta per la sua piattaforma di vendita online, la consegna veloce e affidabile e una 
+             vasta selezione di prodotti provenienti da tutto il mondo.",
         ],
 
-        [   'NomeAzienda' => 'Fashion Trend',
+        [   'NomeAzienda' => 'Zalando',
             'Sede' => 'Ancona, Italia',
-            'Tipologia' => 'E commerce',
-            'RagioneSociale' => 'Fashion Trend Srl',
-            'image' => 'fashion_trend.png',
-            'Descrizione' => "Fashion Trend è un'azienda di moda online specializzata nell'offrire le ultime tendenze
-            di abbigliamento, calzature e accessori per uomo e donna. Con una curata selezione di marchi e prodotti 
-            di alta qualità, Fashion Trend si impegna a offrire ai suoi clienti un'esperienza di shopping conveniente 
-            e alla moda.",
+            'Tipologia' => 'E-commerce',
+            'RagioneSociale' => 'Zalando Srl',
+            'image' => 'zalando.png',
+            'Descrizione' => "Zalando è una nota piattaforma di e-commerce specializzata nella vendita di abbigliamento, calzature, accessori 
+            e prodotti di moda per uomo, donna e bambino. Fondata nel 2008 in Germania, Zalando è diventata uno dei principali rivenditori online di moda in Europa.",
 
         ],
         [   'NomeAzienda' => 'Douglas',
             'Sede' => 'Ancona, Italia',
-            'Tipologia' => 'E commerce',
+            'Tipologia' => 'Cosmetica',
             'RagioneSociale' => 'Beauty Cosmetics Srl',
             'image' => 'douglas.png',
             'Descrizione' => "Douglas è un'azienda specializzata in prodotti cosmetici e di bellezza. Offre 
-            una vasta gamma di marchi e prodotti per la cura della pelle, il trucco, i capelli e il benessere personale.
+             una vasta gamma di marchi e prodotti per la cura della pelle, il trucco, i capelli e il benessere personale.
              Beauty Cosmetics si impegna a offrire prodotti di alta qualità e a soddisfare le esigenze dei clienti per 
              migliorare la loro bellezza e il loro benessere.",
         ],
@@ -96,10 +75,42 @@ class DatabaseSeeder extends Seeder {
             'RagioneSociale' => 'City Explorers Srl',
             'image' => 'city_explorers.png',
             'Descrizione' => "City Explorers è un'azienda che si occupa di turismo e viaggi. Offre esperienze e servizi 
-            di viaggio unici, come tour guidati, attività emozionanti e pacchetti vacanza personalizzati per scoprire le
+             di viaggio unici, come tour guidati, attività emozionanti e pacchetti vacanza personalizzati per scoprire le
              città e le destinazioni più affascinanti in tutto il mondo. City Explorers si impegna a offrire esperienze 
              indimenticabili ai suoi clienti, permettendo loro di esplorare nuovi luoghi e scoprire culture diverse.",
-        ]
+        ],
+
+        [   'NomeAzienda' => 'Microsoft',
+            'Sede' => 'Redmond, Usa',
+            'Tipologia' => 'Tecnologia',
+            'RagioneSociale' => 'Microsoft corp.',
+            'image' => 'microsoft.png',
+            'Descrizione' => "Microsoft è un'azienda multinazionale statunitense che si occupa principalmente dello sviluppo,
+             della produzione e della vendita di software, hardware e servizi informatici. 
+             Fondata da Bill Gates e Paul Allen nel 1975, Microsoft è diventata una delle aziende tecnologiche più grandi e influenti al mondo.",
+        ],
+
+
+        [   'NomeAzienda' => 'BurgerKing',
+            'Sede' => 'Ancona, Italia',
+            'Tipologia' => 'Ristorazione',
+            'RagioneSociale' => 'BurgerKing spa.',
+            'image' => 'burgerking.png',
+            'Descrizione' => "Burger King è una famosa catena di fast food specializzata in hamburger e cibi veloci. 
+            Fondata nel 1954 negli Stati Uniti, Burger King è diventato un marchio internazionale con numerosi ristoranti presenti in tutto il mondo.",
+    ],
+
+        [   'NomeAzienda' => 'MSI',
+            'Sede' => 'Redmond, Usa',
+            'Tipologia' => 'Tecnologia',
+            'RagioneSociale' => 'MSI spa.',
+            'image' => 'MSI.png',
+            'Descrizione' => "MSI (Micro-Star International) è un'azienda leader nel settore della produzione di componenti hardware 
+             e dispositivi per il gaming e l'informatica. Fondata nel 1986, MSI ha guadagnato una solida reputazione per la produzione di schede madri, 
+             schede grafiche, laptop, desktop, monitor e altri prodotti correlati.",
+        ],
+
+
 
 
     ]);
@@ -164,8 +175,8 @@ class DatabaseSeeder extends Seeder {
          'Scadenza'=>'2023/06/25',
          'Oggetto'=>'Air Force 1',
          'NomeAzienda'=>'Nike',
-         'Prezzo'=>1230,
-         'PercentualeSconto'=>'60',
+         'Prezzo'=>120,
+         'PercentualeSconto'=>'30',
          'Luogo'=>'Evento',
          'Modalità'=>'Utilizzo online',
         'Evidenza'=>'si',
@@ -179,13 +190,13 @@ class DatabaseSeeder extends Seeder {
                limitata nel tempo.',
             'Scadenza'=>'2023/07/15',
             'Oggetto'=>'T-Shirt Stile Vintage',
-            'NomeAzienda'=>'Fashion Trend',
+            'NomeAzienda'=>'Zalando',
             'Prezzo'=>50,
             'PercentualeSconto'=>'30',
             'Luogo'=>'Negozio fisico',
             'Modalità'=>'Acquisto in negozio o online',
             'Evidenza'=>'no',
-            'image' => 'tshirt_vintage.png'],
+            'image' => 'T-shirt Vintage.png'],
 
         ['Categoria'=>'Bellezza',
             'DescrizioneOfferta'=> 'Crea look di trucco impeccabili con questo set di pennelli professionali. Realizzati con setole morbide e di alta qualità, questi pennelli sono ideali per applicare fondotinta, ombretto, blush e altri prodotti per il trucco. Grazie al coupon speciale, puoi ottenere questo set di pennelli a un prezzo scontato. Aggiungi questi pennelli alla tua routine di trucco e ottieni risultati sorprendenti ogni volta.',
@@ -197,7 +208,7 @@ class DatabaseSeeder extends Seeder {
             'Luogo'=>'Acquisto online',
             'Modalità'=>'Utilizzo online',
             'Evidenza'=>'si',
-            'image' => 'pennelli_trucco.png'],
+            'image' => 'pennello-trucco.png'],
 
         ['Categoria'=>'Esperienze',
             'DescrizioneOfferta'=> 'Esplora la tua città in modo unico con un tour guidato appassionante. Scopri i luoghi storici, le attrazioni principali e le storie nascoste che rendono questa città così affascinante. Con questa offerta speciale, puoi partecipare a un tour guidato a un prezzo scontato. Prenota ora e vivi un\'esperienza indimenticabile mentre scopri i segreti della tua città.',
@@ -209,7 +220,34 @@ class DatabaseSeeder extends Seeder {
             'Luogo'=>'Punto di partenza specifico',
             'Modalità'=>'Acquisto online e prenotazione',
             'Evidenza'=>'no',
-            'image' => 'tour_citta.png']
+            'image' => 'tour_citta.png'],
+
+            
+        [   'Categoria'=>'Abbigliamento',
+            'DescrizioneOfferta'=> 'Una sola parola: tradizione. Icona del running, poi fenomeno della moda e infine star del cinema: con il suo fascino rétro, intersuola morbida come una spugna e i dettagli ondulati, Cortez continua a collezionare successi, decennio dopo decennio. Questa nuova versione del look onnipresente ne accentua il carattere vintage con elementi in suede e brand rétro. Il Verde Green e il Sail (tipica combinazione di colori dello stile college) offrono un tocco sportivo, mentre il battistrada in gomma completa il look.',
+            'Scadenza'=>'2025/06/11',
+            'Oggetto'=>'Nike Cortez',
+            'NomeAzienda'=>'Nike',
+            'Prezzo'=>100,
+            'PercentualeSconto'=>'15',
+            'Luogo'=>'Acquisto online',
+            'Modalità'=>'Utilizzo online',
+            'Evidenza'=>'si',
+            'image' => 'nike-cortez.png'],
+
+            ['Categoria'=>'Elettronica',
+            'DescrizioneOfferta'=> "Apple M2 con CPU 8‑core, GPU 10‑core e Neural Engine 16‑core 8GB di memoria unificata Unità SSD da 256GB Gigabit Ethernet Due porte Thunderbolt 4, porta HDMI, due porte USB‑A, jack cuffie",
+            'Scadenza'=>'2023/09/28',
+            'Oggetto'=>'Mac Mini',
+            'NomeAzienda'=>'Apple',
+            'Prezzo'=>750,
+            'PercentualeSconto'=>'15',
+            'Luogo'=>'Telefono o chiamata',
+            'Modalità'=>'Utilizzo limitato nel tempo',
+            'Evidenza'=>'si',
+            'image' =>'mac-mini.png'],
+
+
 
     ]);
 
@@ -280,15 +318,5 @@ class DatabaseSeeder extends Seeder {
              Se il problema persiste, ti consigliamo di contattarci direttamente o di contattare l'assistenza del negozio
               specifico per ulteriori assistenza."],
     ]);
-
-    /*
-    DB::table('Coupons')->insert([
-        [
-            'id' => '1',
-            'idOfferta' => '4',
-            'codice' => '1234567890',
-        ]
-        ]);*/
-
 }
 }
