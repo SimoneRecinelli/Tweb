@@ -72,7 +72,7 @@ class Offerta extends Model
             ->get();
         return $offerte;
     }
-
+    
     /**
      * Metodo utilizzato per estrarre dati dal DB, fa un controllo sulla data di scadenza
      *
