@@ -3,14 +3,14 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\Response;
+use Illuminate\Contracts\Validation\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class NewOffertaRequest extends FormRequest {
 
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina se l'user è autorizzato a fare questa richiesta
      *
      * @return bool
      */
@@ -21,16 +21,20 @@ class NewOffertaRequest extends FormRequest {
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Definiamo le regole di validazione da applicare 
+     * nelle funzioni "storeofferta" e "modifyofferta" nello StaffController
      *
      * @return array
      */
     public function rules()
     {
-        /* l'espressione regolare /^[a-zA-Z\s]+$/ permette solo lettere
-        (sia maiuscole che minuscole) e spazi nei campi specificati. */
+          
 
         return [
+
+            /* L'espressione "regex:/^[\p{L}\s]+$/u" permette di scrivere stringhe
+            contenenti solo lettere e spazi e può essere lunga da uno a più caratteri */
+
             'DescrizioneOfferta' => 'required|min:10',
             'Categoria' => 'required|max:30|regex:/^[\p{L}\s]+$/u',
             'Scadenza' => 'required',
@@ -41,7 +45,7 @@ class NewOffertaRequest extends FormRequest {
             'Luogo' => 'required|max:30|regex:/^[\p{L}\s]+$/u',
             'Modalità' => 'required|max:30|regex:/^[\p{L}\s]+$/u',
             'Evidenza' => 'required',
-            'image' => 'file|mimes:jpeg,png,jpg|max:1024'
+            'image' => 'file|mimes:jpeg,png,jpg'
         ];
     }
 

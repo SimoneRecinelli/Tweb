@@ -14,7 +14,7 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * array che specifica quali attributi possono essere assegnati in modo massivo
      *
      * @var array<int, string>
      */
@@ -32,7 +32,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Array che specifica gli attributi che devono essere nascosti nella serializzazione.
      *
      * @var array<int, string>
      */
@@ -43,7 +43,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Array che spcifica gli attributi che devono essere convertiti.
      *
      * @var array<string, string>
      */
@@ -51,11 +51,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    /** 
+     * Metodo che prende un parametro $role 
+     * e verifica se il ruolo dell'istanza corrente
+     * corrisponde a uno o più ruoli specificati. 
+     * 
+     * Restituisce true se il ruolo corrisponde a uno dei ruoli specificati o false altrimenti
+     */
     public function hasRole($role) {
-        $role = (array)$role;
-        return in_array($this->role, $role);
+        $role = (array)$role; //tramite casting converte il parametro $role in un array
+        return in_array($this->role, $role); // funzione in_array per controllare se il ruolo dell'istanza corrente è presente nell'array dei ruoli specificati.
     }
 
+
+    /**
+     * Metodo che recupera i dati del profilo di un utente
+     */
     public function getProfileData()
     {
         // Utilizza $this->id per ottenere l'ID dell'utente corrente
@@ -68,8 +79,14 @@ class User extends Authenticatable
         return $profileData;
     }
 
+    /**
+     * Metodo utilizzato per estratte dati dal DB
+     *  
+     * Restituisce un elenco di tutti gli utenti con ruolo user
+     *
+     */
     public function getusers(){
-        $users = $this->where('role','user')->get();
+        $users = $this->where('role','user')->get(); // where filtra user per il ruolo user
         return $users;
     }
 
