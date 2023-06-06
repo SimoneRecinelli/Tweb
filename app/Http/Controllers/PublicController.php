@@ -20,7 +20,8 @@ class PublicController extends Controller
 }
 
 public function showCatalog($Categoria = null): View {
-    $categorie = Offerta::all()->pluck('Categoria')->unique();
+    $categorie = new Offerta;
+    $categorie = $categorie->getCat();
     $query = Offerta::query();
 
     if (isset($Categoria)) {
