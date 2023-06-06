@@ -18,7 +18,7 @@ use App\Rules\Password;
 use Illuminate\Support\Facades\Form;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\Rule;
-
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -116,7 +116,16 @@ class AdminController extends Controller
         } else {
             $imageName = NULL;
         }
-
+       
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        if($azienda->Nome!=$request->input('NomeAzienda')){
+            $offerte=Offerta::getByAZienda($azienda->NomeAzienda);
+            
+            foreach($offerte as $offerta){
+                $offerta->NomeAzienda=$request->input('NomeAzienda');
+                $offerta->save();
+            }
+        }
         $azienda->NomeAzienda = $request->input('NomeAzienda');
         $azienda->Sede = $request->input('Sede');
         $azienda->Tipologia = $request->input('Tipologia');
@@ -124,7 +133,11 @@ class AdminController extends Controller
         $azienda->Descrizione = $request->input('Descrizione');
         $azienda->image = $imageName;
         $azienda->save();
+        
 
+
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
         if (!is_null($imageName)) {
             $destinationPath = public_path() . '/img/products';
             $image->move($destinationPath, $imageName);
