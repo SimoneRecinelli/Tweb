@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 class NewStaffRequest extends FormRequest {
 
     /**
-     * Determine if the user is authorized to make this request.
+     *  Determina se l'user è autorizzato a fare questa richiesta
      *
      * @return bool
      */
@@ -19,12 +19,17 @@ class NewStaffRequest extends FormRequest {
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Definiamo le regole di validazione da applicare 
+     * nella funzione "storeStaff" nell'AdminController
      *
      * @return array
      */
     public function rules() {
         return [
+
+            /* L'espressione "regex:/^[\p{L}\s]+$/u" permette di scrivere stringhe
+            contenenti solo lettere e spazi e può essere lunga da uno a più caratteri */
+
             'nome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
             'cognome' => 'required|string|min:3|regex:/^[\p{L}\s]+$/u',
             'email' => 'required|email|max:255',

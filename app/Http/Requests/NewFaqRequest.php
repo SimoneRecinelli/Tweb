@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class NewFaqRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina se l'user è autorizzato a fare questa richiesta
      *
      * @return bool
      */
@@ -17,14 +17,15 @@ class NewFaqRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Definiamo le regole di validazione da applicare 
+     * nelle funzioni "storefaq" e "modifyfaq" nell'AdminController
      *
      * @return array<string, mixed>
      */
     public function rules()
     {
         return [
-            'Domanda' => 'required|string|unique:faqs',
+            'Domanda' => 'required|string',
             'Risposta' => 'required|string'
         ];
     }
