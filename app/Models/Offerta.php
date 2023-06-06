@@ -41,4 +41,9 @@ class Offerta extends Model
                           ->get();
         return $offerte;
     }
+
+    public function getCat(){
+        $categorie = Offerta::all()->pluck('Categoria')->unique();  
+        return $categorie;
+    }
 }
