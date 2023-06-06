@@ -19,8 +19,9 @@ class Azienda extends Model
     }
 
     public static function getAziendePaginate() {
-        return Azienda::paginate(9);
+        return Azienda::orderBy('nomeAzienda', 'asc')->paginate(9);  // Ordina le aziende per il campo 'nome' in ordine alfabetico ascendente e paginazione con 9 elementi per pagina
     }
+    
 
     //va messa nella select di iserimento offerta per estrarre il nome 
     public function getNome($num){
