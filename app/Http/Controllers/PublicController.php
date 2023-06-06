@@ -85,7 +85,7 @@ public function showFaq(): View {
         }
 
         //$query->where('Scadenza', '>=', Carbon::now())->get();
-        $results = $offerte->paginate(8);
+        $results = $offerte->orderBy('nomeAzienda', 'asc')->paginate(8);
         $results->appends(['descrizione' => $descrizione, 'azienda' => $azienda]);  //il metodo appends serve a mantenere i parametri della query, cioè i filtri della ricerca
                                                                               //alla navigazione tra le pagine
         $categorie = new Offerta;
