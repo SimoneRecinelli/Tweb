@@ -84,40 +84,46 @@ class StaffController extends Controller {
         else return view('error');
     }
 
-    
-    public function modifyofferta(NewOffertaRequest $request,$idOfferta)
+
+    public function modifyofferta(NewOffertaRequest $request, $idOfferta)
     {
+        $offerta = Offerta::find($idOfferta);
+        
+        $imageName = $offerta->image; // Mantieni l'immagine esistente come valore predefinito
+    
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
-        } else {
-            $imageName = NULL;
-        }
-
-        $azienda = new Azienda;
-        $aziende = $azienda->getNome(($request->input('NomeAzienda')));
     
-        Offerta::where('idOfferta',$idOfferta)->update([
-      
-        'DescrizioneOfferta' =>$request->input('DescrizioneOfferta'),
-        'Categoria'=>$request->input('Categoria'),
-        'Scadenza'=>$request->input('Scadenza'),
-        'Oggetto'=>$request->input('Oggetto'),
-        'NomeAzienda'=>$aziende,
-        'Prezzo'=>$request->input('Prezzo'),
-        'PercentualeSconto'=>$request->input('PercentualeSconto'),
-        'Luogo'=>$request->input('Luogo'),
-        'Modalità'=>$request->input('Modalità'),
-        'Evidenza'=>$request->input('Evidenza'),
-        'image'=>$imageName,
-       ]);
-
-       if (!is_null($imageName)) {
-        $destinationPath = public_path() . '/img/products';
-        $image->move($destinationPath, $imageName);
-        };
-
+            // Rimuovi l'immagine esistente solo se ne carichi una nuova
+            $existingImagePath = public_path('/img/products/' . $offerta->image);
+            if (file_exists($existingImagePath)) {
+                unlink($existingImagePath);
+            }
+    
+            $destinationPath = public_path('/img/products');
+            $image->move($destinationPath, $imageName);
+        }
+    
+        $azienda = new Azienda;
+        $aziende = $azienda->getNome($request->input('NomeAzienda'));
+    
+        Offerta::where('idOfferta', $idOfferta)->update([
+            'DescrizioneOfferta' => $request->input('DescrizioneOfferta'),
+            'Categoria' => $request->input('Categoria'),
+            'Scadenza' => $request->input('Scadenza'),
+            'Oggetto' => $request->input('Oggetto'),
+            'NomeAzienda' => $aziende,
+            'Prezzo' => $request->input('Prezzo'),
+            'PercentualeSconto' => $request->input('PercentualeSconto'),
+            'Luogo' => $request->input('Luogo'),
+            'Modalità' => $request->input('Modalità'),
+            'Evidenza' => $request->input('Evidenza'),
+            'image' => $imageName,
+        ]);
+    
         return response()->json(['redirect' => route('modificaofferta')]);
     }
+    
 
 }
