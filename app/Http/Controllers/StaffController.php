@@ -79,50 +79,59 @@ class StaffController extends Controller {
         if ($offerte != null) {
             $azienda = new Azienda;
             $aziende = $azienda->getAziende();
-            return view('StaffViews.modifyofferta')->with('offerte',$offerte)->with('aziende',$aziende);
+            $items=$azienda->selectAziende($offerte)['items'];
+            $selected=$azienda->selectAziende($offerte)['selected'];
+            
+            return view('StaffViews.modifyofferta')->with('offerte',$offerte)->with('items',$items)->with('selected',$selected);
         }
         else return view('error');
     }
 
 
-    public function modifyofferta(NewOffertaRequest $request, $idOfferta)
+    public function modifyofferta(NewOffertaRequest $request,$idOfferta)
     {
-        $offerta = Offerta::find($idOfferta);
-        
-        $imageName = $offerta->image; // Mantieni l'immagine esistente come valore predefinito
-    
+        $offerta = Offerta::getOffertaById($idOfferta);
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
-    
-            // Rimuovi l'immagine esistente solo se ne carichi una nuova
-            $existingImagePath = public_path('/img/products/' . $offerta->image);
-            if (file_exists($existingImagePath)) {
-                unlink($existingImagePath);
-            }
-    
-            $destinationPath = public_path('/img/products');
-            $image->move($destinationPath, $imageName);
+        } else {
+            $imageName = NULL;
         }
-    
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/img/products';
+            $image->move($destinationPath, $imageName);
+        };
+
+
         $azienda = new Azienda;
-        $aziende = $azienda->getNome($request->input('NomeAzienda'));
-    
-        Offerta::where('idOfferta', $idOfferta)->update([
-            'DescrizioneOfferta' => $request->input('DescrizioneOfferta'),
-            'Categoria' => $request->input('Categoria'),
-            'Scadenza' => $request->input('Scadenza'),
-            'Oggetto' => $request->input('Oggetto'),
-            'NomeAzienda' => $aziende,
-            'Prezzo' => $request->input('Prezzo'),
-            'PercentualeSconto' => $request->input('PercentualeSconto'),
-            'Luogo' => $request->input('Luogo'),
-            'Modalità' => $request->input('Modalità'),
-            'Evidenza' => $request->input('Evidenza'),
-            'image' => $imageName,
-        ]);
-    
-        return response()->json(['redirect' => route('modificaofferta')]);
+        $aziende = $azienda->getNome(($request->input('NomeAzienda')));
+
+        $selected = Azienda::find($request->input('NomeAzienda'));
+        
+        $offerta->DescrizioneOfferta = $request->input('DescrizioneOfferta');
+        $offerta->Categoria = $request->input('Categoria');
+        $offerta->Scadenza = $request->input('Scadenza');
+        $offerta->Oggetto = $request->input('Oggetto');
+        $offerta->NomeAzienda = $selected->NomeAzienda;
+        $offerta->Prezzo = $request->input('Prezzo');
+        $offerta->PercentualeSconto = $request->input('PercentualeSconto');
+        $offerta->Luogo = $request->input('Luogo');
+        $offerta->Modalità = $request->input('Modalità');
+        $offerta->Evidenza = $request->input('Evidenza');
+
+        if (!is_null($imageName)) {
+            // Dopo aver caricato la nuova immagine, aggiorna il nome dell'immagine nell'oggetto $azienda
+            $offerta->image = $imageName;
+        } else {
+            // Se nessuna nuova immagine è stata caricata, mantieni il nome dell'immagine corrente
+            $offerta->image = $offerta->image;
+        }
+
+        $offerta->save();
+        
+        return response()->json(['redirect'=>route('modificaofferta')]);
     }
     
 

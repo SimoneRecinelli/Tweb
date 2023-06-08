@@ -65,7 +65,7 @@
 
     <div class="input-box">
     {{Form::label('NomeAzienda', 'Nome Azienda', ['class' => 'label-input']) }}
-    {{ Form::select('NomeAzienda', $aziende, $offerte->NomeAzienda, ['class' => 'input', 'id' => 'NomeAzienda']) }}
+    {{ Form::select('NomeAzienda', $items, $selected, ['class' => 'input', 'id' => 'NomeAzienda']) }}
     </div>
 
 

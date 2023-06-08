@@ -71,4 +71,13 @@ class Azienda extends Model
         
     }
 
+    public function selectAziende($offerte){
+        $items = Azienda::pluck('NomeAzienda', 'idAzienda');
+            $selected=Azienda::where('NomeAzienda',$offerte->NomeAzienda)->get('idAzienda');
+            return [
+                'items' => $items,
+                'selected' => $selected,
+            ];
+    }
+
 }
