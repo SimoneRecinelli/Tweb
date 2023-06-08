@@ -47,8 +47,13 @@
                         <tbody>
                         @foreach($userCoupons as $coupon)
                             <tr>
+                                @isset( $coupon->Oggetto )
                                 <td>{{ $coupon->Oggetto }}</td>
                                 <td>{{ $coupon->codice }}</td>
+                                @else
+                                <td>Non più disponibile</td>
+                                <td>{{ $coupon->codice }}</td>
+                                @endisset
                             </tr>
                         @endforeach
 

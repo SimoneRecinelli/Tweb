@@ -51,16 +51,10 @@ class Coupon extends Model
      */
     public static function getUserCoupons()
     {
-        $userCoupons = self::join('Offerte', 'Coupons.idOfferta', '=', 'Offerte.idOfferta') 
-        /**
-         * join() effettua una query di join tra le tabelle Coupons e Offerte 
-         * ( combina le righe delle due tabelle in base alla condizione specificata ('Coupons.idOfferta', '=', 'Offerte.idOfferta') )
-         * self:: si riferisce alla classe corrente stessa, quindi si sta eseguendo una query sulla tabella rappresentata dalla classe corrente
-         */
-            ->where('Coupons.id', Auth::user()->id) 
-            ->select('Coupons.codice', 'Offerte.Oggetto') // Con select() si selezionano le colonne "codice" da "Coupons" e "Oggetto" da "Offerte".
-            ->get();
-
+        $userCoupons = self::leftJoin('Offerte', 'Coupons.idOfferta', '=', 'Offerte.idOfferta')
+    ->where('Coupons.id', Auth::user()->id)
+    ->select('Coupons.codice', 'Offerte.Oggetto')
+    ->get();
         return $userCoupons;
     }
 
